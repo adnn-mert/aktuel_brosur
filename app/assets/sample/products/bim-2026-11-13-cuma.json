@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "brochure_id": "bim-2026-11-13-cuma",
+  "currency": "TRY",
+  "products": [
+    {
+      "name": "Elektrikli Süpürge 2200 W",
+      "brand": "Dijitsu",
+      "quantity_text": null,
+      "price_minor": 124990,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?Bim_AktuelTarihKey=1153"
+    },
+    {
+      "name": "Çelik Tencere Seti 7 Parça",
+      "brand": "Kiwi",
+      "quantity_text": "7 parça",
+      "price_minor": 89900,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?Bim_AktuelTarihKey=1153"
+    },
+    {
+      "name": "Granit Tava 28 cm",
+      "brand": "Kiwi",
+      "quantity_text": "28 cm",
+      "price_minor": 34900,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?Bim_AktuelTarihKey=1153"
+    },
+    {
+      "name": "Su Isıtıcı Kettle 1,7 L",
+      "brand": "Schafer",
+      "quantity_text": "1,7 L",
+      "price_minor": 44950,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?Bim_AktuelTarihKey=1153"
+    },
+    {
+      "name": "Polar Battaniye Tek Kişilik",
+      "brand": null,
+      "quantity_text": "150 x 200 cm",
+      "price_minor": 27900,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?Bim_AktuelTarihKey=1153"
+    },
+    {
+      "name": "Çocuk Termal İçlik Takımı",
+      "brand": null,
+      "quantity_text": "4-12 yaş",
+      "price_minor": 19950,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?Bim_AktuelTarihKey=1153"
+    },
+    {
+      "name": "Erkek Kışlık Çorap 3'lü",
+      "brand": null,
+      "quantity_text": "3 çift",
+      "price_minor": 8950,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?Bim_AktuelTarihKey=1153"
+    },
+    {
+      "name": "Ayçiçek Yağı",
+      "brand": "Bizim",
+      "quantity_text": "5 L",
+      "price_minor": 31950,
+      "old_price_minor": 34500,
+      "image": null,
+      "page_index": 1,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?Bim_AktuelTarihKey=1153"
+    },
+    {
+      "name": "Toz Şeker",
+      "brand": "Dost",
+      "quantity_text": "5 kg",
+      "price_minor": 21900,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 1,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?Bim_AktuelTarihKey=1153"
+    },
+    {
+      "name": "Baldo Pirinç",
+      "brand": "Reis",
+      "quantity_text": "2,5 kg",
+      "price_minor": 18950,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 1,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?Bim_AktuelTarihKey=1153"
+    },
+    {
+      "name": "Türk Kahvesi",
+      "brand": "Kahve Dünyası",
+      "quantity_text": "100 g",
+      "price_minor": 5495,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 1,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?Bim_AktuelTarihKey=1153"
+    },
+    {
+      "name": "Çamaşır Deterjanı Matik",
+      "brand": "Ultra Bingo",
+      "quantity_text": "6 kg",
+      "price_minor": 32500,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 1,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?Bim_AktuelTarihKey=1153"
+    },
+    {
+      "name": "İnce Belli Çay Bardağı 6'lı",
+      "brand": "Paşabahçe",
+      "quantity_text": "6 adet",
+      "price_minor": 9900,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?Bim_AktuelTarihKey=1153"
+    },
+    {
+      "name": "Islak Mendil 3'lü Paket",
+      "brand": "Uni Baby",
+      "quantity_text": "3 x 52 adet",
+      "price_minor": 7450,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 1,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?Bim_AktuelTarihKey=1153"
+    }
+  ]
+}
