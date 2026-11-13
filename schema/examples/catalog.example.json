@@ -18,10 +18,10 @@
       "id": "a101",
       "name": "A101",
       "country": "TR",
-      "kind": "scraped",
-      "web_url": "https://www.a101.com.tr/",
+      "kind": "webview",
+      "web_url": "https://www.a101.com.tr/afisler",
       "status": "ok",
-      "last_ok_at": "2026-11-13T08:58:44Z",
+      "last_ok_at": null,
       "sort_order": 20,
       "brand_color": "#00A0E3"
     },
@@ -169,73 +169,6 @@
       "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
       "first_seen": "2026-10-31T13:00:04Z",
       "updated_at": "2026-11-03T05:00:09Z"
-    },
-    {
-      "id": "a101-2026-11-13-haftanin-yildizlari-7f3a91c2",
-      "chain_id": "a101",
-      "title": "Haftanın Yıldızları",
-      "date_label": null,
-      "valid_from": "2026-11-13",
-      "valid_to": "2026-11-19",
-      "kind": "pages",
-      "cover": {
-        "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/Xk4pT9wLqZ_3840x3840.png",
-        "w": 1127,
-        "h": 1690
-      },
-      "pages": [
-        {
-          "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/Xk4pT9wLqZ_3840x3840.png",
-          "w": 1127,
-          "h": 1690
-        },
-        {
-          "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/Rb7nM2cVfH_3840x3840.png",
-          "w": 1127,
-          "h": 1690
-        },
-        {
-          "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/Jq1sD8yGtE_3840x3840.png",
-          "w": 1127,
-          "h": 1690
-        }
-      ],
-      "products_url": null,
-      "product_count": 0,
-      "source_url": "https://rio.a101.com.tr/dbmk89vnr/CALL/poster/list/default?__culture=tr-TR&__platform=web",
-      "first_seen": "2026-11-12T13:00:07Z",
-      "updated_at": "2026-11-13T08:58:44Z"
-    },
-    {
-      "id": "a101-2026-11-19-aldin-aldin-b20e64d9",
-      "chain_id": "a101",
-      "title": "Aldın Aldın",
-      "date_label": null,
-      "valid_from": "2026-11-19",
-      "valid_to": "2026-11-25",
-      "kind": "pages",
-      "cover": {
-        "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/Hw6eP3kNzA_3840x3840.png",
-        "w": 1127,
-        "h": 1690
-      },
-      "pages": [
-        {
-          "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/Hw6eP3kNzA_3840x3840.png",
-          "w": 1127,
-          "h": 1690
-        },
-        {
-          "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/Ty2gL5mQbS_3840x3840.png",
-          "w": 1127,
-          "h": 1690
-        }
-      ],
-      "products_url": null,
-      "product_count": 0,
-      "source_url": "https://rio.a101.com.tr/dbmk89vnr/CALL/poster/list/default?__culture=tr-TR&__platform=web",
-      "first_seen": "2026-11-13T08:58:44Z",
-      "updated_at": "2026-11-13T08:58:44Z"
     },
     {
       "id": "sok-2026-11-11-haftanin-firsatlari",

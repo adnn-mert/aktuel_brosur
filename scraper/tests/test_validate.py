@@ -45,8 +45,10 @@ def test_example_catalog_covers_all_kinds_and_time_windows(catalog) -> None:
     assert any(b["valid_from"] > today for b in catalog["brochures"])
     assert any(b["valid_to"] < today for b in catalog["brochures"])
     chains = {c["id"]: c["kind"] for c in catalog["chains"]}
-    assert {"bim", "a101", "sok", "migros", "watsons"} <= {k for k, v in chains.items() if v == "scraped"}
-    assert {"carrefoursa", "gratis"} <= {k for k, v in chains.items() if v == "webview"}
+    assert {"bim", "sok", "migros", "watsons"} <= {k for k, v in chains.items() if v == "scraped"}
+    # A101 blocks automated access, so the app opens its own poster page instead.
+    assert {"a101", "carrefoursa", "gratis"} <= {k for k, v in chains.items() if v == "webview"}
+    assert not any(b["chain_id"] == "a101" for b in catalog["brochures"])
     assert any(p["url"].startswith("media/sok/") for b in catalog["brochures"] for p in b["pages"])
 
 
@@ -288,8 +290,9 @@ def test_bad_health_is_rejected(health) -> None:
 
 
 def test_health_consistency(health) -> None:
+    failed = next(i for i, s in enumerate(health["sources"]) if not s["ok"])
     health["sources"][0]["consecutive_failures"] = 3
-    health["sources"][4]["last_error"] = None
+    health["sources"][failed]["last_error"] = None
     health["sources"][2]["chain_id"] = "bim"
     errors = _errors(validate_health, health)
     assert "consecutive_failures" in errors
