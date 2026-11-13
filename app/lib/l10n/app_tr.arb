@@ -1,0 +1,64 @@
+{
+  "@@locale": "tr",
+  "appTitle": "Aktüel Broşür",
+  "@appTitle": {
+    "description": "Application name shown in the task switcher and app bar."
+  },
+  "chainsTitle": "Marketler",
+  "@chainsTitle": {
+    "description": "Title of the home screen that lists the chains."
+  },
+  "sectionCurrent": "Bu hafta",
+  "@sectionCurrent": {
+    "description": "Heading for brochures valid today."
+  },
+  "sectionUpcoming": "Gelecek hafta",
+  "@sectionUpcoming": {
+    "description": "Heading for brochures that start after today."
+  },
+  "sectionPast": "Geçmiş",
+  "@sectionPast": {
+    "description": "Heading for brochures that ended within the last four weeks."
+  },
+  "loading": "Yükleniyor…",
+  "@loading": {
+    "description": "Shown while data loads."
+  },
+  "loadError": "Broşürler yüklenemedi. İnternet bağlantınızı kontrol edin.",
+  "@loadError": {
+    "description": "Shown when nothing could be loaded (offline on first launch)."
+  },
+  "retry": "Tekrar dene",
+  "@retry": {
+    "description": "Button that retries a failed load."
+  },
+  "staleNotice": "İnternete bağlanılamadı. Son kaydedilen broşürler gösteriliyor.",
+  "@staleNotice": {
+    "description": "Banner shown when cached data is displayed because the network failed."
+  },
+  "noBrochures": "Şu an gösterilecek broşür yok.",
+  "@noBrochures": {
+    "description": "Empty state of the market screen."
+  },
+  "openChainWebsite": "Marketin katalog sayfasını aç",
+  "@openChainWebsite": {
+    "description": "Action for chains whose catalog is shown in a web view."
+  },
+  "pageCount": "{count, plural, =1{1 sayfa} other{{count} sayfa}}",
+  "@pageCount": {
+    "description": "Number of pages in a brochure.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "productsTitle": "Ürünler",
+  "@productsTitle": {
+    "description": "Heading of a brochure's product list."
+  },
+  "updateRequired": "Bu broşürleri göstermek için uygulamanın yeni sürümü gerekiyor.",
+  "@updateRequired": {
+    "description": "Shown when the published data needs a newer app version."
+  }
+}
