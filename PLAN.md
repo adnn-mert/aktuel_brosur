@@ -36,7 +36,9 @@ bu dosya üzerinden sürdürülür.
 
 | Konu | Karar |
 |---|---|
-| Klasör / geçici ad | `Desktop\Projects\aktuel_brosur` (isim sonra seçilecek) |
+| Uygulama adı | **Çarşı Pazar** (kullanıcı seçti, 13 Kasım). Görünen ad budur; klasör, repo ve paket adı teknik ad olarak `aktuel_brosur` kalır |
+| Logo ve açılış | Kullanıcının fikri: kitap / broşür biçiminde bir logo. Açılışta kitabın sayfaları bir yandan öbür yana hızlıca çevrilir, birkaç saniye görünür. Uygulama notu: hareket yaklaşık 1,5–2 sn sürer, veri bu sırada arka planda yüklenir (açılışı geciktirmez), sistemde "hareketi azalt" açıksa durağan logo gösterilir |
+| Klasör | `Desktop\Projects\aktuel_brosur` |
 | Uygulama | Flutter 3.47 (kurulu), tek kod tabanı; test `Medium_Phone` Android emülatöründe |
 | iOS | Kod iOS'a uygun yazılır, cihaz testi yok (Mac yok) |
 | Veri toplama | Python kazıyıcı, GitHub Actions'ta günde 3 kez |
@@ -152,7 +154,7 @@ Kazıyıcı: `httpx`, `selectolax`, `pymupdf`, `pillow`, `jsonschema`, `pytest`.
 - [ ] 1B Kazıyıcı çekirdeği + BİM, A101, Şok kaynakları + fixture testleri
 - [ ] 1C `scrape.yml` zamanlama, `data` dalı, Pages yayını, `health.json`
 - [ ] 1D-veri (worker) Flutter projesi + veri katmanı: modeller, depo (ağ + önbellek + örnek veri), sağlayıcılar, favori deposu
-- [ ] 1D-arayüz (designer, **16 Kasım'dan önce**) Tasarım sistemi + ana ekran, market ekranı, broşür görüntüleyici, ürün listesi, web görünümü, boş/hata durumları; `app/DESIGN.md`
+- [ ] 1D-arayüz (designer, **16 Kasım'dan önce**) Tasarım sistemi + logo (kitap) ve sayfa çevirme açılış hareketi + uygulama simgesi + ana ekran, market ekranı, broşür görüntüleyici, ürün listesi, web görünümü, boş/hata durumları; `app/DESIGN.md`
 - [ ] 1E Migros, 5M, BİM ürün kaynakları (kazıyıcı tarafı)
 - [ ] 1F Kalan kaynaklar: Hakmar, bonVeno, Macrocenter, Rossmann, Tarım Kredi, ortak Publitas uyarlayıcısı ile Metro ve Watsons
 - [ ] 1G Favoriler, internetsiz okuma, erişilebilirlik cilası
@@ -226,4 +228,5 @@ durulup kullanıcıya sorulur ya da tek satırlık komut kullanıcıya verilir.
 - 2026-11-13: Watsons kataloğunun Publitas'ta açık olduğu doğrulandı, Aşama 1'e alındı. CarrefourSA'nın iki katmanlı korumalı olduğu doğrulandı, web görünümünde kaldı.
 - 2026-11-13: 0.1 tamam (klasör, git, PLAN.md, CLAUDE.md, worker.md). Sırada: 1A veri sözleşmesi + 0.3 deneme işi (worker'da). 0.2 kullanıcıyı bekliyor.
 - 2026-11-13: Kullanıcı kararı: arayüz/deneyim işleri Fable 5.2 high `designer` ajanında, paralel Opus worker'lara izin var. `designer.md` yazıldı. Arayüz işleri 16 Kasım'dan önceye alındı. W1 (1A + 0.3) ve W2 (1D-veri) paralel yürüyor.
+- 2026-11-13: Uygulama adı "Çarşı Pazar" seçildi; logo fikri (kitap + açılışta sayfa çevirme) karara bağlandı.
 - 2026-11-13: 0.2 tamam: repo oluşturuldu ve `main` gönderildi. Sırada: W1 kabul edilince gönder, `probe.yml`'i Actions'ta çalıştır (0.3 karar kapısı).
