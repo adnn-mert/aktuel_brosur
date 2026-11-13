@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "brochure_id": "migros-910",
+  "currency": "TRY",
+  "products": [
+    {
+      "name": "Banada Kakaolu Fındık Kreması",
+      "brand": "Torku",
+      "quantity_text": "700 g",
+      "price_minor": 14950,
+      "old_price_minor": 18950,
+      "image": "https://migroskop.migros.com.tr/uploads/products/910/torku-banada-700g.jpg",
+      "page_index": null,
+      "source_url": "https://migroskop.migros.com.tr/migroskop"
+    },
+    {
+      "name": "Ayçiçek Yağı",
+      "brand": "Migros",
+      "quantity_text": "5 L",
+      "price_minor": 32995,
+      "old_price_minor": null,
+      "image": "https://migroskop.migros.com.tr/uploads/products/910/migros-aycicek-yagi-5l.jpg",
+      "page_index": null,
+      "source_url": "https://migroskop.migros.com.tr/migroskop"
+    },
+    {
+      "name": "Dana Kıyma",
+      "brand": null,
+      "quantity_text": "kg",
+      "price_minor": 59900,
+      "old_price_minor": 64900,
+      "image": null,
+      "page_index": null,
+      "source_url": "https://migroskop.migros.com.tr/migroskop"
+    },
+    {
+      "name": "Tam Yağlı Süt",
+      "brand": "Pınar",
+      "quantity_text": "1 L",
+      "price_minor": 3975,
+      "old_price_minor": 4450,
+      "image": "https://migroskop.migros.com.tr/uploads/products/910/pinar-sut-1l.jpg",
+      "page_index": null,
+      "source_url": "https://migroskop.migros.com.tr/migroskop"
+    },
+    {
+      "name": "Muz (İthal)",
+      "brand": null,
+      "quantity_text": "kg",
+      "price_minor": 7990,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": null,
+      "source_url": "https://migroskop.migros.com.tr/migroskop"
+    },
+    {
+      "name": "Bulaşık Deterjanı Limon",
+      "brand": "Fairy",
+      "quantity_text": "1,5 L",
+      "price_minor": 11990,
+      "old_price_minor": 14990,
+      "image": "https://migroskop.migros.com.tr/uploads/products/910/fairy-limon-1-5l.jpg",
+      "page_index": null,
+      "source_url": "https://migroskop.migros.com.tr/migroskop"
+    },
+    {
+      "name": "Çikolatalı Gofret",
+      "brand": "Ülker",
+      "quantity_text": "4 x 36 g",
+      "price_minor": 4500,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": null,
+      "source_url": null
+    }
+  ]
+}

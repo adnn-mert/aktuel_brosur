@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Scraper health",
+  "description": "health.json: per-source outcome of the latest scraper run. Unknown properties are allowed for forward compatibility.",
+  "type": "object",
+  "required": ["generated_at", "sources"],
+  "properties": {
+    "generated_at": { "$ref": "#/$defs/dateTime" },
+    "sources": { "type": "array", "items": { "$ref": "#/$defs/source" } }
+  },
+  "$defs": {
+    "dateTime": {
+      "description": "RFC 3339 date-time in UTC with a trailing Z.",
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "chain_id",
+        "ok",
+        "last_ok_at",
+        "last_error",
+        "consecutive_failures",
+        "brochure_count",
+        "duration_ms"
+      ],
+      "properties": {
+        "chain_id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "ok": { "type": "boolean" },
+        "last_ok_at": { "anyOf": [{ "$ref": "#/$defs/dateTime" }, { "type": "null" }] },
+        "last_error": { "type": ["string", "null"], "maxLength": 500 },
+        "consecutive_failures": { "type": "integer", "minimum": 0 },
+        "brochure_count": { "type": "integer", "minimum": 0 },
+        "duration_ms": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

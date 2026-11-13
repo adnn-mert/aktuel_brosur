@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Brochure catalog",
+  "description": "catalog.json published by the scraper and read by the app. Unknown properties are allowed for forward compatibility; known properties are strictly typed.",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "min_app_version", "chains", "brochures"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "generated_at": { "$ref": "#/$defs/dateTime" },
+    "min_app_version": { "type": "integer", "minimum": 1 },
+    "chains": { "type": "array", "items": { "$ref": "#/$defs/chain" } },
+    "brochures": { "type": "array", "items": { "$ref": "#/$defs/brochure" } }
+  },
+  "$defs": {
+    "dateTime": {
+      "description": "RFC 3339 date-time in UTC with a trailing Z.",
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "chainId": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "brochureId": { "type": "string", "pattern": "^[a-z0-9_-]+$" },
+    "nonEmptyString": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "httpsUrl": {
+      "description": "Absolute https URL.",
+      "type": "string",
+      "pattern": "^https://[^\\s/?#]+[^\\s]*$"
+    },
+    "relativePath": {
+      "description": "Path relative to catalog.json, e.g. media/sok/sok-2026-11-18/p01.webp. No scheme, no leading slash, no backslash, no whitespace, no '..'.",
+      "type": "string",
+      "pattern": "^(?![A-Za-z][A-Za-z0-9+.-]*:)(?!/)(?!.*\\.\\.)[^\\s\\\\]+$"
+    },
+    "url": {
+      "description": "Either an absolute https URL or a path relative to catalog.json.",
+      "anyOf": [{ "$ref": "#/$defs/httpsUrl" }, { "$ref": "#/$defs/relativePath" }]
+    },
+    "image": {
+      "type": "object",
+      "required": ["url", "w", "h"],
+      "properties": {
+        "url": { "$ref": "#/$defs/url" },
+        "w": { "type": ["integer", "null"], "minimum": 1 },
+        "h": { "type": ["integer", "null"], "minimum": 1 }
+      }
+    },
+    "chain": {
+      "type": "object",
+      "required": ["id", "name", "country", "kind", "web_url", "status", "last_ok_at", "sort_order"],
+      "properties": {
+        "id": { "$ref": "#/$defs/chainId" },
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "country": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "kind": { "enum": ["scraped", "webview"] },
+        "web_url": { "$ref": "#/$defs/httpsUrl" },
+        "status": { "enum": ["ok", "stale"] },
+        "last_ok_at": { "anyOf": [{ "$ref": "#/$defs/dateTime" }, { "type": "null" }] },
+        "sort_order": { "type": "integer" },
+        "brand_color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "logo_url": { "$ref": "#/$defs/url" }
+      }
+    },
+    "brochure": {
+      "type": "object",
+      "required": [
+        "id",
+        "chain_id",
+        "title",
+        "date_label",
+        "valid_from",
+        "valid_to",
+        "kind",
+        "cover",
+        "pages",
+        "products_url",
+        "product_count",
+        "source_url",
+        "first_seen",
+        "updated_at"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/brochureId" },
+        "chain_id": { "$ref": "#/$defs/chainId" },
+        "title": { "$ref": "#/$defs/nonEmptyString" },
+        "date_label": { "type": ["string", "null"] },
+        "valid_from": { "anyOf": [{ "$ref": "#/$defs/date" }, { "type": "null" }] },
+        "valid_to": { "anyOf": [{ "$ref": "#/$defs/date" }, { "type": "null" }] },
+        "kind": { "enum": ["pages", "products", "both"] },
+        "cover": { "anyOf": [{ "$ref": "#/$defs/image" }, { "type": "null" }] },
+        "pages": { "type": "array", "items": { "$ref": "#/$defs/image" } },
+        "products_url": { "anyOf": [{ "$ref": "#/$defs/relativePath" }, { "type": "null" }] },
+        "product_count": { "type": "integer", "minimum": 0 },
+        "source_url": { "$ref": "#/$defs/httpsUrl" },
+        "first_seen": { "$ref": "#/$defs/dateTime" },
+        "updated_at": { "$ref": "#/$defs/dateTime" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "enum": ["pages", "both"] } }, "required": ["kind"] },
+          "then": { "properties": { "pages": { "minItems": 1 } } }
+        },
+        {
+          "if": { "properties": { "kind": { "enum": ["products", "both"] } }, "required": ["kind"] },
+          "then": {
+            "properties": {
+              "products_url": { "type": "string", "minLength": 1 },
+              "product_count": { "minimum": 1 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "pages" } }, "required": ["kind"] },
+          "then": {
+            "properties": {
+              "products_url": { "type": "null" },
+              "product_count": { "const": 0 }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

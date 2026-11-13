@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Brochure products",
+  "description": "products/<brochure_id>.json: the priced products of one brochure, as printed by the chain. Prices are integer minor units (kurus) to avoid floating point drift. Unknown properties are allowed for forward compatibility.",
+  "type": "object",
+  "required": ["schema_version", "brochure_id", "currency", "products"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "brochure_id": { "type": "string", "pattern": "^[a-z0-9_-]+$" },
+    "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "products": { "type": "array", "items": { "$ref": "#/$defs/product" } }
+  },
+  "$defs": {
+    "httpsUrl": {
+      "type": "string",
+      "pattern": "^https://[^\\s/?#]+[^\\s]*$"
+    },
+    "relativePath": {
+      "description": "Path relative to catalog.json. No scheme, no leading slash, no backslash, no whitespace, no '..'.",
+      "type": "string",
+      "pattern": "^(?![A-Za-z][A-Za-z0-9+.-]*:)(?!/)(?!.*\\.\\.)[^\\s\\\\]+$"
+    },
+    "url": {
+      "anyOf": [{ "$ref": "#/$defs/httpsUrl" }, { "$ref": "#/$defs/relativePath" }]
+    },
+    "product": {
+      "type": "object",
+      "required": [
+        "name",
+        "brand",
+        "quantity_text",
+        "price_minor",
+        "old_price_minor",
+        "image",
+        "page_index",
+        "source_url"
+      ],
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "pattern": "\\S" },
+        "brand": { "type": ["string", "null"] },
+        "quantity_text": { "type": ["string", "null"] },
+        "price_minor": { "type": "integer", "minimum": 0 },
+        "old_price_minor": { "type": ["integer", "null"], "minimum": 0 },
+        "image": { "anyOf": [{ "$ref": "#/$defs/url" }, { "type": "null" }] },
+        "page_index": { "type": ["integer", "null"], "minimum": 0 },
+        "source_url": { "anyOf": [{ "$ref": "#/$defs/httpsUrl" }, { "type": "null" }] }
+      }
+    }
+  }
+}
