@@ -16,7 +16,7 @@ Yalnızca yönetici model (ana oturum) yazar; `worker` bu dosyaya dokunmaz.
 **Şu anki durum:** Bölüm 9'un son satırına bak.
 
 **Kullanıcıdan beklenen işler:**
-- [ ] GitHub CLI kurulumu ve giriş (`winget install --id GitHub.cli`, sonra `gh auth login`)
+- [x] GitHub CLI kurulumu ve giriş (13 Kasım'da yapıldı; repo: https://github.com/adnn-mert/aktuel_brosur, herkese açık)
 - [ ] Aşama 1I'de: Firebase projesi için hesap girişi ve şart kabulü
 - [ ] Aşama 3'te: Gemini API anahtarını GitHub Secrets'a eklemek
 
@@ -143,7 +143,7 @@ Kazıyıcı: `httpx`, `selectolax`, `pymupdf`, `pillow`, `jsonschema`, `pytest`.
 
 ### Aşama 0 — Kurulum ve erişim denemesi
 - [x] 0.1 Klasör, `git init`, PLAN.md, CLAUDE.md, `.claude/agents/worker.md`
-- [ ] 0.2 **Kullanıcı:** GitHub CLI kurulumu ve `gh auth login`. Sonra herkese açık repo oluşturulur.
+- [x] 0.2 GitHub CLI + giriş; herkese açık repo oluşturuldu. Bu depoda commit'ler GitHub'ın gizli e-posta adresiyle atılır (depo düzeyinde `git config user.email`); kişisel e-posta repoya girmez.
 - [ ] 0.3 `probe.yml`: Actions sunucusundan her kaynağa tek istek atıp durum kodunu raporlayan deneme.
 - **Karar kapısı:** Actions'tan erişilemeyen market olursa o market için yedek yol seçilir (PC açılınca çalışan zamanlanmış görev) ya da market ertelenir.
 
@@ -226,3 +226,4 @@ durulup kullanıcıya sorulur ya da tek satırlık komut kullanıcıya verilir.
 - 2026-11-13: Watsons kataloğunun Publitas'ta açık olduğu doğrulandı, Aşama 1'e alındı. CarrefourSA'nın iki katmanlı korumalı olduğu doğrulandı, web görünümünde kaldı.
 - 2026-11-13: 0.1 tamam (klasör, git, PLAN.md, CLAUDE.md, worker.md). Sırada: 1A veri sözleşmesi + 0.3 deneme işi (worker'da). 0.2 kullanıcıyı bekliyor.
 - 2026-11-13: Kullanıcı kararı: arayüz/deneyim işleri Fable 5.2 high `designer` ajanında, paralel Opus worker'lara izin var. `designer.md` yazıldı. Arayüz işleri 16 Kasım'dan önceye alındı. W1 (1A + 0.3) ve W2 (1D-veri) paralel yürüyor.
+- 2026-11-13: 0.2 tamam: repo oluşturuldu ve `main` gönderildi. Sırada: W1 kabul edilince gönder, `probe.yml`'i Actions'ta çalıştır (0.3 karar kapısı).
