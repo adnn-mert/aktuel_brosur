@@ -154,7 +154,7 @@ Kazıyıcı: `httpx`, `selectolax`, `pymupdf`, `pillow`, `jsonschema`, `pytest`.
 - [x] 1A Veri sözleşmesi: şemalar, örnekler, modeller, doğrulama, tarih ayrıştırma, kimlik, istek katmanı (172 test)
 - [ ] 1B Kazıyıcı çekirdeği (çalıştırma hattı, kaynak yalıtımı, önceki durumla birleştirme, PDF→WebP, budama) + BİM ve Şok kaynakları + fixture testleri
 - [ ] 1C `scrape.yml` zamanlama, `data` dalı, Pages yayını, `health.json`
-- [ ] 1D-veri (worker) Flutter projesi + veri katmanı: modeller, depo (ağ + önbellek + örnek veri), sağlayıcılar, favori deposu
+- [x] 1D-veri (worker) Flutter projesi + veri katmanı: modeller, depo (ağ + önbellek + örnek veri), sağlayıcılar, favori deposu (80 test; kılavuz `app/lib/data/README.md`)
 - [ ] 1D-arayüz (designer, **16 Kasım'dan önce**) Tasarım sistemi + logo (kitap) ve sayfa çevirme açılış hareketi + uygulama simgesi + ana ekran, market ekranı, broşür görüntüleyici, ürün listesi, web görünümü, boş/hata durumları; `app/DESIGN.md`
 - [ ] 1E Migros, 5M, BİM ürün kaynakları (kazıyıcı tarafı)
 - [ ] 1F Kalan kaynaklar: Hakmar, bonVeno, Macrocenter, Rossmann, Tarım Kredi, ortak Publitas uyarlayıcısı ile Metro ve Watsons
@@ -248,3 +248,4 @@ durulup kullanıcıya sorulur ya da tek satırlık komut kullanıcıya verilir.
 - 2026-11-13: Erken müdahale kuralı eklendi (Bölüm 6).
 - 2026-11-13: W1 kabul edildi (1A tamam, commit 4a6d374). 0.3 tamam: Actions'tan 12/13 kaynak açık, A101 403. Kullanıcı A101 için "yalnızca web görünümü" seçti. Not: `schema/examples/catalog.example.json` içinde A101 hâlâ kazınan zincir olarak duruyor; W3 düzeltecek, uygulamadaki örnek veri de eşitlenecek. Sırada: W3 (1B: çekirdek + BİM + Şok) başladı, W2 (1D-veri) sürüyor.
 - 2026-11-13 20:11: W2 ve W3 kullanım sınırına takılıp kesildi; sınır sıfırlanınca ikisi de kaldığı yerden sürdürüldü. Kesildiği andaki durum: W2 `app/lib/data/` (modeller, depo, sağlayıcılar, gruplama), yer tutucu ekranlar ve l10n'i yazmış, testler ve README eksik, hiçbiri commit edilmedi (`app/` izlenmiyor). W3 diske henüz bir şey yazmamıştı. Sırada: W2 raporu gelince denetle → commit → `designer`'ı başlat.
+- 2026-11-13 20:40: W2 kabul edildi (1D-veri tamam, commit 3ceea86): analiz temiz, 80 test, debug APK derlendi. Not: bu makinede Gradle `Unable to establish loopback connection` hatası verirse komut `JAVA_TOOL_OPTIONS=-Djdk.net.unixdomain.tmpdir=<kısa geçici klasör>` ile çalıştırılır. D1 (`designer`, Fable high: tasarım sistemi + bütün ekranlar + logo/açılış) başlatıldı; ilerlemesini `app/DESIGN.md` "Durum" bölümüne yazıyor. W3 (1B) sürüyor. Açık nokta: veri katmanındaki "…'dan itibaren / …'a kadar" metinleri kodda sabit, Avrupa aşamasında çeviri dosyasına taşınacak.
