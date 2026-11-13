@@ -8,7 +8,7 @@ from PIL import Image
 
 from scraper.core.media import MediaWriter, local_paths, page_path
 from scraper.core.models import Brochure, BrochureKind, Page
-from scraper.core.pdf import PdfError, RenderedPage, render_pdf_pages
+from scraper.core.pdf import DEFAULT_WIDTH, PdfError, RenderedPage, matches_render_width, render_pdf_pages
 from scraper.core.prices import parse_price_minor
 from scraper.tests.conftest import make_pdf
 
@@ -53,6 +53,19 @@ def test_render_two_pages_at_target_width() -> None:
 def test_render_is_deterministic() -> None:
     pdf = make_pdf(1)
     assert render_pdf_pages(pdf, target_width=300) == render_pdf_pages(pdf, target_width=300)
+
+
+def test_default_width_is_2000() -> None:
+    (page,) = render_pdf_pages(make_pdf(1))
+    assert DEFAULT_WIDTH == 2000 and page.w == 2000
+
+
+def test_matches_render_width() -> None:
+    assert matches_render_width([Page("a", 2000, 2882), Page("b", 4000, 2882)])
+    assert not matches_render_width([Page("a", 2000, 2882), Page("b", 1600, 2306)])
+    assert not matches_render_width([Page("a", None, None)])
+    assert not matches_render_width([])
+    assert matches_render_width([Page("a", 1600, 2306)], target_width=1600)
 
 
 def test_spread_is_kept_whole_and_twice_as_wide() -> None:

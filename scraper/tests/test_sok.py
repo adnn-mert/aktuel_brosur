@@ -9,6 +9,7 @@ from scraper.chains import CHAINS
 from scraper.core.media import MediaWriter
 from scraper.core.pipeline import run
 from scraper.core.source import SourceContext, SourceError
+from scraper.sources import sok
 from scraper.sources.sok import PAGE_URL, SokCard, SokSource, card_brochure, parse_cards, pdf_stem
 from scraper.tests.conftest import fixture_text, make_pdf, mock_http
 
@@ -79,7 +80,7 @@ def test_collect_renders_pdf_pages(tmp_path) -> None:
     week, weekend = result.brochures
     assert (week.id, weekend.id) == (ID_WEEK, ID_WEEKEND)
     assert [p.url for p in week.pages] == [f"media/sok/{ID_WEEK}/p0{i}.webp" for i in (1, 2, 3)]
-    assert all(p.w == 1600 and p.h == round(842 * 1600 / 595) for p in week.pages)
+    assert all(p.w == 2000 and p.h == round(842 * 2000 / 595) for p in week.pages)
     assert week.cover == week.pages[0]
     assert len(weekend.pages) == 2
     assert (tmp_path / f"media/sok/{ID_WEEKEND}/p02.webp").is_file()
@@ -116,3 +117,31 @@ def test_second_run_does_not_download_pdfs_again(tmp_path) -> None:
     # Only the run timestamps move; brochures (first_seen, updated_at, pages) stay identical.
     assert catalog_after["brochures"] == catalog_before["brochures"]
     assert catalog_after["generated_at"] == "2026-11-13T15:00:00Z"
+
+
+def test_media_from_an_older_width_is_rendered_again(tmp_path, monkeypatch) -> None:
+    out = tmp_path / "out"
+    calls: list[str] = []
+    http = mock_http(_routes(), calls)
+    real_render = sok.render_pdf_pages
+    # The previous output was produced while pages were 1600 px wide.
+    monkeypatch.setattr(sok, "render_pdf_pages", lambda pdf: real_render(pdf, target_width=1600))
+    run([SokSource()], CHAINS, out, out, TODAY, NOW, http=http)
+    old = json.loads((out / "catalog.json").read_text(encoding="utf-8"))
+    assert {p["w"] for b in old["brochures"] for p in b["pages"]} == {1600}
+
+    monkeypatch.setattr(sok, "render_pdf_pages", real_render)
+    calls.clear()
+    later = datetime(2026, 11, 13, 15, 0, tzinfo=UTC)
+    run([SokSource()], CHAINS, out, out, TODAY, later, http=http)
+    assert calls == [PAGE_URL, PDF_WEEK, PDF_WEEKEND]
+    new = json.loads((out / "catalog.json").read_text(encoding="utf-8"))
+    assert {p["w"] for b in new["brochures"] for p in b["pages"]} == {2000}
+    week = next(b for b in new["brochures"] if b["id"] == ID_WEEK)
+    assert week["first_seen"] == "2026-11-13T09:00:00Z" and week["updated_at"] == "2026-11-13T15:00:00Z"
+    assert sorted(p.name for p in (out / "media/sok" / ID_WEEK).iterdir()) == ["p01.webp", "p02.webp", "p03.webp"]
+
+    # Once at the current width, the next run reuses it again.
+    calls.clear()
+    run([SokSource()], CHAINS, out, out, TODAY, later, http=http)
+    assert calls == [PAGE_URL]
