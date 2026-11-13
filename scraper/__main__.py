@@ -61,6 +61,16 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_probe = sub.add_parser("probe", help="send one request to every source and print a reachability table")
     p_probe.set_defaults(func=_cmd_probe)
+
+    from scraper import runner
+
+    p_run = sub.add_parser(
+        "run",
+        help="scrape the sources and publish catalog.json, health.json, products/ and media/",
+        description="Exit codes: 0 published; 2 published but a source failed 3+ times in a row; 1 not published.",
+    )
+    runner.add_arguments(p_run)
+    p_run.set_defaults(func=runner.main)
     return parser
 
 

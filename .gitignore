@@ -23,3 +23,6 @@ Thumbs.db
 *.egg-info/
 build/
 
+
+# Scraper staging folders left behind by a killed run
+scraper/out.*
