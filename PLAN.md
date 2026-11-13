@@ -48,6 +48,7 @@ bu dosya üzerinden sürdürülür.
 | Fiyat | Fiyatı yazı olarak veren marketler için ürün/fiyat bölümü ve arama erken gelir; görsel broşürler için Gemini OCR önce ölçülür, sonra karar verilir |
 | Watsons | Aşama 1'de: ana site engelli ama katalog `katalog.watsons.com.tr` adresinde açık (Publitas) |
 | CarrefourSA, Gratis | Kazınmaz; marketin kendi katalog görüntüleyicisi uygulama içinde açılır |
+| A101 | Web görünümü (kullanıcı kararı, 13 Kasım): A101'in servisi GitHub Actions adreslerine 403 dönüyor, engel dolanılmıyor. Uygulama `https://www.a101.com.tr/afisler` sayfasını içeride açar. A101 ayrıştırıcısı yazılmaz |
 | Arayüz / deneyim | `designer` alt ajanı (Fable 5.2, high) tasarlar ve uygular; tasarım sistemi `app/DESIGN.md` içinde belgelenir |
 | Paralel çalışma | Dosyaları çakışmayan görevler birden fazla Opus 5.5 high worker ile aynı anda yürütülebilir |
 | Engel aşma | Yapılmaz. Bot engeli koyan sitenin engeli dolanılmaz; o market ya web görünümüyle açılır ya da listeye girmez |
@@ -146,19 +147,19 @@ Kazıyıcı: `httpx`, `selectolax`, `pymupdf`, `pillow`, `jsonschema`, `pytest`.
 ### Aşama 0 — Kurulum ve erişim denemesi
 - [x] 0.1 Klasör, `git init`, PLAN.md, CLAUDE.md, `.claude/agents/worker.md`
 - [x] 0.2 GitHub CLI + giriş; herkese açık repo oluşturuldu. Bu depoda commit'ler GitHub'ın gizli e-posta adresiyle atılır (depo düzeyinde `git config user.email`); kişisel e-posta repoya girmez.
-- [ ] 0.3 `probe.yml`: Actions sunucusundan her kaynağa tek istek atıp durum kodunu raporlayan deneme.
-- **Karar kapısı:** Actions'tan erişilemeyen market olursa o market için yedek yol seçilir (PC açılınca çalışan zamanlanmış görev) ya da market ertelenir.
+- [x] 0.3 `probe.yml` Actions'ta çalıştırıldı (13 Kasım, çalışma 43430207929). Dürüst `User-Agent` ile 13 kaynağın 12'si 200 ve beklenen içerikle döndü: BİM, Şok, Migros (liste + görüntüleyici), Macrocenter, bonVeno, Hakmar, Tarım Kredi, Rossmann, Metro, Watsons, Gratis. Yalnızca A101 `403 {"message":"Permission denied"}`.
+- **Karar kapısı sonucu:** A101 web görünümüne alındı; diğer bütün kaynaklar Actions'tan kazınabilir, PC'de zamanlanmış göreve gerek kalmadı.
 
 ### Aşama 1 — Türkiye'de çalışan broşür uygulaması
-- [ ] 1A Veri sözleşmesi: şema + elle yazılmış örnek `catalog.json`
-- [ ] 1B Kazıyıcı çekirdeği + BİM, A101, Şok kaynakları + fixture testleri
+- [x] 1A Veri sözleşmesi: şemalar, örnekler, modeller, doğrulama, tarih ayrıştırma, kimlik, istek katmanı (172 test)
+- [ ] 1B Kazıyıcı çekirdeği (çalıştırma hattı, kaynak yalıtımı, önceki durumla birleştirme, PDF→WebP, budama) + BİM ve Şok kaynakları + fixture testleri
 - [ ] 1C `scrape.yml` zamanlama, `data` dalı, Pages yayını, `health.json`
 - [ ] 1D-veri (worker) Flutter projesi + veri katmanı: modeller, depo (ağ + önbellek + örnek veri), sağlayıcılar, favori deposu
 - [ ] 1D-arayüz (designer, **16 Kasım'dan önce**) Tasarım sistemi + logo (kitap) ve sayfa çevirme açılış hareketi + uygulama simgesi + ana ekran, market ekranı, broşür görüntüleyici, ürün listesi, web görünümü, boş/hata durumları; `app/DESIGN.md`
 - [ ] 1E Migros, 5M, BİM ürün kaynakları (kazıyıcı tarafı)
 - [ ] 1F Kalan kaynaklar: Hakmar, bonVeno, Macrocenter, Rossmann, Tarım Kredi, ortak Publitas uyarlayıcısı ile Metro ve Watsons
 - [ ] 1G Favoriler, internetsiz okuma, erişilebilirlik cilası
-- [ ] 1H Web görünümü marketleri: Gratis, CarrefourSA
+- [ ] 1H Web görünümü marketleri: A101, Gratis, CarrefourSA
 - [ ] 1I Firebase bildirimi: favori market başına konu aboneliği; kazıyıcı yeni broşür bulunca gönderir
 - [ ] 1J README, ekran görüntüleri, Actions ile APK (GitHub Releases); isteğe bağlı imzasız iOS derleme denemesi
 
@@ -237,3 +238,5 @@ durulup kullanıcıya sorulur ya da tek satırlık komut kullanıcıya verilir.
 - 2026-11-13: Kullanıcı kararı: arayüz/deneyim işleri Fable 5.2 high `designer` ajanında, paralel Opus worker'lara izin var. `designer.md` yazıldı. Arayüz işleri 16 Kasım'dan önceye alındı. W1 (1A + 0.3) ve W2 (1D-veri) paralel yürüyor.
 - 2026-11-13: Uygulama adı "Çarşı Pazar" seçildi; logo fikri (kitap + açılışta sayfa çevirme) karara bağlandı.
 - 2026-11-13: 0.2 tamam: repo oluşturuldu ve `main` gönderildi. Sırada: W1 kabul edilince gönder, `probe.yml`'i Actions'ta çalıştır (0.3 karar kapısı).
+- 2026-11-13: Erken müdahale kuralı eklendi (Bölüm 6).
+- 2026-11-13: W1 kabul edildi (1A tamam, commit 4a6d374). 0.3 tamam: Actions'tan 12/13 kaynak açık, A101 403. Kullanıcı A101 için "yalnızca web görünümü" seçti. Not: `schema/examples/catalog.example.json` içinde A101 hâlâ kazınan zincir olarak duruyor; W3 düzeltecek, uygulamadaki örnek veri de eşitlenecek. Sırada: W3 (1B: çekirdek + BİM + Şok) başladı, W2 (1D-veri) sürüyor.
