@@ -190,6 +190,13 @@ Gerçek ürün eşleştirme: barkod (A101 veriyor), `marketfiyati.org.tr`, birim
 `worker` türü oturumda görünmüyorsa (oturum başka klasörde açıldıysa) aynı talimat, model Opus ve
 çaba high verilerek genel ajana gönderilir; ajan önce `.claude/agents/worker.md` ve `CLAUDE.md` okur.
 
+**Kullanım sınırı notu:** 13 Kasım'da iki paralel Opus worker + yönetici, 5 saatlik kullanım sınırını
+doldurdu ve iki worker yarıda kesildi (sıfırlanma 20:10). Kesilen worker yeniden başlatılmaz; aynı
+ajana "kaldığın yerden devam et" mesajı gönderilir, önce diskteki durumu okur. Öncelik sırası sınır
+daralınca şöyledir: (1) Fable tasarımcı işi (16 Kasım'a kadar tek fırsat), (2) uygulamanın veri katmanı,
+(3) kazıyıcı kaynakları. Aynı anda en fazla iki ajan çalıştırılır; tasarımcı çalışırken yanına en çok
+bir Opus worker verilir.
+
 **Erken müdahale kuralı (kullanıcı isteği, 13 Kasım):** worker bir işte takılırsa yönetici model
 beklemez, işi devralır. Ölçüt: worker "yapamadım / engellendim" diye rapor verirse, bir düzeltme
 turundan sonra kabul ölçütleri hâlâ karşılanmıyorsa, aynı hata ikinci kez dönerse ya da worker
@@ -240,3 +247,4 @@ durulup kullanıcıya sorulur ya da tek satırlık komut kullanıcıya verilir.
 - 2026-11-13: 0.2 tamam: repo oluşturuldu ve `main` gönderildi. Sırada: W1 kabul edilince gönder, `probe.yml`'i Actions'ta çalıştır (0.3 karar kapısı).
 - 2026-11-13: Erken müdahale kuralı eklendi (Bölüm 6).
 - 2026-11-13: W1 kabul edildi (1A tamam, commit 4a6d374). 0.3 tamam: Actions'tan 12/13 kaynak açık, A101 403. Kullanıcı A101 için "yalnızca web görünümü" seçti. Not: `schema/examples/catalog.example.json` içinde A101 hâlâ kazınan zincir olarak duruyor; W3 düzeltecek, uygulamadaki örnek veri de eşitlenecek. Sırada: W3 (1B: çekirdek + BİM + Şok) başladı, W2 (1D-veri) sürüyor.
+- 2026-11-13 20:11: W2 ve W3 kullanım sınırına takılıp kesildi; sınır sıfırlanınca ikisi de kaldığı yerden sürdürüldü. Kesildiği andaki durum: W2 `app/lib/data/` (modeller, depo, sağlayıcılar, gruplama), yer tutucu ekranlar ve l10n'i yazmış, testler ve README eksik, hiçbiri commit edilmedi (`app/` izlenmiyor). W3 diske henüz bir şey yazmamıştı. Sırada: W2 raporu gelince denetle → commit → `designer`'ı başlat.
