@@ -7,12 +7,16 @@ published repository stays small (a 22 MB vector PDF becomes a few MB of WebP).
 from __future__ import annotations
 
 import io
+from collections.abc import Sequence
 from dataclasses import dataclass
 
 import pymupdf
 from PIL import Image
 
-DEFAULT_WIDTH = 1600
+from scraper.core.models import Page
+
+# 2000 px keeps small product names sharp when an older reader zooms in on a phone.
+DEFAULT_WIDTH = 2000
 DEFAULT_QUALITY = 82
 MAX_PDF_BYTES = 80 * 1024 * 1024
 MAX_PAGES = 60
@@ -82,3 +86,12 @@ def _render(page: pymupdf.Page, target_width: int, quality: int) -> RenderedPage
     out = io.BytesIO()
     image.save(out, format="WEBP", quality=quality, method=4)
     return RenderedPage(webp=out.getvalue(), w=width, h=height)
+
+
+def matches_render_width(pages: Sequence[Page], target_width: int = DEFAULT_WIDTH) -> bool:
+    """True when ``pages`` were rendered at ``target_width`` (spreads at twice that).
+
+    Reused media is only kept when it matches the current setting, so changing the width
+    re-renders every listed PDF once instead of mixing old and new sizes.
+    """
+    return bool(pages) and all(p.w in (target_width, target_width * 2) for p in pages)

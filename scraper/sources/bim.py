@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from urllib.parse import urljoin
 
 from selectolax.lexbor import LexborHTMLParser, LexborNode
@@ -28,6 +28,11 @@ POSTERS_URL = "https://www.bim.com.tr/Categories/680/afisler.aspx"
 
 _IMAGE_URL = re.compile(r"^https://[^\s]+\.(?:jpe?g|png|webp)$", re.IGNORECASE)
 _GROUP_CLASS = re.compile(r"\bgrup(\d+)\b")
+
+AKTUEL_SECTION = "aktuel"
+# A one-day Aktüel heading ("13 Kasım Cuma") is the day sales start, not the only day:
+# the goods stay on the shelf for the week, so the brochure must not turn "past" next day.
+AKTUEL_EXTRA_DAYS = 6
 
 
 @dataclass(frozen=True, slots=True)
@@ -195,7 +200,7 @@ class _Draft:
     tab_url: str | None = None
 
     def to_brochure(self, now: datetime) -> Brochure:
-        dates: DateRange | None = parse_date_label(self.label, self.today)
+        dates = validity(self.section, self.label, self.today)
         if self.pages and self.products:
             kind = BrochureKind.BOTH
         elif self.pages:
@@ -222,6 +227,14 @@ class _Draft:
         )
 
 
+def validity(section: str, label: str, today: date) -> DateRange | None:
+    """Validity of a brochure: the label's dates, with one-day Aktüel starts extended."""
+    dates = parse_date_label(label, today)
+    if dates is not None and section == AKTUEL_SECTION and dates.valid_from == dates.valid_to:
+        return DateRange(dates.valid_from, dates.valid_from + timedelta(days=AKTUEL_EXTRA_DAYS))
+    return dates
+
+
 def _key(section: str, label: str, today: date) -> tuple[object, ...]:
     dates = parse_date_label(label, today)
     return (section, dates) if dates else (section, fold_turkish(" ".join(label.split())))
@@ -232,7 +245,7 @@ def _section(text: str) -> str:
     if "indirim" in folded:
         return "indirim"
     if "aktuel" in folded:
-        return "aktuel"
+        return AKTUEL_SECTION
     return slugify(text) or "other"
 
 

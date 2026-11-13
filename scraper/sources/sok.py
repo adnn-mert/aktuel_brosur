@@ -18,7 +18,7 @@ from scraper.core.dates import parse_date_label
 from scraper.core.ids import brochure_id
 from scraper.core.media import local_paths
 from scraper.core.models import Brochure, BrochureKind
-from scraper.core.pdf import render_pdf_pages
+from scraper.core.pdf import matches_render_width, render_pdf_pages
 from scraper.core.source import SourceContext, SourceError, SourceResult, fetch
 
 CHAIN_ID = "sok"
@@ -121,7 +121,8 @@ class SokSource:
         for card in cards:
             draft = card_brochure(card, ctx.today, ctx.now)
             old = previous.get(draft.id)
-            if old is not None and old.pages and local_paths(old) and ctx.media.reuse(old):
+            reusable = old is not None and local_paths(old) and matches_render_width(old.pages)
+            if reusable and ctx.media.reuse(old):
                 brochures.append(replace(draft, pages=old.pages, cover=old.cover))
                 reused += 1
                 continue

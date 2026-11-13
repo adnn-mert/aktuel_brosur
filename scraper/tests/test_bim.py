@@ -152,7 +152,8 @@ def test_build_brochures() -> None:
     friday = brochures["bim-aktuel-2026-11-13"]
     assert friday.kind is BrochureKind.BOTH
     assert (friday.title, friday.date_label) == ("13 Kasım Cuma", "13 Kasım Cuma")
-    assert (friday.valid_from, friday.valid_to) == (date(2026, 11, 13), date(2026, 11, 13))
+    # Sales start on the 13th; the goods stay on the shelf for the week.
+    assert (friday.valid_from, friday.valid_to) == (date(2026, 11, 13), date(2026, 11, 19))
     assert len(friday.pages) == 4 and friday.pages[0].w is None
     assert friday.cover == Page("https://cdn1.bim.com.tr/uploads/afisler/k_aaf9e731-9b7b-416f-891e-94f7d7ef6b74.jpg")
     assert friday.products_url == "products/bim-aktuel-2026-11-13.json"
@@ -176,6 +177,12 @@ def test_build_brochures() -> None:
     tuesday = brochures["bim-aktuel-2026-11-03"]
     assert (tuesday.kind, tuesday.products_url, tuesday.product_count) == (BrochureKind.PAGES, None, 0)
 
+    assert (tuesday.valid_from, tuesday.valid_to) == (date(2026, 11, 3), date(2026, 11, 9))
+    assert (wednesday.valid_from, wednesday.valid_to) == (date(2026, 11, 18), date(2026, 11, 24))
+    # İndirim ranges are printed with their real end date and stay untouched.
+    assert (discount.valid_from, discount.valid_to) == (date(2026, 11, 7), date(2026, 11, 13))
+    assert brochures["bim-indirim-2026-11-13-2026-11-16"].valid_to == date(2026, 11, 16)
+
     undated = brochures["bim-indirim-cok-al-az-ode"]
     assert (undated.valid_from, undated.valid_to, undated.date_label) == (None, None, "ÇOK AL AZ ÖDE")
     assert len(undated.pages) == 2
@@ -183,6 +190,23 @@ def test_build_brochures() -> None:
     year_long = brochures["bim-indirim-2026-03-24-2026-12-31"]
     assert (year_long.valid_from, year_long.valid_to) == (date(2026, 3, 24), date(2026, 12, 31))
     assert set(files) == {friday.id, wednesday.id, discount.id}
+
+
+@pytest.mark.parametrize(
+    ("section", "label", "expected"),
+    [
+        ("aktuel", "13 Kasım Cuma", (date(2026, 11, 13), date(2026, 11, 19))),
+        ("aktuel", "29 Aralık Salı", (date(2026, 12, 29), date(2027, 1, 4))),
+        ("aktuel", "03-30 Kasım", (date(2026, 11, 3), date(2026, 11, 30))),
+        ("indirim", "13 Kasım Cuma", (date(2026, 11, 13), date(2026, 11, 13))),
+        ("indirim", "13-19 Kasım", (date(2026, 11, 13), date(2026, 11, 19))),
+        ("aktuel", "ÇOK AL AZ ÖDE", None),
+    ],
+)
+def test_validity(section: str, label: str, expected) -> None:
+    assert bim.validity(section, label, TODAY) == expected
+    # Ids keep using the printed date, so extending validity never renames a brochure.
+    assert bim.bim_brochure_id("aktuel", "13 Kasım Cuma", TODAY) == "bim-aktuel-2026-11-13"
 
 
 # --- collect (network mocked) ----------------------------------------------------------
