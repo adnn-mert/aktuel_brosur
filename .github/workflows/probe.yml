@@ -1,0 +1,31 @@
+name: Source probe
+
+# Manual only: sends exactly one request per source from the Actions runner to see
+# which sites answer a datacenter address. Results go to the job summary.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      # Lets site operators see who is calling; derived from the repo, no personal data.
+      SCRAPER_CONTACT_URL: https://github.com/${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install dependencies
+        run: python -m pip install -e .
+
+      - name: Probe sources
+        run: python -m scraper probe
