@@ -189,6 +189,13 @@ Gerçek ürün eşleştirme: barkod (A101 veriyor), `marketfiyati.org.tr`, birim
 `worker` türü oturumda görünmüyorsa (oturum başka klasörde açıldıysa) aynı talimat, model Opus ve
 çaba high verilerek genel ajana gönderilir; ajan önce `.claude/agents/worker.md` ve `CLAUDE.md` okur.
 
+**Erken müdahale kuralı (kullanıcı isteği, 13 Kasım):** worker bir işte takılırsa yönetici model
+beklemez, işi devralır. Ölçüt: worker "yapamadım / engellendim" diye rapor verirse, bir düzeltme
+turundan sonra kabul ölçütleri hâlâ karşılanmıyorsa, aynı hata ikinci kez dönerse ya da worker
+sorunu dolanmak için kapsamı daraltıp testi gevşetirse. Devralınan parça dar tutulur (yalnızca
+takılan kısım), nedeni ve çözümü ilerleme günlüğüne yazılır. Fable erişimi bittikten sonra aynı
+kural, takılan işi yeni bir worker'a temiz bir özetle vermek biçiminde uygulanır.
+
 **Arayüz işleri:** görünüşle ilgili her görev `designer` ajanına (Fable 5.2, high) gider; veri katmanı
 ve kazıyıcı `worker`'da kalır. Dosya sınırı: designer `app/lib/design/`, `app/lib/features/`,
 `app/lib/l10n/`, `app/assets/`, `app/DESIGN.md`; worker `app/lib/data/`, `scraper/`, `schema/`,
