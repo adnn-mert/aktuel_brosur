@@ -1,0 +1,20 @@
+# Secrets
+.env
+.env.*
+*service-account*.json
+*serviceAccount*.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Scraper output (published to the data branch, never to main)
+scraper/out/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
