@@ -9,7 +9,11 @@ Python kazıyıcı (GitHub Actions'ta zamanlanmış çalışır). Kararların ve
 - **Ana oturum (yönetici):** kod yazmaz. Görev tanımlar, `worker` alt ajanına verir, çıktıyı
   denetler (farkı okur, testleri yeniden çalıştırır, emülatörde bakar), düzelttirir, kabul edince
   commit atar ve `PLAN.md` ilerleme günlüğünü günceller.
-- **`worker` (Opus 5.5, high):** kodu yazar. Tanımı `.claude/agents/worker.md` içinde.
+- **`worker` (Opus 5.5, high):** kodu yazar (kazıyıcı, veri katmanı, iş akışları, testler). Tanımı
+  `.claude/agents/worker.md` içinde. Dosyaları çakışmayan görevlerde birden fazlası paralel çalışabilir.
+- **`designer` (Fable 5.2, high):** arayüzü ve kullanıcı deneyimini tasarlar ve uygular. Tanımı
+  `.claude/agents/designer.md` içinde. Tasarım sistemi `app/DESIGN.md` dosyasında yaşar; arayüze
+  dokunan herkes ona uyar.
 
 ## Kurallar
 

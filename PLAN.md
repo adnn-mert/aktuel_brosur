@@ -8,9 +8,10 @@ Yalnızca yönetici model (ana oturum) yazar; `worker` bu dosyaya dokunmaz.
 **Yeni oturuma verilecek istem:**
 
 > `PLAN.md` ve `CLAUDE.md` dosyalarını oku. Sen bu projenin yöneticisisin: kod yazmazsın,
-> görevleri `worker` alt ajanına (Opus 5.5, high) verir, çıktısını denetler, düzelttirirsin.
-> Bölüm 5'teki ilk işaretlenmemiş adımdan devam et ve her kabul edilen görevden sonra
-> Bölüm 9'daki ilerleme günlüğünü güncelle.
+> kod işlerini `worker` alt ajanına (Opus 5.5, high), görünüşle ilgili işleri `designer` alt
+> ajanına verir, çıktılarını denetler, düzelttirirsin. Birbirine dokunmayan işleri birden fazla
+> worker ile paralel yürütebilirsin. Bölüm 5'teki ilk işaretlenmemiş adımdan devam et ve her
+> kabul edilen görevden sonra Bölüm 9'daki ilerleme günlüğünü güncelle.
 
 **Şu anki durum:** Bölüm 9'un son satırına bak.
 
@@ -45,6 +46,8 @@ bu dosya üzerinden sürdürülür.
 | Fiyat | Fiyatı yazı olarak veren marketler için ürün/fiyat bölümü ve arama erken gelir; görsel broşürler için Gemini OCR önce ölçülür, sonra karar verilir |
 | Watsons | Aşama 1'de: ana site engelli ama katalog `katalog.watsons.com.tr` adresinde açık (Publitas) |
 | CarrefourSA, Gratis | Kazınmaz; marketin kendi katalog görüntüleyicisi uygulama içinde açılır |
+| Arayüz / deneyim | `designer` alt ajanı (Fable 5.2, high) tasarlar ve uygular; tasarım sistemi `app/DESIGN.md` içinde belgelenir |
+| Paralel çalışma | Dosyaları çakışmayan görevler birden fazla Opus 5.5 high worker ile aynı anda yürütülebilir |
 | Engel aşma | Yapılmaz. Bot engeli koyan sitenin engeli dolanılmaz; o market ya web görünümüyle açılır ya da listeye girmez |
 | Aracı siteler | Akakçe vb. derleyicilerden içerik alınmaz |
 
@@ -148,8 +151,9 @@ Kazıyıcı: `httpx`, `selectolax`, `pymupdf`, `pillow`, `jsonschema`, `pytest`.
 - [ ] 1A Veri sözleşmesi: şema + elle yazılmış örnek `catalog.json`
 - [ ] 1B Kazıyıcı çekirdeği + BİM, A101, Şok kaynakları + fixture testleri
 - [ ] 1C `scrape.yml` zamanlama, `data` dalı, Pages yayını, `health.json`
-- [ ] 1D Uygulama iskeleti: ana ekran, market ekranı, broşür görüntüleyici (canlı veriyle)
-- [ ] 1E Ürün listesi görünümü + Migros, 5M, BİM ürünleri
+- [ ] 1D-veri (worker) Flutter projesi + veri katmanı: modeller, depo (ağ + önbellek + örnek veri), sağlayıcılar, favori deposu
+- [ ] 1D-arayüz (designer, **16 Kasım'dan önce**) Tasarım sistemi + ana ekran, market ekranı, broşür görüntüleyici, ürün listesi, web görünümü, boş/hata durumları; `app/DESIGN.md`
+- [ ] 1E Migros, 5M, BİM ürün kaynakları (kazıyıcı tarafı)
 - [ ] 1F Kalan kaynaklar: Hakmar, bonVeno, Macrocenter, Rossmann, Tarım Kredi, ortak Publitas uyarlayıcısı ile Metro ve Watsons
 - [ ] 1G Favoriler, internetsiz okuma, erişilebilirlik cilası
 - [ ] 1H Web görünümü marketleri: Gratis, CarrefourSA
@@ -183,6 +187,14 @@ Gerçek ürün eşleştirme: barkod (A101 veriyor), `marketfiyati.org.tr`, birim
 `worker` türü oturumda görünmüyorsa (oturum başka klasörde açıldıysa) aynı talimat, model Opus ve
 çaba high verilerek genel ajana gönderilir; ajan önce `.claude/agents/worker.md` ve `CLAUDE.md` okur.
 
+**Arayüz işleri:** görünüşle ilgili her görev `designer` ajanına (Fable 5.2, high) gider; veri katmanı
+ve kazıyıcı `worker`'da kalır. Dosya sınırı: designer `app/lib/design/`, `app/lib/features/`,
+`app/lib/l10n/`, `app/assets/`, `app/DESIGN.md`; worker `app/lib/data/`, `scraper/`, `schema/`,
+`.github/`. Fable erişimi 16 Kasım 2026'da bittiği için arayüz işleri öne alınır: o tarihe kadar
+tasarım sistemi ve bütün ana ekranlar (ana ekran, market, görüntüleyici, ürün listesi, web görünümü,
+boş/hata durumları) tamamlanmalı. Sonrasında arayüze dokunan model `app/DESIGN.md`'ye uyar; büyük
+görsel kararlar için kullanıcıya sorulur.
+
 **Zor site incelemesi:** Fable erişimi sürdüğü sürece yapısı karışık siteler Fable 5.2 (high) ile
 incelenir; 16 Kasım'dan sonra Opus ile.
 
@@ -213,3 +225,4 @@ durulup kullanıcıya sorulur ya da tek satırlık komut kullanıcıya verilir.
 - 2026-11-13: Site araştırması tamamlandı, kararlar alındı, plan onaylandı.
 - 2026-11-13: Watsons kataloğunun Publitas'ta açık olduğu doğrulandı, Aşama 1'e alındı. CarrefourSA'nın iki katmanlı korumalı olduğu doğrulandı, web görünümünde kaldı.
 - 2026-11-13: 0.1 tamam (klasör, git, PLAN.md, CLAUDE.md, worker.md). Sırada: 1A veri sözleşmesi + 0.3 deneme işi (worker'da). 0.2 kullanıcıyı bekliyor.
+- 2026-11-13: Kullanıcı kararı: arayüz/deneyim işleri Fable 5.2 high `designer` ajanında, paralel Opus worker'lara izin var. `designer.md` yazıldı. Arayüz işleri 16 Kasım'dan önceye alındı. W1 (1A + 0.3) ve W2 (1D-veri) paralel yürüyor.
