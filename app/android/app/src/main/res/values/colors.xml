@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Keep in sync with lib/design/tokens.dart (AppColors.light.paper)
+         and lib/design/widgets/logo_mark.dart (LogoPalette.iconBackground). -->
+    <color name="launch_background">#F6F1E7</color>
+    <color name="ic_launcher_background">#1F5A45</color>
+</resources>

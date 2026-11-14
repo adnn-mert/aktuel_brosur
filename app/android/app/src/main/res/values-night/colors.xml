@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Keep in sync with lib/design/tokens.dart (AppColors.dark.paper). -->
+    <color name="launch_background">#161411</color>
+</resources>

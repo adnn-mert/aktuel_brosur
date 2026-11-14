@@ -91,20 +91,30 @@
       "valid_to": "2026-11-13",
       "kind": "both",
       "cover": {
-        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_3f9c2a7e-51d4-4b8e-9a0c-6e2f1d7b8c41.jpg",
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_aaf9e731-9b7b-416f-891e-94f7d7ef6b74.jpg",
         "w": null,
         "h": null
       },
       "pages": [
         {
-          "url": "https://cdn1.bim.com.tr/uploads/afisler/3f9c2a7e-51d4-4b8e-9a0c-6e2f1d7b8c41.jpg",
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/aaf9e731-9b7b-416f-891e-94f7d7ef6b74.jpg",
           "w": 940,
-          "h": 1409
+          "h": 1410
         },
         {
-          "url": "https://cdn1.bim.com.tr/uploads/afisler/8a1d0b52-7c3e-4f19-b6a2-0d94e5c3f7a8.jpg",
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/7d055993-4554-46e6-a33a-d2b9e308bca8.jpg",
           "w": 940,
-          "h": 1409
+          "h": 1410
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/b6626da9-7499-4cf7-94b1-a903503c57c0.jpg",
+          "w": 940,
+          "h": 1410
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/8b852d1f-ad34-4656-85a8-8deff0f59b49.jpg",
+          "w": 940,
+          "h": 1410
         }
       ],
       "products_url": "products/bim-2026-11-13-cuma.json",
@@ -122,15 +132,25 @@
       "valid_to": "2026-11-18",
       "kind": "pages",
       "cover": {
-        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_c27e9f14-0b6a-4d3c-8e51-9f2a7d6b1e03.jpg",
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_bba693be-e42e-4bf5-9b98-f25463137b58.jpg",
         "w": null,
         "h": null
       },
       "pages": [
         {
-          "url": "https://cdn1.bim.com.tr/uploads/afisler/c27e9f14-0b6a-4d3c-8e51-9f2a7d6b1e03.jpg",
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/bba693be-e42e-4bf5-9b98-f25463137b58.jpg",
           "w": 940,
-          "h": 1409
+          "h": 1410
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/55c0a5f3-99c7-48d4-9a18-c043dba334f5.jpg",
+          "w": 940,
+          "h": 1410
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/cd829434-3bd5-4f44-a70b-c90ae8383855.jpg",
+          "w": 940,
+          "h": 1410
         }
       ],
       "products_url": null,
@@ -148,20 +168,25 @@
       "valid_to": "2026-11-03",
       "kind": "pages",
       "cover": {
-        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_5b0e3d71-2f8c-4a96-b1d7-3c6e0a9f4d25.jpg",
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_277fd718-eb15-4a5a-8ba4-84415add9bdc.jpg",
         "w": null,
         "h": null
       },
       "pages": [
         {
-          "url": "https://cdn1.bim.com.tr/uploads/afisler/5b0e3d71-2f8c-4a96-b1d7-3c6e0a9f4d25.jpg",
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/277fd718-eb15-4a5a-8ba4-84415add9bdc.jpg",
           "w": 940,
-          "h": 1409
+          "h": 1410
         },
         {
-          "url": "https://cdn1.bim.com.tr/uploads/afisler/e4a6f2c9-8d17-4b30-a5e8-71c0b9d3f6a2.jpg",
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/75db7d3d-b746-49ca-9104-03e831755293.jpg",
           "w": 940,
-          "h": 1409
+          "h": 1410
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/f254edd3-7cde-4692-9db3-3d1bb09adea6.jpg",
+          "w": 940,
+          "h": 1410
         }
       ],
       "products_url": null,
@@ -287,8 +312,8 @@
       "valid_to": "2026-11-25",
       "kind": "products",
       "cover": {
-        "url": "https://migroskop.migros.com.tr/uploads/migroskop/910/kapak.jpg",
-        "w": 716,
+        "url": "https://migroskop-assets.migros.com.tr/migrosdigitalinsert/910MIGROSKOP72YIL_migroskop_kapak1/Cover/183b2f00-a36e-4f86-ad87-507620ede1dd_743x1024.jpg",
+        "w": 743,
         "h": 1024
       },
       "pages": [],
@@ -343,30 +368,245 @@
       "valid_to": "2026-11-30",
       "kind": "pages",
       "cover": {
-        "url": "https://view.publitas.com/41027/2093114/pages/6d1c0e8a-3b5f-4f72-9a1e-c84b07d2e915-at1600.jpg",
-        "w": 1600,
-        "h": 2263
+        "url": "https://view.publitas.com/223/3499121/pages/6b75122a-dd8b-4c63-abd2-544cfda8506c-at600.jpg",
+        "w": 490,
+        "h": 735
       },
       "pages": [
         {
-          "url": "https://view.publitas.com/41027/2093114/pages/6d1c0e8a-3b5f-4f72-9a1e-c84b07d2e915-at1600.jpg",
-          "w": 1600,
-          "h": 2263
+          "url": "https://view.publitas.com/223/3499121/pages/6b75122a-dd8b-4c63-abd2-544cfda8506c-at2400.jpg",
+          "w": 1960,
+          "h": 2940
         },
         {
-          "url": "https://view.publitas.com/41027/2093114/pages/0f5b8e27-d61a-4c39-b7f4-2a9e3c51d806-at1600.jpg",
-          "w": 1600,
-          "h": 2263
+          "url": "https://view.publitas.com/223/3499121/pages/0e4dd697-d94b-47cd-a938-5e198ec03da9-at2400.jpg",
+          "w": 1960,
+          "h": 2940
         },
         {
-          "url": "https://view.publitas.com/41027/2093114/pages/a83e4d19-7c02-4e6b-95fd-1b6c8a07e3f4-at1600.jpg",
-          "w": 1600,
-          "h": 2263
+          "url": "https://view.publitas.com/223/3499121/pages/d5ff2991-d5ba-4237-8dcb-cba9707e43ea-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/dd969876-7215-424c-90bb-6dfa7a86b059-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/6c4dd15c-8cc5-4cec-93c8-b51efc3d4951-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/229bc867-3010-4b38-a0d0-bb860fb15120-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/bc8c780d-b334-426e-bbec-d92b7435286e-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/70885b55-0c70-49d7-ba6f-a7b026488b7c-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/2a666118-e494-4515-99da-6dfbd05d1a91-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/f7d367a1-8c65-4306-9423-136d302bda9b-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/c84dee09-787b-4c60-a6bd-7105f09d328b-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/de248bcc-9380-4a07-85e2-8894a48addf8-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/1252201b-77a8-4d7d-90f9-9fa6c6fd14a0-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/dc6ae0b4-2a7f-4239-9805-77a5f2e5de94-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/5f4e1674-af30-4e17-bc02-e5401fbabd72-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/86d83d4b-f036-45e3-a882-d2b1f776a55e-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/32be2eec-8397-475d-97ea-902a92951c82-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/576ca568-e73d-4a32-a1e2-03f827b548db-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/1bf59206-8119-4403-a6be-f77da824c47b-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/b9fe1cd4-b8e0-46e1-aab1-7abfa10fe46e-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/d72bfdd2-993d-4446-a5b8-16e74bda1959-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/1a36e435-b435-4139-ac71-4d20568986ca-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/df52a48a-b198-4165-873e-c9f7f835c4c7-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/c47894e2-382a-4892-88fc-6d7c8a0c5ef3-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/04636e97-2cf2-4de4-af17-54409f6d8bc9-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/f6908a75-ecf6-4b7f-af21-a8f62ad9bbc8-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/9702767e-af7d-433a-a63d-53f7955d07f7-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/491f745c-f468-4d9d-ade5-14ccf652fba7-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/21d1a70b-8e4f-48d0-a814-8922c5407db7-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/7913a0bf-e1ea-44d6-8f35-790f092b91a3-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/941f3dcc-4b8b-4bbf-b888-1e2d45f8296b-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/179fb005-c012-4952-b8d3-cd7ab3f49036-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/4f6e19aa-41aa-4ab8-be81-5cfee7d262b8-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/5d90e547-0a09-4a07-88f7-cd3002ebf03d-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/25a6667a-43a6-4b74-b4c2-e295e158d1ac-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/f25fdac8-1fa4-450c-b3b3-1ca8d9f3fa80-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/f376ac31-b1cf-4e7f-ae0d-a2a4470c015d-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/2d998680-a3f8-41cc-b203-dd216e01276c-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/0249b9bb-9afe-48a1-be63-81a50f6405ab-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/9dd06e92-ecd6-495d-8d90-cdf90e671e71-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/a2aa743a-8211-45a0-a016-3b831ef07141-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/65d3b7b3-8b5c-4ce7-932e-d15b0b1a6acd-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/494a4132-33c5-43ed-8182-3477d4cd5f09-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/2607a8dc-f4e5-4cf1-a191-7f1f37d8a4fc-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/2f4367aa-c081-47f2-9d5a-9180c65222d6-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/8bc2700c-5fe8-4885-a31b-7961568a835c-at2400.jpg",
+          "w": 1960,
+          "h": 2940
         }
       ],
       "products_url": null,
       "product_count": 0,
-      "source_url": "https://katalog.watsons.com.tr/kasim-2026-katalog/",
+      "source_url": "https://katalog.watsons.com.tr/kasim-katalog-2026/",
       "first_seen": "2026-11-01T05:00:09Z",
       "updated_at": "2026-11-12T15:02:10Z"
     }
