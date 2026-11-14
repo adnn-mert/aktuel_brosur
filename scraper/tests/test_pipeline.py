@@ -115,7 +115,8 @@ def test_first_run_publishes_valid_output(tmp_path) -> None:
     b, products = with_products(brochure("bim", "a"), "Su", "Çay")
     report = do_run(tmp_path, [FakeSource("bim", static(b, products={b.id: products})), FakeSource("sok", media_source("x"))])
     assert report.exit_code == 0 and report.written and report.first_run
-    assert sorted(report.new_brochure_ids) == ["bim-a", "sok-x"]
+    # Every chain's first run only fills in what is already out: nothing to announce.
+    assert report.new_brochure_ids == []
 
     catalog = load(tmp_path)
     validate_catalog(catalog)
@@ -136,7 +137,7 @@ def test_webview_chains_are_listed_without_brochures(tmp_path) -> None:
     assert webviews["a101"]["web_url"] == "https://www.a101.com.tr/afisler"
     assert all(c["status"] == "ok" and c["last_ok_at"] is None for c in webviews.values())
     assert not any(b["chain_id"] in webviews for b in catalog["brochures"])
-    assert [c["id"] for c in catalog["chains"]] == ["bim", "a101", "sok", "carrefoursa", "gratis"]
+    assert [c["id"] for c in catalog["chains"]] == ["bim", "a101", "sok", "migros", "macrocenter", "carrefoursa", "gratis"]
 
 
 # --- isolation and failure tracking ----------------------------------------------------
@@ -253,13 +254,14 @@ def test_first_seen_is_kept_and_updated_at_moves_only_on_change(tmp_path) -> Non
     do_run(tmp_path, [source])
     do_run(tmp_path, [source], now=T0 + timedelta(hours=6))
     record = load(tmp_path)["brochures"][0]
-    assert (record["first_seen"], record["updated_at"]) == ("2026-11-13T09:00:00Z", "2026-11-13T09:00:00Z")
+    # First run of the chain: first_seen is the start day (see test_first_seen_on_a_chains_first_run).
+    assert (record["first_seen"], record["updated_at"]) == ("2026-11-13T00:00:00Z", "2026-11-13T09:00:00Z")
 
     _, changed = with_products(b, "Su", "Ekmek")
     source.fn = static(replace(b, product_count=2), products={b.id: changed})
     do_run(tmp_path, [source], now=T0 + timedelta(hours=12))
     record = load(tmp_path)["brochures"][0]
-    assert (record["first_seen"], record["updated_at"]) == ("2026-11-13T09:00:00Z", "2026-11-13T21:00:00Z")
+    assert (record["first_seen"], record["updated_at"]) == ("2026-11-13T00:00:00Z", "2026-11-13T21:00:00Z")
 
     source.fn = static(replace(b, product_count=2, title="Yeni başlık"), products={b.id: changed})
     do_run(tmp_path, [source], now=T0 + timedelta(hours=18))
@@ -277,13 +279,76 @@ def test_brochure_gone_from_source_stays_as_archive(tmp_path) -> None:
 
 def test_new_brochure_ids(tmp_path) -> None:
     source = FakeSource("bim", static(brochure("bim", "a")))
-    assert do_run(tmp_path, [source]).new_brochure_ids == ["bim-a"]
+    # The chain's first run is not news (see test_first_seen_on_a_chains_first_run).
+    assert do_run(tmp_path, [source]).new_brochure_ids == []
     source.fn = static(brochure("bim", "a"), brochure("bim", "b"))
     report = do_run(tmp_path, [source], now=T0 + timedelta(hours=1))
     assert report.new_brochure_ids == ["bim-b"]
     assert not report.first_run
     assert report.sources[0].new_count == 1
     assert do_run(tmp_path, [source], now=T0 + timedelta(hours=2)).new_brochure_ids == []
+
+
+def by_id(catalog: dict) -> dict[str, dict]:
+    return {b["id"]: b for b in catalog["brochures"]}
+
+
+def test_first_seen_on_a_chains_first_run(tmp_path) -> None:
+    # BİM already has brochures in the previous output; Migros is added in the second run.
+    do_run(tmp_path, [FakeSource("bim", static(brochure("bim", "a")))])
+    started = brochure("migros", "started", valid_from=TODAY - timedelta(days=3))
+    upcoming = brochure("migros", "upcoming", valid_from=TODAY + timedelta(days=2), valid_to=TODAY + timedelta(days=9))
+    undated = brochure("migros", "undated", valid_from=None, valid_to=None)
+    migros = FakeSource("migros", static(started, upcoming, undated))
+    t1 = T0 + timedelta(hours=1)
+    report = do_run(tmp_path, [FakeSource("bim", static(brochure("bim", "a"), brochure("bim", "b"))), migros], now=t1)
+
+    records = by_id(load(tmp_path))
+    assert records["migros-started"]["first_seen"] == "2026-11-10T00:00:00Z"
+    assert records["migros-upcoming"]["first_seen"] == "2026-11-13T10:00:00Z"
+    assert records["migros-undated"]["first_seen"] == "2026-11-13T10:00:00Z"
+    assert records["migros-started"]["updated_at"] == "2026-11-13T10:00:00Z"
+    # The existing chain is unaffected: its new brochure is seen now and announced.
+    assert records["bim-a"]["first_seen"] == "2026-11-13T00:00:00Z"
+    assert records["bim-b"]["first_seen"] == "2026-11-13T10:00:00Z"
+    assert report.new_brochure_ids == ["bim-b"]
+    assert {s.chain_id: s.new_count for s in report.sources} == {"bim": 1, "migros": 0}
+
+    # On the chain's next run a new brochure is news again, even one that started earlier.
+    t2 = T0 + timedelta(hours=2)
+    later = brochure("migros", "later", valid_from=TODAY - timedelta(days=1))
+    migros.fn = static(started, upcoming, undated, later)
+    report = do_run(tmp_path, [migros], now=t2)
+    records = by_id(load(tmp_path))
+    assert records["migros-later"]["first_seen"] == "2026-11-13T11:00:00Z"
+    assert records["migros-started"]["first_seen"] == "2026-11-10T00:00:00Z"
+    assert report.new_brochure_ids == ["migros-later"]
+
+
+def test_first_run_brochures_never_get_a_future_first_seen() -> None:
+    from scraper.core.pipeline import backfill_first_seen
+
+    # 22:00 UTC on the 12th is already the 13th in Turkey.
+    now = datetime(2026, 11, 12, 22, 0, tzinfo=UTC)
+    assert backfill_first_seen(brochure("migros", "x", valid_from=TODAY), TODAY, now) == now
+    assert backfill_first_seen(brochure("migros", "x", valid_from=TODAY - timedelta(days=1)), TODAY, now) == datetime(
+        2026, 11, 12, 0, 0, tzinfo=UTC
+    )
+
+
+def test_failed_first_run_does_not_count_as_the_chains_first_run(tmp_path) -> None:
+    do_run(tmp_path, [FakeSource("bim", static(brochure("bim", "a"))), FakeSource("migros", boom)])
+    report = do_run(tmp_path, [FakeSource("migros", static(brochure("migros", "a")))], now=T0 + timedelta(hours=1))
+    assert by_id(load(tmp_path))["migros-a"]["first_seen"] == "2026-11-13T00:00:00Z"
+    assert report.new_brochure_ids == []
+
+
+def test_brand_colours_are_published(tmp_path) -> None:
+    do_run(tmp_path, [FakeSource("bim", static(brochure("bim", "a")))])
+    chains = {c["id"]: c for c in load(tmp_path)["chains"]}
+    assert chains["bim"]["brand_color"] == "#E30613"
+    assert chains["a101"]["brand_color"] == "#00A0E3"
+    assert "brand_color" not in chains["macrocenter"]
 
 
 # --- pruning ---------------------------------------------------------------------------
@@ -321,9 +386,10 @@ def test_expired_brochures_are_pruned_with_their_files(tmp_path) -> None:
 
 def test_source_returning_an_old_brochure_does_not_publish_it(tmp_path) -> None:
     ancient = brochure("bim", "ancient", valid_from=TODAY - timedelta(days=60), valid_to=TODAY - timedelta(days=50))
-    report = do_run(tmp_path, [FakeSource("bim", static(ancient, brochure("bim", "a")))])
-    assert ids(load(tmp_path)) == ["bim-a"]
-    assert report.new_brochure_ids == ["bim-a"]
+    do_run(tmp_path, [FakeSource("bim", static(brochure("bim", "a")))])
+    report = do_run(tmp_path, [FakeSource("bim", static(ancient, brochure("bim", "a"), brochure("bim", "b")))], now=T0 + timedelta(hours=1))
+    assert ids(load(tmp_path)) == ["bim-a", "bim-b"]
+    assert report.new_brochure_ids == ["bim-b"]
 
 
 def test_undated_brochures_expire_once_unlisted_and_old(tmp_path) -> None:

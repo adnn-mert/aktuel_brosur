@@ -20,6 +20,13 @@ atomic write. A source never writes JSON itself.
      `render_pdf_pages` and store via `ctx.media.write_pages`; derive the brochure id from
      the PDF address and call `ctx.media.reuse(old)` for ids found in `ctx.previous`, so an
      unchanged PDF is not downloaded again.
+   - Covers: give `w`/`h` when they are cheap to know (in the file name, or for a small
+     thumbnail via `scraper.core.images.fetch_image_size`, reusing sizes from
+     `ctx.previous`). Never download full-size pages only to measure them.
+   - money.com.tr catalogue pages (Migros, Macrocenter) share `money.parse_current_issue`.
+   - A new chain's first run does not flood the app with "Yeni" badges: the pipeline sets
+     `first_seen` of brochures that already started to their start day and leaves them out
+     of `new_brochure_ids`. Sources just return `first_seen=now`.
 3. **Test it** in `scraper/tests/test_<chain>.py` without network: parser results checked
    against concrete values from the fixture, unrelated HTML raising `SourceError`, and
    `collect` with `conftest.mock_http`.

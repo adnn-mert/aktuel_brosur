@@ -234,8 +234,11 @@ def _ctx(tmp_path, http, previous=(), previous_products=lambda _id: None) -> Sou
 def test_collect(tmp_path) -> None:
     calls: list[str] = []
     result = BimSource().collect(_ctx(tmp_path, mock_http(_routes(), calls)))
-    # One poster page plus one request per product tab.
-    assert len(calls) == 1 + 14
+    # One poster page plus one request per product tab, then one per cover thumbnail.
+    assert len([c for c in calls if "/k_" not in c]) == 1 + 14
+    assert len([c for c in calls if "/k_" in c]) == 18
+    # The mocked CDN answers 404, so the sizes stay unknown and the run still succeeds.
+    assert "18 cover sizes could not be read" in result.warnings
     assert len(result.brochures) == 19
     assert set(result.product_files) == {
         "bim-aktuel-2026-11-13",
@@ -266,9 +269,92 @@ def test_collect_reuses_past_product_tabs(tmp_path) -> None:
     ctx = _ctx(tmp_path, mock_http(_routes(), calls), [old], {old.id: old_products}.get)
     result = BimSource().collect(ctx)
     assert TAB_URL.format("1697") not in calls
-    assert len(calls) == 14
+    assert len([c for c in calls if "/k_" not in c]) == 14
     assert result.product_files[old.id].products == old_products.products
     assert "1 past product tabs reused" in result.warnings
+
+
+# --- cover sizes -----------------------------------------------------------------------
+
+THUMB = "https://cdn1.bim.com.tr/uploads/afisler/k_aaf9e731-9b7b-416f-891e-94f7d7ef6b74.jpg"
+POSTER = "https://cdn1.bim.com.tr/uploads/afisler/aaf9e731-9b7b-416f-891e-94f7d7ef6b74.jpg"
+
+
+def _covered(bid: str, cover: Page | None) -> Brochure:
+    return Brochure(
+        id=bid,
+        chain_id="bim",
+        title=bid,
+        date_label=None,
+        valid_from=None,
+        valid_to=None,
+        kind=BrochureKind.PAGES,
+        cover=cover,
+        pages=(Page(POSTER),),
+        products_url=None,
+        product_count=0,
+        source_url=POSTERS_URL,
+        first_seen=NOW,
+        updated_at=NOW,
+    )
+
+
+def test_add_cover_sizes() -> None:
+    measured: list[str] = []
+
+    def measure(url: str) -> tuple[int, int] | None:
+        measured.append(url)
+        return None if "broken" in url else (258, 387)
+
+    known_url = THUMB.replace("aaf9", "0000")
+    brochures = [
+        _covered("a", Page(THUMB)),
+        _covered("same-thumb", Page(THUMB)),
+        _covered("known", Page(known_url)),
+        _covered("poster-cover", Page(POSTER)),
+        _covered("no-cover", None),
+        _covered("broken", Page(THUMB.replace("aaf9", "broken"))),
+    ]
+    out, missing = bim.add_cover_sizes(brochures, {known_url: (300, 450)}, measure)
+    by_id = _by_id(out)
+    assert by_id["a"].cover == Page(THUMB, 258, 387)
+    assert by_id["same-thumb"].cover == Page(THUMB, 258, 387)
+    assert by_id["known"].cover == Page(known_url, 300, 450)
+    # Full-size posters are never downloaded just to learn their size.
+    assert by_id["poster-cover"].cover == Page(POSTER)
+    assert by_id["poster-cover"].pages == (Page(POSTER),)
+    assert by_id["no-cover"].cover is None
+    assert by_id["broken"].cover.w is None and missing == 1
+    # One request per distinct unknown thumbnail.
+    assert measured == [THUMB, THUMB.replace("aaf9", "broken")]
+
+
+def test_collect_measures_covers_once(tmp_path) -> None:
+    import io
+
+    from PIL import Image
+
+    buffer = io.BytesIO()
+    Image.new("RGB", (258, 387)).save(buffer, format="JPEG")
+    routes: dict[str, object] = dict(_routes())
+    thumbs = [b.cover.url for b in build_brochures(parse_poster_groups(_posters()), [], TODAY, NOW)[0] if b.cover]
+    for url in thumbs:
+        routes[url] = buffer.getvalue()
+
+    calls: list[str] = []
+    first = BimSource().collect(_ctx(tmp_path, mock_http(routes, calls)))
+    friday = _by_id(first.brochures)["bim-aktuel-2026-11-13"]
+    assert (friday.cover.w, friday.cover.h) == (258, 387)
+    assert all(b.cover.w == 258 for b in first.brochures if b.cover and "/k_" in b.cover.url)
+    assert not any("cover sizes" in w for w in first.warnings)
+    # Poster pages keep unknown sizes and are never requested.
+    assert all(p.w is None for b in first.brochures for p in b.pages)
+    assert not any(c in calls for b in first.brochures for c in (p.url for p in b.pages))
+
+    # Next run: sizes come from the previous output, no image is requested again.
+    calls.clear()
+    BimSource().collect(_ctx(tmp_path, mock_http(routes, calls), previous=first.brochures))
+    assert [c for c in calls if "/k_" in c] == []
 
 
 def test_collect_blocked_site(tmp_path) -> None:
