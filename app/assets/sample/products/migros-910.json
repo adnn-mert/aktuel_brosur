@@ -72,6 +72,42 @@
       "image": null,
       "page_index": null,
       "source_url": null
+    },
+    {
+      "name": "Tam Buğday Ekmeği 400 g",
+      "brand": "Untad",
+      "quantity_text": null,
+      "price_minor": 9995,
+      "old_price_minor": null,
+      "member_price_minor": 7795,
+      "member_price_label": "Money ile",
+      "image": null,
+      "page_index": null,
+      "source_url": "https://migroskop.migros.com.tr/migroskop"
+    },
+    {
+      "name": "Natural Kişisel Bakım Havlusu 100'lü",
+      "brand": "Sleepy",
+      "quantity_text": null,
+      "price_minor": 15995,
+      "old_price_minor": null,
+      "member_price_minor": 9995,
+      "member_price_label": "Money ile",
+      "image": null,
+      "page_index": null,
+      "source_url": "https://migroskop.migros.com.tr/migroskop"
+    },
+    {
+      "name": "Siirt Fıstığı Tuzlu Kavrulmuş",
+      "brand": null,
+      "quantity_text": "kg fiyatı",
+      "price_minor": 179900,
+      "old_price_minor": null,
+      "member_price_minor": 149990,
+      "member_price_label": "Money ile",
+      "image": null,
+      "page_index": null,
+      "source_url": "https://migroskop.migros.com.tr/migroskop"
     }
   ]
 }

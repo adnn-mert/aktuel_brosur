@@ -195,7 +195,7 @@ void main() {
     test('fetches, caches, revalidates and falls back', () async {
       server.respond(productsBody, etag: '"p1"');
       final fresh = await repo.loadProducts(migros);
-      expect(fresh.products, hasLength(7));
+      expect(fresh.products, hasLength(10));
       expect(
         server.requests.single.url.toString(),
         '$_base/products/migros-910.json',

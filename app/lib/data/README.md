@@ -76,6 +76,20 @@ gösterin (BİM'de ikisi birden var: `kind == BrochureKind.both`).
 sayfaya atlamak için, 0 tabanlı). Fiyat metni: `product.price.format()` → `54,95 ₺`,
 `1.249,90 ₺`. Fiyatı kendiniz biçimlendirmeyin. Yeniden deneme: `ref.invalidate(productsProvider(id))`.
 
+- **Raf fiyatı (`price`)** herkesin ödediği fiyattır; kartın büyük fiyatı her zaman budur.
+  `discountPercent` yalnızca eski fiyat → raf fiyatı indirimidir; üyelik fiyatından etkilenmez.
+- **Üyelik fiyatı (`memberPrice`, `memberPriceLabel`, `hasMemberPrice`):** yalnızca o marketin
+  kartını taşıyanların ödediği daha düşük fiyat (Migros: `memberPriceLabel == "Money ile"`).
+  Raf fiyatının **yerine geçmez**; yanında, etiketiyle birlikte gösterilir
+  (`product.memberPrice!.format()` + `product.memberPriceLabel`). İkisi her zaman birlikte dolu ya
+  da birlikte `null`dur ve üyelik fiyatı her zaman raf fiyatından düşüktür. Yayınlanan veride
+  tutarsızlık varsa (yalnız biri dolu, etiket boş, raf fiyatından düşük değil, tip yanlış) ürün
+  yine gösterilir, yalnızca üyelik fiyatı düşer: yanlış bir kart fiyatı göstermektense hiç göstermemek.
+- **`quantityText`** yalnızca fiyatın birimini değiştirdiğinde doludur: kilogram fiyatlı ürünlerde
+  tam olarak `"kg fiyatı"` (fiyat 1 kg içindir), diğer ürünlerde `null` (gramaj varsa ürün adında
+  durur). Eski veride ve örnek dosyadaki ilk ürünlerde `"700 g"` gibi değerler de görülebilir;
+  metin olduğu gibi gösterilir.
+
 **Web görünümü:** `chain.webUrl` (her zaman mutlak https). Bu zincirlerin (`ChainKind.webview`:
 A101, CarrefourSA, Gratis) katalogda broşürü yoktur.
 

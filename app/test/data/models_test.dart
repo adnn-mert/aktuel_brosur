@@ -168,6 +168,123 @@ void main() {
       expect(catalog.skippedBrochureCount, 2);
     });
 
+    group('member price', () {
+      // A valid shelf-priced product plus whatever member fields a case sets.
+      Product parse(Map<String, Object?> member) => Product.fromJson({
+        'name': 'Tam Buğday Ekmeği 400 g',
+        'price_minor': 9995,
+        'old_price_minor': 11995,
+        ...member,
+      });
+
+      test('both fields set', () {
+        final p = parse({
+          'member_price_minor': 7795,
+          'member_price_label': 'Money ile',
+        });
+        expect(p.hasMemberPrice, isTrue);
+        expect(p.memberPrice, const Money(7795));
+        expect(p.memberPriceLabel, 'Money ile');
+        // The shelf price and its discount are untouched.
+        expect(p.price, const Money(9995));
+        expect(p.discountPercent, 17);
+      });
+
+      test('the label is trimmed', () {
+        final p = parse({
+          'member_price_minor': 7795,
+          'member_price_label': '  Money ile ',
+        });
+        expect(p.memberPriceLabel, 'Money ile');
+      });
+
+      final dropped = <(String, Map<String, Object?>)>[
+        ('fields absent', {}),
+        ('both null', {'member_price_minor': null, 'member_price_label': null}),
+        ('only the price', {'member_price_minor': 7795}),
+        ('only the label', {'member_price_label': 'Money ile'}),
+        ('empty label', {'member_price_minor': 7795, 'member_price_label': ''}),
+        (
+          'blank label',
+          {'member_price_minor': 7795, 'member_price_label': '   '},
+        ),
+        (
+          'equal to the shelf price',
+          {'member_price_minor': 9995, 'member_price_label': 'Money ile'},
+        ),
+        (
+          'above the shelf price',
+          {'member_price_minor': 12000, 'member_price_label': 'Money ile'},
+        ),
+        (
+          'negative',
+          {'member_price_minor': -1, 'member_price_label': 'Money ile'},
+        ),
+        (
+          'price as text',
+          {'member_price_minor': '77,95', 'member_price_label': 'Money ile'},
+        ),
+        (
+          'fractional price',
+          {'member_price_minor': 77.95, 'member_price_label': 'Money ile'},
+        ),
+        (
+          'label not text',
+          {'member_price_minor': 7795, 'member_price_label': 1},
+        ),
+      ];
+      for (final (name, member) in dropped) {
+        test('dropped, product kept: $name', () {
+          final p = parse(member);
+          expect(p.name, 'Tam Buğday Ekmeği 400 g');
+          expect(p.price, const Money(9995));
+          expect(p.discountPercent, 17);
+          expect(p.hasMemberPrice, isFalse);
+          expect(p.memberPrice, isNull);
+          expect(p.memberPriceLabel, isNull);
+        });
+      }
+
+      test('a bad member price never makes the file skip the product', () {
+        final json = _copy(sampleJson('products/migros-910.json'));
+        final products = json['products'] as List<dynamic>;
+        (products.last as Map<String, dynamic>)['member_price_minor'] = 'x';
+        final file = ProductFile.fromJson(json);
+        expect(file.products, hasLength(10));
+        expect(file.skippedCount, 0);
+        expect(file.products.last.hasMemberPrice, isFalse);
+      });
+
+      test('the constructor keeps the pair together', () {
+        const lonePrice = Product(
+          name: 'x',
+          price: Money(100),
+          memberPrice: Money(90),
+        );
+        const loneLabel = Product(
+          name: 'x',
+          price: Money(100),
+          memberPriceLabel: 'Money ile',
+        );
+        expect(lonePrice.hasMemberPrice, isFalse);
+        expect(loneLabel.memberPriceLabel, isNull);
+      });
+
+      test('takes part in equality', () {
+        final a = parse({
+          'member_price_minor': 7795,
+          'member_price_label': 'Money ile',
+        });
+        final b = parse({
+          'member_price_minor': 7795,
+          'member_price_label': 'Money ile',
+        });
+        expect(a, b);
+        expect(a.hashCode, b.hashCode);
+        expect(a, isNot(parse({})));
+      });
+    });
+
     test('a broken root throws CatalogFormatException', () {
       final good = sampleJson('catalog.json');
       final cases = <String, Object?>{
@@ -197,7 +314,11 @@ void main() {
       final migros = ProductFile.parse(sampleText('products/migros-910.json'));
       expect(migros.brochureId, 'migros-910');
       expect(migros.currency, 'TRY');
-      expect(migros.products, hasLength(7));
+      expect(
+        migros.products,
+        hasLength(sampleCatalog().brochureById('migros-910')!.productCount),
+      );
+      expect(migros.products, hasLength(10));
       expect(migros.skippedCount, 0);
 
       final first = migros.products.first;
@@ -212,6 +333,35 @@ void main() {
       final kiyma = migros.products[2];
       expect(kiyma.brand, isNull);
       expect(kiyma.image, isNull);
+      expect(kiyma.hasMemberPrice, isFalse);
+      expect(kiyma.memberPrice, isNull);
+      expect(kiyma.memberPriceLabel, isNull);
+
+      // Money card prices, as Migros printed them.
+      final members = {
+        for (final p in migros.products.where((p) => p.hasMemberPrice))
+          p.name: (
+            p.price.format(),
+            p.memberPrice!.format(),
+            p.memberPriceLabel,
+            p.quantityText,
+          ),
+      };
+      expect(members, {
+        'Tam Buğday Ekmeği 400 g': ('99,95 ₺', '77,95 ₺', 'Money ile', null),
+        "Natural Kişisel Bakım Havlusu 100'lü": (
+          '159,95 ₺',
+          '99,95 ₺',
+          'Money ile',
+          null,
+        ),
+        'Siirt Fıstığı Tuzlu Kavrulmuş': (
+          '1.799,00 ₺',
+          '1.499,90 ₺',
+          'Money ile',
+          'kg fiyatı',
+        ),
+      });
 
       final bim = ProductFile.parse(
         sampleText('products/bim-2026-11-13-cuma.json'),
@@ -234,7 +384,7 @@ void main() {
 
       final file = ProductFile.fromJson(json);
 
-      expect(file.products, hasLength(5));
+      expect(file.products, hasLength(8));
       expect(file.skippedCount, 2);
     });
 

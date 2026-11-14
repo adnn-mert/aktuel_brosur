@@ -17,7 +17,10 @@ class Product {
     this.image,
     this.pageIndex,
     this.sourceUrl,
-  });
+    Money? memberPrice,
+    String? memberPriceLabel,
+  }) : memberPrice = memberPriceLabel == null ? null : memberPrice,
+       memberPriceLabel = memberPrice == null ? null : memberPriceLabel;
 
   /// Throws [JsonFieldException] for a malformed record; the product file
   /// parser skips it.
@@ -29,6 +32,7 @@ class Product {
     if (price < 0 || (oldPrice != null && oldPrice < 0)) {
       throw const JsonFieldException('product: negative price');
     }
+    final member = _memberPrice(r, price, currency);
     return Product(
       name: r.nonEmptyString('name'),
       brand: r.optString('brand'),
@@ -39,7 +43,28 @@ class Product {
       // A bad page link is not worth losing the product over.
       pageIndex: pageIndex != null && pageIndex >= 0 ? pageIndex : null,
       sourceUrl: r.optString('source_url'),
+      memberPrice: member?.$1,
+      memberPriceLabel: member?.$2,
     );
+  }
+
+  // The member price is optional extra information: anything inconsistent
+  // drops it (never the product). Showing a wrong "card price" is worse than
+  // showing none.
+  static (Money, String)? _memberPrice(
+    JsonReader r,
+    int shelfPrice,
+    String currency,
+  ) {
+    try {
+      final minor = r.optInteger('member_price_minor');
+      final label = r.optString('member_price_label')?.trim();
+      if (minor == null || label == null || label.isEmpty) return null;
+      if (minor < 0 || minor >= shelfPrice) return null;
+      return (Money(minor, currency: currency), label);
+    } on JsonFieldException {
+      return null;
+    }
   }
 
   final String name;
@@ -61,7 +86,19 @@ class Product {
 
   final String? sourceUrl;
 
+  /// Lower price paid only by holders of the chain's card (Migros: "Money
+  /// ile"). [price] stays the price everyone pays: show this next to it with
+  /// [memberPriceLabel], never instead of it. Always below [price]; set
+  /// together with [memberPriceLabel] or not at all.
+  final Money? memberPrice;
+
+  /// Who gets [memberPrice], as the chain words it, e.g. "Money ile".
+  final String? memberPriceLabel;
+
+  bool get hasMemberPrice => memberPrice != null;
+
   /// Whole-percent discount when [oldPrice] is higher than [price], else null.
+  /// About the shelf price only; [memberPrice] plays no part.
   int? get discountPercent {
     final old = oldPrice;
     if (old == null || old.minor <= price.minor || old.minor == 0) return null;
@@ -78,7 +115,9 @@ class Product {
       other.oldPrice == oldPrice &&
       other.image == image &&
       other.pageIndex == pageIndex &&
-      other.sourceUrl == sourceUrl;
+      other.sourceUrl == sourceUrl &&
+      other.memberPrice == memberPrice &&
+      other.memberPriceLabel == memberPriceLabel;
 
   @override
   int get hashCode => Object.hash(
@@ -90,6 +129,8 @@ class Product {
     image,
     pageIndex,
     sourceUrl,
+    memberPrice,
+    memberPriceLabel,
   );
 
   @override
