@@ -198,6 +198,22 @@ daralınca şöyledir: (1) Fable tasarımcı işi (16 Kasım'a kadar tek fırsat
 bir Opus worker verilir. 14 Kasım güncellemesi: sınır ikinci kez dolduğu için tasarımcı işi (D1)
 bitene kadar yanında başka ajan çalıştırılmaz; yönetici de bu sürede yalnızca denetim yapar.
 
+**Oturum yenileme kuralı (kullanıcı isteği, 14 Kasım):** uzun oturumda her tur bütün geçmişi yeniden
+işler; 400 bin token'lık oturumda yöneticinin tek bir turu 5 saatlik sınırın yaklaşık %40'ını yedi.
+Bu yüzden yönetici, aşağıdaki noktalardan birine gelindiğinde ve **çalışan alt ajan kalmadığında**
+kullanıcıya açıkça "yeni oturuma geçme zamanı" der ve Bölüm 0'daki istemi verir:
+1. Bir görev grubu kabul edilip commit edildiğinde ve ilerleme günlüğü güncellendiğinde (asıl an budur).
+2. Oturum bağlamı yaklaşık 150 bin token'ı geçtiğinde.
+3. Yeni bir aşamaya ya da alt aşamaya başlamadan önce.
+4. Kullanım sınırı dolup iş kesildiğinde, kesilen ajanların işi bitirilip commit edildikten sonra.
+Çalışan ajan varken oturum değiştirilmez (yeni oturum onlara "devam et" diyemez; yarım iş diskte
+kalır ama bağlamı kaybolur). Oturum değişmeden önce yönetici: çalışma kopyasını temiz bırakır
+(kabul edilen her şey commit + push), Bölüm 9'a "sırada ne var" satırını yazar. Yeni oturum
+`aktuel_brosur` klasöründe açılır (böylece `worker` ve `designer` ajan türleri tanınır). Yönetici
+turlarını az ve dolu tutar: ara durum mesajı için tur harcamaz, denetim + commit + sonraki görevi
+aynı turda yapar. Git dalı ya da oturum çatallama kullanılmaz: tek kişilik projede `main` + CI yeterli,
+çatallanan oturum ise bütün geçmişi taşıdığı için sınır açısından hiçbir şey kazandırmaz.
+
 **Model seçimi (kullanıcı kararı, 14 Kasım):** her işi Opus'a vermek zorunlu değil; alt ajanın modelini
 yönetici seçer (Pro planda sınır sık doluyor). Uygulanan ölçüt: kalıbı kurulmuş, fixture + test ile
 korunan ve yöneticinin denetlediği işler (yeni market kaynağı, küçük düzeltme, belge) Sonnet 5.5 ile;
