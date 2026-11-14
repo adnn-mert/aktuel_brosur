@@ -18,7 +18,8 @@ import time
 import uuid
 from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass, field, replace
-from datetime import date, datetime, timedelta
+from datetime import UTC, date, datetime, timedelta
+from datetime import time as dt_time
 from pathlib import Path
 from typing import Any
 
@@ -93,7 +94,8 @@ class RunReport:
     # True when the output passed every check (and, unless dry_run, replaced out_dir).
     output_ok: bool
     dry_run: bool
-    # Without a previous catalog every brochure counts as new; notifiers should not fire.
+    # No previous catalog at all. ``new_brochure_ids`` never lists a chain's first-run
+    # brochures (see ``backfill_first_seen``), so it is empty on such a run.
     first_run: bool
     output_error: str | None = None
     brochure_count: int = 0
@@ -275,7 +277,9 @@ class _Run:
             if run.ok:
                 ids = [e.brochure.id for e in chain_entries if e.fresh]
                 visible.update(ids)
-                fresh_ids[info.id] = ids
+                # A chain's first successful run fills in what is already out; that is not news.
+                if old:
+                    fresh_ids[info.id] = ids
 
         kept = self._prune(entries, visible)
         kept = self._carry_over(kept)
@@ -354,11 +358,13 @@ class _Run:
         duration = _elapsed_ms(started, self.clock())
         entries: list[_Entry] = []
         returned: set[str] = set()
+        chain_first_run = not old
         for brochure in result.brochures:
             products = result.product_files.get(brochure.id)
             before = prev_by_id.get(brochure.id)
             if before is None:
-                brochure = replace(brochure, first_seen=self.now, updated_at=self.now)
+                seen = backfill_first_seen(brochure, self.today, self.now) if chain_first_run else self.now
+                brochure = replace(brochure, first_seen=seen, updated_at=self.now)
             else:
                 same = _content(before, self.previous.products(before)) == _content(brochure, products)
                 brochure = replace(
@@ -504,6 +510,19 @@ def _check_product_file(root: Path, b: dict[str, Any]) -> list[str]:
     if len(data["products"]) != b["product_count"]:
         return [f"{b['products_url']}: {len(data['products'])} products, catalog says {b['product_count']}"]
     return []
+
+
+def backfill_first_seen(brochure: Brochure, today: date, now: datetime) -> datetime:
+    """``first_seen`` for a brochure found on a chain's first run.
+
+    The app marks brochures first seen in the last two days as "Yeni"; a newly added chain
+    would otherwise show every brochure it already had out as new. A brochure that has
+    already started counts as seen when it started (00:00 UTC that day, never after
+    ``now``); one that has not started, or has no date, is seen now.
+    """
+    if brochure.valid_from is None or brochure.valid_from > today:
+        return now
+    return min(datetime.combine(brochure.valid_from, dt_time(0), tzinfo=UTC), now)
 
 
 def is_expired(brochure: Brochure, visible: set[str], today: date, now: datetime) -> bool:

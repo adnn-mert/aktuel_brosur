@@ -9,14 +9,17 @@ product tabs with the same section and date become one brochure.
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass, field
+from collections.abc import Callable, Iterable
+from dataclasses import dataclass, field, replace
 from datetime import date, datetime, timedelta
-from urllib.parse import urljoin
+from posixpath import basename
+from urllib.parse import urljoin, urlsplit
 
 from selectolax.lexbor import LexborHTMLParser, LexborNode
 
 from scraper.core.dates import DateRange, parse_date_label
 from scraper.core.ids import brochure_id, slugify
+from scraper.core.images import fetch_image_size
 from scraper.core.models import Brochure, BrochureKind, Page, Product, ProductFile
 from scraper.core.prices import parse_price_minor
 from scraper.core.source import SourceContext, SourceError, SourceResult, fetch, products_path
@@ -28,6 +31,8 @@ POSTERS_URL = "https://www.bim.com.tr/Categories/680/afisler.aspx"
 
 _IMAGE_URL = re.compile(r"^https://[^\s]+\.(?:jpe?g|png|webp)$", re.IGNORECASE)
 _GROUP_CLASS = re.compile(r"\bgrup(\d+)\b")
+# Small poster copies are the full-size file name with this prefix (about 40 KB each).
+THUMBNAIL_PREFIX = "k_"
 
 AKTUEL_SECTION = "aktuel"
 # A one-day Aktüel heading ("13 Kasım Cuma") is the day sales start, not the only day:
@@ -227,6 +232,44 @@ class _Draft:
         )
 
 
+def known_cover_sizes(previous: Iterable[Brochure]) -> dict[str, tuple[int, int]]:
+    """Cover sizes already measured in the previous run, by URL; those are not requested again."""
+    return {b.cover.url: (b.cover.w, b.cover.h) for b in previous if b.cover and b.cover.w and b.cover.h}
+
+
+def add_cover_sizes(
+    brochures: list[Brochure],
+    known: dict[str, tuple[int, int]],
+    measure: Callable[[str], tuple[int, int] | None],
+) -> tuple[list[Brochure], int]:
+    """Fill in ``w``/``h`` of ``k_`` thumbnail covers; returns the brochures and how many stay unknown.
+
+    Full-size posters (used as pages, or as a cover when a group has no thumbnail) are never
+    measured: that would mean one more large download per poster on every new set.
+    """
+    sizes: dict[str, tuple[int, int] | None] = dict(known)
+    out: list[Brochure] = []
+    missing = 0
+    for b in brochures:
+        cover = b.cover
+        if cover is None or cover.w is not None or not _is_thumbnail(cover.url):
+            out.append(b)
+            continue
+        if cover.url not in sizes:
+            sizes[cover.url] = measure(cover.url)
+        size = sizes[cover.url]
+        if size is None:
+            missing += 1
+            out.append(b)
+        else:
+            out.append(replace(b, cover=Page(cover.url, *size)))
+    return out, missing
+
+
+def _is_thumbnail(url: str) -> bool:
+    return basename(urlsplit(url).path).startswith(THUMBNAIL_PREFIX)
+
+
 def validity(section: str, label: str, today: date) -> DateRange | None:
     """Validity of a brochure: the label's dates, with one-day Aktüel starts extended."""
     dates = parse_date_label(label, today)
@@ -315,6 +358,10 @@ class BimSource:
         if reused:
             warnings.append(f"{reused} past product tabs reused")
         brochures, files = build_brochures(groups, tab_products, ctx.today, ctx.now)
+        sizes = known_cover_sizes(ctx.previous)
+        brochures, missing = add_cover_sizes(brochures, sizes, lambda url: fetch_image_size(ctx.http, url))
+        if missing:
+            warnings.append(f"{missing} cover sizes could not be read")
         return SourceResult(brochures=brochures, product_files=files, warnings=warnings)
 
     @staticmethod
