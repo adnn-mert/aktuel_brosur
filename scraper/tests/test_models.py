@@ -123,6 +123,34 @@ def test_product_file_round_trip() -> None:
     assert isinstance(pf.products, tuple)
 
 
+def test_member_price_round_trip() -> None:
+    with_member = Product(name="Ekmek", price_minor=9995, member_price_minor=7795, member_price_label="Money ile")
+    plain = Product(name="Su", price_minor=500)
+    data = ProductFile("migros-migroskop-910", (with_member, plain)).to_dict()
+    validate_products(data)
+    first, second = data["products"]
+    assert (first["member_price_minor"], first["member_price_label"]) == (7795, "Money ile")
+    # Unset, the fields are left out, so files look exactly as before they existed.
+    assert "member_price_minor" not in second and "member_price_label" not in second
+    assert ProductFile.from_dict(data).products == (with_member, plain)
+
+
+def test_product_without_member_fields_reads_as_none() -> None:
+    old_style = {
+        "name": "Çay",
+        "brand": None,
+        "quantity_text": None,
+        "price_minor": 100,
+        "old_price_minor": None,
+        "image": None,
+        "page_index": None,
+        "source_url": None,
+    }
+    product = Product.from_dict(old_style)
+    assert (product.member_price_minor, product.member_price_label) == (None, None)
+    assert product.to_dict() == old_style
+
+
 def test_source_health_round_trip() -> None:
     s = SourceHealth("bim", False, None, "HTTP 403", 1, 0, 1520)
     assert SourceHealth.from_dict(s.to_dict()) == s

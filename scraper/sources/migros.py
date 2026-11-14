@@ -1,4 +1,4 @@
-"""Migros: the current Migroskop and 5M Migroskop issues as priced product lists.
+"""Migros: the current Migroskop issue as a priced product list.
 
 Dates and the issue number come from money.com.tr; the products come from the Migroskop
 viewer (server-rendered HTML with one ``div.product`` card per product). The viewer itself
@@ -7,11 +7,15 @@ e.g. ``910MIGROSKOP72YIL_migroskop_kapak1``) is checked against the issue money.
 lists; when they disagree the source fails rather than publish products under the wrong
 dates.
 
+The 5M Migroskop issue is not taken: its product cards are exactly the Migroskop ones, and
+two identical lists would only confuse. Brochures of publications no longer taken are
+retired from the previous output instead of lingering as archive.
+
 Prices: a card prints either one shelf price, or the shelf price plus a lower
-"MONEY'Lİ FİYAT" that only Money members pay. The catalog has a single price field, so the
-shelf price everyone pays is published and the member price is left out. Cards without a
-price (only a "%25 indirim" or "2.si %50" badge) and cards with an unknown layout, unit or
-badge are skipped and counted.
+"MONEY'Lİ FİYAT" that only Money members pay. ``price_minor`` is always the shelf price
+everyone pays; the Money price goes to ``member_price_minor`` labelled "Money ile". Cards
+without a price (only a "%25 indirim" or "2.si %50" badge) and cards with an unknown
+layout, unit or badge are skipped and counted.
 """
 
 from __future__ import annotations
@@ -58,19 +62,16 @@ MIGROSKOP = Publication(
     listing_url="https://www.money.com.tr/migroskop-dijital",
     viewer_url="https://migroskop.migros.com.tr/migroskop",
 )
-FIVE_M = Publication(
-    key="5m",
-    title="5M Migroskop",
-    listing_url="https://www.money.com.tr/mc/kataloglarimiz/5m-migroskop-dijital/84",
-    viewer_url="https://migroskop.migros.com.tr/5m-migroskop",
-)
-PUBLICATIONS: tuple[Publication, ...] = (MIGROSKOP, FIVE_M)
+PUBLICATIONS: tuple[Publication, ...] = (MIGROSKOP,)
 
 # Units printed after the kuruş. A per-item price needs no note; a per-kg price does,
-# otherwise "999,00 ₺" next to a sausage reads as the price of the pack.
+# otherwise "999,00 ₺" next to a sausage reads as the price of the pack. This note is the
+# only quantity text: the stock lines ("Stok Adedi: 100.000") tell a shopper nothing and
+# the weight is already in the product name.
 _PER_ITEM_UNITS = frozenset({"", "adet", "paket", "set"})
 _PER_KG_UNITS = frozenset({"kg"})
 PER_KG_NOTE = "kg fiyatı"
+MEMBER_PRICE_LABEL = "Money ile"
 # Badges that do not change what the printed price means. "1 ALANA 1 HEDİYE" gives a
 # second item free, but the printed price is still the price of one.
 _HARMLESS_BADGES = frozenset(
@@ -88,6 +89,8 @@ UNKNOWN_LAYOUT = "unknown price layout"
 UNKNOWN_UNIT = "unknown price unit"
 UNKNOWN_BADGE = "unknown badge"
 NO_NAME = "no name"
+# Member price not written (the product itself is kept with its shelf price).
+MEMBER_NOT_LOWER = "Money price not lower than the shelf price"
 
 
 @dataclass(frozen=True, slots=True)
@@ -103,8 +106,10 @@ class ViewerIssue:
 class ParsedProducts:
     products: tuple[Product, ...]
     skipped: Counter[str]
-    # Products whose card also printed a lower Money-member price (not published).
+    # Products published with a Money member price.
     member_priced: int
+    # Member prices printed but not published, by reason (the products are kept).
+    member_dropped: Counter[str]
     page_count: int
 
 
@@ -152,23 +157,26 @@ def parse_products(html: str) -> ParsedProducts:
         raise SourceError("Migroskop viewer has no pages (page layout may have changed)")
     products: list[Product] = []
     skipped: Counter[str] = Counter()
-    member_priced = 0
+    dropped: Counter[str] = Counter()
     for index, page in enumerate(pages):
         for card in page.css("div.product"):
             parsed = parse_card(card, index)
             if isinstance(parsed, str):
                 skipped[parsed] += 1
                 continue
-            product, has_member_price = parsed
+            product, dropped_member_price = parsed
             products.append(product)
-            member_priced += has_member_price
+            if dropped_member_price:
+                dropped[dropped_member_price] += 1
     if not products and not skipped:
         raise SourceError("Migroskop viewer has no product cards (page layout may have changed)")
-    return ParsedProducts(tuple(products), skipped, member_priced, len(pages))
+    member_priced = sum(1 for p in products if p.member_price_minor is not None)
+    return ParsedProducts(tuple(products), skipped, member_priced, dropped, len(pages))
 
 
-def parse_card(card: LexborNode, page_index: int) -> tuple[Product, bool] | str:
-    """A product and whether a member price was left out, or the reason the card is skipped."""
+def parse_card(card: LexborNode, page_index: int) -> tuple[Product, str | None] | str:
+    """The product and why its printed member price was not kept (None if nothing was
+    dropped), or the reason the whole card is skipped."""
     title = card.css_first("h1.title")
     name = text_of(title) if title else ""
     if not name:
@@ -187,6 +195,7 @@ def parse_card(card: LexborNode, page_index: int) -> tuple[Product, bool] | str:
     elif len(blocks) == 2 and len(labels) == 1 and _MEMBER_PRICE_LABEL in labels[0]:
         has_member_price = True
     else:
+        # Two prices without the Money label: which one is the shelf price is unknown.
         return UNKNOWN_LAYOUT
 
     read = [_read_price(b) for b in blocks]
@@ -194,9 +203,6 @@ def parse_card(card: LexborNode, page_index: int) -> tuple[Product, bool] | str:
         return UNREADABLE_PRICE
     prices = [r[0] for r in read if r]
     units = {r[1] for r in read if r}
-    # The member price must be the lower one; anything else means we misread the card.
-    if has_member_price and not prices[1] < prices[0]:
-        return UNKNOWN_LAYOUT
     if units <= _PER_ITEM_UNITS:
         unit_note = None
     elif units <= _PER_KG_UNITS | {""}:
@@ -204,20 +210,28 @@ def parse_card(card: LexborNode, page_index: int) -> tuple[Product, bool] | str:
     else:
         return UNKNOWN_UNIT
 
-    stock = card.css_first("small.stock-info")
-    notes = [n for n in (unit_note, text_of(stock) if stock else "") if n]
+    member_price: int | None = None
+    dropped: str | None = None
+    if has_member_price:
+        # A member price that is not lower means we misread it: keep only the shelf price.
+        if prices[1] < prices[0]:
+            member_price = prices[1]
+        else:
+            dropped = MEMBER_NOT_LOWER
     image = card.css_first("div.image img")
     product = Product(
         name=name,
         price_minor=prices[0],
         brand=None,
-        quantity_text=" · ".join(notes) or None,
+        quantity_text=unit_note,
         old_price_minor=None,
         image=https_url(first_attr(image, "data-src", "src")) if image else None,
         page_index=page_index,
         source_url=None,
+        member_price_minor=member_price,
+        member_price_label=MEMBER_PRICE_LABEL if member_price is not None else None,
     )
-    return product, has_member_price
+    return product, dropped
 
 
 def build_brochure(
@@ -323,5 +337,20 @@ class MigrosSource:
                 reasons = ", ".join(f"{n} {why}" for why, n in sorted(parsed.skipped.items()))
                 warnings.append(f"{pub.title}: {sum(parsed.skipped.values())} products skipped ({reasons})")
             if parsed.member_priced:
-                warnings.append(f"{pub.title}: {parsed.member_priced} Money member prices left out")
-        return SourceResult(brochures=brochures, product_files=files, warnings=warnings)
+                warnings.append(f"{pub.title}: {parsed.member_priced} Money prices")
+            if parsed.member_dropped:
+                reasons = ", ".join(f"{n} {why}" for why, n in sorted(parsed.member_dropped.items()))
+                warnings.append(f"{pub.title}: Money price not written for {reasons}")
+        retired = retired_brochure_ids(ctx.previous, self.publications)
+        if retired:
+            warnings.append(f"retired {len(retired)} brochures of publications no longer taken")
+        return SourceResult(brochures=brochures, product_files=files, warnings=warnings, retired_ids=retired)
+
+
+def retired_brochure_ids(previous: tuple[Brochure, ...], publications: tuple[Publication, ...]) -> frozenset[str]:
+    """Previous brochures of publications no longer taken (e.g. ``migros-5m-286``).
+
+    Without this the pipeline would keep them as archive for four more weeks.
+    """
+    prefixes = tuple(f"{CHAIN_ID}-{p.key}-" for p in publications)
+    return frozenset(b.id for b in previous if not b.id.startswith(prefixes))

@@ -79,7 +79,7 @@ def validate_catalog(data: Any) -> None:
 
 
 def validate_products(data: Any) -> None:
-    _run("products", data, None)
+    _run("products", data, _products_consistency)
 
 
 def validate_health(data: Any) -> None:
@@ -210,6 +210,14 @@ def _catalog_consistency(data: dict[str, Any]) -> Iterator[str]:
 
         if b["valid_from"] and b["valid_to"] and b["valid_from"] > b["valid_to"]:
             yield f"{at}.valid_from{hint}: {b['valid_from']} is after valid_to {b['valid_to']}"
+
+
+def _products_consistency(data: dict[str, Any]) -> Iterator[str]:
+    # JSON Schema cannot compare two fields; a member price that is not lower is a misread card.
+    for i, p in enumerate(data["products"]):
+        member = p.get("member_price_minor")
+        if member is not None and member >= p["price_minor"]:
+            yield f"products[{i}].member_price_minor: {member} must be lower than price_minor {p['price_minor']}"
 
 
 def _health_consistency(data: dict[str, Any]) -> Iterator[str]:

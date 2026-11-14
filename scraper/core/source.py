@@ -43,6 +43,9 @@ class SourceResult:
     product_files: dict[str, ProductFile] = field(default_factory=dict)
     # Non-fatal remarks shown in the run summary, e.g. "3 products skipped".
     warnings: list[str] = field(default_factory=list)
+    # Previous brochures to delete now instead of keeping them as archive, e.g. those of a
+    # publication we stopped taking. Only honoured when the run succeeds.
+    retired_ids: frozenset[str] = frozenset()
 
 
 class Source(Protocol):

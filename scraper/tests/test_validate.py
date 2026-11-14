@@ -275,6 +275,62 @@ def test_bad_product_is_rejected(products, field: str, value: Any) -> None:
     assert f"products[2].{field}" in _errors(validate_products, products)
 
 
+def _with_member(products: dict[str, Any], index: int, **fields: Any) -> dict[str, Any]:
+    product = products["products"][index]
+    for key, value in fields.items():
+        if value is ...:
+            product.pop(key, None)
+        else:
+            product[key] = value
+    return products
+
+
+def test_member_price_filled_together_is_valid(products) -> None:
+    # Product 1 costs 329,95 for everyone.
+    validate_products(_with_member(products, 1, member_price_minor=29995, member_price_label="Money ile"))
+
+
+def test_member_price_both_null_or_absent_is_valid(products) -> None:
+    validate_products(_with_member(products, 1, member_price_minor=None, member_price_label=None))
+    validate_products(_with_member(products, 1, member_price_minor=..., member_price_label=...))
+
+
+def test_files_without_member_price_fields_are_still_valid(products) -> None:
+    # Files written before the fields existed (schema_version 1) must stay valid.
+    for p in products["products"]:
+        p.pop("member_price_minor", None)
+        p.pop("member_price_label", None)
+    validate_products(products)
+
+
+@pytest.mark.parametrize(
+    "fields",
+    [
+        {"member_price_minor": 29995},
+        {"member_price_minor": 29995, "member_price_label": None},
+        {"member_price_label": "Money ile"},
+        {"member_price_label": "Money ile", "member_price_minor": None},
+    ],
+)
+def test_member_price_needs_both_fields(products, fields: dict[str, Any]) -> None:
+    errors = _errors(validate_products, _with_member(products, 1, **fields))
+    assert "products[1].member_price_" in errors
+
+
+@pytest.mark.parametrize(
+    ("fields", "message"),
+    [
+        ({"member_price_minor": 32995, "member_price_label": "Money ile"}, "must be lower than price_minor 32995"),
+        ({"member_price_minor": 40000, "member_price_label": "Money ile"}, "must be lower than price_minor"),
+        ({"member_price_minor": -1, "member_price_label": "Money ile"}, "products[1].member_price_minor"),
+        ({"member_price_minor": 299.5, "member_price_label": "Money ile"}, "products[1].member_price_minor"),
+        ({"member_price_minor": 29995, "member_price_label": " "}, "products[1].member_price_label"),
+    ],
+)
+def test_bad_member_price_is_rejected(products, fields: dict[str, Any], message: str) -> None:
+    assert message in _errors(validate_products, _with_member(products, 1, **fields))
+
+
 @pytest.mark.parametrize(("field", "value"), [("currency", "tl"), ("schema_version", 2), ("brochure_id", "Migros 910")])
 def test_bad_product_file_root_is_rejected(products, field: str, value: Any) -> None:
     products[field] = value

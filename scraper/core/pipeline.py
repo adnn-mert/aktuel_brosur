@@ -374,8 +374,10 @@ class _Run:
                 )
             entries.append(_Entry(brochure, products, fresh=True))
             returned.add(brochure.id)
-        # Brochures the site no longer lists stay as archive until they expire.
-        entries.extend(_Entry(b, None, fresh=False) for b in old if b.id not in returned)
+        # Brochures the site no longer lists stay as archive until they expire, unless the
+        # source retires them (their files are then swept from the output).
+        retired = result.retired_ids - returned
+        entries.extend(_Entry(b, None, fresh=False) for b in old if b.id not in returned and b.id not in retired)
         count = len(result.brochures)
         return (
             _chain(info, ChainStatus.OK, self.now),

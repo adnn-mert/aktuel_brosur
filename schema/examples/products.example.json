@@ -11,7 +11,9 @@
       "old_price_minor": 18950,
       "image": "https://migroskop.migros.com.tr/uploads/products/910/torku-banada-700g.jpg",
       "page_index": null,
-      "source_url": "https://migroskop.migros.com.tr/migroskop"
+      "source_url": "https://migroskop.migros.com.tr/migroskop",
+      "member_price_minor": 12950,
+      "member_price_label": "Money ile"
     },
     {
       "name": "Ayçiçek Yağı",
@@ -26,12 +28,14 @@
     {
       "name": "Dana Kıyma",
       "brand": null,
-      "quantity_text": "kg",
+      "quantity_text": "kg fiyatı",
       "price_minor": 59900,
       "old_price_minor": 64900,
       "image": null,
       "page_index": null,
-      "source_url": "https://migroskop.migros.com.tr/migroskop"
+      "source_url": "https://migroskop.migros.com.tr/migroskop",
+      "member_price_minor": 54900,
+      "member_price_label": "Money ile"
     },
     {
       "name": "Tam Yağlı Süt",
@@ -61,7 +65,9 @@
       "old_price_minor": 14990,
       "image": "https://migroskop.migros.com.tr/uploads/products/910/fairy-limon-1-5l.jpg",
       "page_index": null,
-      "source_url": "https://migroskop.migros.com.tr/migroskop"
+      "source_url": "https://migroskop.migros.com.tr/migroskop",
+      "member_price_minor": 9990,
+      "member_price_label": "Money ile"
     },
     {
       "name": "Çikolatalı Gofret",

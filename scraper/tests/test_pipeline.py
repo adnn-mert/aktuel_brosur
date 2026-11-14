@@ -277,6 +277,22 @@ def test_brochure_gone_from_source_stays_as_archive(tmp_path) -> None:
     assert len(load(tmp_path, "products/bim-old.json")["products"]) == 1
 
 
+def test_retired_brochures_are_not_kept_as_archive(tmp_path) -> None:
+    do_run(tmp_path, [FakeSource("sok", media_source("x", "y", "z"))])
+    assert (tmp_path / "out/media/sok/sok-y/p01.webp").is_file()
+
+    def retire(ctx: SourceContext) -> SourceResult:
+        result = media_source("x", "z")(ctx)
+        # "sok-z" is returned as well, so it stays; an unknown id is simply ignored.
+        result.retired_ids = frozenset({"sok-y", "sok-z", "sok-unknown"})
+        return result
+
+    report = do_run(tmp_path, [FakeSource("sok", retire)], now=T0 + timedelta(hours=1))
+    assert report.written
+    assert ids(load(tmp_path)) == ["sok-x", "sok-z"]
+    assert not (tmp_path / "out/media/sok/sok-y").exists()
+
+
 def test_new_brochure_ids(tmp_path) -> None:
     source = FakeSource("bim", static(brochure("bim", "a")))
     # The chain's first run is not news (see test_first_seen_on_a_chains_first_run).

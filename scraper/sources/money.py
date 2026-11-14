@@ -1,4 +1,4 @@
-"""money.com.tr catalogue pages, shared by the Migros (Migroskop, 5M) and Macrocenter sources.
+"""money.com.tr catalogue pages, shared by the Migros (Migroskop) and Macrocenter sources.
 
 Each page opens with a block for the current issue: a heading ("Güncel Migroskop Dijital"),
 the validity printed as "5 - 18 Kasım 2026" (also in an ``mcdate`` attribute), the issue

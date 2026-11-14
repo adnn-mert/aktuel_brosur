@@ -43,8 +43,27 @@
         "old_price_minor": { "type": ["integer", "null"], "minimum": 0 },
         "image": { "anyOf": [{ "$ref": "#/$defs/url" }, { "type": "null" }] },
         "page_index": { "type": ["integer", "null"], "minimum": 0 },
-        "source_url": { "anyOf": [{ "$ref": "#/$defs/httpsUrl" }, { "type": "null" }] }
-      }
+        "source_url": { "anyOf": [{ "$ref": "#/$defs/httpsUrl" }, { "type": "null" }] },
+        "member_price_minor": {
+          "description": "Optional lower price that only members of the chain's loyalty programme pay (e.g. Migros Money). price_minor stays the price everyone pays. Must be lower than price_minor (checked by the scraper's validator).",
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "member_price_label": {
+          "description": "Who pays member_price_minor, shown next to it, e.g. \"Money ile\". Set together with member_price_minor.",
+          "anyOf": [{ "type": "string", "minLength": 1, "pattern": "\\S" }, { "type": "null" }]
+        }
+      },
+      "allOf": [
+        {
+          "if": { "required": ["member_price_minor"], "properties": { "member_price_minor": { "type": "integer" } } },
+          "then": { "required": ["member_price_label"], "properties": { "member_price_label": { "type": "string" } } }
+        },
+        {
+          "if": { "required": ["member_price_label"], "properties": { "member_price_label": { "type": "string" } } },
+          "then": { "required": ["member_price_minor"], "properties": { "member_price_minor": { "type": "integer" } } }
+        }
+      ]
     }
   }
 }
