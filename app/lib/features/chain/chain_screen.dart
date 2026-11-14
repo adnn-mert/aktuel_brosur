@@ -110,15 +110,8 @@ class _BrochureList extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final today = ref.watch(clockProvider).today();
     final lastOk = chain.lastOkAt;
-    // What started most recently is what the reader came for; a flyer that
-    // has been running for months goes below this week's.
-    final current = [...groups.current]
-      ..sort((a, b) {
-        final byStart = (b.validFrom ?? b.firstSeen).compareTo(
-          a.validFrom ?? a.firstSeen,
-        );
-        return byStart != 0 ? byStart : a.id.compareTo(b.id);
-      });
+    // Already newest-start first (the data layer owns the order).
+    final current = groups.current;
 
     List<Widget> section(
       String title,

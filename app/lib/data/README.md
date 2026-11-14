@@ -17,14 +17,14 @@ Bu klasöre (`lib/data/`) arayüz kodu yazmayın; yeni bir veri ihtiyacı olursa
 | `orderedChainsProvider` | `AsyncValue<List<Chain>>` | Ana ekran sırası: favoriler önce, sonra `sortOrder`, sonra Türkçe ad sırası. Web görünümü zincirleri de dahil. |
 | `chainSummaryProvider(chainId)` | `AsyncValue<ChainSummary?>` | Kart özeti: `currentCount`, `upcomingCount`, `pastCount`, `isNew`, `isStale`, `isWebView`, `hasBrochures`, `latestFirstSeen`. |
 | `chainProvider(chainId)` | `AsyncValue<Chain?>` | Tek zincir (ad, `brandColor`, `logoUrl`, `webUrl`, `kind`). |
-| `brochureGroupsProvider(chainId)` | `AsyncValue<BrochureGroups>` | `current` ("Bu hafta"), `upcoming` ("Gelecek hafta"), `past` ("Geçmiş", son 28 gün). Sıralı gelir. |
+| `brochureGroupsProvider(chainId)` | `AsyncValue<BrochureGroups>` | `current` ("Bu hafta"), `upcoming` ("Gelecek hafta"), `past` ("Geçmiş", son 28 gün). Sıralı gelir (aşağıya bakın); ekranda yeniden sıralamayın. |
 | `brochureProvider(brochureId)` | `AsyncValue<Brochure?>` | Tek broşür (sayfalar, kapak, tarih). `null` = artık yok (süresi dolup silinmiş). |
 | `productsProvider(brochureId)` | `AsyncValue<ProductFile>` (FutureProvider) | Ürün listesi; ilk izlendiğinde iner, diske önbelleklenir, ekran kapanınca bellekten atılır. |
 | `favoritesProvider` | `AsyncValue<Set<String>>` | Favori zincir kimlikleri. `.notifier.toggle(chainId)` → `Future<bool>` (kaydedilemezse geri alır, `false`). |
 | `isFavoriteProvider(chainId)` | `bool` | Yıldız simgesi için kısa yol. |
 | `appUpdateRequiredProvider` | `bool` | Yayınlanan veri bu uygulamadan yeni bir sürüm istiyor → "uygulamayı güncelleyin" uyarısı. |
 | `catalogRepositoryProvider` | `CatalogRepository` | Ekranlar yalnızca `resolve(url)` için kullanır. |
-| `clockProvider` | `Clock` | `today()`; tarih metni için. Testte `Clock.fixed(...)` ile sabitlenir. |
+| `clockProvider` | `Clock` | `today()`; tarih metni için. Testte `Clock.fixed(...)` ile sabitlenir. Gün değişince kök bileşen yeniler (aşağıya bakın). |
 
 Katalogdan türeyen bütün sağlayıcılar `catalogProvider`'ın durumunu yansıtır: ilk açılışta
 *yükleniyor*, hiçbir şey yüklenemediyse *hata*, aksi halde *veri*. Yenileme sırasında ve yenileme
@@ -48,7 +48,16 @@ RefreshIndicator(
 ```
 
 **Market ekranı:** `chainProvider(id)` başlık/renk için, `brochureGroupsProvider(id)` üç bölüm için.
-`chain.isWebView` ise broşür listesi yerine web görünümüne git. Kart tarihi:
+`chain.isWebView` ise broşür listesi yerine web görünümüne git. Bölümler veri katmanında sıralanır:
+
+- **Bu hafta (`current`):** en yeni başlayan en üstte (`valid_from` azalan). Aynı gün başlayanlarda
+  daha erken biten önce (bitişi açık olan sonra), sonra başlık (Türkçe alfabe). `valid_from` boş
+  olanlar en sonda. Gerekçe: BİM'de aynı anda ~10 geçerli broşür olabiliyor; "24 Mart – 31 Aralık"
+  gibi aylardır süren bir kampanya bu haftanın aktüelini aşağı itmemeli.
+- **Gelecek hafta (`upcoming`):** en yakın başlayan önce, sonra başlık.
+- **Geçmiş (`past`):** en son biten önce, sonra başlık.
+
+Kart tarihi:
 
 ```dart
 final today = ref.watch(clockProvider).today();
@@ -94,6 +103,21 @@ return chains.when(
 - `source == CatalogSource.bundledSample`: geliştirme yapısı, gömülü örnek veri.
 - Ürün hataları: `ProductsUnavailableException` (internet yok ve önbellek yok) ya da
   `CatalogFormatException`.
+
+## Gün değişimi ve sessiz yenileme
+
+Kök bileşeni saran `DayAndCatalogRefresher` (`lib/features/app/data_refresher.dart`) şunları yapar;
+ekranların bir şey yapması gerekmez, `clockProvider` / `catalogProvider` izlemeleri yeter:
+
+- Uygulama öne gelince (`AppLifecycleState.resumed`) takvim günü değiştiyse
+  `ref.invalidate(clockProvider)`: "Bugün …", kart tarihleri ve Bu hafta / Gelecek hafta / Geçmiş
+  gruplaması yeniden hesaplanır.
+- Aynı anda katalog `catalogMaxAge` (30 dk) süresinden eskiyse (`fetchedAt`'e göre; hiç alınmamışsa
+  da) `catalogProvider.notifier.refresh()` çağrılır. Eldeki veri ekranda kalır, hata gösterilmez.
+- Uygulama açıkken gece yarısı geçilirse bir sonraki gece yarısına kurulan zamanlayıcı günü yeniler.
+
+Kararlar saf fonksiyonlardır (`freshness.dart`): `shouldRefreshCatalog(lastFetchedAt, now)`,
+`dayChanged(previous, now)`, `untilNextDay(now)`.
 
 ## Adres çözümleme (`resolve`)
 

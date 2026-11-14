@@ -10,6 +10,7 @@ export 'cache_store.dart' show CacheEntry, CacheStore, MemoryCacheStore;
 export 'catalog_repository.dart';
 export 'errors.dart';
 export 'favorites_store.dart';
+export 'freshness.dart';
 export 'models/brochure.dart';
 export 'models/catalog.dart';
 export 'models/chain.dart';

@@ -356,10 +356,8 @@ Test altyapısı: `test/ui/support.dart` (`pumpUi`, `FakeRepository`, `TestImage
 
 ## 13. Açık noktalar ve sonraya kalanlar
 
-- **"Bu hafta" sırası:** veri katmanı güncel broşürleri başlangıç tarihine göre eskiden yeniye verir;
-  BİM'de aylardır süren broşür en üste çıkıyordu. Market ekranı bu yüzden "Bu hafta" bölümünü
-  yeniden, en yeni başlayan üstte olacak biçimde sıralar (`chain_screen.dart`). Doğru yeri veri
-  katmanıdır; oraya taşınınca buradaki sıralama silinir.
+- **"Bu hafta" sırası:** veri katmanı (`groupBrochures`) en yeni başlayanı üstte verir; market
+  ekranı yeniden sıralamaz (kural `lib/data/README.md` içinde).
 - **"Yeni" rozeti:** kazıyıcı ilk kez çalıştığında bütün broşürler "Yeni" görünür (hepsi aynı gün
   görülmüş olur); birkaç gün içinde kendiliğinden düzelir.
 - **Uzun kataloglarda sayfaya atlama:** Watsons 46 sayfa; şu an yalnızca oklarla ve kaydırarak
