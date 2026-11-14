@@ -229,9 +229,13 @@ class Product:
     image: str | None = None
     page_index: int | None = None
     source_url: str | None = None
+    # A lower price only loyalty members pay (Migros "Money ile"); price_minor stays the
+    # price everyone pays. Both are set together or not at all.
+    member_price_minor: int | None = None
+    member_price_label: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
-        return {
+        out: dict[str, Any] = {
             "name": self.name,
             "brand": self.brand,
             "quantity_text": self.quantity_text,
@@ -241,6 +245,12 @@ class Product:
             "page_index": self.page_index,
             "source_url": self.source_url,
         }
+        # Optional in the schema: omitted rather than null, so older files stay unchanged.
+        if self.member_price_minor is not None:
+            out["member_price_minor"] = self.member_price_minor
+        if self.member_price_label is not None:
+            out["member_price_label"] = self.member_price_label
+        return out
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> Self:
@@ -253,6 +263,8 @@ class Product:
             image=data["image"],
             page_index=data["page_index"],
             source_url=data["source_url"],
+            member_price_minor=data.get("member_price_minor"),
+            member_price_label=data.get("member_price_label"),
         )
 
 

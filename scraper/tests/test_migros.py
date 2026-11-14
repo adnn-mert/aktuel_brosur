@@ -3,23 +3,25 @@ from __future__ import annotations
 import json
 from collections import Counter
 from dataclasses import replace
-from datetime import UTC, date, datetime
+from datetime import UTC, date, datetime, timedelta
 
 import pytest
 
 from scraper.chains import CHAINS
 from scraper.core.dates import DateRange
 from scraper.core.media import MediaWriter
-from scraper.core.models import BrochureKind, Product
+from scraper.core.models import Brochure, BrochureKind, Page, Product, ProductFile
 from scraper.core.pipeline import run
-from scraper.core.source import SourceContext, SourceError
+from scraper.core.source import SourceContext, SourceError, products_path
 from scraper.core.validate import validate_catalog, validate_products
 from scraper.sources import migros
 from scraper.sources.migros import (
-    FIVE_M,
+    MEMBER_NOT_LOWER,
+    MEMBER_PRICE_LABEL,
     MIGROSKOP,
     NO_PRICE,
     PER_KG_NOTE,
+    PUBLICATIONS,
     UNKNOWN_BADGE,
     UNKNOWN_LAYOUT,
     UNKNOWN_UNIT,
@@ -32,6 +34,7 @@ from scraper.sources.migros import (
     parse_card,
     parse_products,
     parse_viewer_issue,
+    retired_brochure_ids,
 )
 from scraper.sources.money import heading_names, parse_current_issue, size_from_name
 from scraper.tests.conftest import fixture_text, mock_http
@@ -43,10 +46,8 @@ COVER_910 = (
     "https://migroskop-assets.migros.com.tr/migrosdigitalinsert/910MIGROSKOP72YIL_migroskop_kapak1/Cover/"
     "183b2f00-a36e-4f86-ad87-507620ede1dd_743x1024.jpg"
 )
-COVER_286 = (
-    "https://migroskop-assets.migros.com.tr/migrosdigitalinsert/286%205M%20MIGROSKOP72YIL_migroskop_kapak1/Cover/"
-    "703ec860-9438-44fe-a698-2c6ddca4c351_743x1024.jpg"
-)
+FIVE_M_LISTING = "https://www.money.com.tr/mc/kataloglarimiz/5m-migroskop-dijital/84"
+FIVE_M_VIEWER = "https://migroskop.migros.com.tr/5m-migroskop"
 
 
 def _page(name: str) -> str:
@@ -54,12 +55,11 @@ def _page(name: str) -> str:
 
 
 def _routes() -> dict[str, object]:
-    return {
-        MIGROSKOP.listing_url: _page("migroskop-dijital.html"),
-        MIGROSKOP.viewer_url: _page("migroskop.html"),
-        FIVE_M.listing_url: _page("5m-migroskop-dijital.html"),
-        FIVE_M.viewer_url: _page("5m-migroskop.html"),
-    }
+    return {MIGROSKOP.listing_url: _page("migroskop-dijital.html"), MIGROSKOP.viewer_url: _page("migroskop.html")}
+
+
+def _products() -> dict[str, Product]:
+    return {p.name: p for p in parse_products(_page("migroskop.html")).products}
 
 
 def _card(price_content: str, *, title: str = "Deneme Ürün 1 kg", extra: str = "") -> str:
@@ -78,11 +78,14 @@ def _price(lira: str, kurus: str, unit: str = "") -> str:
     )
 
 
-def _one(html: str) -> Product | str:
+def _money(shelf: str, member: str) -> str:
+    return f'<div class="price-content" name="indirimli-fiyat">{shelf}<h6>MONEY\'Lİ FİYAT</h6>{member}</div>'
+
+
+def _parse(html: str) -> tuple[Product, str | None] | str:
     from selectolax.lexbor import LexborHTMLParser
 
-    result = parse_card(LexborHTMLParser(html).css_first("div.product"), 0)
-    return result if isinstance(result, str) else result[0]
+    return parse_card(LexborHTMLParser(html).css_first("div.product"), 0)
 
 
 # --- money.com.tr ----------------------------------------------------------------------
@@ -96,13 +99,8 @@ def test_current_issue_migroskop() -> None:
     assert issue.pdf_url is None
     assert issue.cover_url and "issue_cover_thumbnail_250" in issue.cover_url
     assert heading_names(issue.heading, "Migroskop") and not heading_names(issue.heading, "5M Migroskop")
-
-
-def test_current_issue_5m() -> None:
-    issue = parse_current_issue(_page("5m-migroskop-dijital.html"))
-    assert (issue.heading, issue.issue, issue.date_text) == ("Güncel 5M Migroskop Dijital", "286", "5 - 18 Kasım 2026")
-    assert issue.viewer_url == FIVE_M.viewer_url
-    assert heading_names(issue.heading, "5M Migroskop") and not heading_names(issue.heading, "Migroskop")
+    assert heading_names("Güncel 5M Migroskop Dijital", "5M Migroskop")
+    assert not heading_names("Güncel 5M Migroskop Dijital", "Migroskop")
 
 
 @pytest.mark.parametrize("html", ["", "<html><body><h1>Bakım çalışması</h1></body></html>"])
@@ -125,9 +123,6 @@ def test_viewer_issue() -> None:
     assert (viewer.issue, viewer.cover_url) == ("910", COVER_910)
     # Ad folders such as "910 5-18 KASIM MIGROSKOP TERS" carry the dates too.
     assert NOV_5_18 in viewer.folder_dates
-    five_m = parse_viewer_issue(_page("5m-migroskop.html"), TODAY)
-    # The folder name has spaces; the URL is published percent-encoded.
-    assert (five_m.issue, five_m.cover_url) == ("286", COVER_286)
 
 
 def test_products_of_the_viewer() -> None:
@@ -135,19 +130,20 @@ def test_products_of_the_viewer() -> None:
     assert parsed.page_count == 124
     assert len(parsed.products) == 242
     assert parsed.skipped == {NO_PRICE: 21}
-    assert parsed.member_priced == 172
+    assert parsed.member_priced == 172 and parsed.member_dropped == Counter()
     by_name = {p.name: p for p in parsed.products}
 
-    first = parsed.products[0]
-    assert first == Product(
+    assert parsed.products[0] == Product(
         name="Migros Üçgen Peynir 120 g",
         price_minor=5495,
         brand=None,
-        quantity_text="Stok Adedi: 100.000",
+        quantity_text=None,
         old_price_minor=None,
         image="https://migroskop-assets.migros.com.tr/migrosdigitalinsert/10302124/Product/b03ae66d-360f-4f54-911c-f4cb20b9b677_509x512.png",
         page_index=5,
         source_url=None,
+        member_price_minor=None,
+        member_price_label=None,
     )
     # "₺ 135," + "00", "₺ 123," + "95", "₺ 33," + "00": split prices joined.
     assert by_name["Migros Keçiboynuzu Pekmezi 800 g"].price_minor == 13500
@@ -159,39 +155,48 @@ def test_products_of_the_viewer() -> None:
     assert (hipp.price_minor, hipp.page_index) == (139995, 67)
     # A title split with <br> keeps its words apart.
     assert by_name["Tadım Kavrulmuş Siyah Ayçekirdeği 180 g"].price_minor == 4995
-
-
-def test_member_price_is_left_out() -> None:
-    by_name = {p.name: p for p in parse_products(_page("migroskop.html")).products}
-    # Printed: ₺ 99,95 and, under "MONEY'Lİ FİYAT", ₺ 77,95. Only Money members pay 77,95,
-    # so the published price is the one everyone pays, and nothing is shown as "old".
-    bread = by_name["Untad Tam Buğday Ekmeği 400 g"]
-    assert (bread.price_minor, bread.old_price_minor, bread.page_index) == (9995, None, 18)
-    assert bread.quantity_text == "Stok Adedi: 15.000"
-    # Same rule in the "indirimli-fiyat-1" layout variant: ₺ 159,95 and Money ₺ 99,95.
-    towels = by_name["Sleepy Natural Kişisel Bakım Havlusu 100'lü"]
-    assert (towels.price_minor, towels.page_index) == (15995, 67)
     # The site prints no struck-through "old" prices at all.
-    assert all(p.old_price_minor is None for p in by_name.values())
+    assert all(p.old_price_minor is None for p in parsed.products)
 
 
-def test_per_kg_prices_say_so() -> None:
-    by_name = {p.name: p for p in parse_products(_page("migroskop.html")).products}
-    sucuk = by_name["Torku Fermente Kangal Sucuk"]
-    assert (sucuk.price_minor, sucuk.quantity_text) == (99900, f"{PER_KG_NOTE} · Stok Miktarı: 5.000 kg")
-    assert sum(1 for p in by_name.values() if (p.quantity_text or "").startswith(PER_KG_NOTE)) == 19
+@pytest.mark.parametrize(
+    ("name", "shelf", "member", "page"),
+    [
+        # Printed: ₺ 99,95 and, under "MONEY'Lİ FİYAT", ₺ 77,95 ("&nbsp;95").
+        ("Untad Tam Buğday Ekmeği 400 g", 9995, 7795, 18),
+        # The "indirimli-fiyat-1" layout variant.
+        ("Sleepy Natural Kişisel Bakım Havlusu 100'lü", 15995, 9995, 67),
+        # Thousands separator and a per-kg price on both lines.
+        ("Siirt Fıstığı Tuzlu Kavrulmuş", 179900, 149990, 21),
+    ],
+)
+def test_money_price_is_a_labelled_member_price(name: str, shelf: int, member: int, page: int) -> None:
+    p = _products()[name]
+    # price_minor stays what everyone pays; the Money price is a separate, labelled field.
+    assert (p.price_minor, p.member_price_minor, p.member_price_label) == (shelf, member, MEMBER_PRICE_LABEL)
+    assert (p.old_price_minor, p.page_index) == (None, page)
+
+
+def test_quantity_text_is_only_the_per_kg_note() -> None:
+    products = _products()
+    sucuk = products["Torku Fermente Kangal Sucuk"]
+    assert (sucuk.price_minor, sucuk.quantity_text) == (99900, PER_KG_NOTE)
+    assert products["Siirt Fıstığı Tuzlu Kavrulmuş"].quantity_text == "kg fiyatı"
+    assert Counter(p.quantity_text for p in products.values()) == {None: 223, PER_KG_NOTE: 19}
+    # Stock lines ("Stok Adedi: 100.000", "Stoklarla Sınırlıdır.") are not published.
+    assert not any("Stok" in (p.quantity_text or "") for p in products.values())
 
 
 def test_harmless_badges_keep_the_product() -> None:
-    by_name = {p.name: p for p in parse_products(_page("migroskop.html")).products}
+    products = _products()
     # "1 ALANA 1 HEDİYE": the printed price is still the price of one bag.
-    assert by_name["Fropie Cips Ürünleri"].price_minor == 7490
+    assert products["Fropie Cips Ürünleri"].price_minor == 7490
     # "İlk kez Migros'ta" badge.
-    assert by_name["Premialle Yüksek Proteinli Puding Çeşitleri 200 g"].price_minor == 7500
+    assert products["Premialle Yüksek Proteinli Puding Çeşitleri 200 g"].price_minor == 7500
 
 
 def test_badge_only_cards_are_skipped() -> None:
-    names = {p.name for p in parse_products(_page("migroskop.html")).products}
+    names = set(_products())
     # "% 25 indirim" with no price, and "2.si %70 iNDiRiMLi" with no price.
     assert "Pol's Ürünlerinde" not in names
     assert "Omo Sıvı Bebek Deterjanı 1.5 l/Yumoş Bebek Yumuşatıcı 1.2 l" not in names
@@ -203,9 +208,7 @@ def test_badge_only_cards_are_skipped() -> None:
         ('<div class="price-content">' + _price("12,", "50", "Lt") + "</div>", "", UNKNOWN_UNIT),
         ('<div class="price-content">' + _price("12", "50") + "</div>", "", UNREADABLE_PRICE),
         ('<div class="price-content">' + _price("12,", "5") + "</div>", "", UNREADABLE_PRICE),
-        # A member price that is not lower means the card was misread.
-        ('<div class="price-content">' + _price("10,", "00") + "<h6>MONEY'Lİ FİYAT</h6>" + _price("12,", "00") + "</div>", "", UNKNOWN_LAYOUT),
-        # Two prices without the Money label: unknown meaning.
+        # Two prices without the Money label: which one is the shelf price is unknown.
         ('<div class="price-content">' + _price("10,", "00") + _price("8,", "00") + "</div>", "", UNKNOWN_LAYOUT),
         ('<div class="price-content">' + _price("10,", "00") + "<h6>2 ADET</h6>" + _price("8,", "00") + "</div>", "", UNKNOWN_LAYOUT),
         ('<div class="price-content">' + _price("10,", "00") + "</div>", '<div class="mbadge" name="x-al-y-ode"></div>', UNKNOWN_BADGE),
@@ -213,13 +216,20 @@ def test_badge_only_cards_are_skipped() -> None:
     ],
 )
 def test_doubtful_cards_are_skipped(price_content: str, extra: str, expected: str) -> None:
-    assert _one(_card(price_content, extra=extra)) == expected
+    assert _parse(_card(price_content, extra=extra)) == expected
+
+
+def test_member_price_not_lower_is_dropped_but_the_product_stays() -> None:
+    product, dropped = _parse(_card(_money(_price("10,", "00"), _price("12,", "00"))))
+    assert (product.price_minor, product.member_price_minor, product.member_price_label) == (1000, None, None)
+    assert dropped == MEMBER_NOT_LOWER
+    product, dropped = _parse(_card(_money(_price("10,", "00"), _price("10,", "00"))))
+    assert (product.member_price_minor, dropped) == (None, MEMBER_NOT_LOWER)
 
 
 def test_plain_synthetic_card() -> None:
-    product = _one(_card('<div class="price-content">' + _price("1.249,", "90", "Adet") + "</div>"))
-    assert isinstance(product, Product)
-    assert (product.price_minor, product.quantity_text) == (124990, "Stok Adedi: 1.000")
+    product, dropped = _parse(_card('<div class="price-content">' + _price("1.249,", "90", "Adet") + "</div>"))
+    assert (product.price_minor, product.quantity_text, product.member_price_minor, dropped) == (124990, None, None, None)
 
 
 @pytest.mark.parametrize("html", ["", "<html><body><p>Bakım çalışması</p></body></html>"])
@@ -250,6 +260,7 @@ def test_build_brochure() -> None:
     assert brochure.source_url == "https://migroskop.migros.com.tr/migroskop"
     assert (brochure.products_url, brochure.product_count) == ("products/migros-migroskop-910.json", 242)
     assert products.brochure_id == brochure.id and len(products.products) == 242
+    validate_products(products.to_dict())
 
 
 def test_mismatched_issue_is_a_source_error() -> None:
@@ -279,9 +290,39 @@ def test_unreadable_dates_are_a_source_error() -> None:
 
 def test_brochure_ids() -> None:
     assert issue_brochure_id(MIGROSKOP, "910", NOV_5_18) == "migros-migroskop-910"
-    assert issue_brochure_id(FIVE_M, "286", NOV_5_18) == "migros-5m-286"
-    assert issue_brochure_id(FIVE_M, None, NOV_5_18) == "migros-5m-2026-11-05-2026-11-18"
+    assert issue_brochure_id(MIGROSKOP, None, NOV_5_18) == "migros-migroskop-2026-11-05-2026-11-18"
     assert issue_brochure_id(MIGROSKOP, "Kasım", NOV_5_18) == "migros-migroskop-2026-11-05-2026-11-18"
+
+
+# --- 5M is not taken -------------------------------------------------------------------
+
+
+def test_only_migroskop_is_taken() -> None:
+    assert PUBLICATIONS == (MIGROSKOP,)
+
+
+def _old(bid: str) -> Brochure:
+    return Brochure(
+        id=bid,
+        chain_id="migros",
+        title="5M Migroskop",
+        date_label="5 - 18 Kasım 2026",
+        valid_from=date(2026, 11, 5),
+        valid_to=date(2026, 11, 18),
+        kind=BrochureKind.PRODUCTS,
+        cover=Page(COVER_910, 743, 1024),
+        pages=(),
+        products_url=products_path(bid),
+        product_count=1,
+        source_url=FIVE_M_VIEWER,
+        first_seen=NOW,
+        updated_at=NOW,
+    )
+
+
+def test_retired_brochure_ids() -> None:
+    previous = (_old("migros-5m-286"), _old("migros-migroskop-909"), _old("migros-migroskop-2026-10-22-2026-11-04"))
+    assert retired_brochure_ids(previous, PUBLICATIONS) == {"migros-5m-286"}
 
 
 # --- collect (network mocked) ----------------------------------------------------------
@@ -294,31 +335,28 @@ def _ctx(tmp_path, http) -> SourceContext:
 def test_collect(tmp_path) -> None:
     calls: list[str] = []
     result = MigrosSource().collect(_ctx(tmp_path, mock_http(_routes(), calls)))
-    # Two requests per publication: the money.com.tr page and the viewer.
-    assert calls == [MIGROSKOP.listing_url, MIGROSKOP.viewer_url, FIVE_M.listing_url, FIVE_M.viewer_url]
-    migroskop, five_m = result.brochures
-    assert (migroskop.id, five_m.id) == ("migros-migroskop-910", "migros-5m-286")
-    assert (five_m.title, five_m.valid_from, five_m.valid_to) == ("5M Migroskop", date(2026, 11, 5), date(2026, 11, 18))
-    assert five_m.cover.url == COVER_286 and five_m.source_url == FIVE_M.viewer_url
-    # The 5M fixture is trimmed to 41 pages (see fixtures/migros/NOTES.md).
-    assert (migroskop.product_count, five_m.product_count) == (242, 96)
-    assert set(result.product_files) == {migroskop.id, five_m.id}
+    # Two requests: the money.com.tr page and the viewer. Nothing for 5M.
+    assert calls == [MIGROSKOP.listing_url, MIGROSKOP.viewer_url]
+    assert FIVE_M_LISTING not in calls and FIVE_M_VIEWER not in calls
+    (migroskop,) = result.brochures
+    assert migroskop.id == "migros-migroskop-910" and migroskop.product_count == 242
+    assert set(result.product_files) == {migroskop.id}
+    assert result.retired_ids == frozenset()
     assert "Migroskop: 21 products skipped (21 no price, only a discount badge)" in result.warnings
-    assert "Migroskop: 172 Money member prices left out" in result.warnings
+    assert "Migroskop: 172 Money prices" in result.warnings
 
 
 def test_collect_rejects_the_wrong_publication(tmp_path) -> None:
     routes = _routes()
-    routes[MIGROSKOP.listing_url] = _page("5m-migroskop-dijital.html")
+    routes[MIGROSKOP.listing_url] = _page("migroskop-dijital.html").replace("Güncel Migroskop", "Güncel 5M Migroskop")
     with pytest.raises(SourceError, match="expected Migroskop"):
         MigrosSource().collect(_ctx(tmp_path, mock_http(routes)))
 
 
 def test_collect_rejects_a_viewer_showing_another_issue(tmp_path) -> None:
     routes = _routes()
-    # money.com.tr lists 5M issue 286, but the viewer serves the Migroskop issue 910.
-    routes[FIVE_M.viewer_url] = _page("migroskop.html")
-    with pytest.raises(SourceError, match="viewer shows issue 910 but money.com.tr lists issue 286"):
+    routes[MIGROSKOP.listing_url] = _page("migroskop-dijital.html").replace("<b>910</b>", "<b>911</b>")
+    with pytest.raises(SourceError, match="viewer shows issue 910 but money.com.tr lists issue 911"):
         MigrosSource().collect(_ctx(tmp_path, mock_http(routes)))
 
 
@@ -348,15 +386,66 @@ def test_first_run_through_the_pipeline(tmp_path) -> None:
     catalog = json.loads((out / "catalog.json").read_text(encoding="utf-8"))
     validate_catalog(catalog)
     brochures = {b["id"]: b for b in catalog["brochures"]}
-    # A chain's first run: the issues started on 5 November, so they are not "new" today.
+    # A chain's first run: the issue started on 5 November, so it is not "new" today.
     assert brochures["migros-migroskop-910"]["first_seen"] == "2026-11-05T00:00:00Z"
     assert report.new_brochure_ids == []
-    products = json.loads((out / "products/migros-5m-286.json").read_text(encoding="utf-8"))
+    products = json.loads((out / "products/migros-migroskop-910.json").read_text(encoding="utf-8"))
     validate_products(products)
-    assert products["products"][0]["name"] == "Migros Üçgen Peynir 120 g"
+    first, bread = products["products"][0], next(p for p in products["products"] if p["name"].startswith("Untad"))
+    # Without a member price the fields are left out entirely; with one both are written.
+    assert "member_price_minor" not in first and "member_price_label" not in first
+    assert (bread["price_minor"], bread["member_price_minor"], bread["member_price_label"]) == (9995, 7795, "Money ile")
     chain = next(c for c in catalog["chains"] if c["id"] == "migros")
     assert (chain["status"], chain["brand_color"], chain["web_url"]) == (
         "ok",
         "#FF8300",
         "https://www.money.com.tr/migroskop-dijital",
     )
+
+
+def test_old_5m_brochure_is_dropped_on_the_next_run(tmp_path) -> None:
+    out = tmp_path / "out"
+    # The previous output, written while 5M was still taken: Migroskop 910 and 5M 286.
+    five_m = _old("migros-5m-286")
+    five_m_products = ProductFile(five_m.id, (Product(name="Migros Üçgen Peynir 120 g", price_minor=5495),))
+
+    class Previous:
+        chain_id = "migros"
+
+        def collect(self, ctx: SourceContext):
+            real = MigrosSource().collect(ctx)
+            real.brochures.append(five_m)
+            real.product_files[five_m.id] = five_m_products
+            return real
+
+    run([Previous()], CHAINS, out, out, TODAY, NOW, http=mock_http(_routes()))
+    assert (out / "products/migros-5m-286.json").is_file()
+
+    report = run([MigrosSource()], CHAINS, out, out, TODAY, NOW + timedelta(hours=6), http=mock_http(_routes()))
+    assert report.exit_code == 0
+    catalog = json.loads((out / "catalog.json").read_text(encoding="utf-8"))
+    assert [b["id"] for b in catalog["brochures"] if b["chain_id"] == "migros"] == ["migros-migroskop-910"]
+    assert not (out / "products/migros-5m-286.json").exists()
+    assert "retired 1 brochures of publications no longer taken" in report.sources[0].warnings
+
+
+def test_retired_brochures_stay_when_the_source_fails(tmp_path) -> None:
+    out = tmp_path / "out"
+    five_m = _old("migros-5m-286")
+
+    class Previous:
+        chain_id = "migros"
+
+        def collect(self, ctx: SourceContext):
+            real = MigrosSource().collect(ctx)
+            real.brochures.append(five_m)
+            real.product_files[five_m.id] = ProductFile(five_m.id, (Product(name="Su", price_minor=500),))
+            return real
+
+    run([Previous()], CHAINS, out, out, TODAY, NOW, http=mock_http(_routes()))
+    broken = {MIGROSKOP.listing_url: "<html></html>"}
+    report = run([MigrosSource()], CHAINS, out, out, TODAY, NOW + timedelta(hours=6), http=mock_http(broken))
+    assert not report.sources[0].ok
+    ids = [b["id"] for b in json.loads((out / "catalog.json").read_text(encoding="utf-8"))["brochures"]]
+    # A failed run keeps the previous state untouched, 5M included.
+    assert "migros-5m-286" in ids and "migros-migroskop-910" in ids
