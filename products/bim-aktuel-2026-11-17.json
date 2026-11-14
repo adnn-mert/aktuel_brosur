@@ -1,0 +1,787 @@
+{
+  "schema_version": 1,
+  "brochure_id": "bim-aktuel-2026-11-17",
+  "currency": "TRY",
+  "products": [
+    {
+      "name": "DANA KANGAL SUCUK",
+      "brand": "NAMET",
+      "quantity_text": "500 g",
+      "price_minor": 31900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_9747_17_kasim_sali_0077_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dana-kangal-sucuk-9-11/aktuel.aspx"
+    },
+    {
+      "name": "%0,5 YAĞLI SÜT",
+      "brand": "SEK",
+      "quantity_text": "1 L",
+      "price_minor": 4250,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_1777_17_kasim_sali_0076_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/-0-5-yagli-sut-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Tereyağı",
+      "brand": "Yörsan",
+      "quantity_text": "700 g",
+      "price_minor": 41900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_1861_17_kasim_sali_0075_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tereyagi-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Yarım Yağlı Eritme Peyniri",
+      "brand": "Aknaz",
+      "quantity_text": "1000 g",
+      "price_minor": 37900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_7381_17_kasim_sali_0074_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yarim-yagli-eritme-peyniri-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Yarım Yağlı Dilimli Tost Peyniri",
+      "brand": "Anka",
+      "quantity_text": "1000 g",
+      "price_minor": 34900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_5398_17_kasim_sali_0073_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yarim-yagli-dilimli-tost-peyniri-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Yarım Yağlı Tulum Peyniri",
+      "brand": "Taciroğlu",
+      "quantity_text": "250 g",
+      "price_minor": 16500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_9283_17_kasim_sali_0072_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yarim-yagli-tulum-peyniri-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Zeytinli Kekikli Taze Peynir",
+      "brand": "Sek",
+      "quantity_text": "150 g",
+      "price_minor": 7250,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_749_17_kasim_sali_0071_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/zeytinli-kekikli-taze-peynir-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Çilekli Quark",
+      "brand": "Sek",
+      "quantity_text": "140 g",
+      "price_minor": 5750,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_9234_17_kasim_sali_0070_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cilekli-quark-9-11/aktuel.aspx"
+    },
+    {
+      "name": "%0,6 Yağlı Yoğurt",
+      "brand": "Yörsan",
+      "quantity_text": "3000 g",
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_8776_17_kasim_sali_0069_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/-0-6-yagli-yogurt-9-11/aktuel.aspx"
+    },
+    {
+      "name": "%3 Yağlı Yoğurt",
+      "brand": "Torku",
+      "quantity_text": "3000 g",
+      "price_minor": 20900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_7482_17_kasim_sali_0068_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/-3-yagli-yogurt-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Ayran",
+      "brand": "Yörsan",
+      "quantity_text": "2 L",
+      "price_minor": 8450,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_1072_17_kasim_sali_0067_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ayran-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Laktozsuz Süt",
+      "brand": "Pınar Denge",
+      "quantity_text": "1 L",
+      "price_minor": 6450,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_16_17_kasim_sali_0066_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/laktozsuz-sut-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Yulaflı İçecek",
+      "brand": "Alpro",
+      "quantity_text": "1 L",
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_1009_17_kasim_sali_0065_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yulafli-icecek-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Bol Proteinli Yarım Yağlı Laktozsuz Süt",
+      "brand": "Evelac",
+      "quantity_text": "1 L",
+      "price_minor": 6950,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_7529_17_kasim_sali_0064_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bol-proteinli-yarim-yagli-laktozsuz-sut-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Ballı Muzlu Kefir",
+      "brand": "Altınkılıç",
+      "quantity_text": "250 ml",
+      "price_minor": 4750,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_8052_17_kasim_sali_0063_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/balli-muzlu-kefir-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Yaban Mersinli Kefir",
+      "brand": "Altınkılıç",
+      "quantity_text": "250 ml",
+      "price_minor": 4750,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_4563_17_kasim_sali_0062_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yaban-mersinli-kefir-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Yaban Mersinli Quark",
+      "brand": "Sek",
+      "quantity_text": "250 ml",
+      "price_minor": 7950,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_6468_17_kasim_sali_0061_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yaban-mersinli-quark-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Piliç Tempura Nugget",
+      "brand": "Banvit",
+      "quantity_text": "700 g",
+      "price_minor": 17900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_9971_17_kasim_sali_0060_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/pilic-tempura-nugget-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Latte Pasta",
+      "brand": "Coquette",
+      "quantity_text": "600 g",
+      "price_minor": 20900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_8717_17_kasim_sali_0059_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/latte-pasta-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Ispanaklı Katmer Börek",
+      "brand": "Pek Food",
+      "quantity_text": "580 g",
+      "price_minor": 14500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_2090_17_kasim_sali_0058_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ispanakli-katmer-borek-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Elma Dilim Patates",
+      "brand": "Feast",
+      "quantity_text": "1 kg",
+      "price_minor": 11900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_2693_17_kasim_sali_0057_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/elma-dilim-patates-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Milföy Hamuru",
+      "brand": "Superfresh",
+      "quantity_text": "1 kg",
+      "price_minor": 15400,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_5542_17_kasim_sali_0056_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/milfoy-hamuru-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Barbekü Soslu Dana Burger",
+      "brand": "Akşeker",
+      "quantity_text": "500 g",
+      "price_minor": 29900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_9813_17_kasim_sali_0055_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/barbeku-soslu-dana-burger-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Soslu Dana Döner",
+      "brand": "Akşeker",
+      "quantity_text": "500 g",
+      "price_minor": 24900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_6998_17_kasim_sali_0054_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/soslu-dana-doner-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Dana Cheese & Steak",
+      "brand": "Akşeker",
+      "quantity_text": "500 g",
+      "price_minor": 24900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_8980_17_kasim_sali_0053_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dana-cheese--steak-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Kuzu Doğranmış Kokoreç Kuzu Halka Kokoreç",
+      "brand": "Akşeker",
+      "quantity_text": "200 g",
+      "price_minor": 19900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_761_17_kasim_sali_0052_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kuzu-dogranmis-kokorec-kuzu-halka-kokorec-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Karma Çorba Çeşitleri",
+      "brand": "Akşeker",
+      "quantity_text": "480 g",
+      "price_minor": 12900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_9181_17_kasim_sali_0051_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/karma-corba-cesitleri-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Nohutlu Tavuk Pilav",
+      "brand": "Akşeker",
+      "quantity_text": "250 g",
+      "price_minor": 7500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_8733_17_kasim_sali_0050_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/nohutlu-tavuk-pilav-9-11/aktuel.aspx"
+    },
+    {
+      "name": "NATÜREL SIZMA ZEYTİNYAĞI",
+      "brand": "ALSAN",
+      "quantity_text": "5 L",
+      "price_minor": 99500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_3784_17_kasim_sali_0049_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/naturel-sizma-zeytinyagi-9-11/aktuel.aspx"
+    },
+    {
+      "name": "TON BALIĞI",
+      "brand": "FİDE",
+      "quantity_text": "3x160 g",
+      "price_minor": 16500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_1586_17_kasim_sali_0048_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ton-baligi-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Makarna Çeşitleri",
+      "brand": "Filiz",
+      "quantity_text": "500 g",
+      "price_minor": 2850,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_5194_17_kasim_sali_0047_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/makarna-cesitleri-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Tagliatelle Makarna",
+      "brand": "Pasta Veneta",
+      "quantity_text": "500 g",
+      "price_minor": 7250,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_9263_17_kasim_sali_0046_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tagliatelle-makarna-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Yerli Pilavlık Pirinç",
+      "brand": "Efsane",
+      "quantity_text": "5 kg",
+      "price_minor": 27500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_3879_17_kasim_sali_0045_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yerli-pilavlik-pirinc-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Bulgur Çeşitleri",
+      "brand": "Saban",
+      "quantity_text": "2,5 kg",
+      "price_minor": 8500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_5073_17_kasim_sali_0044_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bulgur-cesitleri-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Tortilla Lavaş",
+      "brand": "Aly",
+      "quantity_text": "450 g",
+      "price_minor": 6900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_6341_17_kasim_sali_0043_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tortilla-lavas-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Ranch Sos XL",
+      "brand": "Calve",
+      "quantity_text": "380 g",
+      "price_minor": 8950,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_4394_17_kasim_sali_0042_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ranch-sos-xl-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Acılı Ketçap 390 g + Acılı Sriracha 350 g",
+      "brand": "Tat",
+      "quantity_text": null,
+      "price_minor": 9950,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_9848_17_kasim_sali_0041_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/acili-ketcap-390-g--acili-sriracha-350-g-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Domates Püresi",
+      "brand": "Tat",
+      "quantity_text": "3x200 g",
+      "price_minor": 4950,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_2949_17_kasim_sali_0040_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/domates-puresi-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Çeşni Çeşitleri",
+      "brand": "Gourmy",
+      "quantity_text": "80-90 g",
+      "price_minor": 4950,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_4149_17_kasim_sali_0039_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cesni-cesitleri-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Çikolatalı Kruvasan",
+      "brand": "Today",
+      "quantity_text": "6x40 g",
+      "price_minor": 8500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_7403_17_kasim_sali_0038_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cikolatali-kruvasan-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Yayla ve Ova Çiçek Balı",
+      "brand": "Balparmak",
+      "quantity_text": "850 g",
+      "price_minor": 49900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_1776_17_kasim_sali_0037_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yayla-ve-ova-cicek-bali-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Tam Tahıl ve Pirinç Gevreği",
+      "brand": "Crunch",
+      "quantity_text": "650 g",
+      "price_minor": 13900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_4660_17_kasim_sali_0036_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tam-tahil-ve-pirinc-gevregi-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Tahin",
+      "brand": "İnci",
+      "quantity_text": "1 kg",
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_2649_17_kasim_sali_0035_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tahin-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Kış Pekmezi",
+      "brand": "Şitoğlu",
+      "quantity_text": "1 kg",
+      "price_minor": 14900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_7387_17_kasim_sali_0034_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kis-pekmezi-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Çikolata Sos Çeşitleri",
+      "brand": "Swedent",
+      "quantity_text": "300 g",
+      "price_minor": 16900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_1862_17_kasim_sali_0033_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cikolata-sos-cesitleri-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Paket Margarin",
+      "brand": "Bizim",
+      "quantity_text": "4x250 g",
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_3230_17_kasim_sali_0032_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/paket-margarin-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Kore Usulü Körili Noodle",
+      "brand": "Dudomi",
+      "quantity_text": "10x70 g",
+      "price_minor": 11900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_2199_17_kasim_sali_0031_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kore-usulu-korili-noodle-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Karbonat",
+      "brand": "Kent",
+      "quantity_text": "1 kg",
+      "price_minor": 7500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_3798_17_kasim_sali_0030_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/karbonat-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Panko",
+      "brand": "Dr. Oetker",
+      "quantity_text": "200 g",
+      "price_minor": 5500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_3095_17_kasim_sali_0029_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/panko-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Galeta Unu",
+      "brand": "Dr. Oetker",
+      "quantity_text": "200 g",
+      "price_minor": 3900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_3304_17_kasim_sali_0028_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/galeta-unu-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Mısır Unu",
+      "brand": "Dr. Oetker",
+      "quantity_text": "200 g",
+      "price_minor": 2300,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_7931_17_kasim_sali_0027_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/misir-unu-9-11/aktuel.aspx"
+    },
+    {
+      "name": "KAKAOLU FINDIK KREMASI",
+      "brand": "PERİPELLA",
+      "quantity_text": "350 g",
+      "price_minor": 19900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_886_17_kasim_sali_0026_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kakaolu-findik-kremasi-9-11/aktuel.aspx"
+    },
+    {
+      "name": "OYUNCAKLI SÜRPRİZ YUMURTA",
+      "brand": "KİNDER JOY",
+      "quantity_text": "20 g",
+      "price_minor": 4250,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_224_17_kasim_sali_0025_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/oyuncakli-surpriz-yumurta-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Ahududu Aromalı Kolajen",
+      "brand": "Protein Ocn",
+      "quantity_text": "250 g",
+      "price_minor": 44900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_3722_17_kasim_sali_0024_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ahududu-aromali-kolajen-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Çikolatalı Kek Aromalı High Protein",
+      "brand": "Protein Ocn",
+      "quantity_text": "400 g",
+      "price_minor": 89900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_8634_17_kasim_sali_0023_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cikolatali-kek-aromali-high-protein-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Çikolata Aromalı Mass Gainer",
+      "brand": "Protein Ocn",
+      "quantity_text": "1.3 kg",
+      "price_minor": 79900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_7678_17_kasim_sali_0022_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cikolata-aromali-mass-gainer-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Aromasız Kreatin",
+      "brand": "Protein Ocn",
+      "quantity_text": "750 g",
+      "price_minor": 69900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_4084_17_kasim_sali_0021_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/aromasiz-kreatin-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Kurabiye ve Krema Aromalı Pirinç Kreması",
+      "brand": "Protein Ocn",
+      "quantity_text": "1.5 kg",
+      "price_minor": 36900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_88_17_kasim_sali_0020_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kurabiye-ve-krema-aromali-pirinc-kremasi-9-11/aktuel.aspx"
+    },
+    {
+      "name": "%100 Fıstık Ezmesi",
+      "brand": "Protein Ocn",
+      "quantity_text": "330 g",
+      "price_minor": 14900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_3265_17_kasim_sali_0019_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/-100-fistik-ezmesi-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Multivitamin",
+      "brand": "Protein Ocn",
+      "quantity_text": null,
+      "price_minor": 21900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_9213_17_kasim_sali_0018_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/multivitamin-9-11/aktuel.aspx"
+    },
+    {
+      "name": "ZMA",
+      "brand": "Protein Ocn",
+      "quantity_text": null,
+      "price_minor": 21900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_5086_17_kasim_sali_0017_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/zma-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Vitamin D3",
+      "brand": "Protein Ocn",
+      "quantity_text": null,
+      "price_minor": 19900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_6063_17_kasim_sali_0016_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/vitamin-d3-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Sütlü Çikolata Kaplamalı Vişne Soslu Kremalı Yaş Pasta",
+      "brand": "Ülker Dankek",
+      "quantity_text": "245 g",
+      "price_minor": 10900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_4510_17_kasim_sali_0015_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sutlu-cikolata-kaplamali-visne-soslu-kremali-yas-pasta-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Sütlü İnce Çikolata",
+      "brand": "Eszet",
+      "quantity_text": "75 g",
+      "price_minor": 7900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_5835_17_kasim_sali_0014_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sutlu-ince-cikolata-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Meyve Nektarı Çeşitleri",
+      "brand": "Sek",
+      "quantity_text": "1 L",
+      "price_minor": 5950,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_9360_17_kasim_sali_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/meyve-nektari-cesitleri-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Sünger Bob Lisanslı Led Işık Oyuncaklı Lolipop Şeker",
+      "brand": "Relkon",
+      "quantity_text": "20 g",
+      "price_minor": 8900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_6312_17_kasim_sali_0012_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sunger-bob-lisansli-led-isik-oyuncakli-lolipop-seker-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Badem Kraker",
+      "brand": "Ülker",
+      "quantity_text": "135 g",
+      "price_minor": 3500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_6207_17_kasim_sali_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/badem-kraker-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Karışık Yumuşak Şeker",
+      "brand": "Bebeto Pick/Mix",
+      "quantity_text": "650 g",
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_1576_17_kasim_sali_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/karisik-yumusak-seker-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Karanfil Aromalı Şekersiz Sakız",
+      "brand": "Falım",
+      "quantity_text": "5x7 g",
+      "price_minor": 4500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_8347_17_kasim_sali_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/karanfil-aromali-sekersiz-sakiz-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Fındıklı Pralin Çikolata",
+      "brand": "Milka",
+      "quantity_text": "105 g",
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_2018_17_kasim_sali_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/findikli-pralin-cikolata-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Mozaik Kek",
+      "brand": "Eti Paykek",
+      "quantity_text": "200 g",
+      "price_minor": 4500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_8885_17_kasim_sali_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mozaik-kek-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Frambuaz Soslu Kurabiye",
+      "brand": "Ülker Hanımeller",
+      "quantity_text": "3x94,5 g",
+      "price_minor": 5900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_4812_17_kasim_sali_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/frambuaz-soslu-kurabiye-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Kola, Çilek ve Portakal Aromalı Lolipop Şeker",
+      "brand": "Ülker Yupo",
+      "quantity_text": "66 g",
+      "price_minor": 3300,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_901_17_kasim_sali_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kola-cilek-ve-portakal-aromali-lolipop-seker-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Yoğurt Bahçe Bitkileri Çeşnili Mısır&Pirinç Patlağı",
+      "brand": "Yayla Popnays",
+      "quantity_text": "34 g",
+      "price_minor": 1300,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_3127_17_kasim_sali_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yogurt-bahce-bitkileri-cesnili-misir-pirinc-patlagi-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Sütlü Çikolatalı Hindistan Cevizli Gofret",
+      "brand": "Ülker Cocostar",
+      "quantity_text": "32 g",
+      "price_minor": 2950,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_6302_17_kasim_sali_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sutlu-cikolatali-hindistan-cevizli-gofret-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Frambuaz Dolgulu Pankek",
+      "brand": "Tibers",
+      "quantity_text": "55 g",
+      "price_minor": 2700,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_8182_17_kasim_sali_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/frambuaz-dolgulu-pankek-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Pirinç Patlaklı Sütlü Çikolata",
+      "brand": "Züber",
+      "quantity_text": "35 g",
+      "price_minor": 6950,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_5788_17_kasim_sali_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/pirinc-patlakli-sutlu-cikolata-9-11/aktuel.aspx"
+    },
+    {
+      "name": "Sütlü Çikolata Dolgulu Yer Fıstıklı Bar",
+      "brand": "Ülker Laviva",
+      "quantity_text": "45 g",
+      "price_minor": 2950,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1710_kucuk_543X467_2958_17_kasim_sali_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sutlu-cikolata-dolgulu-yer-fistikli-bar-9-11/aktuel.aspx"
+    }
+  ]
+}

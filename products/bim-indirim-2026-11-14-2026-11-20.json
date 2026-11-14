@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "brochure_id": "bim-indirim-2026-11-14-2026-11-20",
+  "currency": "TRY",
+  "products": [
+    {
+      "name": "Mısır Çerezi",
+      "brand": "Party",
+      "quantity_text": "200 g",
+      "price_minor": 4450,
+      "old_price_minor": 5600,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_662_14-20_0042_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/misir-cerezi-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Mısır Cipsi",
+      "brand": "Party",
+      "quantity_text": "300 g",
+      "price_minor": 5900,
+      "old_price_minor": 7250,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_1921_14-20_0041_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/misir-cipsi-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Mısır Cipsi",
+      "brand": "Party",
+      "quantity_text": "200 g",
+      "price_minor": 4250,
+      "old_price_minor": 5200,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_279_14-20_0040_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/misir-cipsi-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Üzüm Pekmezi",
+      "brand": "Serel",
+      "quantity_text": "400 g",
+      "price_minor": 8450,
+      "old_price_minor": 9450,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_3710_14-20_0039_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/uzum-pekmezi-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Tahin",
+      "brand": "Serel",
+      "quantity_text": "600 g",
+      "price_minor": 10900,
+      "old_price_minor": 12500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_9734_14-20_0038_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tahin-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Siyah Zeytin",
+      "brand": "İnci",
+      "quantity_text": "291-350 adet/kg 1 kg",
+      "price_minor": 13900,
+      "old_price_minor": 16900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_9402_14-20_0037_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/siyah-zeytin-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Az Tuzlu Siyah Zeytin",
+      "brand": "İnci",
+      "quantity_text": "261-320 adet/kg 800 g",
+      "price_minor": 12950,
+      "old_price_minor": 14450,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_3884_14-20_0036_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/az-tuzlu-siyah-zeytin-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Kuru Sele Siyah Zeytin",
+      "brand": "Marmarabirlik",
+      "quantity_text": "351-380 adet/kg 400 g",
+      "price_minor": 11950,
+      "old_price_minor": 14250,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_8933_14-20_0035_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kuru-sele-siyah-zeytin-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Yeşil Zeytin Çeşitleri",
+      "brand": "İnci",
+      "quantity_text": "400 g",
+      "price_minor": 7950,
+      "old_price_minor": 9250,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_4682_14-20_0034_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yesil-zeytin-cesitleri-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Vişne Reçeli",
+      "brand": "İlkgün",
+      "quantity_text": "2 kg",
+      "price_minor": 32000,
+      "old_price_minor": 36000,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_2120_14-20_0033_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/visne-receli-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Çilek Reçeli",
+      "brand": "İlkgün",
+      "quantity_text": "2 kg",
+      "price_minor": 25900,
+      "old_price_minor": 29500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_3849_14-20_0032_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cilek-receli-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Karışık Turşu",
+      "brand": "Fıçı",
+      "quantity_text": "680 g",
+      "price_minor": 6550,
+      "old_price_minor": 7300,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_2229_14-20_0031_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/karisik-tursu-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Fıstıklı Helva",
+      "brand": "Serel",
+      "quantity_text": "500 g",
+      "price_minor": 14800,
+      "old_price_minor": 16500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_3676_14-20_0030_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/fistikli-helva-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Cevizli Helva",
+      "brand": "Serel",
+      "quantity_text": "500 g",
+      "price_minor": 8900,
+      "old_price_minor": 9900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_8947_14-20_0029_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cevizli-helva-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Kakao Kremalı Kruvasan",
+      "brand": "7days",
+      "quantity_text": "300 g",
+      "price_minor": 9000,
+      "old_price_minor": 12000,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_4534_14-20_0024_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kakao-kremali-kruvasan-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Fındık Kremalı Kruvasan",
+      "brand": "Uno",
+      "quantity_text": "300 g",
+      "price_minor": 7800,
+      "old_price_minor": 10500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_5750_14-20_0025_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/findik-kremali-kruvasan-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Mayonez",
+      "brand": "Heinz",
+      "quantity_text": "400 g",
+      "price_minor": 13900,
+      "old_price_minor": 19000,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_9005_14-20_0026_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mayonez-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Ketçap",
+      "brand": "Heinz",
+      "quantity_text": "460 g",
+      "price_minor": 9900,
+      "old_price_minor": 13700,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_9118_14-20_0027_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ketcap-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Tavuk Bulyon",
+      "brand": "Knorr",
+      "quantity_text": "120 g",
+      "price_minor": 4450,
+      "old_price_minor": 6000,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_1555_14-20_0028_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tavuk-bulyon-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Kakaolu Puding",
+      "brand": "Dr. Oetker",
+      "quantity_text": "196 g",
+      "price_minor": 4750,
+      "old_price_minor": 5950,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_5006_14-20_0023_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kakaolu-puding-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Krem Şanti",
+      "brand": "Dr. Oetker",
+      "quantity_text": "144 g",
+      "price_minor": 6600,
+      "old_price_minor": 8250,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_4761_14-20_0022_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/krem-santi-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Kase Margarin Çeşitleri",
+      "brand": "Becel",
+      "quantity_text": "250 g",
+      "price_minor": 4300,
+      "old_price_minor": 8600,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_8027_14-20_0021_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kase-margarin-cesitleri-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Paket Margarin",
+      "brand": "Sana",
+      "quantity_text": "250 g",
+      "price_minor": 2950,
+      "old_price_minor": 5900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_4306_14-20_0020_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/paket-margarin-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Baldo Pirinç",
+      "brand": "Efsane",
+      "quantity_text": "2,5 kg",
+      "price_minor": 18900,
+      "old_price_minor": 19900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_3298_14-20_0019_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/baldo-pirinc-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Kuru Fasulye",
+      "brand": "Saban",
+      "quantity_text": "1000 g",
+      "price_minor": 7900,
+      "old_price_minor": 8900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_3805_14-20_0018_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kuru-fasulye-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Yerli Kırmızı Mercimek",
+      "brand": "Saban",
+      "quantity_text": "1000 g",
+      "price_minor": 7450,
+      "old_price_minor": 8950,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_4800_14-20_0017_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yerli-kirmizi-mercimek-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Erişte",
+      "brand": "Ekmecik",
+      "quantity_text": "500 g",
+      "price_minor": 3250,
+      "old_price_minor": 3900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_1455_14-20_0016_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/eriste-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Enerji İçeceği",
+      "brand": "Redbull",
+      "quantity_text": "473 ml",
+      "price_minor": 9950,
+      "old_price_minor": 12000,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_2792_14-20_0015_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/enerji-icecegi-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Enerji İçeceği",
+      "brand": "Redbull",
+      "quantity_text": "250 ml",
+      "price_minor": 5950,
+      "old_price_minor": 7000,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_7676_14-20_0014_vector-smart-object-copy.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/enerji-icecegi-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Enerji İçeceği",
+      "brand": "Black Eagle",
+      "quantity_text": "500 ml",
+      "price_minor": 3600,
+      "old_price_minor": 4350,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_5069_14-20_0011_vector-smart-object-copy-4.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/enerji-icecegi-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Enerji İçeceği",
+      "brand": "Hotline",
+      "quantity_text": "500 ml",
+      "price_minor": 3600,
+      "old_price_minor": 4350,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_333_14-20_0012_vector-smart-object-copy-3.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/enerji-icecegi-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Enerji İçeceği",
+      "brand": "Black Bruin",
+      "quantity_text": "500 ml",
+      "price_minor": 4050,
+      "old_price_minor": 4900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_810_14-20_0011_vector-smart-object-copy-4.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/enerji-icecegi-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Çözünebilir Kahve Cronat Gold",
+      "brand": "Jacobs",
+      "quantity_text": "100 g",
+      "price_minor": 19900,
+      "old_price_minor": 32900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_1894_14-20_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cozunebilir-kahve-cronat-gold-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Lavabo Fayans Temizleyici",
+      "brand": "Cif",
+      "quantity_text": "500 ml",
+      "price_minor": 6900,
+      "old_price_minor": 9500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_7142_14-20_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/lavabo-fayans-temizleyici-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Çamaşır Suyu",
+      "brand": "Domestos",
+      "quantity_text": "1250 ml",
+      "price_minor": 12400,
+      "old_price_minor": 16700,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_1114_14-20_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/camasir-suyu-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Sarı Güç",
+      "brand": "Asperox",
+      "quantity_text": "1 L",
+      "price_minor": 9900,
+      "old_price_minor": 15900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_1470_14-20_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sari-guc-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Mavi Güç",
+      "brand": "Asperox",
+      "quantity_text": "1 L",
+      "price_minor": 9900,
+      "old_price_minor": 15900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_4415_14-20_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mavi-guc-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Islak Havlu",
+      "brand": "Family",
+      "quantity_text": "100’lü",
+      "price_minor": 4700,
+      "old_price_minor": 5250,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_9970_14-20_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/islak-havlu-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Kağıt Havlu",
+      "brand": "Blume",
+      "quantity_text": null,
+      "price_minor": 8500,
+      "old_price_minor": 9300,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_1109_14-20_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kagit-havlu-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Tuvalet Kağıdı",
+      "brand": "Blume",
+      "quantity_text": null,
+      "price_minor": 11900,
+      "old_price_minor": 12700,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_2551_14-20_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tuvalet-kagidi-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Bebekbezi Premium XLarge",
+      "brand": "Jenny&Willy",
+      "quantity_text": "26’lı",
+      "price_minor": 19900,
+      "old_price_minor": 21900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_7897_14-20_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bebekbezi-premium-xlarge-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Bebek Bezi Premium Maxi",
+      "brand": "Jenny&Willy",
+      "quantity_text": "40’lı",
+      "price_minor": 19900,
+      "old_price_minor": 21900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_3063_14-20_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bebek-bezi-premium-maxi-14-11/aktuel.aspx"
+    },
+    {
+      "name": "Bebek Bezi Premium Junior",
+      "brand": "Jenny&Willy",
+      "quantity_text": "30’lu",
+      "price_minor": 19900,
+      "old_price_minor": 21900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1714_kucuk_543X467_4975_14-20_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bebek-bezi-premium-junior-14-11/aktuel.aspx"
+    }
+  ]
+}

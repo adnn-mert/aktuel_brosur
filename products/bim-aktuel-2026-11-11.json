@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "brochure_id": "bim-aktuel-2026-11-11",
+  "currency": "TRY",
+  "products": [
+    {
+      "name": "ABRA A5 V22.5.3 OYUN BİLGİSAYARI",
+      "brand": "MONSTER",
+      "quantity_text": null,
+      "price_minor": 4999000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1706_kucuk_543X467_9242_1_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/abra-a5-v22-5-3-oyun-bilgisayari-6-11/aktuel.aspx"
+    },
+    {
+      "name": "TULPAR TD3 V1.2.3.3 OYUN BİLGİSAYARI",
+      "brand": "MONSTER",
+      "quantity_text": null,
+      "price_minor": 5999000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1706_kucuk_543X467_8263_1_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tulpar-td3-v1-2-3-3-oyun-bilgisayari-6-11/aktuel.aspx"
+    },
+    {
+      "name": "PUSAT REFLEX CORE OYUNCU MOUSE",
+      "brand": "MONSTER",
+      "quantity_text": null,
+      "price_minor": 79900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1706_kucuk_543X467_1347_1_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/pusat-reflex-core-oyuncu-mouse-6-11/aktuel.aspx"
+    },
+    {
+      "name": "2 KAPAKLI 3 BÖLMELİ ÇOK AMAÇLI DOLAP",
+      "brand": "HOMENDRA",
+      "quantity_text": null,
+      "price_minor": 169000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1706_kucuk_543X467_7733_1_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/2-kapakli-3-bolmeli-cok-amacli-dolap-6-11/aktuel.aspx"
+    },
+    {
+      "name": "ORTA SEHPA",
+      "brand": "HOMENDRA",
+      "quantity_text": null,
+      "price_minor": 199000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1706_kucuk_543X467_4115_1_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/orta-sehpa-6-11/aktuel.aspx"
+    },
+    {
+      "name": "2 KAPAKLI 21 BÖLMELİ ÇOK AMAÇLI KİLER DOLABI",
+      "brand": "HOMENDRA",
+      "quantity_text": null,
+      "price_minor": 699000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1706_kucuk_543X467_9624_1_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/2-kapakli-21-bolmeli-cok-amacli-kiler-dolabi-6-11/aktuel.aspx"
+    },
+    {
+      "name": "ÇEKMECELİ KOMODİN",
+      "brand": "HOMENDRA",
+      "quantity_text": null,
+      "price_minor": 139000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1706_kucuk_543X467_1275_1_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cekmeceli-komodin-6-11/aktuel.aspx"
+    },
+    {
+      "name": "2 KAPAKLI 2 ÇEKMECELİ GARDIROP",
+      "brand": "HOMENDRA",
+      "quantity_text": null,
+      "price_minor": 469000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1706_kucuk_543X467_3368_1_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/2-kapakli-2-cekmeceli-gardirop-6-11/aktuel.aspx"
+    },
+    {
+      "name": "5 BÖLMELİ DUVARA ASILAN BANYO DOLABI",
+      "brand": "HOMENDRA",
+      "quantity_text": null,
+      "price_minor": 179000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1706_kucuk_543X467_35_1_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/5-bolmeli-duvara-asilan-banyo-dolabi-6-11/aktuel.aspx"
+    }
+  ]
+}

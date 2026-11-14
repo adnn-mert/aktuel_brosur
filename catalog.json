@@ -1,0 +1,897 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-14T19:55:37Z",
+  "min_app_version": 1,
+  "chains": [
+    {
+      "id": "bim",
+      "name": "BİM",
+      "country": "TR",
+      "kind": "scraped",
+      "web_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "status": "ok",
+      "last_ok_at": "2026-11-14T19:55:37Z",
+      "sort_order": 10,
+      "brand_color": "#E30613"
+    },
+    {
+      "id": "a101",
+      "name": "A101",
+      "country": "TR",
+      "kind": "webview",
+      "web_url": "https://www.a101.com.tr/afisler",
+      "status": "ok",
+      "last_ok_at": null,
+      "sort_order": 20,
+      "brand_color": "#00A0E3"
+    },
+    {
+      "id": "sok",
+      "name": "Şok",
+      "country": "TR",
+      "kind": "scraped",
+      "web_url": "https://kurumsal.sokmarket.com.tr/tr/firsatlar",
+      "status": "ok",
+      "last_ok_at": "2026-11-14T19:55:37Z",
+      "sort_order": 30,
+      "brand_color": "#FFD100"
+    },
+    {
+      "id": "migros",
+      "name": "Migros",
+      "country": "TR",
+      "kind": "scraped",
+      "web_url": "https://www.money.com.tr/migroskop-dijital",
+      "status": "ok",
+      "last_ok_at": "2026-11-14T19:55:37Z",
+      "sort_order": 40,
+      "brand_color": "#FF8300"
+    },
+    {
+      "id": "macrocenter",
+      "name": "Macrocenter",
+      "country": "TR",
+      "kind": "scraped",
+      "web_url": "https://www.money.com.tr/macrostyle-dijital",
+      "status": "ok",
+      "last_ok_at": "2026-11-14T19:55:37Z",
+      "sort_order": 50
+    },
+    {
+      "id": "carrefoursa",
+      "name": "CarrefourSA",
+      "country": "TR",
+      "kind": "webview",
+      "web_url": "https://www.carrefoursa.com/kataloglar",
+      "status": "ok",
+      "last_ok_at": null,
+      "sort_order": 60,
+      "brand_color": "#1E5BC6"
+    },
+    {
+      "id": "gratis",
+      "name": "Gratis",
+      "country": "TR",
+      "kind": "webview",
+      "web_url": "https://www.gratis.com/gratis-katalog",
+      "status": "ok",
+      "last_ok_at": null,
+      "sort_order": 70,
+      "brand_color": "#E5007D"
+    }
+  ],
+  "brochures": [
+    {
+      "id": "bim-aktuel-2026-11-22",
+      "chain_id": "bim",
+      "title": "22 Kasım Pazar",
+      "date_label": "22 Kasım Pazar",
+      "valid_from": "2026-11-22",
+      "valid_to": "2026-11-28",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_5087fb47-e1d9-4ce2-9128-ba95be0fbe79.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/5087fb47-e1d9-4ce2-9128-ba95be0fbe79.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/61ea4622-fecc-4a48-b009-04e9606cb1d2.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/209b485c-5ab1-4130-bd7b-a30abd3a71c0.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-22.json",
+      "product_count": 56,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-20",
+      "chain_id": "bim",
+      "title": "20 Kasım Cuma",
+      "date_label": "20 Kasım Cuma",
+      "valid_from": "2026-11-20",
+      "valid_to": "2026-11-26",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_d2aaa6bd-335d-4259-8ef1-e6dd394c19fb.jpg",
+        "w": 258,
+        "h": 386
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/d2aaa6bd-335d-4259-8ef1-e6dd394c19fb.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/5ef53d32-fa6b-4482-a37f-37971d62b50d.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/7ff5e43c-2a04-49a0-a1cf-3d06fcef3bf5.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-20.json",
+      "product_count": 72,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-18",
+      "chain_id": "bim",
+      "title": "18 Kasım Çarşamba",
+      "date_label": "18 Kasım Çarşamba",
+      "valid_from": "2026-11-18",
+      "valid_to": "2026-11-24",
+      "kind": "products",
+      "cover": null,
+      "pages": [],
+      "products_url": "products/bim-aktuel-2026-11-18.json",
+      "product_count": 17,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?top=1&Bim_AktuelTarihKey=1711",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-13T22:14:23Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-17",
+      "chain_id": "bim",
+      "title": "17 Kasım Salı",
+      "date_label": "17 Kasım Salı",
+      "valid_from": "2026-11-17",
+      "valid_to": "2026-11-23",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_bba693be-e42e-4bf5-9b98-f25463137b58.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/bba693be-e42e-4bf5-9b98-f25463137b58.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/55c0a5f3-99c7-48d4-9a18-c043dba334f5.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/cd829434-3bd5-4f44-a70b-c90ae8383855.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-17.json",
+      "product_count": 78,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-15",
+      "chain_id": "bim",
+      "title": "15 Kasım Pazar",
+      "date_label": "15 Kasım Pazar",
+      "valid_from": "2026-11-15",
+      "valid_to": "2026-11-21",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_68280cf5-d1cd-40bf-b7b5-79779cb2f4c9.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/68280cf5-d1cd-40bf-b7b5-79779cb2f4c9.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/d173fcce-c340-45e0-a526-59c57d5d169c.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/2b046666-660d-4414-ac85-50a976587089.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-15.json",
+      "product_count": 57,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-2026-11-14-2026-11-20",
+      "chain_id": "bim",
+      "title": "14-20 Kasım",
+      "date_label": "14-20 Kasım",
+      "valid_from": "2026-11-14",
+      "valid_to": "2026-11-20",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_ce242773-4d19-4598-b30d-95b83bac3683.jpg",
+        "w": 258,
+        "h": 322
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/ce242773-4d19-4598-b30d-95b83bac3683.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/4d0ac1e2-1fd9-4a0d-8fa7-26e3a5cb37ef.jpeg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-indirim-2026-11-14-2026-11-20.json",
+      "product_count": 43,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T19:55:37Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-13",
+      "chain_id": "bim",
+      "title": "13 Kasım Cuma",
+      "date_label": "13 Kasım Cuma",
+      "valid_from": "2026-11-13",
+      "valid_to": "2026-11-19",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_aaf9e731-9b7b-416f-891e-94f7d7ef6b74.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/aaf9e731-9b7b-416f-891e-94f7d7ef6b74.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/7d055993-4554-46e6-a33a-d2b9e308bca8.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/b6626da9-7499-4cf7-94b1-a903503c57c0.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/8b852d1f-ad34-4656-85a8-8deff0f59b49.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-13.json",
+      "product_count": 74,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-2026-11-13-2026-11-16",
+      "chain_id": "bim",
+      "title": "13-16 Kasım",
+      "date_label": "13-16 Kasım",
+      "valid_from": "2026-11-13",
+      "valid_to": "2026-11-16",
+      "kind": "pages",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_148c0805-f4ee-4307-b828-ef40647d8c7a.jpg",
+        "w": 258,
+        "h": 322
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/148c0805-f4ee-4307-b828-ef40647d8c7a.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/a4737181-92ac-4a79-8494-240a6cd0cdff.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/926b340e-5cc3-4113-a478-827e2e62615f.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/92eccc00-ebac-4fe8-aa5e-2da543632931.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-2026-11-13-2026-11-19",
+      "chain_id": "bim",
+      "title": "13-19 Kasım",
+      "date_label": "13-19 Kasım",
+      "valid_from": "2026-11-13",
+      "valid_to": "2026-11-19",
+      "kind": "pages",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_2237eab2-d8a3-42f4-9021-76afb71e2edf.jpg",
+        "w": 258,
+        "h": 322
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/2237eab2-d8a3-42f4-9021-76afb71e2edf.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-11",
+      "chain_id": "bim",
+      "title": "11 Kasım Çarşamba",
+      "date_label": "11 Kasım Çarşamba",
+      "valid_from": "2026-11-11",
+      "valid_to": "2026-11-17",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_9558cf37-01ce-47fa-92bd-d380ebdd18b9.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/9558cf37-01ce-47fa-92bd-d380ebdd18b9.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-11.json",
+      "product_count": 9,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-10",
+      "chain_id": "bim",
+      "title": "10 Kasım Salı",
+      "date_label": "10 Kasım Salı",
+      "valid_from": "2026-11-10",
+      "valid_to": "2026-11-16",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_dd281649-1f2d-48cb-aca5-8b03345f58d2.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/dd281649-1f2d-48cb-aca5-8b03345f58d2.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/c8fcf8b9-1bc6-4aa1-8d48-12ac7fbd9ea2.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/4f295aab-25f7-4135-95c6-4e927b895d64.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-10.json",
+      "product_count": 87,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-08",
+      "chain_id": "bim",
+      "title": "08 Kasım Pazar",
+      "date_label": "08 Kasım Pazar",
+      "valid_from": "2026-11-08",
+      "valid_to": "2026-11-14",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_273f4833-e518-4c50-8e17-747af92265ae.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/273f4833-e518-4c50-8e17-747af92265ae.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/1472de67-a087-4aae-9848-5852aadf3eaa.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/7b50978b-33f7-481d-94b5-a089835723c9.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-08.json",
+      "product_count": 64,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-06",
+      "chain_id": "bim",
+      "title": "06 Kasım Cuma",
+      "date_label": "06 Kasım Cuma",
+      "valid_from": "2026-11-06",
+      "valid_to": "2026-11-12",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_ce4f6cb0-ae74-4e0c-9964-dc3e59322c9f.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/ce4f6cb0-ae74-4e0c-9964-dc3e59322c9f.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/ea559cbd-418d-4207-a65a-ac42a217096c.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/0eb4c307-0d16-4405-8dc7-fc1ed4f62792.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/5305943a-0b29-48d7-8ed2-66f09c7cbca6.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-06.json",
+      "product_count": 79,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-2026-11-06-2026-11-30",
+      "chain_id": "bim",
+      "title": "06-30 Kasım",
+      "date_label": "06-30 Kasım",
+      "valid_from": "2026-11-06",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_6f6f3752-9521-4a29-9e9d-f2d447d1ef48.jpg",
+        "w": 258,
+        "h": 322
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/6f6f3752-9521-4a29-9e9d-f2d447d1ef48.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-04",
+      "chain_id": "bim",
+      "title": "04 Kasım Çarşamba",
+      "date_label": "04 Kasım Çarşamba",
+      "valid_from": "2026-11-04",
+      "valid_to": "2026-11-10",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_07f082c4-98f2-43e9-98b4-cdcbd8d14c47.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/07f082c4-98f2-43e9-98b4-cdcbd8d14c47.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-04.json",
+      "product_count": 18,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-03",
+      "chain_id": "bim",
+      "title": "03 Kasım Salı",
+      "date_label": "03 Kasım Salı",
+      "valid_from": "2026-11-03",
+      "valid_to": "2026-11-09",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_277fd718-eb15-4a5a-8ba4-84415add9bdc.jpg",
+        "w": 258,
+        "h": 386
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/277fd718-eb15-4a5a-8ba4-84415add9bdc.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/75db7d3d-b746-49ca-9104-03e831755293.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/f254edd3-7cde-4692-9db3-3d1bb09adea6.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-03.json",
+      "product_count": 93,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-2026-11-03-2026-11-30",
+      "chain_id": "bim",
+      "title": "03-30 Kasım",
+      "date_label": "03-30 Kasım",
+      "valid_from": "2026-11-03",
+      "valid_to": "2026-11-30",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_4d4684a4-1258-4898-b56e-a7c051cd838d.jpg",
+        "w": 258,
+        "h": 322
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/4d4684a4-1258-4898-b56e-a7c051cd838d.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-indirim-2026-11-03-2026-11-30.json",
+      "product_count": 40,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-2026-03-24-2026-12-31",
+      "chain_id": "bim",
+      "title": "24 Mart-31 Aralık",
+      "date_label": "24 Mart-31 Aralık",
+      "valid_from": "2026-03-24",
+      "valid_to": "2026-12-31",
+      "kind": "pages",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_8ec590ee-0c12-4806-b101-dd5c2db55fc0.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/8ec590ee-0c12-4806-b101-dd5c2db55fc0.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-cok-al-az-ode",
+      "chain_id": "bim",
+      "title": "ÇOK AL AZ ÖDE",
+      "date_label": "ÇOK AL AZ ÖDE",
+      "valid_from": null,
+      "valid_to": null,
+      "kind": "pages",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_2ae72a02-0023-474c-917e-521f2860ca11.jpg",
+        "w": 258,
+        "h": 322
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/2ae72a02-0023-474c-917e-521f2860ca11.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/e8f50e82-e8b2-47ee-a9de-7431860d2dba.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim",
+      "chain_id": "sok",
+      "title": "Hafta Sonu Fırsatları",
+      "date_label": "21 - 24 Kasım 2026",
+      "valid_from": "2026-11-21",
+      "valid_to": "2026-11-24",
+      "kind": "pages",
+      "cover": {
+        "url": "media/sok/sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim/p01.webp",
+        "w": 2000,
+        "h": 2882
+      },
+      "pages": [
+        {
+          "url": "media/sok/sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim/p01.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim/p02.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim/p03.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim/p04.webp",
+          "w": 2000,
+          "h": 2882
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://kurumsal.sokmarket.com.tr/uploads/pdf/mwajlev6-21-24kasim.pdf",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-13T22:14:23Z"
+    },
+    {
+      "id": "sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim",
+      "chain_id": "sok",
+      "title": "Haftanın Fırsatları",
+      "date_label": "18 - 24 Kasım 2026",
+      "valid_from": "2026-11-18",
+      "valid_to": "2026-11-24",
+      "kind": "pages",
+      "cover": {
+        "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p01.webp",
+        "w": 2000,
+        "h": 2882
+      },
+      "pages": [
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p01.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p02.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p03.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p04.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p05.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p06.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p07.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p08.webp",
+          "w": 2000,
+          "h": 2882
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://kurumsal.sokmarket.com.tr/uploads/pdf/mwajrdpq-18-24kasim.pdf",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-13T22:14:23Z"
+    },
+    {
+      "id": "migros-migroskop-910",
+      "chain_id": "migros",
+      "title": "Migroskop",
+      "date_label": "5 - 18 Kasım 2026",
+      "valid_from": "2026-11-05",
+      "valid_to": "2026-11-18",
+      "kind": "products",
+      "cover": {
+        "url": "https://migroskop-assets.migros.com.tr/migrosdigitalinsert/910MIGROSKOP72YIL_migroskop_kapak1/Cover/183b2f00-a36e-4f86-ad87-507620ede1dd_743x1024.jpg",
+        "w": 743,
+        "h": 1024
+      },
+      "pages": [],
+      "products_url": "products/migros-migroskop-910.json",
+      "product_count": 242,
+      "source_url": "https://migroskop.migros.com.tr/migroskop",
+      "first_seen": "2026-11-05T00:00:00Z",
+      "updated_at": "2026-11-14T10:28:09Z"
+    },
+    {
+      "id": "macrocenter-mac-2026-2262-kasim-639289517091175055",
+      "chain_id": "macrocenter",
+      "title": "MacroStyle",
+      "date_label": "1 - 30 Kasım 2026",
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p01.webp",
+        "w": 2000,
+        "h": 2829
+      },
+      "pages": [
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p01.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p02.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p03.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p04.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p05.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p06.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p07.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p08.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p09.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p10.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p11.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p12.webp",
+          "w": 2000,
+          "h": 2829
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://moneyclubkart.azureedge.net/mcstage/mac-2026-2262-kasim-639289517091175055.pdf",
+      "first_seen": "2026-11-01T00:00:00Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    }
+  ]
+}

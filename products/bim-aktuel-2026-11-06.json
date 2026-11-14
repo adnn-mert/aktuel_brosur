@@ -1,0 +1,797 @@
+{
+  "schema_version": 1,
+  "brochure_id": "bim-aktuel-2026-11-06",
+  "currency": "TRY",
+  "products": [
+    {
+      "name": "2'Lİ DÜDÜKLÜ TENCERE SETİ ~3,5+~7L",
+      "brand": "Berlin",
+      "quantity_text": null,
+      "price_minor": 145000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_1541_zcy_0040_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/2-li-duduklu-tencere-seti-3-5-7l-30-10/aktuel.aspx"
+    },
+    {
+      "name": "3 KATLI KURUTMALIK",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 109000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_2550_zcy_0039_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/3-katli-kurutmalik-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Tava Seti ~24+~28 cm",
+      "brand": "Chef's",
+      "quantity_text": null,
+      "price_minor": 64900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_6907_zcy_0038_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tava-seti-24-28-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Wok Tava ~28 cm",
+      "brand": "Chef's Professional",
+      "quantity_text": null,
+      "price_minor": 42900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_2222_zcy_0037_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/wok-tava-28-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Çelik Kesme Panosu",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 62900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_8865_zcy_0035_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/celik-kesme-panosu-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Saplı Örgülü Organizer ~21x17x12 cm",
+      "brand": "Benante",
+      "quantity_text": null,
+      "price_minor": 28900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_2441_zcy_0034_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sapli-orgulu-organizer-21x17x12-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Akasya Sunumluk Çeşitleri",
+      "brand": "Benante",
+      "quantity_text": null,
+      "price_minor": 9900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_3527_zcy_0033_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/akasya-sunumluk-cesitleri-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Bambu Sunumluk/Kesme Tahtası Çeşitleri",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 13900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_447_zcy_0032_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bambu-sunumluk-kesme-tahtasi-cesitleri-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Akasya Kase ~20 cm",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 32900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_7412_zcy_0031_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/akasya-kase-20-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Tek Fiyat Silikon Kek Kalıbı Çeşitleri",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 7900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_61_zcy_0030_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tek-fiyat-silikon-kek-kalibi-cesitleri-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Tek Fiyat Silikon Mutfak Gereçleri",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 4500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_8770_zcy_0029_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tek-fiyat-silikon-mutfak-gerecleri-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Çekmece İçi Kaşıklık",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_4416_zcy_0028_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cekmece-ici-kasiklik-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Kesme Panosu",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 10900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_782_zcy_0027_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kesme-panosu-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Saklama Kabı Seti ~450 ml",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 3900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_3396_zcy_0026_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/saklama-kabi-seti--450-ml-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Saklama Kabı Seti ~750 ml",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 4900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_3362_zcy_0025_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/saklama-kabi-seti-750-ml-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Dikiş Kutusu ~6 L",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 13900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_2738_zcy_0024_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dikis-kutusu--6-l-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Çok Amaçlı Kapaklı Kutu ~23 L",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 21900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_6823_zcy_0023_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cok-amacli-kapakli-kutu-23-l-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Tablet Mop Temizlik Seti",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 21900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_1554_zcy_0022_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tablet-mop-temizlik-seti-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Tekerlekli Düzenleyici",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 25900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_6981_zcy_0021_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tekerlekli-duzenleyici-30-10/aktuel.aspx"
+    },
+    {
+      "name": "18 PARÇA DESENLİ PORSELEN YEMEK TAKIMI",
+      "brand": "English Home",
+      "quantity_text": null,
+      "price_minor": 199000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_8256_zcy_0020_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/18-parca-desenli-porselen-yemek-takimi-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Metal Patates/Soğan Kabı",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 29900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_6083_zcy_0019_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/metal-patates-sogan-kabi-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Metal Ekmek Kutusu",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 25900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_8216_zcy_0018_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/metal-ekmek-kutusu-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Tek Fiyat Emaye Ürünler",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 54900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_1921_zcy_0017_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tek-fiyat-emaye-urunler-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Kilitli Saklama Kabı ~ 375 cc",
+      "brand": "Lav",
+      "quantity_text": null,
+      "price_minor": 8900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_7914_zcy_0016_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kilitli-saklama-kabi--375-cc-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Kilitli Saklama Kabı ~ 720 cc",
+      "brand": "Lav",
+      "quantity_text": null,
+      "price_minor": 11900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_8784_zcy_0015_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kilitli-saklama-kabi--720-cc-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Kilitli Saklama Kabı ~ 1150 cc",
+      "brand": "Lav",
+      "quantity_text": null,
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_8988_zcy_0014_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kilitli-saklama-kabi--1150-cc-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Derin Kilitli Saklama Kabı ~ 700 cc",
+      "brand": "Lav",
+      "quantity_text": null,
+      "price_minor": 13900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_5432_zcy_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/derin-kilitli-saklama-kabi--700-cc-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Zoey Su Bardağı ~315 cc",
+      "brand": "Lav",
+      "quantity_text": null,
+      "price_minor": 13900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_1231_zcy_0012_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/zoey-su-bardagi-315-cc-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Tokyo Gravürlü Cam Kase ~ 1500 cc",
+      "brand": "Lav",
+      "quantity_text": null,
+      "price_minor": 10900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_6483_zcy_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tokyo-gravurlu-cam-kase--1500-cc-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Tokyo Gravürlü Cam Kase ~2600 cc",
+      "brand": "Lav",
+      "quantity_text": null,
+      "price_minor": 14900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_9686_zcy_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tokyo-gravurlu-cam-kase-2600-cc-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Cam Su Bardağı ~315 cc",
+      "brand": "Rakle",
+      "quantity_text": null,
+      "price_minor": 13900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_5888_zcy_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cam-su-bardagi-315-cc-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Cam Meşrubat Bardağı ~360 cc",
+      "brand": "Rakle",
+      "quantity_text": null,
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_5983_zcy_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cam-mesrubat-bardagi-360-cc-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Cam Kahve Yanı Su Bardağı ~ 135 cc",
+      "brand": "Rakle",
+      "quantity_text": null,
+      "price_minor": 18900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_6504_zcy_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cam-kahve-yani-su-bardagi--135-cc-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Desenli Emaye Kase/Makarna Tabağı",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 34900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_4569_zcy_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/desenli-emaye-kase-makarna-tabagi-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Desenli Rimli Tepsi ~22x30 cm",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 13900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_5576_zcy_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/desenli-rimli-tepsi-22x30-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Desenli Metal Tepsili Çerezlik Seti",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 14900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_2782_zcy_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/desenli-metal-tepsili-cerezlik-seti-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Desenli Kupa ~280 ml",
+      "brand": "Benante",
+      "quantity_text": null,
+      "price_minor": 12900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_8186_zcy_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/desenli-kupa-280-ml-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Desenli Kahve Fincan Takımı ~ 90 ml",
+      "brand": "Benante",
+      "quantity_text": null,
+      "price_minor": 31900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_4585_zcy_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/desenli-kahve-fincan-takimi--90-ml-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Amber Cam Sıvı Sabunluk Seti",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 21900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_2640_zcy_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/amber-cam-sivi-sabunluk-seti-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Desenli Meşrubat Bardağı ~570 cc",
+      "brand": "Rakle",
+      "quantity_text": null,
+      "price_minor": 8500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_7707_zcy_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/desenli-mesrubat-bardagi-570-cc-30-10/aktuel.aspx"
+    },
+    {
+      "name": "PİJAMA TAKIMI KADIN",
+      "brand": "Dagi",
+      "quantity_text": null,
+      "price_minor": 79900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_9290_tkstl_0039_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/pijama-takimi-kadin-30-10/aktuel.aspx"
+    },
+    {
+      "name": "ŞARDONLU TERMAL TAYT",
+      "brand": "Casilli",
+      "quantity_text": null,
+      "price_minor": 41900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_6166_tkstl_0038_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sardonlu-termal-tayt-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Pijama Takımı Kadın",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 44900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_9301_tkstl_0037_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/pijama-takimi-kadin-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Pelüş Şapka Kadın",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_2016_tkstl_0036_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/pelus-sapka-kadin-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Eldiven Kadın",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 24900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_1479_tkstl_0035_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/eldiven-kadin-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Katlanabilir Pelüş Kulaklık",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 12900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_3363_tkstl_0034_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/katlanabilir-pelus-kulaklik-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Şal",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 22900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_906_tkstl_0033_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sal-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Ayakkabı Kadın",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 79900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_195_tkstl_0032_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ayakkabi-kadin-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Çanta Aksesuarı",
+      "brand": "Articolo",
+      "quantity_text": null,
+      "price_minor": 13900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_1937_tkstl_0031_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/canta-aksesuari-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Omuz Çantası Kadın ~43x32x12 cm",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 34900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_8083_tkstl_0030_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/omuz-cantasi-kadin-43x32x12-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Ev Botu Kadın",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 24900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_1342_tkstl_0029_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ev-botu-kadin-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Terlik Kadın",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 22900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_322_tkstl_0028_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/terlik-kadin-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Dikiş Kutusu",
+      "brand": "Ören Bayan",
+      "quantity_text": null,
+      "price_minor": 17500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_3458_tkstl_0027_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dikis-kutusu-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Anahtarlık",
+      "brand": "Articolo",
+      "quantity_text": null,
+      "price_minor": 8900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_6733_tkstl_0025_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/anahtarlik-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Ortodontik Silikon Emzik",
+      "brand": "Mamajoo",
+      "quantity_text": null,
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_2095_tkstl_0024_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ortodontik-silikon-emzik-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Yumoş Çorap Çeşitleri Kadın",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 6900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_20_tkstl_0023_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yumos-corap-cesitleri-kadin-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Soket Çorap Kadın",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 7900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_1925_tkstl_0022_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/soket-corap-kadin-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Lazer Kesim Sütyen",
+      "brand": "Casilli",
+      "quantity_text": null,
+      "price_minor": 44900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_1997_tkstl_0021_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/lazer-kesim-sutyen-30-10/aktuel.aspx"
+    },
+    {
+      "name": "ÇİFT KİŞİLİK BATTANİYE ~200x220 cm",
+      "brand": "Ören Bayan",
+      "quantity_text": null,
+      "price_minor": 72900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_4014_tkstl_0020_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cift-kisilik-battaniye-200x220-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "TEK KİŞİLİK BATTANİYE ~150x220 cm",
+      "brand": "Ören Bayan",
+      "quantity_text": null,
+      "price_minor": 67900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_6866_tkstl_0019_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tek-kisilik-battaniye-150x220-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Yüz Havlusu ~50x70 cm",
+      "brand": "Maisonette",
+      "quantity_text": null,
+      "price_minor": 11500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_1825_tkstl_0018_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yuz-havlusu-50x70-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "El Havlusu ~30x50 cm",
+      "brand": "Maisonette",
+      "quantity_text": null,
+      "price_minor": 6900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_1297_tkstl_0017_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/el-havlusu--30x50-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Bornoz",
+      "brand": "Maisonette",
+      "quantity_text": null,
+      "price_minor": 69900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_5954_tkstl_0016_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bornoz-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Flanel Yastık Kılıfı ~50x70 cm",
+      "brand": "Cotton Collection",
+      "quantity_text": null,
+      "price_minor": 16900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_2504_tkstl_0015_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/flanel-yastik-kilifi-50x70-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Çift Kişilik Flanel Nevresim Seti",
+      "brand": "Cotton Collection",
+      "quantity_text": null,
+      "price_minor": 99900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_2325_tkstl_0014_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cift-kisilik-flanel-nevresim-seti-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Welsoft Kırlent Kılıfı ~45x45 cm",
+      "brand": "Molinella",
+      "quantity_text": null,
+      "price_minor": 18900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_9441_tkstl_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/welsoft-kirlent-kilifi-45x45-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Mutfak Önlüğü ~63x78 cm",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 13900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_8184_tkstl_0012_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mutfak-onlugu--63x78-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Mutfak Havlusu Seti ~30x50 cm",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 11900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_7168_tkstl_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mutfak-havlusu-seti-30x50-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Fırın Eldiveni",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 9900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_3372_tkstl_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/firin-eldiveni-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Baskılı Kumaş Çanta ~42x37 cm",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_5517_tkstl_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/baskili-kumas-canta-42x37-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Kapı Önü Paspası ~40x60 cm",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 9900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_2569_tkstl_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kapi-onu-paspasi-40x60-cm-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Çift Kişilik Kapitoneli Yatak Alezi",
+      "brand": "Casilda Home",
+      "quantity_text": null,
+      "price_minor": 34900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_7579_tkstl_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cift-kisilik-kapitoneli-yatak-alezi-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Tek Kişilik Kapitoneli Yatak Alezi",
+      "brand": "Casilda Home",
+      "quantity_text": null,
+      "price_minor": 24900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_6933_tkstl_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tek-kisilik-kapitoneli-yatak-alezi-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Yastık Alezi",
+      "brand": "Casilda Home",
+      "quantity_text": null,
+      "price_minor": 16900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_2992_tkstl_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yastik-alezi-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Kışlık Gömlek Erkek",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 29900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_9868_tkstl_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kislik-gomlek-erkek-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Boxer Erkek",
+      "brand": "Comfort Care",
+      "quantity_text": null,
+      "price_minor": 19900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_9832_tkstl_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/boxer-erkek-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Çorap Erkek",
+      "brand": "Comfort Care",
+      "quantity_text": null,
+      "price_minor": 9900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_9838_tkstl_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/corap-erkek-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Askılı Atlet Kadın",
+      "brand": "Comfort Care",
+      "quantity_text": null,
+      "price_minor": 12900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_6095_tkstl_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/askili-atlet-kadin-30-10/aktuel.aspx"
+    },
+    {
+      "name": "Slip Kadın",
+      "brand": "Comfort Care",
+      "quantity_text": null,
+      "price_minor": 12900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1699_kucuk_543X467_4740_tkstl_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/slip-kadin-30-10/aktuel.aspx"
+    }
+  ]
+}

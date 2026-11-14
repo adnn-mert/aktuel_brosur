@@ -1,0 +1,567 @@
+{
+  "schema_version": 1,
+  "brochure_id": "bim-aktuel-2026-11-22",
+  "currency": "TRY",
+  "products": [
+    {
+      "name": "50 İNÇ 4K ULTRA HD QLED GOOGLE TV 50DQ40000",
+      "brand": "DİJİTSU",
+      "quantity_text": null,
+      "price_minor": 1899000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_1679_22_kasim_pazar_0054_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/50-inc-4k-ultra-hd-qled-google-tv-50dq40000-13-11/aktuel.aspx"
+    },
+    {
+      "name": "43 İNÇ FULL HD QLED ANDROID TV 43S5K",
+      "brand": "TCL",
+      "quantity_text": null,
+      "price_minor": 1699000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_1274_22_kasim_pazar_0053_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/43-inc-full-hd-qled-android-tv-43s5k-13-11/aktuel.aspx"
+    },
+    {
+      "name": "HP SMART TANK 581 AIO TANKLI YAZICI",
+      "brand": "HP",
+      "quantity_text": null,
+      "price_minor": 745000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_9029_22_kasim_pazar_0052_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/hp-smart-tank-581-aio-tankli-yazici-13-11/aktuel.aspx"
+    },
+    {
+      "name": "METAL MASA LAMBASI",
+      "brand": "AUKES",
+      "quantity_text": null,
+      "price_minor": 59900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_6154_22_kasim_pazar_0051_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/metal-masa-lambasi-13-11/aktuel.aspx"
+    },
+    {
+      "name": "ŞARJLI LED APLİK",
+      "brand": "AUKES",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_7164_22_kasim_pazar_0050_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sarjli-led-aplik-13-11/aktuel.aspx"
+    },
+    {
+      "name": "LCD YAZI TAHTASI",
+      "brand": "IMEX",
+      "quantity_text": null,
+      "price_minor": 22900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_5494_22_kasim_pazar_0049_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/lcd-yazi-tahtasi-13-11/aktuel.aspx"
+    },
+    {
+      "name": "ŞARJLI SU POMPASI",
+      "brand": "HOUSE PRATİK",
+      "quantity_text": null,
+      "price_minor": 29900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_180_22_kasim_pazar_0048_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sarjli-su-pompasi-13-11/aktuel.aspx"
+    },
+    {
+      "name": "METALİK DOKULU KULAKLIK",
+      "brand": "PROZONE",
+      "quantity_text": null,
+      "price_minor": 59900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_3525_22_kasim_pazar_0047_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/metalik-dokulu-kulaklik-13-11/aktuel.aspx"
+    },
+    {
+      "name": "RETRO OYUN KONSOLU PGM620",
+      "brand": "POLOSMART",
+      "quantity_text": null,
+      "price_minor": 109000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_2941_22_kasim_pazar_0046_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/retro-oyun-konsolu-pgm620-13-11/aktuel.aspx"
+    },
+    {
+      "name": "ŞARJLI GAMEBOY PGM35",
+      "brand": "POLOSMART",
+      "quantity_text": null,
+      "price_minor": 69900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_8522_22_kasim_pazar_0045_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sarjli-gameboy-pgm35-13-11/aktuel.aspx"
+    },
+    {
+      "name": "HYBIRD WİRELESS MOUSE PSWM23",
+      "brand": "POLOSMART",
+      "quantity_text": null,
+      "price_minor": 24900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_4998_22_kasim_pazar_0044_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/hybird-wireless-mouse-pswm23-13-11/aktuel.aspx"
+    },
+    {
+      "name": "AKILLI SAAT PSSW22",
+      "brand": "POLOSMART",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_9499_22_kasim_pazar_0043_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/akilli-saat-pssw22-13-11/aktuel.aspx"
+    },
+    {
+      "name": "ANTİFRİZLİ OTO CAM SUYU -30°C 5 L",
+      "brand": "AUTO POWER",
+      "quantity_text": null,
+      "price_minor": 16000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_2814_22_kasim_pazar_0042_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/antifrizli-oto-cam-suyu-30-c-5-l-13-11/aktuel.aspx"
+    },
+    {
+      "name": "ANTİFRİZLİ OTO CAM SUYU KONSATRE-80°C 1 L",
+      "brand": "AUTO POWER",
+      "quantity_text": null,
+      "price_minor": 8000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_7740_22_kasim_pazar_0041_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/antifrizli-oto-cam-suyu-konsatre-80-c-1-l-13-11/aktuel.aspx"
+    },
+    {
+      "name": "ANTİFRİZLİ OTO CAM SUYU -21°C 5 L",
+      "brand": "AUTO POWER",
+      "quantity_text": null,
+      "price_minor": 14000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_5145_22_kasim_pazar_0040_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/antifrizli-oto-cam-suyu-21-c-5-l-13-11/aktuel.aspx"
+    },
+    {
+      "name": "RADYATÖR ANTİFRİZ -37°C 3 L",
+      "brand": "AUTO POWER",
+      "quantity_text": null,
+      "price_minor": 23500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_6002_22_kasim_pazar_0039_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/radyator-antifriz-37-c-3-l-13-11/aktuel.aspx"
+    },
+    {
+      "name": "OTO CAM YAĞMUR KAYDRICI 500 ML",
+      "brand": "AUTO POWER",
+      "quantity_text": null,
+      "price_minor": 6500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_5663_22_kasim_pazar_0038_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/oto-cam-yagmur-kaydrici-500-ml-13-11/aktuel.aspx"
+    },
+    {
+      "name": "OTO CAM BUĞU ÖNLEYİCİ 500 ML AUTO",
+      "brand": "AUTO POWER",
+      "quantity_text": null,
+      "price_minor": 6500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_8627_22_kasim_pazar_0037_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/oto-cam-bugu-onleyici-500-ml-auto-13-11/aktuel.aspx"
+    },
+    {
+      "name": "TAM OTOMATİK ESPRESSO MAKİNE EP3341/50",
+      "brand": "PHILIPS",
+      "quantity_text": null,
+      "price_minor": 1590000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_2292_22_kasim_pazar_0036_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tam-otomatik-espresso-makine-ep3341-50-13-11/aktuel.aspx"
+    },
+    {
+      "name": "EL BLENDER SETİ",
+      "brand": "ARNİCA",
+      "quantity_text": null,
+      "price_minor": 199000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_5784_22_kasim_pazar_0035_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/el-blender-seti-13-11/aktuel.aspx"
+    },
+    {
+      "name": "CHOPPSTAR DOĞRAYICI",
+      "brand": "HEİFER",
+      "quantity_text": null,
+      "price_minor": 129000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_6761_22_kasim_pazar_0034_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/choppstar-dograyici-13-11/aktuel.aspx"
+    },
+    {
+      "name": "CAM KETTLE",
+      "brand": "HEİFER",
+      "quantity_text": null,
+      "price_minor": 99000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_1601_22_kasim_pazar_0033_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cam-kettle-13-11/aktuel.aspx"
+    },
+    {
+      "name": "PRO SUCTİON X 250 W ŞARJLI DİKEY SÜPÜRGE",
+      "brand": "HEİFER",
+      "quantity_text": null,
+      "price_minor": 590000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_6260_22_kasim_pazar_0032_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/pro-suction-x-250-w-sarjli-dikey-supurge-13-11/aktuel.aspx"
+    },
+    {
+      "name": "MASAJ TABANCASI",
+      "brand": "NORDİCA",
+      "quantity_text": null,
+      "price_minor": 59000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_8808_22_kasim_pazar_0031_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/masaj-tabancasi-13-11/aktuel.aspx"
+    },
+    {
+      "name": "TÜRK KAHVE MAKİNESİ",
+      "brand": "FAKİR",
+      "quantity_text": null,
+      "price_minor": 199000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_6053_22_kasim_pazar_0030_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/turk-kahve-makinesi-13-11/aktuel.aspx"
+    },
+    {
+      "name": "DİK DURABİLEN SÜPÜRGE LUCKY",
+      "brand": "FAKİR",
+      "quantity_text": null,
+      "price_minor": 249000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_7651_22_kasim_pazar_0029_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dik-durabilen-supurge-lucky-13-11/aktuel.aspx"
+    },
+    {
+      "name": "SMART TARTI PSC84",
+      "brand": "POLOSMART",
+      "quantity_text": null,
+      "price_minor": 59900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_5063_22_kasim_pazar_0028_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/smart-tarti-psc84-13-11/aktuel.aspx"
+    },
+    {
+      "name": "SIFIR SAKAL TIRAŞ MAKİNESİ MİNİ PSC118",
+      "brand": "POLOSMART",
+      "quantity_text": null,
+      "price_minor": 69900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_5067_22_kasim_pazar_0027_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sifir-sakal-tiras-makinesi-mini-psc118-13-11/aktuel.aspx"
+    },
+    {
+      "name": "HİBRİT TIRAŞ MAKİNESİ",
+      "brand": "PHILIPS",
+      "quantity_text": null,
+      "price_minor": 139000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_4113_22_kasim_pazar_0026_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/hibrit-tiras-makinesi-13-11/aktuel.aspx"
+    },
+    {
+      "name": "EPİLATÖR BRE229/00",
+      "brand": "PHILIPS",
+      "quantity_text": null,
+      "price_minor": 119000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_7207_22_kasim_pazar_0025_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/epilator-bre229-00-13-11/aktuel.aspx"
+    },
+    {
+      "name": "LİSANSLI OYUN ÇADIRI",
+      "brand": "BARBIE-HOT WHEELS",
+      "quantity_text": null,
+      "price_minor": 47900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_5645_22_kasim_pazar_0024_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/lisansli-oyun-cadiri-13-11/aktuel.aspx"
+    },
+    {
+      "name": "TEKLİ OYUN HAMURU 125 GR",
+      "brand": "CHİLDGEN",
+      "quantity_text": null,
+      "price_minor": 3900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_9960_22_kasim_pazar_0023_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tekli-oyun-hamuru-125-gr-13-11/aktuel.aspx"
+    },
+    {
+      "name": "OYUNCAK PUSET",
+      "brand": "UJ TOYS",
+      "quantity_text": null,
+      "price_minor": 31900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_1214_22_kasim_pazar_0022_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/oyuncak-puset-13-11/aktuel.aspx"
+    },
+    {
+      "name": "OYUNCAK ŞİRİN ŞEF SETİ",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 19900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_7966_22_kasim_pazar_0021_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/oyuncak-sirin-sef-seti-13-11/aktuel.aspx"
+    },
+    {
+      "name": "MASALI BLOK SETİ",
+      "brand": "AYA TOYS",
+      "quantity_text": null,
+      "price_minor": 34900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_4030_22_kasim_pazar_0020_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/masali-blok-seti-13-11/aktuel.aspx"
+    },
+    {
+      "name": "MİNİ KENT",
+      "brand": "PİLSAN",
+      "quantity_text": null,
+      "price_minor": 32900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_8160_22_kasim_pazar_0019_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mini-kent-13-11/aktuel.aspx"
+    },
+    {
+      "name": "OYUNCAK ÇEŞİTLERİ",
+      "brand": "MGS",
+      "quantity_text": null,
+      "price_minor": 19900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_8495_22_kasim_pazar_0018_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/oyuncak-cesitleri-13-11/aktuel.aspx"
+    },
+    {
+      "name": "PELÜŞ MİDİLLİ AT",
+      "brand": "GRAN TOYS",
+      "quantity_text": null,
+      "price_minor": 62900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_6156_22_kasim_pazar_0017_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/pelus-midilli-at-13-11/aktuel.aspx"
+    },
+    {
+      "name": "SÜPERMARKET ARABASI SETİ",
+      "brand": "UÇAR OYUNCAK",
+      "quantity_text": null,
+      "price_minor": 42900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_1557_22_kasim_pazar_0016_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/supermarket-arabasi-seti-13-11/aktuel.aspx"
+    },
+    {
+      "name": "DEDEKTİF KUTU OYUNU",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 19900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_1243_22_kasim_pazar_0015_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dedektif-kutu-oyunu-13-11/aktuel.aspx"
+    },
+    {
+      "name": "KELİME GİRDABI",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 19900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_8585_22_kasim_pazar_0014_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kelime-girdabi-13-11/aktuel.aspx"
+    },
+    {
+      "name": "360 DERECE DÖNEN SPOR ARABALAR",
+      "brand": "PICCOLO MONDİ",
+      "quantity_text": null,
+      "price_minor": 27900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_1765_22_kasim_pazar_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/360-derece-donen-spor-arabalar-13-11/aktuel.aspx"
+    },
+    {
+      "name": "ÇEK BIRAK METAL MİNİ İŞ ARAÇLARI",
+      "brand": "PICCOLO MONDİ",
+      "quantity_text": null,
+      "price_minor": 7900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_2825_22_kasim_pazar_0012_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cek-birak-metal-mini-is-araclari-13-11/aktuel.aspx"
+    },
+    {
+      "name": "OYUNCAK TOPAÇ VE UÇAN PERVANE",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 12900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_5574_22_kasim_pazar_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/oyuncak-topac-ve-ucan-pervane-13-11/aktuel.aspx"
+    },
+    {
+      "name": "BÜYÜK TEKER ARABA",
+      "brand": "MGS",
+      "quantity_text": null,
+      "price_minor": 26900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_2842_22_kasim_pazar_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/buyuk-teker-araba-13-11/aktuel.aspx"
+    },
+    {
+      "name": "AKSESUARLI SEVİMLİ KEDİLER",
+      "brand": "PICCOLO MONDİ",
+      "quantity_text": null,
+      "price_minor": 14900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_8625_22_kasim_pazar_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/aksesuarli-sevimli-kediler-13-11/aktuel.aspx"
+    },
+    {
+      "name": "BOWLİNG SETİ",
+      "brand": "GOKIDY",
+      "quantity_text": null,
+      "price_minor": 14900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_8922_22_kasim_pazar_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bowling-seti-13-11/aktuel.aspx"
+    },
+    {
+      "name": "PARMAK ISIRAN DİNOZOR",
+      "brand": "GOKIDY",
+      "quantity_text": null,
+      "price_minor": 9900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_7377_22_kasim_pazar_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/parmak-isiran-dinozor-13-11/aktuel.aspx"
+    },
+    {
+      "name": "LALE DEMETİ",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 18900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_6291_22_kasim_pazar_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/lale-demeti-13-11/aktuel.aspx"
+    },
+    {
+      "name": "LİSANSLI ABAKÜSLÜ YAZI TAHTASI",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 11900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_5426_22_kasim_pazar_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/lisansli-abakuslu-yazi-tahtasi-13-11/aktuel.aspx"
+    },
+    {
+      "name": "BİLSEM KİTAPLARI",
+      "brand": "ARTENİNO",
+      "quantity_text": null,
+      "price_minor": 11900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_7196_22_kasim_pazar_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bilsem-kitaplari-13-11/aktuel.aspx"
+    },
+    {
+      "name": "HİKAYE KİTAPLARI",
+      "brand": "TÜRKİYE DİYANET VAKFI YAYINLARI",
+      "quantity_text": null,
+      "price_minor": 7900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_6586_22_kasim_pazar--.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/hikaye-kitaplari-13-11/aktuel.aspx"
+    },
+    {
+      "name": "ŞEKİLLİ ÇIKARTMALI BOYAMA KİTAPLARI",
+      "brand": "0-6 YAŞ YAYINLARI",
+      "quantity_text": null,
+      "price_minor": 5500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_6061_22_kasim_pazar_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sekilli-cikartmali-boyama-kitaplari-13-11/aktuel.aspx"
+    },
+    {
+      "name": "ŞEKİLLİ TAŞITLAR SERİSİ KİTAPLAR",
+      "brand": "EOLA",
+      "quantity_text": null,
+      "price_minor": 11900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_7208_22_kasim_pazar_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sekilli-tasitlar-serisi-kitaplar-13-11/aktuel.aspx"
+    },
+    {
+      "name": "ÇELİK TERMOS",
+      "brand": "THEEBBY",
+      "quantity_text": null,
+      "price_minor": 95900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_1574_22_kasim_pazar_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/celik-termos-13-11/aktuel.aspx"
+    },
+    {
+      "name": "METAL KATLANIR AYAKLI YER SOFRASI",
+      "brand": "MİMİLOS",
+      "quantity_text": null,
+      "price_minor": 59900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1713_kucuk_543X467_1330_22_kasim_pazar_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/metal-ayakli-yer-sofrasi-13-11/aktuel.aspx"
+    }
+  ]
+}

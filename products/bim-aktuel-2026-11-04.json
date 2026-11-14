@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "brochure_id": "bim-aktuel-2026-11-04",
+  "currency": "TRY",
+  "products": [
+    {
+      "name": "NOFROST BUZDOLABI KEY 490 NFS",
+      "brand": "Keysmart",
+      "quantity_text": null,
+      "price_minor": 3545000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_2117_evetsl_0017_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/nofrost-buzdolabi-key-490-nfs-26-10/aktuel.aspx"
+    },
+    {
+      "name": "BUZDOLABI KEY 330 STE",
+      "brand": "Keysmart",
+      "quantity_text": null,
+      "price_minor": 1990000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_9067_evetsl_0016_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/buzdolabi-key-330-ste-26-10/aktuel.aspx"
+    },
+    {
+      "name": "NOFROST BUZDOLABI KEY 300 NFE",
+      "brand": "Keysmart",
+      "quantity_text": null,
+      "price_minor": 2290000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_3794_evetsl_0015_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/nofrost-buzdolabi-key-300-nfe-26-10/aktuel.aspx"
+    },
+    {
+      "name": "8 KG ÇAMAŞIR MAKİNESİ KEY 810 CM",
+      "brand": "Keysmart",
+      "quantity_text": null,
+      "price_minor": 1990000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_6022_evetsl_0014_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/8-kg-camasir-makinesi-key-810-cm-26-10/aktuel.aspx"
+    },
+    {
+      "name": "8 KG ÇAMAŞIR KURUTMA MAKİNESİ KEY 80 KM",
+      "brand": "Keysmart",
+      "quantity_text": null,
+      "price_minor": 1690000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_226_evetsl_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/8-kg-camasir-kurutma-makinesi-key-80-km-26-10/aktuel.aspx"
+    },
+    {
+      "name": "9 KG ÇAMAŞIR MAKİNESİ KEY 910 CM",
+      "brand": "Keysmart",
+      "quantity_text": null,
+      "price_minor": 2090000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_8339_evetsl_0012_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/9-kg-camasir-makinesi-key-910-cm-26-10/aktuel.aspx"
+    },
+    {
+      "name": "4 PROGRAMLI BULAŞIK MAKİNESİ KEY 4014 BMS",
+      "brand": "Keysmart",
+      "quantity_text": null,
+      "price_minor": 1790000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_3122_evetsl_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/4-programli-bulasik-makinesi-key-4014-bms-26-10/aktuel.aspx"
+    },
+    {
+      "name": "4 PROGRAMLI BULAŞIK MAKİNESİ KEY 4014 BM",
+      "brand": "Keysmart",
+      "quantity_text": null,
+      "price_minor": 1590000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_6192_evetsl_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/4-programli-bulasik-makinesi-key-4014-bm-26-10/aktuel.aspx"
+    },
+    {
+      "name": "9 KG ÇAMAŞIR KURUTMA MAKİNESİ KEY 90 KM",
+      "brand": "Keysmart",
+      "quantity_text": null,
+      "price_minor": 1790000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_5717_evetsl_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/9-kg-camasir-kurutma-makinesi-key-90-km-26-10/aktuel.aspx"
+    },
+    {
+      "name": "DEPOSUZ SU ARITMA CİHAZI HSA-103",
+      "brand": "Kumtel",
+      "quantity_text": null,
+      "price_minor": 750000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_9297_evetsl_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/deposuz-su-aritma-cihazi-hsa-103-26-10/aktuel.aspx"
+    },
+    {
+      "name": "AKILLI KEDİ TUVALETİ",
+      "brand": "PetMi",
+      "quantity_text": null,
+      "price_minor": 1290000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_1397_evetsl_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/akilli-kedi-tuvaleti-26-10/aktuel.aspx"
+    },
+    {
+      "name": "OTOMATİK SU PINARI",
+      "brand": "PetMi",
+      "quantity_text": null,
+      "price_minor": 139000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_1589_evetsl_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/otomatik-su-pinari-26-10/aktuel.aspx"
+    },
+    {
+      "name": "KAMERALI AKILLI MAMA KABI",
+      "brand": "PetMi",
+      "quantity_text": null,
+      "price_minor": 290000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_2554_evetsl_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kamerali-akilli-mama-kabi-26-10/aktuel.aspx"
+    },
+    {
+      "name": "ESSE KİTAPLIKLI ÇALIŞMA MASASI",
+      "brand": "Moon Life",
+      "quantity_text": null,
+      "price_minor": 365000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_4607_evetsl_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/esse-kitaplikli-calisma-masasi-26-10/aktuel.aspx"
+    },
+    {
+      "name": "2 KAPAKLI KAYAR RAFLI AYAKKABILIK",
+      "brand": "Moon Life",
+      "quantity_text": null,
+      "price_minor": 255000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_1572_evetsl_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/2-kapakli-kayar-rafli-ayakkabilik-26-10/aktuel.aspx"
+    },
+    {
+      "name": "14 SEPETLİ OYUNCAK DOLABI",
+      "brand": "Moon Life",
+      "quantity_text": null,
+      "price_minor": 255000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_2046_evetsl_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/14-sepetli-oyuncak-dolabi-26-10/aktuel.aspx"
+    },
+    {
+      "name": "ANVER KAHVE KÖŞESİ DOLABI",
+      "brand": "Moon Life",
+      "quantity_text": null,
+      "price_minor": 395000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_8124_evetsl_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/anver-kahve-kosesi-dolabi-26-10/aktuel.aspx"
+    },
+    {
+      "name": "SILVA TEK KAPAKLI RAFLI ÇOK AMAÇLI DOLAP",
+      "brand": "Moon Life",
+      "quantity_text": null,
+      "price_minor": 255000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1698_kucuk_543X467_2505_evetsl_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/silva-tek-kapakli-rafli-cok-amacli-dolap-26-10/aktuel.aspx"
+    }
+  ]
+}

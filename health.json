@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-11-14T19:55:37Z",
+  "sources": [
+    {
+      "chain_id": "bim",
+      "ok": true,
+      "last_ok_at": "2026-11-14T19:55:37Z",
+      "last_error": null,
+      "consecutive_failures": 0,
+      "brochure_count": 19,
+      "duration_ms": 8203
+    },
+    {
+      "chain_id": "sok",
+      "ok": true,
+      "last_ok_at": "2026-11-14T19:55:37Z",
+      "last_error": null,
+      "consecutive_failures": 0,
+      "brochure_count": 2,
+      "duration_ms": 698
+    },
+    {
+      "chain_id": "migros",
+      "ok": true,
+      "last_ok_at": "2026-11-14T19:55:37Z",
+      "last_error": null,
+      "consecutive_failures": 0,
+      "brochure_count": 1,
+      "duration_ms": 4383
+    },
+    {
+      "chain_id": "macrocenter",
+      "ok": true,
+      "last_ok_at": "2026-11-14T19:55:37Z",
+      "last_error": null,
+      "consecutive_failures": 0,
+      "brochure_count": 1,
+      "duration_ms": 317
+    }
+  ]
+}

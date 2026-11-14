@@ -1,0 +1,407 @@
+{
+  "schema_version": 1,
+  "brochure_id": "bim-indirim-2026-11-03-2026-11-30",
+  "currency": "TRY",
+  "products": [
+    {
+      "name": "Yarım Yağlı Yoğurt",
+      "brand": "Dost",
+      "quantity_text": "3000 g",
+      "price_minor": 14900,
+      "old_price_minor": 16500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_3424_03-30_kasim_i-ndi-ri-m_0039_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yarim-yagli-yogurt-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Ayran",
+      "brand": "Dost",
+      "quantity_text": "1,5 L",
+      "price_minor": 5900,
+      "old_price_minor": 6500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_8968_03-30_kasim_i-ndi-ri-m_0038_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ayran-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Fındık Kremalı Gofret",
+      "brand": "Centro",
+      "quantity_text": "142 g",
+      "price_minor": 2950,
+      "old_price_minor": 3700,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_2112_03-30_kasim_i-ndi-ri-m_0037_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/findik-kremali-gofret-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Muzlu Gofret",
+      "brand": "Centro",
+      "quantity_text": "350 g",
+      "price_minor": 4500,
+      "old_price_minor": 5200,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_4647_03-30_kasim_i-ndi-ri-m_0036_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/muzlu-gofret-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Süt Çeşitleri",
+      "brand": "Dost",
+      "quantity_text": "200 ml",
+      "price_minor": 1500,
+      "old_price_minor": 1650,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_3920_03-30_kasim_i-ndi-ri-m_0035_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sut-cesitleri-3-11/aktuel.aspx"
+    },
+    {
+      "name": "%3,1 Yağlı Süt",
+      "brand": "Dost",
+      "quantity_text": "200 ml",
+      "price_minor": 1400,
+      "old_price_minor": 1550,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_8969_03-30_kasim_i-ndi-ri-m_0034_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/-3-1-yagli-sut-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Tam Yağlı Taze Kaşar Peyniri",
+      "brand": "Aknaz",
+      "quantity_text": "500 g",
+      "price_minor": 20900,
+      "old_price_minor": 23900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_1113_03-30_kasim_i-ndi-ri-m_0033_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tam-yagli-taze-kasar-peyniri-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Kakaolu Fındık Kreması",
+      "brand": "Sayley",
+      "quantity_text": "500 g",
+      "price_minor": 7900,
+      "old_price_minor": 8900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_6176_03-30_kasim_i-ndi-ri-m_0032_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kakaolu-findik-kremasi-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Beyaz Çikolatalı Gofret",
+      "brand": "Gof Gof",
+      "quantity_text": "36 g",
+      "price_minor": 1000,
+      "old_price_minor": 1300,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_4223_03-30_kasim_i-ndi-ri-m_0031_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/beyaz-cikolatali-gofret-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Bitter Çikolatalı Gofret",
+      "brand": "Gof Gof",
+      "quantity_text": "36 g",
+      "price_minor": 1000,
+      "old_price_minor": 1300,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_5210_03-30_kasim_i-ndi-ri-m_0030_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bitter-cikolatali-gofret-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Sütlü Çikolatalı Gofret",
+      "brand": "Gof Gof",
+      "quantity_text": "36 g",
+      "price_minor": 800,
+      "old_price_minor": 975,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_1125_03-30_kasim_i-ndi-ri-m_0029_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sutlu-cikolatali-gofret-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Tam Yağlı Bergama Tulum Peyniri",
+      "brand": "Binvezir",
+      "quantity_text": "400 g",
+      "price_minor": 19900,
+      "old_price_minor": 24900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_5687_03-30_kasim_i-ndi-ri-m_0028_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tam-yagli-olgunlastirilmis-bergama-tulum-peyniri-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Tam Yağlı Tava Peyniri",
+      "brand": "Aknaz",
+      "quantity_text": "700 g",
+      "price_minor": 17900,
+      "old_price_minor": 19900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_3042_03-30_kasim_i-ndi-ri-m_0027_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tam-yagli-tava-peyniri-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Makarna Çeşitleri",
+      "brand": "Pasta Veneta",
+      "quantity_text": "500 g",
+      "price_minor": 2150,
+      "old_price_minor": 2650,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_4600_03-30_kasim_i-ndi-ri-m_0026_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/makarna-cesitleri-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Tam Buğday Unlu Bisküvi",
+      "brand": "Yaşam",
+      "quantity_text": "393 g",
+      "price_minor": 4250,
+      "old_price_minor": 4900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_9478_03-30_kasim_i-ndi-ri-m_0025_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tam-bugday-unlu-biskuvi-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Pötibör Bisküvi",
+      "brand": "Süsse",
+      "quantity_text": "1000 g",
+      "price_minor": 7900,
+      "old_price_minor": 8900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_9430_03-30_kasim_i-ndi-ri-m_0024_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/potibor-biskuvi-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Çiğ & Tuzlu Kavrulmuş Fındık",
+      "brand": "Simbat",
+      "quantity_text": "150 g",
+      "price_minor": 11200,
+      "old_price_minor": 12500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_655_03-30_kasim_i-ndi-ri-m_0023_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cig--tuzlu-kavrulmus-findik-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Osmancık Pirinç",
+      "brand": "Efsane",
+      "quantity_text": "2,5 kg",
+      "price_minor": 16500,
+      "old_price_minor": 17900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_7829_03-30_kasim_i-ndi-ri-m_0022_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/osmancik-pirinc-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Nohut",
+      "brand": "Saban",
+      "quantity_text": "1000 g",
+      "price_minor": 5600,
+      "old_price_minor": 6250,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_4542_03-30_kasim_i-ndi-ri-m_0021_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/nohut-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Kırmızı Mercimek",
+      "brand": "Saban",
+      "quantity_text": "1000 g",
+      "price_minor": 4450,
+      "old_price_minor": 4950,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_3302_03-30_kasim_i-ndi-ri-m_0020_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kirmizi-mercimek-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Küp Şeker",
+      "brand": "Şafak",
+      "quantity_text": "1 kg",
+      "price_minor": 6300,
+      "old_price_minor": 7000,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_2953_03-30_kasim_i-ndi-ri-m_0019_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kup-seker-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Kakao",
+      "brand": "Daphne",
+      "quantity_text": "100 g",
+      "price_minor": 5150,
+      "old_price_minor": 5950,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_3630_03-30_kasim_i-ndi-ri-m_0018_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kakao-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Mantı Taze %100 Dana Eti",
+      "brand": "Ekmecik",
+      "quantity_text": "350 g",
+      "price_minor": 5900,
+      "old_price_minor": 6700,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_7429_03-30_kasim_i-ndi-ri-m_0017_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/manti-taze-100-dana-eti-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Natürel Sızma Zeytinyağı",
+      "brand": "Sırım",
+      "quantity_text": "1 L",
+      "price_minor": 26900,
+      "old_price_minor": 31000,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_9917_03-30_kasim_i-ndi-ri-m_0016_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/naturel-sizma-zeytinyagi-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Ayçiçek Yağı",
+      "brand": "Sole",
+      "quantity_text": "2 L",
+      "price_minor": 21900,
+      "old_price_minor": 23500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_5263_03-30_kasim_i-ndi-ri-m_0015_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/aycicek-yagi-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Paket Margarin",
+      "brand": "Sole",
+      "quantity_text": "250 g",
+      "price_minor": 2400,
+      "old_price_minor": 2900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_6656_03-30_kasim_i-ndi-ri-m_0014_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/paket-margarin-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Salatalık Turşusu",
+      "brand": "Fıçı",
+      "quantity_text": "680 g",
+      "price_minor": 6000,
+      "old_price_minor": 6750,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_1459_03-30_kasim_i-ndi-ri-m_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/salatalik-tursusu-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Biberiye Turşusu Çeşitleri",
+      "brand": "Fıçı",
+      "quantity_text": null,
+      "price_minor": 5350,
+      "old_price_minor": 6200,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_1189_03-30_kasim_i-ndi-ri-m_0012_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/biberiye-tursusu-cesitleri-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Çilek Reçeli",
+      "brand": "İlkgün",
+      "quantity_text": "1 kg",
+      "price_minor": 13400,
+      "old_price_minor": 15500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_6744_03-30_kasim_i-ndi-ri-m_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cilek-receli-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Vişne Reçeli",
+      "brand": "İlkgün",
+      "quantity_text": "1 kg",
+      "price_minor": 14850,
+      "old_price_minor": 16500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_2832_03-30_kasim_i-ndi-ri-m_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/visne-receli-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Bezelye Konservesi",
+      "brand": "Yurdum",
+      "quantity_text": "830 g",
+      "price_minor": 4950,
+      "old_price_minor": 5750,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_4555_03-30_kasim_i-ndi-ri-m_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bezelye-konservesi-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Közlenmiş Biber",
+      "brand": "Yurdum",
+      "quantity_text": "680 g",
+      "price_minor": 10700,
+      "old_price_minor": 11900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_4036_03-30_kasim_i-ndi-ri-m_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kozlenmis-biber-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Kırmızı Biber Dolgulu Yeşil Zeytin",
+      "brand": "İnci",
+      "quantity_text": "400 g",
+      "price_minor": 8500,
+      "old_price_minor": 9450,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_5520_03-30_kasim_i-ndi-ri-m_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kirmizi-biber-dolgulu-yesil-zeytin-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Siyah Zeytin",
+      "brand": "İnci",
+      "quantity_text": "2 kg 381-460 adet/kg",
+      "price_minor": 22000,
+      "old_price_minor": 24900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_7430_03-30_kasim_i-ndi-ri-m_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/siyah-zeytin-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Sıvı Çamaşır Deterjanı",
+      "brand": "Art",
+      "quantity_text": "3 L",
+      "price_minor": 12900,
+      "old_price_minor": 14900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_2240_03-30_kasim_i-ndi-ri-m_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sivi-camasir-deterjani-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Bulaşık Makinesi Kapsül",
+      "brand": "Bind Activit Premium",
+      "quantity_text": null,
+      "price_minor": 16900,
+      "old_price_minor": 19900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_8568_03-30_kasim_i-ndi-ri-m_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bulasik-makinesi-kapsul-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Dev Kağıt Havlu",
+      "brand": "Blume",
+      "quantity_text": null,
+      "price_minor": 6500,
+      "old_price_minor": 7200,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_1520_03-30_kasim_i-ndi-ri-m_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dev-kagit-havlu-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Katı Sabun Güzellik",
+      "brand": "Işıl",
+      "quantity_text": "5x75 g",
+      "price_minor": 5900,
+      "old_price_minor": 7000,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_867_03-30_kasim_i-ndi-ri-m_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kati-sabun-guzellik-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Yüzey Temizlik Havlusu",
+      "brand": "Mr.Green",
+      "quantity_text": "100’lü",
+      "price_minor": 9000,
+      "old_price_minor": 10200,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_7369_03-30_kasim_i-ndi-ri-m_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yuzey-temizlik-havlusu-3-11/aktuel.aspx"
+    },
+    {
+      "name": "Hijyenik Ped",
+      "brand": "Scarlett Ultra/Soft",
+      "quantity_text": null,
+      "price_minor": 5000,
+      "old_price_minor": 5750,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1708_kucuk_543X467_3480_03-30_kasim_i-ndi-ri-m_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/hijyenik-ped-3-11/aktuel.aspx"
+    }
+  ]
+}
