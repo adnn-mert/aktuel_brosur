@@ -41,6 +41,10 @@ dependencies:
   intl: ^0.20.3
   flutter_localizations:
     sdk: flutter
+  cached_network_image: ^4.0.7
+  flutter_cache_manager: ^3.5.0
+  webview_flutter: ^4.14.1
+  url_launcher: ^6.3.3
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +73,28 @@ flutter:
   assets:
     - assets/sample/
     - assets/sample/products/
+    # Market logos, one file per chain id (see lib/design/chain_logos.dart).
+    - assets/logos/
+    # Font licences (SIL OFL) travel with the fonts.
+    - assets/fonts/OFL-Lexend.txt
+    - assets/fonts/OFL-Fraunces.txt
+
+  # Embedded fonts (never downloaded at runtime). See DESIGN.md, "Yazı".
+  fonts:
+    - family: Lexend
+      fonts:
+        - asset: assets/fonts/Lexend-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Lexend-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Lexend-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Lexend-Bold.ttf
+          weight: 700
+    - family: Fraunces
+      fonts:
+        - asset: assets/fonts/Fraunces-SemiBold.ttf
+          weight: 600
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

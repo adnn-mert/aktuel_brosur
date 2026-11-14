@@ -1,13 +1,153 @@
 {
   "@@locale": "tr",
-  "appTitle": "Aktüel Broşür",
+  "appTitle": "Çarşı Pazar",
   "@appTitle": {
-    "description": "Application name shown in the task switcher and app bar."
+    "description": "Application name shown on the splash, the home header and the task switcher."
   },
-  "chainsTitle": "Marketler",
-  "@chainsTitle": {
-    "description": "Title of the home screen that lists the chains."
+  "appTagline": "Marketlerin broşürleri bir arada",
+  "@appTagline": {
+    "description": "One-line description under the app name on the splash."
   },
+  "back": "Geri",
+  "@back": {
+    "description": "The back button shown on every screen except home."
+  },
+  "retry": "Tekrar dene",
+  "@retry": {
+    "description": "Button that retries a failed load."
+  },
+
+  "homeQuestion": "Hangi markete bakalım?",
+  "@homeQuestion": {
+    "description": "Guiding question at the top of the home screen."
+  },
+  "homeToday": "Bugün {date}",
+  "@homeToday": {
+    "description": "Today's date under the app name, e.g. 'Bugün 13 Kasım Cuma'.",
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "d MMMM EEEE",
+        "isCustomDateFormat": "true"
+      }
+    }
+  },
+  "homeFavorites": "Sık baktıklarım",
+  "@homeFavorites": {
+    "description": "Heading above the favourite markets."
+  },
+  "homeOthers": "Diğer marketler",
+  "@homeOthers": {
+    "description": "Heading above the non-favourite markets (only when there are favourites)."
+  },
+  "homeFavoriteHint": "Sık baktığınız marketin yıldızına dokunun, hep en üstte dursun.",
+  "@homeFavoriteHint": {
+    "description": "Tip shown under the market grid while there are no favourites."
+  },
+  "homeLoading": "Broşürler getiriliyor…",
+  "@homeLoading": {
+    "description": "Shown with skeleton cards during the first load."
+  },
+  "homeRefresh": "Broşürleri yenile",
+  "@homeRefresh": {
+    "description": "Button at the bottom of the home screen that reloads the catalog."
+  },
+  "refreshUpdated": "Broşürler yenilendi.",
+  "@refreshUpdated": {
+    "description": "Snack message after a successful refresh."
+  },
+  "refreshOffline": "İnternet yok. Kayıtlı broşürler gösteriliyor.",
+  "@refreshOffline": {
+    "description": "Snack message when a refresh fell back to the cached copy."
+  },
+  "refreshFailed": "Yenilenemedi. Biraz sonra tekrar deneyin.",
+  "@refreshFailed": {
+    "description": "Snack message when a refresh failed."
+  },
+
+  "cardCurrent": "Bu hafta",
+  "@cardCurrent": {
+    "description": "First status line of a market card that has brochures valid today."
+  },
+  "brochureCount": "{count, plural, =1{1 broşür} other{{count} broşür}}",
+  "@brochureCount": {
+    "description": "Second status line of a market card: how many brochures.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cardUpcoming": "Gelecek hafta",
+  "@cardUpcoming": {
+    "description": "Status line of a market card that only has upcoming brochures."
+  },
+  "cardPast": "Geçmiş",
+  "@cardPast": {
+    "description": "Status line of a market card that only has past brochures."
+  },
+  "cardEmpty": "Broşür yok",
+  "@cardEmpty": {
+    "description": "Status line of a market card without any brochure."
+  },
+  "cardWeb": "Marketin sitesi",
+  "@cardWeb": {
+    "description": "Status line of a market whose catalog opens as a web page."
+  },
+  "badgeNew": "Yeni",
+  "@badgeNew": {
+    "description": "Badge on a market card or brochure that appeared in the last two days."
+  },
+  "cardNewSpoken": "Yeni broşür var",
+  "@cardNewSpoken": {
+    "description": "Screen-reader text for the 'Yeni' badge."
+  },
+  "cardStaleSpoken": "Son bilgiler alınamadı",
+  "@cardStaleSpoken": {
+    "description": "Screen-reader text for the outdated-data mark on a market card."
+  },
+
+  "favoriteAdd": "{name}: sık baktıklarıma ekle",
+  "@favoriteAdd": {
+    "description": "Label of the empty star.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "favoriteRemove": "{name}: sık baktıklarımdan çıkar",
+  "@favoriteRemove": {
+    "description": "Label of the filled star.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "favoriteAdded": "{name} en üste alındı.",
+  "@favoriteAdded": {
+    "description": "Snack message after starring a market.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "favoriteRemoved": "{name} sık baktıklarınızdan çıkarıldı.",
+  "@favoriteRemoved": {
+    "description": "Snack message after un-starring a market.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "favoriteFailed": "Kaydedilemedi. Tekrar deneyin.",
+  "@favoriteFailed": {
+    "description": "Snack message when the favourite could not be saved."
+  },
+
   "sectionCurrent": "Bu hafta",
   "@sectionCurrent": {
     "description": "Heading for brochures valid today."
@@ -16,33 +156,9 @@
   "@sectionUpcoming": {
     "description": "Heading for brochures that start after today."
   },
-  "sectionPast": "Geçmiş",
+  "sectionPast": "Geçmiş broşürler",
   "@sectionPast": {
     "description": "Heading for brochures that ended within the last four weeks."
-  },
-  "loading": "Yükleniyor…",
-  "@loading": {
-    "description": "Shown while data loads."
-  },
-  "loadError": "Broşürler yüklenemedi. İnternet bağlantınızı kontrol edin.",
-  "@loadError": {
-    "description": "Shown when nothing could be loaded (offline on first launch)."
-  },
-  "retry": "Tekrar dene",
-  "@retry": {
-    "description": "Button that retries a failed load."
-  },
-  "staleNotice": "İnternete bağlanılamadı. Son kaydedilen broşürler gösteriliyor.",
-  "@staleNotice": {
-    "description": "Banner shown when cached data is displayed because the network failed."
-  },
-  "noBrochures": "Şu an gösterilecek broşür yok.",
-  "@noBrochures": {
-    "description": "Empty state of the market screen."
-  },
-  "openChainWebsite": "Marketin katalog sayfasını aç",
-  "@openChainWebsite": {
-    "description": "Action for chains whose catalog is shown in a web view."
   },
   "pageCount": "{count, plural, =1{1 sayfa} other{{count} sayfa}}",
   "@pageCount": {
@@ -53,12 +169,256 @@
       }
     }
   },
-  "productsTitle": "Ürünler",
-  "@productsTitle": {
-    "description": "Heading of a brochure's product list."
+  "productCount": "{count, plural, =1{1 ürün} other{{count} ürün}}",
+  "@productCount": {
+    "description": "Number of products in a brochure's product list.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pairWithDot": "{first} · {second}",
+  "@pairWithDot": {
+    "description": "Two short facts on one line, e.g. '4 sayfa · 14 ürün' or 'Kiwi · 28 cm'.",
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "second": {
+        "type": "String"
+      }
+    }
+  },
+  "open": "Aç",
+  "@open": {
+    "description": "Visible call to action on a brochure card."
+  },
+  "brochureOpen": "Broşürü aç",
+  "@brochureOpen": {
+    "description": "Screen-reader hint on a brochure card."
+  },
+  "chainStaleNotice": "Bu marketin yeni broşürleri şu an alınamıyor.",
+  "@chainStaleNotice": {
+    "description": "Notice on the market screen when the chain's data is outdated."
+  },
+  "chainStaleDetail": "Gördükleriniz en son alınanlar ({date}).",
+  "@chainStaleDetail": {
+    "description": "Second line of the outdated notice with the date of the last good data.",
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "d MMMM",
+        "isCustomDateFormat": "true"
+      }
+    }
+  },
+  "chainStaleDetailUndated": "Gördükleriniz en son alınanlar.",
+  "@chainStaleDetailUndated": {
+    "description": "Second line of the outdated notice when no date is known."
+  },
+  "emptyChainTitle": "Şu an broşür yok",
+  "@emptyChainTitle": {
+    "description": "Title of the empty market screen."
+  },
+  "emptyChainMessage": "{name} yeni broşür yayınlayınca burada görünecek.",
+  "@emptyChainMessage": {
+    "description": "Message of the empty market screen.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "openChainWebsite": "Marketin sitesine bak",
+  "@openChainWebsite": {
+    "description": "Button that opens the chain's own brochure page inside the app."
+  },
+  "unknownChainTitle": "Bu market bulunamadı",
+  "@unknownChainTitle": {
+    "description": "Shown if a market disappeared from the data while its screen was open."
+  },
+
+  "tabBrochure": "Broşür",
+  "@tabBrochure": {
+    "description": "Tab that shows the brochure pages."
+  },
+  "tabProducts": "Ürünler",
+  "@tabProducts": {
+    "description": "Tab that shows the product list."
+  },
+  "pagePrevious": "Önceki sayfa",
+  "@pagePrevious": {
+    "description": "Label of the previous-page arrow."
+  },
+  "pageNext": "Sonraki sayfa",
+  "@pageNext": {
+    "description": "Label of the next-page arrow."
+  },
+  "zoomIn": "Büyüt",
+  "@zoomIn": {
+    "description": "Label of the + button."
+  },
+  "zoomOut": "Küçült",
+  "@zoomOut": {
+    "description": "Label of the − button."
+  },
+  "pageIndicator": "{page} / {count}",
+  "@pageIndicator": {
+    "description": "Current page and page count in the viewer.",
+    "placeholders": {
+      "page": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pageIndicatorSpoken": "Sayfa {page}, toplam {count} sayfa",
+  "@pageIndicatorSpoken": {
+    "description": "Screen-reader text of the page indicator.",
+    "placeholders": {
+      "page": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pageImageSpoken": "Broşür sayfası {page}",
+  "@pageImageSpoken": {
+    "description": "Screen-reader text of a brochure page image.",
+    "placeholders": {
+      "page": {
+        "type": "int"
+      }
+    }
+  },
+  "pageLoading": "Sayfa yükleniyor…",
+  "@pageLoading": {
+    "description": "Shown on a brochure page while its image loads."
+  },
+  "pageErrorTitle": "Bu sayfa açılamadı",
+  "@pageErrorTitle": {
+    "description": "Title shown in place of a page image that failed to load."
+  },
+  "checkConnection": "İnternet bağlantınızı kontrol edip tekrar deneyin.",
+  "@checkConnection": {
+    "description": "Generic advice under a load failure."
+  },
+  "brochureGoneTitle": "Bu broşür artık yok",
+  "@brochureGoneTitle": {
+    "description": "Shown when a brochure was removed from the data."
+  },
+  "brochureGoneMessage": "Süresi dolduğu için kaldırılmış olabilir.",
+  "@brochureGoneMessage": {
+    "description": "Explanation under brochureGoneTitle."
+  },
+
+  "productsLoading": "Ürünler getiriliyor…",
+  "@productsLoading": {
+    "description": "Shown while the product list loads."
+  },
+  "productsErrorTitle": "Ürünler getirilemedi",
+  "@productsErrorTitle": {
+    "description": "Title when the product list could not be loaded."
+  },
+  "productsEmptyTitle": "Bu broşürde ürün listesi yok",
+  "@productsEmptyTitle": {
+    "description": "Title when the product list is empty."
+  },
+  "discountPercent": "%{percent} indirim",
+  "@discountPercent": {
+    "description": "Discount tag on a product card.",
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "oldPriceSpoken": "Eski fiyat {price}",
+  "@oldPriceSpoken": {
+    "description": "Screen-reader text for the crossed-out price.",
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "showOnPage": "Sayfada göster",
+  "@showOnPage": {
+    "description": "Button on a product card that opens the brochure page showing it."
+  },
+
+  "webLoading": "Sayfa açılıyor…",
+  "@webLoading": {
+    "description": "Shown while the chain's web page loads."
+  },
+  "webErrorTitle": "Sayfa açılamadı",
+  "@webErrorTitle": {
+    "description": "Title when the chain's web page failed to load."
+  },
+  "webErrorMessage": "{name} sitesine şu an ulaşılamıyor. İnternet bağlantınızı kontrol edin ya da sayfayı tarayıcıda açın.",
+  "@webErrorMessage": {
+    "description": "Message when the chain's web page failed to load.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "openInBrowser": "Tarayıcıda aç",
+  "@openInBrowser": {
+    "description": "Button that opens the chain's page in the phone's browser."
+  },
+  "browserFailed": "Tarayıcı açılamadı.",
+  "@browserFailed": {
+    "description": "Snack message when the external browser could not be started."
+  },
+  "webBack": "Sitede geri",
+  "@webBack": {
+    "description": "Button that goes one page back inside the chain's web site."
+  },
+
+  "offlineTitle": "İnternete bağlanılamadı",
+  "@offlineTitle": {
+    "description": "Title of the full-screen state on first launch without internet."
+  },
+  "offlineMessage": "Broşürleri getirmek için internet gerekiyor. Bağlantınızı kontrol edip tekrar deneyin.",
+  "@offlineMessage": {
+    "description": "Message of the first-launch offline state."
+  },
+  "brokenTitle": "Broşürler şu an gösterilemiyor",
+  "@brokenTitle": {
+    "description": "Title when the published data is unusable and nothing is cached."
+  },
+  "brokenMessage": "Bir aksaklık var. Biraz sonra tekrar deneyin.",
+  "@brokenMessage": {
+    "description": "Message under brokenTitle."
+  },
+  "staleNotice": "İnternet yok. Daha önce açtığınız broşürleri okuyabilirsiniz.",
+  "@staleNotice": {
+    "description": "Notice on the home screen when cached data is shown because the network failed."
+  },
+  "staleDetail": "Son yenileme: {date}",
+  "@staleDetail": {
+    "description": "When the shown data was last fetched.",
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "d MMMM EEEE",
+        "isCustomDateFormat": "true"
+      }
+    }
   },
   "updateRequired": "Bu broşürleri göstermek için uygulamanın yeni sürümü gerekiyor.",
   "@updateRequired": {
-    "description": "Shown when the published data needs a newer app version."
+    "description": "Notice shown when the published data needs a newer app version."
+  },
+  "updateRequiredDetail": "Uygulamayı güncelleyince bütün broşürler görünür.",
+  "@updateRequiredDetail": {
+    "description": "Second line of the update notice."
   }
 }

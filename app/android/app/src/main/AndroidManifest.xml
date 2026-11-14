@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Brochure data, page images and the in-app web view need the network
+         (debug builds get this from the debug manifest; release builds need it here). -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="aktuel_brosur"
+        android:label="Çarşı Pazar"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
