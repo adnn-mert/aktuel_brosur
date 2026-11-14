@@ -42,7 +42,9 @@ class BrochureGroups {
     this.past = const [],
   });
 
-  /// Valid today ("Bu hafta"), sorted by start day, then title.
+  /// Valid today ("Bu hafta"), newest start first; equal starts: the one
+  /// ending sooner first (open end last), then title. Brochures without a
+  /// start day come last.
   final List<Brochure> current;
 
   /// Starting after today ("Gelecek hafta"), sorted by start day, then title.
@@ -76,6 +78,11 @@ _Bucket _bucketOf(Brochure b, DateTime today) {
       : _Bucket.hidden;
 }
 
+int _byTitle(Brochure a, Brochure b) {
+  final c = compareTurkish(a.title, b.title);
+  return c != 0 ? c : a.id.compareTo(b.id);
+}
+
 List<Brochure> _sorted(
   Iterable<Brochure> items,
   DateTime Function(Brochure) key, {
@@ -85,9 +92,31 @@ List<Brochure> _sorted(
   list.sort((a, b) {
     var c = key(a).compareTo(key(b));
     if (descending) c = -c;
+    return c != 0 ? c : _byTitle(a, b);
+  });
+  return List.unmodifiable(list);
+}
+
+// Orders two optional days; a missing day sorts after any present one.
+int _compareDays(DateTime? a, DateTime? b, {required bool descending}) {
+  if (a == null || b == null) {
+    if (a == b) return 0;
+    return a == null ? 1 : -1;
+  }
+  final c = daysBetween(b, a).sign;
+  return descending ? -c : c;
+}
+
+// "Bu hafta": what started most recently is what the reader came for. A
+// chain like BİM has ~10 valid flyers at once, and one running from March
+// to December must not push this week's flyer to the bottom.
+List<Brochure> _sortedCurrent(Iterable<Brochure> items) {
+  final list = items.toList();
+  list.sort((a, b) {
+    var c = _compareDays(a.validFrom, b.validFrom, descending: true);
     if (c != 0) return c;
-    c = compareTurkish(a.title, b.title);
-    return c != 0 ? c : a.id.compareTo(b.id);
+    c = _compareDays(a.validTo, b.validTo, descending: false);
+    return c != 0 ? c : _byTitle(a, b);
   });
   return List.unmodifiable(list);
 }
@@ -110,11 +139,7 @@ BrochureGroups groupBrochures(List<Brochure> brochures, DateTime today) {
   DateTime startKey(Brochure b) => b.validFrom ?? _firstSeenDay(b);
   DateTime endKey(Brochure b) => b.validTo ?? _firstSeenDay(b);
   return BrochureGroups(
-    current: _sorted(
-      buckets[_Bucket.current] ?? const [],
-      startKey,
-      descending: false,
-    ),
+    current: _sortedCurrent(buckets[_Bucket.current] ?? const []),
     upcoming: _sorted(
       buckets[_Bucket.upcoming] ?? const [],
       startKey,

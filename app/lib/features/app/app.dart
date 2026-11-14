@@ -5,6 +5,7 @@ import '../../design/theme.dart';
 import '../../design/typography.dart';
 import '../../l10n/app_localizations.dart';
 import '../splash/splash_gate.dart';
+import 'data_refresher.dart';
 
 /// Root widget of Çarşı Pazar.
 class CarsiPazarApp extends StatelessWidget {
@@ -15,32 +16,34 @@ class CarsiPazarApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
-      debugShowCheckedModeBanner: false,
-      locale: const Locale('tr'),
-      supportedLocales: AppLocalizations.supportedLocales,
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      theme: buildAppTheme(Brightness.light),
-      darkTheme: buildAppTheme(Brightness.dark),
-      themeMode: ThemeMode.system,
-      builder: (context, child) {
-        // Honour the system font size, up to the factor the layouts are
-        // built for.
-        final media = MediaQuery.of(context);
-        return MediaQuery(
-          data: media.copyWith(
-            textScaler: media.textScaler.clamp(maxScaleFactor: maxTextScale),
-          ),
-          child: child ?? const SizedBox.shrink(),
-        );
-      },
-      home: SplashGate(showSplash: showSplash),
+    return DayAndCatalogRefresher(
+      child: MaterialApp(
+        onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
+        debugShowCheckedModeBanner: false,
+        locale: const Locale('tr'),
+        supportedLocales: AppLocalizations.supportedLocales,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        theme: buildAppTheme(Brightness.light),
+        darkTheme: buildAppTheme(Brightness.dark),
+        themeMode: ThemeMode.system,
+        builder: (context, child) {
+          // Honour the system font size, up to the factor the layouts are
+          // built for.
+          final media = MediaQuery.of(context);
+          return MediaQuery(
+            data: media.copyWith(
+              textScaler: media.textScaler.clamp(maxScaleFactor: maxTextScale),
+            ),
+            child: child ?? const SizedBox.shrink(),
+          );
+        },
+        home: SplashGate(showSplash: showSplash),
+      ),
     );
   }
 }

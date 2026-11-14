@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:aktuel_brosur/data/data.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -83,16 +85,81 @@ void main() {
   });
 
   group('groupBrochures sorting', () {
-    test('current and upcoming by start ascending, ties by title', () {
+    // Like live BİM data: many flyers valid at once, one of them running
+    // for months. Rows are in the expected order, with the reason.
+    final currentOrder = <(String, Brochure)>[
+      (
+        'newest start: this week\'s single-day flyer',
+        brochure('today', title: 'Zeytin', from: today, to: today),
+      ),
+      (
+        'same start, ends sooner',
+        brochure('wed-short', title: 'Su', from: d(2026, 11, 11), to: today),
+      ),
+      (
+        'same start and end: title order (Ç before S)',
+        brochure(
+          'wed-long-cay',
+          title: 'Çay',
+          from: d(2026, 11, 11),
+          to: d(2026, 11, 17),
+        ),
+      ),
+      (
+        'same start and end: title order',
+        brochure(
+          'wed-long-sut',
+          title: 'Süt',
+          from: d(2026, 11, 11),
+          to: d(2026, 11, 17),
+        ),
+      ),
+      (
+        'same start, open end goes after a known end',
+        brochure('wed-open', title: 'Ayran', from: d(2026, 11, 11)),
+      ),
+      (
+        'campaign running since March',
+        brochure(
+          'march',
+          title: 'Aktüel',
+          from: d(2026, 3, 24),
+          to: d(2026, 12, 31),
+        ),
+      ),
+      (
+        'no valid_from: after every dated start',
+        brochure('until-20', title: 'Bal', to: d(2026, 11, 20)),
+      ),
+      (
+        'no dates at all: last (open end)',
+        brochure('undated', title: 'Ekmek', firstSeen: today),
+      ),
+    ];
+
+    test('current: newest start first, then sooner end, then title', () {
+      final input = [for (final (_, b) in currentOrder.reversed) b];
+      // Any input order gives the same result.
+      for (final shuffled in [
+        input,
+        [...input]..shuffle(Random(7)),
+      ]) {
+        final groups = groupBrochures(shuffled, today);
+        expect(
+          groups.current.map((b) => b.id),
+          currentOrder.map((row) => row.$2.id),
+          reason: currentOrder.map((row) => row.$1).join('\n'),
+        );
+      }
+    });
+
+    test('upcoming by start ascending, ties by title', () {
       final groups = groupBrochures([
-        brochure('c3', title: 'Zeytin', from: d(2026, 11, 12), to: today),
-        brochure('c1', title: 'Çay', from: d(2026, 11, 10), to: today),
-        brochure('c2', title: 'Cips', from: d(2026, 11, 12), to: today),
+        brochure('u3', title: 'Zeytin', from: d(2026, 11, 18)),
         brochure('u2', from: d(2026, 11, 20)),
-        brochure('u1', from: d(2026, 11, 18)),
+        brochure('u1', title: 'Çay', from: d(2026, 11, 18)),
       ], today);
-      expect(groups.current.map((b) => b.id), ['c1', 'c2', 'c3']);
-      expect(groups.upcoming.map((b) => b.id), ['u1', 'u2']);
+      expect(groups.upcoming.map((b) => b.id), ['u1', 'u3', 'u2']);
     });
 
     test('past by end descending, ties by title', () {

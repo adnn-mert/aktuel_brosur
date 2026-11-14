@@ -57,10 +57,18 @@ class _FixedClock extends Clock {
   DateTime now() => _now;
 }
 
+// A fresh instance on every build: Riverpod only notifies dependents when
+// the new value is `!=` the old one, and `const Clock()` would be identical,
+// so invalidating the provider would not regroup anything.
+class _SystemClock extends Clock {
+  _SystemClock();
+}
+
 /// Current time source. Derived providers read `today()` from it when they
-/// rebuild; call `ref.invalidate(clockProvider)` (e.g. when the app resumes
-/// on a new day) to regroup brochures.
-final clockProvider = Provider<Clock>((ref) => const Clock());
+/// rebuild; `ref.invalidate(clockProvider)` makes everything that watches
+/// it (dates, brochure grouping) recompute. The app root does that when the
+/// calendar day changes (`DayAndCatalogRefresher`).
+final clockProvider = Provider<Clock>((ref) => _SystemClock());
 
 /// See [catalogBaseUrlFromEnvironment].
 final catalogBaseUrlProvider = Provider<String>(

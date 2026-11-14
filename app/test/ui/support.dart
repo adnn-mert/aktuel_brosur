@@ -46,21 +46,28 @@ class FakeRepository implements CatalogRepository {
     this.error,
     this.isStale = false,
     this.productsError,
-  }) : catalog = catalog ?? sampleCatalog();
+    DateTime? fetchedAt,
+  }) : catalog = catalog ?? sampleCatalog(),
+       fetchedAt = fetchedAt ?? DateTime.utc(2026, 11, 12, 15);
 
   Catalog catalog;
   Object? error;
   bool isStale;
   Object? productsError;
+  DateTime fetchedAt;
+
+  /// How many times [loadCatalog] was called.
+  int loadCount = 0;
 
   @override
   Future<CatalogResult> loadCatalog({bool forceRefresh = false}) async {
+    loadCount++;
     final failure = error;
     if (failure != null) throw failure;
     return CatalogResult(
       catalog: catalog,
       source: isStale ? CatalogSource.cache : CatalogSource.network,
-      fetchedAt: DateTime.utc(2026, 11, 12, 15),
+      fetchedAt: fetchedAt,
       isStale: isStale,
     );
   }
@@ -118,10 +125,11 @@ List<Override> uiOverrides({
   ui.Image? image,
   bool imagesFail = false,
   Set<String> favorites = const {},
+  Override? clock,
 }) => [
   catalogRepositoryProvider.overrideWithValue(repository ?? FakeRepository()),
   favoritesStoreProvider.overrideWithValue(MemoryFavoritesStore(favorites)),
-  clockProvider.overrideWithValue(Clock.fixed(sampleToday)),
+  clock ?? clockProvider.overrideWithValue(Clock.fixed(sampleToday)),
   catalogImageFactoryProvider.overrideWithValue(
     (uri) => TestImageProvider(image, fail: imagesFail),
   ),
