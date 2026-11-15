@@ -124,3 +124,21 @@ def _range(y1: int, m1: int, d1: int, y2: int, m2: int, d2: int) -> DateRange | 
 
 def _int(value: str | None) -> int | None:
     return int(value) if value is not None else None
+
+
+_MONTH_NAMES = "Ocak Şubat Mart Nisan Mayıs Haziran Temmuz Ağustos Eylül Ekim Kasım Aralık".split()
+
+
+def month_name(month: int) -> str:
+    """Turkish month name, 1-based: "Kasım"."""
+    return _MONTH_NAMES[month - 1]
+
+
+def format_range(r: DateRange) -> str:
+    """Readable label for a range: "13-19 Kasım", "28 Ekim-3 Kasım" or "15 Kasım"."""
+    start, end = r.valid_from, r.valid_to
+    if start == end:
+        return f"{start.day} {_MONTH_NAMES[start.month - 1]}"
+    if (start.year, start.month) == (end.year, end.month):
+        return f"{start.day}-{end.day} {_MONTH_NAMES[end.month - 1]}"
+    return f"{start.day} {_MONTH_NAMES[start.month - 1]}-{end.day} {_MONTH_NAMES[end.month - 1]}"

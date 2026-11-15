@@ -137,7 +137,7 @@ def test_webview_chains_are_listed_without_brochures(tmp_path) -> None:
     assert webviews["a101"]["web_url"] == "https://www.a101.com.tr/afisler"
     assert all(c["status"] == "ok" and c["last_ok_at"] is None for c in webviews.values())
     assert not any(b["chain_id"] in webviews for b in catalog["brochures"])
-    assert [c["id"] for c in catalog["chains"]] == ["bim", "a101", "sok", "migros", "macrocenter", "carrefoursa", "gratis"]
+    assert [c["id"] for c in catalog["chains"]] == [c.id for c in sorted(CHAINS, key=lambda c: c.sort_order)]
 
 
 # --- isolation and failure tracking ----------------------------------------------------

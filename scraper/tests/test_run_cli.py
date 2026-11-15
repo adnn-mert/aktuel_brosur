@@ -21,7 +21,7 @@ def _run(argv: list[str], sources, **kw) -> int:
 
 def test_registry_has_one_source_per_scraped_chain() -> None:
     scraped = [c.id for c in CHAINS if c.kind is ChainKind.SCRAPED]
-    assert sorted(s.chain_id for s in SOURCES) == sorted(scraped) == ["bim", "macrocenter", "migros", "sok"]
+    assert sorted(s.chain_id for s in SOURCES) == sorted(scraped) == ["bim", "bonveno", "hakmar", "macrocenter", "metro", "migros", "rossmann", "sok", "tkkoop", "watsons"]
     assert len({c.id for c in CHAINS}) == len(CHAINS)
     assert {c.id for c in CHAINS if c.kind is ChainKind.WEBVIEW} == {"a101", "carrefoursa", "gratis"}
 
@@ -36,7 +36,7 @@ def test_brand_colours_match_the_designers_sample() -> None:
 
 def test_chain_order() -> None:
     ordered = [c.id for c in sorted(CHAINS, key=lambda c: c.sort_order)]
-    assert ordered[:5] == ["bim", "a101", "sok", "migros", "macrocenter"]
+    assert ordered == ["bim", "a101", "sok", "migros", "carrefoursa", "hakmar", "tkkoop", "bonveno", "metro", "macrocenter", "gratis", "watsons", "rossmann"]
     assert len({c.sort_order for c in CHAINS}) == len(CHAINS)
 
 

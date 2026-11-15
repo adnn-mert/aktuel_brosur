@@ -3,7 +3,7 @@
 Scraped chains are listed only once their source module exists; webview chains have no
 source and are always published with ``status: ok`` so the app can open their own page.
 Order: the big discount markets first (BİM, A101, Şok), then Migros and the other
-supermarkets, then the cosmetics chains.
+supermarkets, wholesale (Metro) and Macrocenter, then the cosmetics chains.
 """
 
 from __future__ import annotations
@@ -65,14 +65,14 @@ CHAINS: tuple[ChainInfo, ...] = (
         name="Macrocenter",
         kind=ChainKind.SCRAPED,
         web_url="https://www.money.com.tr/macrostyle-dijital",
-        sort_order=50,
+        sort_order=100,
     ),
     ChainInfo(
         id="carrefoursa",
         name="CarrefourSA",
         kind=ChainKind.WEBVIEW,
         web_url="https://www.carrefoursa.com/kataloglar",
-        sort_order=60,
+        sort_order=50,
         brand_color="#1E5BC6",
     ),
     ChainInfo(
@@ -80,7 +80,50 @@ CHAINS: tuple[ChainInfo, ...] = (
         name="Gratis",
         kind=ChainKind.WEBVIEW,
         web_url="https://www.gratis.com/gratis-katalog",
-        sort_order=70,
+        sort_order=110,
         brand_color="#E5007D",
+    ),
+    ChainInfo(
+        id="metro",
+        name="Metro",
+        kind=ChainKind.SCRAPED,
+        web_url="https://www.metro-tr.com/promosyonlar",
+        sort_order=90,
+    ),
+    ChainInfo(
+        id="watsons",
+        name="Watsons",
+        kind=ChainKind.SCRAPED,
+        web_url="https://katalog.watsons.com.tr/",
+        sort_order=120,
+        brand_color="#00A6A6",
+    ),
+    ChainInfo(
+        id="hakmar",
+        name="Hakmar",
+        kind=ChainKind.SCRAPED,
+        web_url="https://hakmar.com.tr/indirim/",
+        sort_order=60,
+    ),
+    ChainInfo(
+        id="bonveno",
+        name="bonVeno",
+        kind=ChainKind.SCRAPED,
+        web_url="https://bonveno.com.tr/Kampanyalarimiz",
+        sort_order=80,
+    ),
+    ChainInfo(
+        id="rossmann",
+        name="Rossmann",
+        kind=ChainKind.SCRAPED,
+        web_url="https://www.rossmann.com.tr/kataloglar",
+        sort_order=130,
+    ),
+    ChainInfo(
+        id="tkkoop",
+        name="Tarım Kredi Market",
+        kind=ChainKind.SCRAPED,
+        web_url="https://www.tkkoop.com.tr/",
+        sort_order=70,
     ),
 )

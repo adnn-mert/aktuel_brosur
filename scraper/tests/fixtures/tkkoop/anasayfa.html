@@ -1,0 +1,2602 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+        integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+        integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://www.tkkoop.com.tr/assets/css/front.css?id=63989977629">
+    <link rel="stylesheet" href="https://www.tkkoop.com.tr/assets/css/optimized_styles.css?id=23685695742">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://www.tkkoop.com.tr/assets/js/base/alertify.min.js"></script>
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.3/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.3/build/css/themes/default.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.3/build/css/themes/semantic.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.3/build/css/themes/bootstrap.min.css" />
+   
+
+        <title>KOOP MARKET</title>
+    <meta name="description" content="TK KOOP Market, üreticiden sofraya uzanan Tarım Kredi ekosisteminin perakende markasıdır. Çiftçiden tüketiciye kaliteli, sağlıklı ve doğal ürünleri erişilebilir fiyatlarla sunar.">
+    <link rel="icon" href="https://www.tkkoop.com.tr/assets/favicon.ico" type="image/x-icon">
+
+        <!-- Livewire Styles --><style >[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak] {display: none !important;}[wire\:cloak] {display: none !important;}</style>
+
+</head>
+
+<body>
+
+    <div class="barikat">
+    <img src="https://www.tkkoop.com.tr/assets/image/load2.gif" alt="KOOP" width="150">
+</div>
+    <div class="modal fade" id="ornekPopup" tabindex="-1" aria-labelledby="popupBaslik" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="btn-close c-bn" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mm_model">
+                                                <figure class="image"><img style="aspect-ratio:600/600;" src="https://www.tkkoop.com.tr/assets/images/galeri/bilgilendirme-600-600_1790323838.png" width="600" height="600"></figure>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="koop_menu">
+    <div class="koop_menu_kapat">
+        KAPAT <i class="fa-solid fa-xmark"></i>
+    </div>
+    <div style="margin-top: 60px">
+        <div class="container">
+            <div class="row justify-content-center">
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/atistirmalik" title="ATIŞTIRMALIK">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/atistirmalik_1767623225.jpg');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    ATIŞTIRMALIK
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/cafe-urunleri" title="CAFE ÜRÜNLERİ">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    CAFE ÜRÜNLERİ
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/dondurma" title="DONDURMA">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    DONDURMA
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/dondurulmus-gida" title="DONDURULMUŞ GIDA">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    DONDURULMUŞ GIDA
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/et-et-urunleri" title="ET - ET ÜRÜNLERİ">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    ET - ET ÜRÜNLERİ
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/icecek" title="İÇECEK">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    İÇECEK
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/konserve-salca-sos-tursu" title="KONSERVE - SALÇA - SOS - TURŞU">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    KONSERVE - SALÇA - SOS -...
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/meyve-sebze" title="MEYVE - SEBZE">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    MEYVE - SEBZE
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/sarkuteri-kahvaltilik" title="ŞARKÜTERİ - KAHVALTILIK">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    ŞARKÜTERİ - KAHVALTILIK
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/sicak-icecekler" title="SICAK  İÇECEKLER">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    SICAK  İÇECEKLER
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/sut-sut-urunleri" title="SÜT - SÜT ÜRÜNLERİ">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    SÜT - SÜT ÜRÜNLERİ
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/temel-gida-urunleri" title="TEMEL GIDA ÜRÜNLERİ">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/temel-gida-urunleri_1767622603.jpg');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    TEMEL GIDA ÜRÜNLERİ
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/yaglar" title="YAĞLAR">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    YAĞLAR
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/ev-yasam" title="EV YAŞAM">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/ev-yasam_1767623150.jpg');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    EV YAŞAM
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/k-agit" title="KÂĞIT">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    KÂĞIT
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/kisisel-bakim" title="KİŞİSEL BAKIM">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/kisisel-bakim_1767623128.jpg');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    KİŞİSEL BAKIM
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/koopkart" title="KOOPKART">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    KOOPKART
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/nonfood" title="NONFOOD">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    NONFOOD
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/tasima-ambalaj-urunleri" title="TAŞIMA - AMBALAJ ÜRÜNLERİ">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    TAŞIMA - AMBALAJ ÜRÜNLERİ
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                    <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                        <div class="maze">
+                            <a href="https://www.tkkoop.com.tr/urun-kategori/temizlik" title="TEMİZLİK">
+                                <div class="koop_urunler_a_1"
+                                     style="background-image: url('https://www.tkkoop.com.tr/assets/images/urun-kategori/');">
+
+                                </div>
+                                <div class="koop_urunler_a_2">
+                                    TEMİZLİK
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="koop_menu_bottom">
+    <ul>
+        <li><a href="https://www.tkkoop.com.tr">
+                <div class="koop_menu_bottom1"><i class="fa-solid fa-house"></i></div>
+                <div class="koop_menu_bottom2">Anasayfa</div>
+            </a></li>
+        <li >
+            <div class="m_kampanyalar">
+                <div class="koop_menu_bottom1"><i class="fa-solid fa-box-open"></i></div>
+                <div class="koop_menu_bottom2">Ürünler</div>
+            </div>
+        </li>
+        <li><a href="https://www.tkkoop.com.tr/haftalik-kampanyalar">
+                <div class="koop_menu_bottom1"><i class="fa-solid fa-box-open"></i></div>
+                <div class="koop_menu_bottom2">Kampanyalar</div>
+            </a></li>
+        <li><a href="https://www.tkkoop.com.tr/magazalarimiz">
+                <div class="koop_menu_bottom1"><i class="fa-regular fa-comment"></i></div>
+                <div class="koop_menu_bottom2">İletişim</div>
+            </a></li>
+    </ul>
+</div>
+
+<style>
+    .maze{}
+    .maze a{
+        display: block;
+        background-color: #fff;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        padding: 30px 10px 10px 10px;
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+    }
+    .maze a:hover{
+        background-color: #f3f3f3;
+    }
+</style>
+
+<div class="koop_header">
+    <div class="container">
+        <div class="koop_header_1">
+            <a href="https://www.tkkoop.com.tr"><img src="https://www.tkkoop.com.tr/assets/image/tk_koop_logo.png"></a>
+        </div>
+
+
+        <div class="koop_header_4">
+            <div>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="koop_header_6a">
+            <div>
+                <a href="https://www.tkkoop.com.tr/magazalarimiz" title="Mağazalar">
+                <i class="fa-solid fa-location-dot"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="koop_header_6">
+            <a href="https://www.tkkoop.com.tr/magazalarimiz">
+            <div class="magazeci"><div>Mağaza Bul</div><img src="https://www.tkkoop.com.tr/assets/image/kadiin.png"></div>
+            </a>
+        </div>
+        <div class="koop_header_3">
+            <div class="aa-input-area2" style="font-size: 14px;">
+                            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="koop_header_2">
+        <ul>
+                        <li><a href="https://www.tkkoop.com.tr/haftalik-kampanyalar">Haftalık Kampanyalar</a></li>
+            <li><a href="https://www.tkkoop.com.tr/tarifler">Tarifler</a></li>
+            <li><a href="https://www.tkkoop.com.tr/blog">Blog</a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    (function () {
+        function initMega() {
+            const link  = document.querySelector('a.mega-trigger[data-mega="urunler"]');
+            const li    = document.getElementById('navUrunler');
+            const menu  = document.getElementById('megaMenuUrunler');
+
+            // Top’u buna göre ayarlayacağız:
+            const navBar = document.querySelector('.koop_header_2') || li?.closest('.koop_header_2');
+
+            if (!link || !li || !menu || !navBar) return;
+
+            const navRoot = document.querySelector('.koop_header_2');
+            const otherLis = navRoot
+                ? navRoot.querySelectorAll('li:not(#navUrunler)')
+                : [];
+
+            otherLis.forEach(li2 => {
+                li2.addEventListener('mouseenter', () => {
+                    // başka menü item'ına gelince mega kapanır
+                    if (menu.classList.contains('open')) closeMenu();
+                });
+            });
+
+            // Ayarlar
+            const CLOSE_DELAY_MS = 4000;   // li / menu terk edilince 3-5 sn -> 4 sn
+            const IDLE_CLOSE_MS  = 10000;  // 10 sn hareketsizlikte kapat
+
+            let closeTimer = null;
+            let idleTimer  = null;
+
+            function isOpen() {
+                return menu.classList.contains('open');
+            }
+
+            function setTop() {
+                // Menü position:absolute ise sayfa koordinatı gerekir: scrollY + rect.bottom
+                const rect = navBar.getBoundingClientRect();
+                menu.style.top = (window.scrollY + rect.bottom) + 'px';
+                menu.style.left = '0px';
+            }
+
+            function openMenu() {
+                setTop();
+                menu.classList.add('open');
+                li.classList.add('mega-open'); // yeşil barı sabitle
+                link.setAttribute('aria-expanded', 'true');
+                startIdleTimer();
+            }
+
+            function closeMenu() {
+                menu.classList.remove('open');
+                li.classList.remove('mega-open');
+                link.setAttribute('aria-expanded', 'false');
+                clearTimers();
+            }
+
+            function clearTimers() {
+                if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+                if (idleTimer)  { clearTimeout(idleTimer);  idleTimer  = null; }
+            }
+
+            function scheduleClose(delay = CLOSE_DELAY_MS) {
+                if (!isOpen()) return;
+                if (closeTimer) clearTimeout(closeTimer);
+                closeTimer = setTimeout(() => closeMenu(), delay);
+            }
+
+            function cancelClose() {
+                if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+            }
+
+            function startIdleTimer() {
+                if (!isOpen()) return;
+                if (idleTimer) clearTimeout(idleTimer);
+                idleTimer = setTimeout(() => {
+                    // 10 sn boyunca hiçbir hareket yoksa kapat
+                    closeMenu();
+                }, IDLE_CLOSE_MS);
+            }
+
+            // Kullanıcı etkileşimi olunca idle sıfırlansın
+            function bumpActivity() {
+                if (!isOpen()) return;
+                startIdleTimer();
+            }
+
+            // 1) Click: linke gitmeyi engelle, toggle yap
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                isOpen() ? closeMenu() : openMenu();
+            }, true);
+
+            // 2) Hover: li veya menü üzerine gelince aç ve kapanmayı iptal et
+            function onEnterArea() {
+                cancelClose();
+                if (!isOpen()) openMenu();
+                bumpActivity();
+            }
+
+            // 3) Hover’dan çıkınca gecikmeli kapa
+            function onLeaveArea() {
+                bumpActivity();
+                scheduleClose(CLOSE_DELAY_MS);
+            }
+
+            li.addEventListener('mouseenter', onEnterArea);
+            li.addEventListener('mouseleave', onLeaveArea);
+
+            menu.addEventListener('mouseenter', onEnterArea);
+            menu.addEventListener('mouseleave', onLeaveArea);
+
+            // 4) Menü açıkken: mousemove/scroll/keydown/touch = activity
+            ['mousemove','keydown','wheel','touchstart'].forEach(evt => {
+                document.addEventListener(evt, bumpActivity, { passive: true });
+            });
+
+            // 5) Dışarı tıklanınca kapat (menü içi veya link tıkı değilse)
+            document.addEventListener('click', function (e) {
+                if (!isOpen()) return;
+                if (menu.contains(e.target) || li.contains(e.target)) return;
+                closeMenu();
+            }, true);
+
+            // 6) ESC kapatsın
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && isOpen()) closeMenu();
+            });
+
+            // 7) Resize/scroll: menü açıksa konumu güncelle
+            window.addEventListener('resize', function () {
+                if (isOpen()) setTop();
+            });
+            window.addEventListener('scroll', function () {
+                if (isOpen()) setTop();
+            });
+
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMega);
+        } else {
+            initMega();
+        }
+    })();
+</script>
+
+<script>
+    (function () {
+        const inputs = document.getElementsByClassName('my-input');
+        if (!inputs || inputs.length === 0) return;
+
+        const words = ['TARIM KREDİ MEYVELİ YOĞURT', 'TARIM KREDİ PİLAVLIK PİRİNÇ', 'TARIM KREDİ SPAGHETTİ MAKARNA'];
+        const typeSpeed = 80;
+        const eraseSpeed = 40;
+        const holdAfterType = 1200;
+
+        // Her input için ayrı state (birinde yazarken diğeri akmaya devam edebilir)
+        function attachTyping(input) {
+            let wordIndex = 0;
+            let charIndex = 0;
+            let typing = true;
+            let timer = null;
+            let paused = false;
+
+            function loop() {
+                if (paused) return;
+
+                const currentWord = words[wordIndex];
+
+                if (typing) {
+                    if (charIndex <= currentWord.length) {
+                        input.setAttribute('placeholder', currentWord.slice(0, charIndex));
+                        charIndex++;
+                        timer = setTimeout(loop, typeSpeed);
+                    } else {
+                        typing = false;
+                        timer = setTimeout(loop, holdAfterType);
+                    }
+                } else {
+                    if (charIndex > 0) {
+                        charIndex--;
+                        input.setAttribute('placeholder', currentWord.slice(0, charIndex));
+                        timer = setTimeout(loop, eraseSpeed);
+                    } else {
+                        typing = true;
+                        wordIndex = (wordIndex + 1) % words.length;
+                        timer = setTimeout(loop, 400);
+                    }
+                }
+            }
+
+            input.addEventListener('input', () => {
+                if (input.value && input.value.length > 0) {
+                    paused = true;
+                    clearTimeout(timer);
+                    input.setAttribute('placeholder', '');
+                } else {
+                    paused = false;
+                    charIndex = 0;
+                    typing = true;
+                    loop();
+                }
+            });
+
+            // Başlat
+            loop();
+        }
+
+        // Koleksiyonu dolaş
+        for (let i = 0; i < inputs.length; i++) {
+            attachTyping(inputs[i]);
+        }
+    })();
+</script>
+
+
+<script>
+    (function () {
+        const leftItems = document.querySelectorAll('.mega1 li');
+        const rightBlocks = document.querySelectorAll('.mega2 .mega21');
+
+        if (!leftItems.length || !rightBlocks.length) return;
+
+        function deactivateAll() {
+            rightBlocks.forEach(el => el.classList.remove('active'));
+            leftItems.forEach(li => li.classList.remove('active'));
+        }
+
+        leftItems.forEach(li => {
+            li.addEventListener('click', () => {
+                const id = li.getAttribute('data-id');
+                if (!id) return;
+
+                deactivateAll();
+
+                // sol aktif
+                li.classList.add('active');
+
+                // sağ eşleşen aktif
+                const target = document.querySelector('.mega2 .megam' + id);
+                if (target) {
+                    target.classList.add('active');
+                }
+            });
+        });
+
+        /* İlk elemanı varsayılan açık yapmak istersen */
+        const first = leftItems[0];
+        if (first) {
+            first.dispatchEvent(new Event('click'));
+        }
+    })();
+</script>
+
+<div class="koop_slide">
+    <div class="container">
+        <div class="row align-items-start">
+
+            <div class="col-lg">
+                <div class="box-a"> 
+                    <div class="swiper mySlider">
+                        <div class="swiper-wrapper">
+                                                            
+                                                                <div class="swiper-slide fx-pan-left ">
+                                                                                                                    <div class="koop_slider_a_ana">
+                                            <div class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/gurme-yeni_1794472269.jpeg');">
+
+                                                                                            </div>
+                                        </div>
+                                                                                                            </div>
+
+                                                            
+                                                                <div class="swiper-slide fx-rotate ">
+                                                                                                                    <div class="koop_slider_a_ana">
+                                            <div class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/rinso-10-16-kasim_1794301037.jpg');">
+
+                                                                                            </div>
+                                        </div>
+                                                                                                            </div>
+
+                                                            
+                                                                <div class="swiper-slide fx-pan-left ">
+                                                                                                                    <div class="koop_slider_a_ana">
+                                            <div class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/halkbank_1793615308.jpeg');">
+
+                                                                                            </div>
+                                        </div>
+                                                                                                            </div>
+
+                                                            
+                                                                <div class="swiper-slide fx-pan-right ">
+                                                                                                                    <div class="koop_slider_a_ana">
+                                            <div class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/viking-is-birligi_1793600340.jpeg');">
+
+                                                                                            </div>
+                                        </div>
+                                                                                                            </div>
+
+                                                            
+                                                                <div class="swiper-slide fx-pan-up ">
+                                                                            <a href="https://www.tkkoop.com.tr/urun/tk-birlik-gurme-siyah-cay-500-g" style="    display: contents;">                                        <div class="koop_slider_a_ana">
+                                            <div class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/gurme-cay_1791204948.jpg');">
+
+                                                                                            </div>
+                                        </div>
+                                        </a>                                                                    </div>
+
+                                                            
+                                                                <div class="swiper-slide fx-pan-down ">
+                                                                                                                    <div class="koop_slider_a_ana">
+                                            <div class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/nar_1790936015.jpg');">
+
+                                                                                            </div>
+                                        </div>
+                                                                                                            </div>
+
+                                                            
+                                                                <div class="swiper-slide fx-pan-right ">
+                                                                                                                    <div class="koop_slider_a_ana">
+                                            <div class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/gurme-zeytin_1790935507.jpeg');">
+
+                                                                                            </div>
+                                        </div>
+                                                                                                            </div>
+
+                                                            
+                                                                <div class="swiper-slide fx-pan-right ">
+                                                                                                                    <div class="koop_slider_a_ana">
+                                            <div class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/sutlu-krema_1790169701.png');">
+
+                                                                                            </div>
+                                        </div>
+                                                                                                            </div>
+
+                                                            
+                                                                <div class="swiper-slide fx-rotate ">
+                                                                            <a href="https://www.tkkoop.com.tr/tarimda-kadin-emegi" style="    display: contents;">                                        <div class="koop_slider_a_ana">
+                                            <div class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/kadin-emegi-tarim-kredi-koop-marketin-raflarinda-hayat-buluyor_1772562352.jpg');">
+
+                                                                                            </div>
+                                        </div>
+                                        </a>                                                                    </div>
+
+                                                            
+                                                                <div class="swiper-slide fx-rotate ">
+                                                                            <a href="https://www.tkkoop.com.tr/tarimda-kadin-emegi" style="    display: contents;">                                        <div class="koop_slider_a_ana">
+                                            <div class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/bereketin-kadinlari_1769589087.png');">
+
+                                                                                            </div>
+                                        </div>
+                                        </a>                                                                    </div>
+
+                                                    </div>
+                        <div class="swiper-pagination" style="    left: 0px;
+    text-align: left;
+    padding-left: 10px;
+    padding-bottom: 0px;"></div>
+                        <div class="swiper-button-nexta"><i class="fa-solid fa-caret-right"></i></div>
+                        <div class="swiper-button-preva"><i class="fa-solid fa-caret-left"></i></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<style>
+    /* Varsayılan: animasyon YOK */
+    .koop_slider_a_1::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        background-image: var(--bg);
+        background-size: cover;
+        background-position: center;
+        transform: translate3d(0,0,0) scale(1);
+        will-change: transform;
+        transition: none;
+        z-index: 0;
+    }
+
+    /* SADECE fiyatlı slidelar aktifken animasyon olsun */
+    .swiper-slide-active.has-price .koop_slider_a_1::before{
+        transform: scale(1.08);
+        transition: transform 10000ms ease;
+    }
+
+    /* Varyantlar: yine sadece has-price için */
+    .swiper-slide-active.has-price.fx-pan-left  .koop_slider_a_1::before{ transform: scale(1.10) translate3d(-3%, 0, 0); }
+    .swiper-slide-active.has-price.fx-pan-right .koop_slider_a_1::before{ transform: scale(1.10) translate3d( 3%, 0, 0); }
+    .swiper-slide-active.has-price.fx-pan-up    .koop_slider_a_1::before{ transform: scale(1.10) translate3d(0, -3%, 0); }
+    .swiper-slide-active.has-price.fx-pan-down  .koop_slider_a_1::before{ transform: scale(1.10) translate3d(0,  3%, 0); }
+    .swiper-slide-active.has-price.fx-rotate    .koop_slider_a_1::before{ transform: scale(1.10) rotate(0.8deg) translate3d(-1.5%, -1.5%, 0); }
+
+    /* Motion azaltan kullanıcılar */
+    @media (prefers-reduced-motion: reduce){
+        .swiper-slide-active.has-price .koop_slider_a_1::before{
+            transition:none !important;
+            transform:none !important;
+        }
+    }
+
+</style>
+
+<div class="koop_slide2">
+    <div class="container">
+        <div class="row align-items-start">
+
+            <div class="col-lg">
+                <div class="box-a2">
+                    <div class="swiper mySlidera">
+                        <div class="swiper-wrapper">
+                                                            <div class="swiper-slide">
+                                                                            <div class="koop_slider_a_ana">
+                                            <div  class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/gurme-yeni-2_1794472269.jpeg'); ">
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                                                            <div class="swiper-slide">
+                                                                            <div class="koop_slider_a_ana">
+                                            <div  class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/rinso-10-16-kasim-2_1794301037.jpg'); ">
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                                                            <div class="swiper-slide">
+                                                                            <div class="koop_slider_a_ana">
+                                            <div  class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/halkbank-2_1793604521.jpg'); ">
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                                                            <div class="swiper-slide">
+                                                                            <div class="koop_slider_a_ana">
+                                            <div  class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/viking-is-birligi-2_1793600340.jpeg'); ">
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                                                            <div class="swiper-slide">
+                                                                            <div class="koop_slider_a_ana">
+                                            <div  onclick="location.href='https://www.tkkoop.com.tr/urun/tk-birlik-gurme-siyah-cay-500-g'"  class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/gurme-cay-2_1791204948.jpg');  cursor: pointer; ">
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                                                            <div class="swiper-slide">
+                                                                            <div class="koop_slider_a_ana">
+                                            <div  class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/nar-2_1790936015.jpg'); ">
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                                                            <div class="swiper-slide">
+                                                                            <div class="koop_slider_a_ana">
+                                            <div  class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/gurme-zeytin-2_1790935507.jpeg'); ">
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                                                            <div class="swiper-slide">
+                                                                            <div class="koop_slider_a_ana">
+                                            <div  class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/sutlu-krema-2_1790169701.png'); ">
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                                                            <div class="swiper-slide">
+                                                                            <div class="koop_slider_a_ana">
+                                            <div  onclick="location.href='https://www.tkkoop.com.tr/tarimda-kadin-emegi'"  class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/kadin-emegi-tarim-kredi-koop-marketin-raflarinda-hayat-buluyor-2_1772562352.jpg');  cursor: pointer; ">
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                                                            <div class="swiper-slide">
+                                                                            <div class="koop_slider_a_ana">
+                                            <div  onclick="location.href='https://www.tkkoop.com.tr/tarimda-kadin-emegi'"  class="koop_slider_a_1"
+                                                 style="background-image: url('https://www.tkkoop.com.tr/assets/images/slider/bereketin-kadinlari-2_1770126212.png');  cursor: pointer; ">
+                                                                                            </div>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                        <div class="swiper-pagination" style="    left: 0px;
+    text-align: left;
+    padding-left: 10px;
+    padding-bottom: 0px;"></div>
+                        <div class="swiper-button-next1"><i class="fa-solid fa-caret-right"></i></div>
+                        <div class="swiper-button-prev1"><i class="fa-solid fa-caret-left"></i></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="koop_firsat_yeni">
+            <div class="container">
+
+            <div class="yeni_1"  style="margin-bottom:0px; background-image: url(https://www.tkkoop.com.tr/assets/images/kampanya/); background-color: #ffc688">
+                <div class="yeni_2a">
+                    <div class="yeni_2aa">
+                        <div>
+                            <div class="row">
+                                <div class="col-6 col-sm-6 col-md-12 col-lg-12 col-xl-12 yardimci">
+                                    <div class="yeni_2a1">
+                                                                                <a href="https://www.tkkoop.com.tr/haftalik-kampanyalar/firsat-dolu-haftasonu" title="firsat-dolu-haftasonu">
+                                            <img src="https://www.tkkoop.com.tr/assets/images/kampanya/firsat-dolu-haftasonu-2_1767949817.png">
+                                        </a>
+                                                                            </div>
+                                </div>
+                                <div class="col-6 col-sm-6 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="yeni_2a3">
+                                        14 Kasım - 16 Kasım
+                                    </div>
+                                    <div class="yeni_2a2">
+                                                                                <a href="https://www.tkkoop.com.tr/assets/images/kampanya/14-16-firsat-dolu-haftasonu_1794402490.pdf" target="_blank">BÜLTENİ İNDİR</a>
+                                                                                <a href="https://www.tkkoop.com.tr/haftalik-kampanyalar/firsat-dolu-haftasonu">ÜRÜNLERİNİ GÖR</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="yeni_2b">
+                    <div class="swiper mySwiperz0 product-slider ">
+                        <div class="swiper-wrapper slider-wrap">
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/tk-dana-kokteyl-sosis-200-g"  title="TK DANA KOKTEYL SOSİS">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/tk-dana-kokteyl-sosis_1781599884.png">
+                            </div>
+            <div class="product-title">
+                TK DANA KOKTEYL SOSİS
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>99,<span>90</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/banvit-baton-salam-850-g"  title="BANVİT BATON SALAM">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/banvit-baton-salam-850g_1750939183.jpg">
+                            </div>
+            <div class="product-title">
+                BANVİT BATON SALAM
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>89,<span>90</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/tk-organik-yumurta-10-ad"  title="TK ORGANİK YUMURTA 10 LU">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/tk-organik-yumurta-10-lu_1768556197.png">
+                            </div>
+            <div class="product-title">
+                TK ORGANİK YUMURTA 10 LU
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>108,<span>00</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/sutas-kaymaksiz-yogurt-kova-2-kg"  title="SÜTAŞ KAYMAKSIZ YOĞURT KOVA">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/base2/107225.jpg">
+                            </div>
+            <div class="product-title">
+                SÜTAŞ KAYMAKSIZ YOĞURT KOVA
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>147,<span>90</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/tk-ayran-285-ml"  title="TKS AYRAN">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/base4/116066.jpg">
+                            </div>
+            <div class="product-title">
+                TKS AYRAN
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>12,<span>50</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/tk-sakli-dem-cay-1-kg"  title="TK DEMİNDE TİRYAKİ SİYAH ÇAY">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/tk-deminde-tiryaki-siyah-cay_1761028214.jpg">
+                            </div>
+            <div class="product-title">
+                TK DEMİNDE TİRYAKİ SİYAH ÇAY
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>265,<span>00</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/kizilay-maden-suyu-dogal-12-x-200-ml"  title="KIZILAY DOĞAL MADEN SUYU 200 CL 12 LI">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/image/yok.png">
+                            </div>
+            <div class="product-title">
+                KIZILAY DOĞAL MADEN SUYU 200 C...
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>99,<span>90</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/untad-premium-hamburger-susamli-6-x-85-g"  title="UNTAD PREMİUM HAMBURGER SUSAMLI 6*">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/base6/2344.jpg">
+                            </div>
+            <div class="product-title">
+                UNTAD PREMİUM HAMBURGER SUSAML...
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>124,<span>00</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/portakal-kg"  title="PORTAKAL">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/portakal-kg_1750921965.jpg">
+                            </div>
+            <div class="product-title">
+                PORTAKAL
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>29,<span>90</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/patates-kg"  title="PATATES">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/patates-kg_1750922029.jpg">
+                            </div>
+            <div class="product-title">
+                PATATES
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>28,<span>90</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                    </div>
+
+                    </div>
+                    <div class="swiper-button-next0"><i class="fa-solid fa-caret-right"></i></div>
+                    <div class="swiper-button-prev0"><i class="fa-solid fa-caret-left"></i></div>
+                </div>
+            </div>
+        </div>
+            <div class="container">
+
+            <div class="yeni_1"  style="margin-bottom:0px; background-image: url(https://www.tkkoop.com.tr/assets/images/kampanya/); background-color: #3cae49">
+                <div class="yeni_2a">
+                    <div class="yeni_2aa">
+                        <div>
+                            <div class="row">
+                                <div class="col-6 col-sm-6 col-md-12 col-lg-12 col-xl-12 yardimci">
+                                    <div class="yeni_2a1">
+                                                                                <a href="https://www.tkkoop.com.tr/haftalik-kampanyalar/kat-kat-firsat" title="kat-kat-firsat">
+                                            <img src="https://www.tkkoop.com.tr/assets/images/kampanya/kat-kat-firsat-2_1774246828.png">
+                                        </a>
+                                                                            </div>
+                                </div>
+                                <div class="col-6 col-sm-6 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="yeni_2a3">
+                                        10 Kasım - 16 Kasım
+                                    </div>
+                                    <div class="yeni_2a2">
+                                                                                <a href="https://www.tkkoop.com.tr/assets/images/kampanya/10-16-kasim-kat-kat-firsat_1794209881.pdf" target="_blank">BÜLTENİ İNDİR</a>
+                                                                                <a href="https://www.tkkoop.com.tr/haftalik-kampanyalar/kat-kat-firsat">ÜRÜNLERİNİ GÖR</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="yeni_2b">
+                    <div class="swiper mySwiperz1 product-slider ">
+                        <div class="swiper-wrapper slider-wrap">
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/dr-oetker-hamur-kabartma-tozu-10-x-10-g"  title="DR. OETKER HAMUR KABARTMA TOZU 10&#039;LU">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/base2/102522.jpg">
+                            </div>
+            <div class="product-title">
+                DR. OETKER HAMUR KABARTMA TOZU...
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>26,<span>00</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/dr-oetker-sekerli-vanilin-10-x-5-g"  title="DR. OETKER ŞEKERLİ VANİLİN 10&#039;LU">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/base3/126096.jpg">
+                            </div>
+            <div class="product-title">
+                DR. OETKER ŞEKERLİ VANİLİN 10&#039;...
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>19,<span>00</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/dr-oetker-puding-kakaolu-147-g"  title="DR. OETKER PUDİNG KAKAOLU">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/base2/102528.jpg">
+                            </div>
+            <div class="product-title">
+                DR. OETKER PUDİNG KAKAOLU
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>38,<span>00</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/dr-oetker-kakao-50-g"  title="DR. OETKER KAKAO">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/base3/126130.jpg">
+                            </div>
+            <div class="product-title">
+                DR. OETKER KAKAO
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>51,<span>00</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/dr-oetker-krem-santi-sade-144-g"  title="DR. OETKER KREM ŞANTİ SADE">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/base3/126097.jpg">
+                            </div>
+            <div class="product-title">
+                DR. OETKER KREM ŞANTİ SADE
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>66,<span>00</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/dr-oetker-tatli-sos-cikolatali-123-g"  title="DR. OETKER TATLI SOS ÇİKOLATALI">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/base2/126095.jpg">
+                            </div>
+            <div class="product-title">
+                DR. OETKER TATLI SOS ÇİKOLATAL...
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>48,<span>00</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/tk-anadolu-nohut-1-kg"  title="TK ANADOLU NOHUT">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/base4/104714.jpg">
+                            </div>
+            <div class="product-title">
+                TK ANADOLU NOHUT
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>54,<span>50</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/tat-basmati-pirinc-1-kg"  title="TAT BASMATİ PİRİNÇ 1 KG">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/image/yok.png">
+                            </div>
+            <div class="product-title">
+                TAT BASMATİ PİRİNÇ 1 KG
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>129,<span>90</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/ormanozu-sumakli-narli-eksi-250-ml"  title="ORMANÖZÜ SUMAKLI NARLI EKŞİ">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/base13/3249.jpg">
+                            </div>
+            <div class="product-title">
+                ORMANÖZÜ SUMAKLI NARLI EKŞİ
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>129,<span>90</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                            <div class="swiper-slide">
+                                    <div class="product-card  campaigna ">
+    <a  href="https://www.tkkoop.com.tr/urun/tk-anadolu-zeytinyagi-riviera-2-l"  title="TK ANADOLU RİVİERA ZEYTİNYAĞI">
+        
+        <div class="product-inner">
+            <div class="product-image">
+                                    <img src="https://www.tkkoop.com.tr/assets/images/urun/base22/100595.jpg">
+                            </div>
+            <div class="product-title">
+                TK ANADOLU RİVİERA ZEYTİNYAĞI
+            </div>
+                        <div class="ss_urun5">
+                                                <div class="ss_urun52"><div>469,<span>00</span><div style="    width: 30px;
+    float: right;
+    font-size: 20px;
+    padding-top: 0px;
+    left: -10px;
+    display: block;
+    MARGIN-LEFT: 0PX;">TL</div></div></div>
+            </div>
+                    </div>
+    </a>
+</div>
+                                </div>
+                                                    </div>
+
+                    </div>
+                    <div class="swiper-button-next1"><i class="fa-solid fa-caret-right"></i></div>
+                    <div class="swiper-button-prev1"><i class="fa-solid fa-caret-left"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="koop_slide arka-alan" style="    position: relative;">
+    <div class="container" style="    padding-top: 20px;">
+
+        <style>
+
+            .arka-alan::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image: url(https://www.tkkoop.com.tr/assets/image/kadin_arka.png);
+                background-position: center;
+                background-size: cover;
+                opacity: 0.0; /* 0 ile 1 arasında değer: daha düşük = daha soluk */
+                z-index: -1;
+            }
+
+            .cc_logo{
+                text-align: center;
+            }
+            .cc_logo img{
+                width: 125px;
+                margin-bottom: 20px;
+            }
+            .coo1{
+                margin: auto;
+                text-align: center;
+                font-size: 32px;
+                color: #3dae2b;
+                font-weight: 600;
+            }
+            .coo2{
+                margin: auto;
+                text-align: center;
+                font-size: 18px;
+                color: #000000;
+                font-weight: 400;
+                padding-bottom: 40px;
+                max-width: 1200px;
+                width: 90%;
+            }
+        </style>
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="koop_slide_1">
+                    <div>
+                        <a href="https://www.tkkoop.com.tr/tarimda-kadin-emegi"></a>
+                    </div>
+                </div>
+            </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="koop_slide_1 ek">
+                    <div>
+                        <a href="https://www.tkkoop.com.tr/haftalik-kampanyalar"></a>
+                    </div>
+                </div>
+            </div>
+                    </div>
+    </div>
+</div>
+
+<style>
+
+    .koop_slide_1.ek a:before {
+        background-image: url(https://tkkoop.com.tr/assets/images/genel/slide1_1.jpg);
+    }
+    .koopa_fiyat_1{
+        width: 100%;
+        height: 50PX;
+        background-color: #f0f0f0;
+        bottom: 0px;
+        right: 0px;
+        display: block;
+        position: absolute;
+        border-radius: 0px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .koopa_fiyat1_1{
+        display: flex;
+        align-content: center;
+        align-items: center;
+        padding: 10px;
+        color: #000;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 14px;
+    }
+    .koopa_fiyat2_1{
+        display: flex;
+        align-items: center;
+        width: 100px;
+        text-align: center;
+        background-color: #fbf006;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+    .koopa_fiyat2_1a{
+        display: flex;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 0px 10px;
+        color: #0a6a34;
+    }
+    .koopa_fiyat2_1a div{
+        display: flex;
+        font-size: 16px;
+        font-weight: 700;
+        color: #0a6a34;
+    }
+    .koopa_fiyat2_1a span{
+        font-size: 11px;
+        margin-right: 5px;
+    }
+        .koop_slide_2_b:before {
+        background-image: url('https://www.tkkoop.com.tr/assets/images/urun/tk-birlik-visneli-dondurma-100-ml-3_1784018635.jpeg');
+    }
+            .koop_slide_2_c:before {
+        background-image: url('https://www.tkkoop.com.tr/assets/images/urun/tk-extra-geleneksel-visne-receli-3_1783680646.png');
+    }
+    </style>
+
+<div class="koop_video_area" style="margin-top:30px">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="koop_video_wrapper" style="position: relative;">
+                    <video id="koopVideo" autoplay muted loop playsinline
+                        style="width: 100%; border-radius: 12px; display: block;">
+                        <source src="https://www.tkkoop.com.tr/assets/tk-kopi.mp4" type="video/mp4">
+                    </video>
+                    <div class="koop_video_controls" style="position: absolute; top: 10px; right: 20px; display: flex; gap: 8px;">
+                        <button id="koopVideoPlayBtn" onclick="togglePlay()" style="background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center;">&#10074;&#10074;</button>
+                        <button id="koopVideoMuteBtn" onclick="toggleMute()" style="background: rgba(0,0,0,0.5); color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center;">&#128263;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function togglePlay() {
+        var video = document.getElementById('koopVideo');
+        var btn = document.getElementById('koopVideoPlayBtn');
+        if (video.paused) {
+            video.play();
+            btn.innerHTML = '&#10074;&#10074;';
+        } else {
+            video.pause();
+            btn.innerHTML = '&#9654;';
+        }
+    }
+
+    function toggleMute() {
+        var video = document.getElementById('koopVideo');
+        var btn = document.getElementById('koopVideoMuteBtn');
+        video.muted = !video.muted;
+        btn.innerHTML = video.muted ? '&#128263;' : '&#128266;';
+    }
+</script><div class="koop_tarif_area" style="padding: 0px; margin-top: 50px">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="koop_banner_1a">
+                    TARİFLER
+                </div>
+                <div class="koop_banner_1">
+                    <div class="koop_banner_1b">
+                        <div  style="
+        background-image: url('https://www.tkkoop.com.tr/assets/images/tarif/nohut-tava-tarifi_1781597457.png');">
+                            <a href="https://www.tkkoop.com.tr/tarif/682d82994efa4/nohut-tava-tarifi"></a>
+                        </div>
+                    </div>
+                    <div class="koop_banner_1c">
+                        Nohut - Tava Tarifi
+                    </div>
+                    <div class="koop_banner_1d">
+                        İşte efsane lezzet nohut tava tarifi!
+                    </div>
+                    <div class="koop_banner_1e">
+                        <div class="ozel_buton">
+                            <a href="https://www.tkkoop.com.tr/tarif/682d82994efa4/nohut-tava-tarifi">DEVAMI</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="koop_banner_1a">
+                    BLOG
+                </div>
+                <div class="koop_banner_1">
+                    <div class="koop_banner_1b">
+                        <div  style="
+        background-image: url('https://www.tkkoop.com.tr/assets/images/blog/alisveriste-geri-donusum-icin-10-adim_1781597529.png');">
+                            <a href="https://www.tkkoop.com.tr/blog/68554bb12a84d/alisveriste-geri-donusum-icin-10-adim"></a>
+                        </div>
+                    </div>
+                    <div class="koop_banner_1c">
+                        Alışverişte Geri Dönüşüm İçin 10 Adım!
+                    </div>
+                    <div class="koop_banner_1d">
+                        Geri dönüşüm, yalnızca çöpleri ayrıştırmaktan ibaret değil; alışveriş anından başlatılan bilinçli tercihlerle sürdürülebilir bir yaşama katkı sunmak demektir. KOOP Market olarak, çevre dostu ürün seçeneklerimiz ve sürdürülebilir uygulamalarımızla bu yolculukta sizinleyiz.
+                    </div>
+                    <div class="koop_banner_1e">
+                        <div class="ozel_buton">
+                            <a href="https://www.tkkoop.com.tr/blog/68554bb12a84d/alisveriste-geri-donusum-icin-10-adim">DEVAMI</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="container">
+        <div class="magaza_arama">
+            <div class="magaza_arama_ana">
+                <div class="magaza_arama_ana1">BÖLGENDEKİ<br>MAĞAZALARI<br>BUL</div>
+                <div class="magaza_arama_ana2">
+                    <div class="magaza_arama_ana1a">BÖLGENDEKİ MAĞAZALARI BUL</div>
+                    <div class="magaza_arama_ana1b">
+                        <div>
+                            <select class="styled-select" name="il-dropdown" id="MapIl1">
+                                <option selected value="0">İl Seçiniz</option>
+                                
+                                    <option value="adana">ADANA</option>
+                                
+                                    <option value="adiyaman">ADIYAMAN</option>
+                                
+                                    <option value="afyonkarahisar">AFYONKARAHİSAR</option>
+                                
+                                    <option value="agri">AĞRI</option>
+                                
+                                    <option value="aksaray">AKSARAY</option>
+                                
+                                    <option value="amasya">AMASYA</option>
+                                
+                                    <option value="ankara">ANKARA</option>
+                                
+                                    <option value="antalya">ANTALYA</option>
+                                
+                                    <option value="ardahan">ARDAHAN</option>
+                                
+                                    <option value="artvin">ARTVİN</option>
+                                
+                                    <option value="aydin">AYDIN</option>
+                                
+                                    <option value="balikesir">BALIKESİR</option>
+                                
+                                    <option value="bartin">BARTIN</option>
+                                
+                                    <option value="batman">BATMAN</option>
+                                
+                                    <option value="bayburt">BAYBURT</option>
+                                
+                                    <option value="bilecik">BİLECİK</option>
+                                
+                                    <option value="bingol">BİNGÖL</option>
+                                
+                                    <option value="bitlis">BİTLİS</option>
+                                
+                                    <option value="bolu">BOLU</option>
+                                
+                                    <option value="burdur">BURDUR</option>
+                                
+                                    <option value="bursa">BURSA</option>
+                                
+                                    <option value="canakkale">ÇANAKKALE</option>
+                                
+                                    <option value="cankiri">ÇANKIRI</option>
+                                
+                                    <option value="corum">ÇORUM</option>
+                                
+                                    <option value="denizli">DENİZLİ</option>
+                                
+                                    <option value="diyarbakir">DİYARBAKIR</option>
+                                
+                                    <option value="duzce">DÜZCE</option>
+                                
+                                    <option value="edirne">EDİRNE</option>
+                                
+                                    <option value="elazig">ELAZIĞ</option>
+                                
+                                    <option value="erzincan">ERZİNCAN</option>
+                                
+                                    <option value="erzurum">ERZURUM</option>
+                                
+                                    <option value="eskisehir">ESKİŞEHİR</option>
+                                
+                                    <option value="gaziantep">GAZİANTEP</option>
+                                
+                                    <option value="giresun">GİRESUN</option>
+                                
+                                    <option value="gumushane">GÜMÜŞHANE</option>
+                                
+                                    <option value="hakkari">HAKKARİ</option>
+                                
+                                    <option value="hatay">HATAY</option>
+                                
+                                    <option value="igdir">IĞDIR</option>
+                                
+                                    <option value="isparta">ISPARTA</option>
+                                
+                                    <option value="istanbul">İSTANBUL</option>
+                                
+                                    <option value="izmir">İZMİR</option>
+                                
+                                    <option value="kahramanmaras">KAHRAMANMARAŞ</option>
+                                
+                                    <option value="karabuk">KARABÜK</option>
+                                
+                                    <option value="karaman">KARAMAN</option>
+                                
+                                    <option value="kars">KARS</option>
+                                
+                                    <option value="kastamonu">KASTAMONU</option>
+                                
+                                    <option value="kayseri">KAYSERİ</option>
+                                
+                                    <option value="kirikkale">KIRIKKALE</option>
+                                
+                                    <option value="kirklareli">KIRKLARELİ</option>
+                                
+                                    <option value="kirsehir">KIRŞEHİR</option>
+                                
+                                    <option value="kilis">KİLİS</option>
+                                
+                                    <option value="kocaeli">KOCAELİ</option>
+                                
+                                    <option value="konya">KONYA</option>
+                                
+                                    <option value="kutahya">KÜTAHYA</option>
+                                
+                                    <option value="malatya">MALATYA</option>
+                                
+                                    <option value="manisa">MANİSA</option>
+                                
+                                    <option value="mardin">MARDİN</option>
+                                
+                                    <option value="mersin">MERSİN</option>
+                                
+                                    <option value="mugla">MUĞLA</option>
+                                
+                                    <option value="mus">MUŞ</option>
+                                
+                                    <option value="nevsehir">NEVŞEHİR</option>
+                                
+                                    <option value="nigde">NİĞDE</option>
+                                
+                                    <option value="ordu">ORDU</option>
+                                
+                                    <option value="osmaniye">OSMANİYE</option>
+                                
+                                    <option value="rize">RİZE</option>
+                                
+                                    <option value="sakarya">SAKARYA</option>
+                                
+                                    <option value="samsun">SAMSUN</option>
+                                
+                                    <option value="siirt">SİİRT</option>
+                                
+                                    <option value="sinop">SİNOP</option>
+                                
+                                    <option value="sivas">SİVAS</option>
+                                
+                                    <option value="sanliurfa">ŞANLIURFA</option>
+                                
+                                    <option value="sirnak">ŞIRNAK</option>
+                                
+                                    <option value="tekirdag">TEKİRDAĞ</option>
+                                
+                                    <option value="tokat">TOKAT</option>
+                                
+                                    <option value="trabzon">TRABZON</option>
+                                
+                                    <option value="tunceli">TUNCELİ</option>
+                                
+                                    <option value="usak">UŞAK</option>
+                                
+                                    <option value="van">VAN</option>
+                                
+                                    <option value="yalova">YALOVA</option>
+                                
+                                    <option value="yozgat">YOZGAT</option>
+                                
+                                    <option value="zonguldak">ZONGULDAK</option>
+                                                            </select>
+                        </div>
+                        <div>
+                            <select class="styled-select" id="MapIlce1" name="ilce-dropdown">
+                                <option value="0">İlçe Seçiniz</option>
+                            </select>
+                        </div>
+                        <div>
+
+                            <div>
+                                <button type="button" id="market-search-btn1" class="btn btn-success btn-sm">Ara</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="magaza_arama_ana3"><img src="https://www.tkkoop.com.tr/assets/image/kadiin.png"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="koop_footer">
+    <div class="container">
+        <div class="foor_5">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                    <div class="foor_1">
+                        <div class="foor_1a">
+                            HIZLI MENÜ
+                        </div>
+                        <div class="foor_1b">
+                            <ul>
+                                
+                                    <li><a href="https://tkkoop.com.tr/tarifler" title="Tarifler" >Tarifler</a> </li>
+                                
+                                    <li><a href="https://tkkoop.com.tr/blog" title="Blog" >Blog</a> </li>
+                                
+                                    <li><a href="https://tkkoop.com.tr/iletisim" title="İletişim" >İletişim</a> </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                    <div class="foor_1">
+                        <div class="foor_1a">
+                            KAMPANYALAR
+                        </div>
+                        <div class="foor_1b">
+                            <ul>
+                                                                    <li >
+                                        <a href="https://www.tkkoop.com.tr/haftalik-kampanyalar/firsat-dolu-haftasonu" title="Fırsat Dolu Haftasonu">Fırsat Dolu Haftasonu</a>
+                                    </li>
+                                                                    <li >
+                                        <a href="https://www.tkkoop.com.tr/haftalik-kampanyalar/kat-kat-firsat" title="Kat Kat Fırsat">Kat Kat Fırsat</a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                    <div class="foor_1">
+                        <div class="foor_1a">
+                            KOOP MARKET
+                        </div>
+                        <div class="foor_1b">
+                            <ul>
+                                
+                                    <li><a href="https://tkkoop.com.tr/hakkimizda"  title="Hakkımızda">Hakkımızda</a> </li>
+                                
+                                    <li><a href="https://tkkoop.com.tr/markalar"  title="Markalar">Markalar</a> </li>
+                                
+                                    <li><a href="https://www.tkholding.com.tr/tr/is-ilanlari"  target="_blank"  title="Kariyer">Kariyer</a> </li>
+                                
+                                    <li><a href="https://tkkoop.com.tr/haber"  title="Haberler">Haberler</a> </li>
+                                
+                                    <li><a href="https://www.tkkoop.com.tr/koopmag"  title="KoopMag">KoopMag</a> </li>
+                                
+                                    <li><a href="https://tkkoop.com.tr/koop-kart"  title="Koop Kart">Koop Kart</a> </li>
+                                
+                                    <li><a href="https://tkkoop.com.tr/yatirimci-iliskileri"  title="Yatırımcı İlişkileri">Yatırımcı İlişkileri</a> </li>
+                                
+                                    <li><a href="https://www.tkkoop.com.tr/kiralik-yerin-mi-var"  title="Kiralık Yerin mi Var?">Kiralık Yerin mi Var?</a> </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                    <div class="foor_1">
+                        <div class="foor_1a">
+                            BİLGİ
+                        </div>
+                        <div class="foor_1b">
+                            <ul>
+                                <li><a href="#" class="cerez-ayarlari-link">Çerez Ayarları</a></li>
+                                
+                                    <li><a href="https://tkkoop.com.tr/assets/images/galeri/kisisel-verileri-korumasi-kanunu-aydinlatma-metni_1753427013.pdf"  target="_blank"  title="Kişisel Verileri Koruması Kanunu Aydınlatma Metni">Kişisel Verileri Koruması Kanunu Aydınlatma Metni</a> </li>
+                                
+                                    <li><a href="https://tkkoop.com.tr/assets/images/galeri/veri-sorumlusuna-basvuru-formu_1753426074.pdf"  target="_blank"  title="Veri Sorumlusuna Başvuru Formu">Veri Sorumlusuna Başvuru Formu</a> </li>
+                                
+                                    <li><a href="https://tkkoop.com.tr/assets/images/galeri/e-posta-aydinlatma-metni_1753426819.pdf"  target="_blank"  title="E-Posta Aydınlatma Metni">E-Posta Aydınlatma Metni</a> </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                    <div class="foor_1">
+                        <div class="foor_9a">
+                        KOOP MARKET'e Abone Olun.
+                        </div>
+                        <div class="foor_8">
+                            <div class="foor_8a">
+                                Ürünler, kampanyalar ve çok daha fazlasından anında haberdar olmak için abone olun.
+                            </div>
+                            <div class="foor_8c">
+                                <div wire:snapshot="{&quot;data&quot;:{&quot;yukleniyor&quot;:1,&quot;izin&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;custom1&quot;:0,&quot;cerez1&quot;:null,&quot;cerez&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;gelen&quot;:null,&quot;custom&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;email&quot;:&quot;&quot;,&quot;onay&quot;:0},&quot;memo&quot;:{&quot;id&quot;:&quot;hJ4gObr422WlIZUqlyvi&quot;,&quot;name&quot;:&quot;islemler.bulten&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;tr&quot;},&quot;checksum&quot;:&quot;55d7cf7e170479c25a382e4abd9b4a6ea21bddee5410126a64707c934abc70cb&quot;}" wire:effects="[]" wire:id="hJ4gObr422WlIZUqlyvi">
+    <form wire:submit="save">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control foor_8h" placeholder="" aria-label="" aria-describedby="basic-addon2"  wire:model="email">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary foor_8d" type="submit">Abone Ol</button>
+            </div>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input foor_8f" id="exampleCheck1" wire:model="onay">
+            <label class="form-check-label foor_8g" for="exampleCheck1">E-posta yoluyla haber almak istiyorum ve kişisel verilerimin KOOP MARKET gizlilik politikasına uygun olarak ilgili olarak işlenmesini kabul ediyorum. İptal her an mümkündür.</label>
+        </div>
+    </form>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                <div class="foor_6a">
+                    <div class="foor_6">
+                        <div class="foor_4">BİZİ TAKİP EDİN</div>
+                        <div class="foor_3">
+                            <ul>
+                                
+                                    <li><a href="https://whatsapp.com/channel/0029VaKBMtJGU3BLjrlh6j2K" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+
+                                
+                                    <li><a href="https://www.youtube.com/c/tarimkredikooperatifmarket" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+
+                                
+                                    <li><a href="https://www.instagram.com/koopmarket?igsh=ZHE1N3M2bzh0dHJ4" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+
+                                
+                                    <li><a href="https://www.linkedin.com/company/tkkoop/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+
+                                
+                                    <li><a href="https://www.facebook.com/tkkoopmarket" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+
+                                
+                                    <li><a href="https://x.com/koop_market" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+
+                                
+                                    <li><a href="https://www.tiktok.com/@tkkoop?_r=1&amp;_t=ZS-92d30MSD9Nw" target="_blank"><i class="fa-brands fa-tiktok"></i></a></li>
+
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="foor_6">
+                        <a href="tel:4441857"  class="telefonhat">
+                            <div class="foor_4a">
+                                Tüketici Danışma Hattı</div>
+                            <div class="foor_3a">
+                                444 1 857
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <div class="logos-link">
+                    <a href="https://www.tarimkredi.org.tr" target="_blank">
+                        <img src="https://www.tkkoop.com.tr/assets/image/tarım_kredı_logo-03.png" alt="" style="    height: 40px;
+    margin: 5px 0px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="faster" >
+    <div class="k_area" style="background: url('https://www.tkkoop.com.tr/assets/image/ENyakinmagaza.jpg')" data-bs-toggle="modal" data-bs-target="#fastBulten">
+<a href="https://www.tkkoop.com.tr/magazalarimiz"></a>
+    </div>
+    <button type="button" class="btn btn-secondary btn-sm  btn-block k_button" id="bultenKapat" >
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+</div>
+
+
+<script>
+    window.addEventListener('bultenOk', event => {
+
+        alertify.success('Eposta adresiniz başarıyla kaydedildi.');
+
+    });
+
+    window.addEventListener('bultenHata', function (event) {
+        const icerik = event.detail[0];
+
+        alertify.success(icerik);
+    });
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+<style>
+    .foor_8{}
+    .foor_8a{
+        padding: 10px 0px;
+        font-size: 12px;
+    }
+    .foor_8b{}
+    .foor_8c{}
+    .foor_8d{
+        border-radius: 0px 5px 5px 0px;
+        border: 0px;
+        background-color: #006738 !important;
+        color: #fff;
+        padding-top: 8px;
+        height: 39px;
+    }
+    .foor_8e{}
+    .foor_8g{
+        font-size: 12px;
+    }
+    .foor_8h{
+        font-size: 14px;
+        padding-top: 8px;
+    }
+    .foor_9a{
+        font-weight: 600;
+        font-size: 16px;}
+    .foor_5{
+        font-size: 14px;
+        padding-top: 50px;
+        color: #fff;
+        font-weight: 400;
+    }
+    .foor_6{
+        font-size: 14px;
+        padding-bottom: 50px !important;
+        color: #fff;
+        font-weight: 400;
+    }
+    .foor_2{}
+    .foor_1{
+        padding: 40px 0px;
+    }
+    .foor_1a{
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .foor_1b{}
+    .foor_1b ul{}
+    .foor_1b li{
+        margin: 10px 0px;
+    }
+    .foor_1b li a{
+        color: #ffffff;
+        text-decoration: none;
+        margin: 11px 0px;
+    }
+    .foor_1b li a:hover{
+        color: #000;
+    }
+    .foor_4{}
+    .foor_3{}
+    .foor_3 ul{
+        display: flex;
+    }
+    .foor_3 li{}
+    .foor_3 li a{
+        color: #fff;
+        width: 22px;
+        height: 40px;
+        display: block;
+        /* background-color: aliceblue; */
+        padding-top: 5px;
+        font-size: 20px;
+        text-align: left;
+        margin-right: 20px;
+    }
+    .foor_3 li a:hover{
+        color: #000;
+    }
+    .logos-link{
+        display: flex
+    ;
+        justify-content: flex-end;
+        align-content: space-around;
+        flex-wrap: nowrap;
+    }
+    .logos-link a{
+        display: block;
+        margin: 0px 10px;
+    }
+    .logos-link a img{
+        height: 50px;
+    }
+    .cerez_politikasi {
+        font-family: "Outfit", serif;
+        background: #fff;
+        bottom: 1.25em;
+        box-shadow: 0 .625rem 1.875rem rgba(2, 2, 3, .28);
+        line-height: normal;
+        max-width: 24.2em;
+        padding: 1em 1.4em 1.3em;
+        position: fixed;
+        right: 1.25em;
+        width: 100%;
+        z-index: 2;
+        opacity: 1;
+        transform: scale(1);
+        visibility: visible ;
+        border-radius: 10px;
+    }
+
+    .cerez_baslik {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .cerez_metin1 {
+        font-size: 12px;
+        font-weight: 200;
+        padding-bottom: 10px;
+    }
+
+    .cerez_metin1 a {
+        font-weight: 600;
+        color: #2d4156;
+        text-decoration: underline;
+    }
+
+    .cerez_metin1 a:hover {
+        text-decoration: none;
+    }
+
+    .cerez_metin2 {
+        font-size: 12px;
+        font-weight: 200;
+        padding-bottom: 10px;
+    }
+
+    .cerez_metin2 a {
+        font-weight: 600;
+        color: #2d4156;
+        text-decoration: underline;
+    }
+
+    .cerez_metin2 a:hover {
+        text-decoration: none;
+    }
+
+    .cerez_metin3 {
+        padding-bottom: 10px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #2d4156;
+        text-decoration: underline;
+        cursor: pointer;
+        margin-bottom: 10px;
+        display: inline-grid;
+        padding: 5px 10px 6px 0px;
+    }
+
+    .cerez_metin3:hover {
+        text-decoration: none;
+    }
+
+    .cerez_buton {
+        font-size: 14px;
+        font-weight: 200;
+        padding-bottom: 10px;
+    }
+
+    .cerez_buton1 {
+        width: calc(50% - 2px);
+        float: left;
+        background-color: #2d4156;
+        text-align: center;
+        font-size: 13px;
+        padding-top: 20px;
+        height: 55px;
+        color: #fff;
+        border-radius: 5px;
+        margin: 0px 2px 0px 0px;
+        cursor: pointer;
+    }
+
+    .cerez_buton1:hover {
+        background: #1d2e38;
+    }
+
+    .cerez_buton2 {
+        width: calc(50% - 2px);
+        float: left;
+        background-color: #eaeff2;
+        text-align: center;
+        font-size: 13px;
+        padding-top: 20px;
+        height: 55px;
+        color: #2d4156;
+        border-radius: 5px;
+        margin: 0px 0px 0px 2px;
+        cursor: pointer;
+    }
+
+    .cerez_buton2:hover {
+        background-color: #d7e0e6;
+    }
+
+    .c_gizle{
+        visibility: hidden;
+    }
+    .cc_gizle{
+        visibility: hidden;
+    }
+
+</style>
+
+
+<style>
+    .cookie-button {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        border: 0;
+        position: fixed;
+        bottom: 72px;
+        right: 48px;
+        background: #6cc088;
+        z-index: 9;
+        color: #fff;
+        font-size: 34px;
+    }
+    .cookie-button:hover {
+        background-color: #3a8e57;
+    }
+    .cookie-button img {
+        width: 25px;
+    }
+    @media (min-width: 1200px) {
+        .foor_5 .col-xl-2 {
+            flex: 0 0 auto !important;
+            width: 16.66666667% !important;
+        }
+    }
+
+</style>
+
+<!--Font-->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<!--Font End-->
+
+<!-- Google tag (gtag.js) -->
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    function analitikIzinli() {
+        try {
+            var m = document.cookie.match(/(?:^|;\s*)izin=([^;]*)/);
+            if (!m) return false;
+            var izin = JSON.parse(decodeURIComponent(m[1]));
+            return izin[1] && String(izin[1][2]) === "1";
+        } catch (e) {
+            return false;
+        }
+    }
+
+    if (analitikIzinli()) {
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-QTB077R4WF';
+        document.head.appendChild(gaScript);
+        gaScript.onload = function () {
+            gtag('js', new Date());
+            gtag('config', 'G-QTB077R4WF');
+        };
+    }
+</script>
+<!-- Facebook Pixel Code -->
+<script>
+    ! function(f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1235867861099308');
+    fbq('track', 'PageView');
+</script>
+<noscript>
+    <img height="1" width="1"
+         src="https://www.facebook.com/tr?id=1235867861099308&ev=PageView
+&noscript=1" />
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+<div wire:snapshot="{&quot;data&quot;:{&quot;yukleniyor&quot;:1,&quot;izin&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;custom1&quot;:0,&quot;cerez1&quot;:null,&quot;cerez&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;gelen&quot;:null,&quot;custom&quot;:[[],{&quot;s&quot;:&quot;arr&quot;}],&quot;analitik&quot;:0,&quot;reklam&quot;:0},&quot;memo&quot;:{&quot;id&quot;:&quot;IVsyzzoLAKxpubc2ReaL&quot;,&quot;name&quot;:&quot;islemler.cerez&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;tr&quot;},&quot;checksum&quot;:&quot;b0a11d4d1f893870764f5c2e3fc56d2c12d4b1f7cfca49b102c711a6ebb59f9d&quot;}" wire:effects="[]" wire:id="IVsyzzoLAKxpubc2ReaL" wire:init="islem">
+    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+
+        <script>
+
+            $(document).on("click", ".cookie-button", function () {
+
+                var cereczi = new bootstrap.Modal(document.getElementById('orrCerez'));
+                cereczi.show();
+            });
+            $(document).on("click", ".cerez-ayarlari-link", function (event) {
+                event.preventDefault();
+
+                var modalElement = document.getElementById('orrCerez');
+                if (!modalElement) {
+                    return;
+                }
+
+                var cereczi = new bootstrap.Modal(modalElement);
+                cereczi.show();
+            });
+            $(document).on("click", ".co_button", function () {
+
+                const container = $(this).closest(".co_3");
+                container.find(".co_4").slideToggle(); // animasyonlu toggle
+
+                const icon = $(this).find('span').find('i');
+
+                if (icon.hasClass("rotate-up")) {
+                    icon.removeClass("rotate-up").addClass("rotate-down");
+                } else {
+                    icon.removeClass("rotate-down").addClass("rotate-up");
+                }
+            });
+            $(document).on("click", ".c-bn", function () {
+
+                $("#s-cnt").addClass('cc_gizle');
+            });
+            $(document).on("click", ".cerez_metin3", function () {
+
+                var cereczi = new bootstrap.Modal(document.getElementById('orrCerez'));
+                cereczi.show();
+            });
+
+        </script>
+
+</div>
+<div class="modal fade" id="marketSearchModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Mağaza Ara</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Durum alanı -->
+                <div id="market-modal-status" class="mb-3" style="display:none;"></div>
+
+                <!-- Liste -->
+                <div class="container" id="market-list-filter-modal">
+                    <div class="row list-depo list-store" id="market-list-filter-row-modal"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).on("click", "#market-search-btn1", function (event) {
+        event.preventDefault();
+
+        var il   = $("#MapIl1").val();
+        var ilce = $("#MapIlce1").val();
+
+        // Modal aç
+        var modal = new bootstrap.Modal(document.getElementById("marketSearchModal"));
+        modal.show();
+
+        $("#market-list-filter-row-modal").empty();
+
+        // İl kontrolü
+        if (!il || il === "0") {
+            $("#market-modal-status")
+                .attr("class", "alert alert-warning alert-warning1")
+                .html("Lütfen <b>il</b> seçiniz.")
+                .show();
+            return;
+        }
+
+        // İlçe kontrolü (kritik kısım)
+        if (!ilce || ilce === "0") {
+            $("#market-modal-status")
+                .attr("class", "alert alert-warning alert-warning1")
+                .html("Lütfen <b>ilçe</b> seçiniz.")
+                .show();
+            return;
+        }
+
+        // Buraya geldiyse ikisi de seçili
+        $("#market-modal-status")
+            .attr("class", "alert alert-info")
+            .html("Mağazalar aranıyor...")
+            .show();
+
+        // AJAX burada başlar
+        $.ajax({
+            type: "GET",
+            url: "https://www.tkkoop.com.tr/json/magazalar?sehir=" + il + "&ilce=" + ilce,
+            success: function (data) {
+
+                $("#market-list-filter-row-modal").empty();
+                $("#market-modal-status").hide();
+
+                if (!data || data.length === 0) {
+                    $("#market-modal-status")
+                        .attr("class", "alert alert-info")
+                        .html("Bu ilçe için mağaza bulunamadı.")
+                        .show();
+                    return;
+                }
+
+                data.forEach(function (item) {
+                    var link = "https://www.google.com/maps/dir//" +
+                        item.enlem + "," + item.boylam +
+                        "/@" + item.enlem + "," + item.boylam + ",13z";
+
+                    var card = `
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <div class="magaza_main">
+                        <a class="yol-tarifi" href="${link}" target="_blank">
+                            <div><i class="fa-regular fa-map"></i></div>
+                        </a>
+                        <div class="title-sub">${item.isim}</div>
+                        <div class="text"><p>${item.adres}</p></div>
+                    </div>
+                </div>
+                `;
+
+                    $("#market-list-filter-row-modal").append(card);
+                });
+            },
+            error: function () {
+                $("#market-modal-status")
+                    .attr("class", "alert alert-danger")
+                    .html("Bir hata oluştu. Lütfen tekrar deneyin.")
+                    .show();
+            }
+        });
+    });
+
+
+</script>
+
+<style>
+    .alert-warning1{
+        margin: 20px 20px 20px 20px;
+        font-size: 14px;
+        text-align: center;
+        padding: 30px 0px;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://www.tkkoop.com.tr/assets/js/base/storesnew.js?id=4283074822"></script>
+<script src="https://www.tkkoop.com.tr/assets/js/jquery.mask.min.js?id=6853870936"></script>
+
+
+<script src="https://www.tkkoop.com.tr/assets/js/frontfy.js?id=5381000493"></script>
+<script src="/livewire/livewire.min.js?id=fcf8c2ad"   data-csrf="PZzST0o41ySZhI29AuQ7Ymjystgedq6ZDbfd8vzj" data-update-uri="/livewire/update" data-navigate-once="true"></script>
+</body>
+</html>
