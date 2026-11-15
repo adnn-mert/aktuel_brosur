@@ -17,5 +17,6 @@ export 'models/chain.dart';
 export 'models/media_image.dart';
 export 'models/money.dart';
 export 'models/product.dart';
+export 'notifications.dart';
 export 'providers.dart';
 export 'search.dart';

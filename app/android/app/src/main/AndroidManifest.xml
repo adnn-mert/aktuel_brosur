@@ -2,6 +2,8 @@
     <!-- Brochure data, page images and the in-app web view need the network
          (debug builds get this from the debug manifest; release builds need it here). -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- "New brochure" notifications (Android 13+ asks the user; only after they turn them on). -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <application
         android:label="Çarşı Pazar"
         android:name="${applicationName}"
@@ -28,6 +30,15 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <!-- FCM must not register this device before the user turns notifications on
+             (NotificationsController.turnOn enables it). -->
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+        <!-- Channel created in MainActivity; also used for messages that name none. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/new_brochures_channel_id" />
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data

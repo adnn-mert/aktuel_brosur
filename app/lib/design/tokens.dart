@@ -35,6 +35,7 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.logoPlate,
     required this.pageSheet,
     required this.shadow,
+    required this.scrim,
     required this.onBrandDark,
     required this.onBrandLight,
   });
@@ -93,6 +94,10 @@ class AppColors extends ThemeExtension<AppColors> {
 
   final Color shadow;
 
+  /// Veil behind a window (the notification offer): dims the screen so the
+  /// window is the only thing to read, without hiding where the user is.
+  final Color scrim;
+
   /// Text colours used on top of a market's brand colour (name cards). The
   /// one with the higher contrast is picked at runtime.
   final Color onBrandDark;
@@ -121,6 +126,7 @@ class AppColors extends ThemeExtension<AppColors> {
     logoPlate: Color(0xFFFFFFFF),
     pageSheet: Color(0xFFFFFDF9),
     shadow: Color(0x24322A1C),
+    scrim: Color(0x991D1A16),
     onBrandDark: Color(0xFF000000),
     onBrandLight: Color(0xFFFFFFFF),
   );
@@ -148,6 +154,7 @@ class AppColors extends ThemeExtension<AppColors> {
     logoPlate: Color(0xFFFAF8F4),
     pageSheet: Color(0xFF2E2A24),
     shadow: Color(0x66000000),
+    scrim: Color(0xB3000000),
     onBrandDark: Color(0xFF000000),
     onBrandLight: Color(0xFFFFFFFF),
   );
@@ -289,6 +296,12 @@ abstract final class AppSize {
   /// Width below which the home grid falls back to a single column when the
   /// system font is very large.
   static const double minCardWidth = 150;
+
+  /// Notifications: the bell disc at the top of the offer window.
+  static const double dialogArt = 72;
+
+  /// Notifications: the numbered square in front of a settings step.
+  static const double stepNumber = 36;
 }
 
 /// Zoom behaviour of the brochure viewer.

@@ -462,4 +462,109 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get searchOfflineEmptyMessage =>
       'İnternet yokken yalnızca daha önce açtığınız broşürlerde aranabiliyor. Bağlantınızı kontrol edip tekrar deneyin.';
+
+  @override
+  String get notifyOffTitle => 'Yeni broşür çıkınca haber ver';
+
+  @override
+  String get notifyOffDetail => 'Bildirim şu an kapalı';
+
+  @override
+  String get notifyOffSpoken =>
+      'Yeni broşür çıkınca haber ver. Bildirim şu an kapalı. Açmak için dokunun.';
+
+  @override
+  String get notifyOnTitle => 'Yeni broşür bildirimi açık';
+
+  @override
+  String notifyOnDetail(String names) {
+    return '$names yeni broşür çıkarınca telefonunuza bildirim gelir.';
+  }
+
+  @override
+  String get notifyTurnOff => 'Bildirimi kapat';
+
+  @override
+  String get notifyBlockedTitle => 'Bildirimler telefonda kapalı';
+
+  @override
+  String get notifyBlockedDetail =>
+      'Yeni broşür haberi almak için telefonun ayarlarından bu uygulamaya izin vermeniz gerekiyor.';
+
+  @override
+  String get notifyOpenSettings => 'Telefon ayarlarını aç';
+
+  @override
+  String get notifySettingsFailed =>
+      'Telefonun ayarları açılamadı. Aşağıdaki adımları izleyin.';
+
+  @override
+  String get notifyBlockedHowTo => 'Elle nasıl açılır?';
+
+  @override
+  String get notifyBlockedHideSteps => 'Adımları gizle';
+
+  @override
+  String get notifyBlockedStep1 => 'Telefonun Ayarlar uygulamasını açın.';
+
+  @override
+  String notifyBlockedStep2(String app) {
+    return '“Uygulamalar”a, sonra “$app”a dokunun.';
+  }
+
+  @override
+  String get notifyBlockedStep3 =>
+      '“Bildirimler”e dokunup açın, sonra buraya geri dönün.';
+
+  @override
+  String notifyStepSpoken(int number, String text) {
+    return 'Adım $number: $text';
+  }
+
+  @override
+  String get notifyOfferTitle => 'Yeni broşür çıkınca haber verelim mi?';
+
+  @override
+  String notifyOfferMessage(String names) {
+    return '$names yeni broşür çıkarınca telefonunuza kısa bir bildirim gelir.';
+  }
+
+  @override
+  String get notifyOfferPermissionNote =>
+      'Telefon izin sorarsa “İzin ver”e dokunun.';
+
+  @override
+  String get notifyOfferYes => 'Evet, haber ver';
+
+  @override
+  String get notifyOfferNo => 'Şimdi değil';
+
+  @override
+  String get notifyTurnedOn => 'Tamam. Yeni broşür çıkınca haber vereceğiz.';
+
+  @override
+  String get notifyNotAllowed =>
+      'Telefon izin vermediği için bildirim açılmadı.';
+
+  @override
+  String get notifyTurnedOff => 'Bildirim kapatıldı.';
+
+  @override
+  String get notifyFailed =>
+      'Bildirim şu an ayarlanamadı. Biraz sonra tekrar deneyin.';
+
+  @override
+  String nameListTwo(String first, String second) {
+    return '$first ve $second';
+  }
+
+  @override
+  String nameListThree(String first, String second, String third) {
+    return '$first, $second ve $third';
+  }
+
+  @override
+  String favoriteChainsCount(int count) {
+    return 'Sık baktığınız $count market';
+  }
 }

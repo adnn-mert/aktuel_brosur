@@ -1,4 +1,7 @@
 # Secrets
+secrets/
+google-services.json
+GoogleService-Info.plist
 .env
 .env.*
 *service-account*.json

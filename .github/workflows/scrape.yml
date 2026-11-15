@@ -48,4 +48,16 @@ jobs:
           echo "code=$?" >> "$GITHUB_OUTPUT"
 
       - name: Publish to the data branch
+        id: publish
         run: python -m scraper.publish publish --out out --exit-code "${{ steps.scrape.outputs.code }}"
+
+      # Compares the just-published catalog with the previous one (restored into state/) and
+      # sends one FCM message per chain with new brochures to topic chain-<id>. Runs whenever
+      # the data went out, even if the publish step then failed the job (a source keeps
+      # failing). Without the secret it logs "notifications disabled"; it never fails the job.
+      - name: Send new-brochure notifications
+        if: ${{ !cancelled() && steps.publish.outputs.published == 'true' }}
+        continue-on-error: true
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: python -m scraper.notify --previous state/catalog.json --current out/catalog.json

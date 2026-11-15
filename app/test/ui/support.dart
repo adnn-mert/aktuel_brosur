@@ -9,6 +9,7 @@ import 'package:aktuel_brosur/data/data.dart';
 import 'package:aktuel_brosur/design/theme.dart';
 import 'package:aktuel_brosur/design/typography.dart';
 import 'package:aktuel_brosur/design/widgets/catalog_image.dart';
+import 'package:aktuel_brosur/features/notifications/notification_offer_store.dart';
 import 'package:aktuel_brosur/l10n/app_localizations.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -119,13 +120,72 @@ class TestImageProvider extends ImageProvider<TestImageProvider> {
 Future<ui.Image> makeTestImage(WidgetTester tester) async =>
     (await tester.runAsync(() => createTestImage(width: 200, height: 300)))!;
 
+/// What the fake notification switch was asked to do.
+class NotificationsLog {
+  NotificationsLog({this.settingsOpen = true});
+
+  int turnOnCalls = 0;
+  int turnOffCalls = 0;
+  int settingsCalls = 0;
+
+  /// What `openSystemSettings` answers (false: the phone's page could not
+  /// be opened).
+  bool settingsOpen;
+}
+
+/// The notification switch without Firebase: starts in [initial]; `turnOn`
+/// ends in [afterTurnOn] (what the phone's permission window would decide).
+class FakeNotificationsController extends NotificationsController {
+  FakeNotificationsController(
+    this.initial, {
+    this.afterTurnOn = NotificationsStatus.on,
+    NotificationsLog? log,
+  }) : log = log ?? NotificationsLog();
+
+  final NotificationsStatus initial;
+  final NotificationsStatus afterTurnOn;
+  final NotificationsLog log;
+
+  @override
+  Future<NotificationsState> build() async => NotificationsState(initial);
+
+  @override
+  Future<void> turnOn() async {
+    log.turnOnCalls++;
+    state = AsyncData(NotificationsState(afterTurnOn));
+  }
+
+  @override
+  Future<void> turnOff() async {
+    log.turnOffCalls++;
+    state = const AsyncData(NotificationsState(NotificationsStatus.off));
+  }
+
+  @override
+  Future<bool> openSystemSettings() async {
+    log.settingsCalls++;
+    return log.settingsOpen;
+  }
+}
+
+NotificationTap fakeTap({required String chainId, String? brochureId}) =>
+    NotificationTap(chainId: chainId, brochureId: brochureId);
+
 /// Provider overrides every interface test needs.
+///
+/// Notifications are unavailable (no Firebase, as in a build without its
+/// configuration) unless [notifications] gives a status for the fake switch.
 List<Override> uiOverrides({
   FakeRepository? repository,
   ui.Image? image,
   bool imagesFail = false,
   Set<String> favorites = const {},
   Override? clock,
+  NotificationsStatus? notifications,
+  NotificationsStatus afterTurnOn = NotificationsStatus.on,
+  NotificationsLog? notificationsLog,
+  NotificationOfferStore? offerStore,
+  Stream<NotificationTap>? taps,
 }) => [
   catalogRepositoryProvider.overrideWithValue(repository ?? FakeRepository()),
   favoritesStoreProvider.overrideWithValue(MemoryFavoritesStore(favorites)),
@@ -134,6 +194,19 @@ List<Override> uiOverrides({
     (uri) => TestImageProvider(image, fail: imagesFail),
   ),
   pagePrefetcherProvider.overrideWithValue((uri) async {}),
+  pushMessagingProvider.overrideWith((ref) async => null),
+  if (notifications != null)
+    notificationsProvider.overrideWith(
+      () => FakeNotificationsController(
+        notifications,
+        afterTurnOn: afterTurnOn,
+        log: notificationsLog,
+      ),
+    ),
+  notificationOfferStoreProvider.overrideWithValue(
+    offerStore ?? MemoryNotificationOfferStore(),
+  ),
+  if (taps != null) notificationTapProvider.overrideWith((ref) => taps),
 ];
 
 /// Pumps [child] inside the real theme, localisation and a phone-sized

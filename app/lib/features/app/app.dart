@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import '../../design/theme.dart';
 import '../../design/typography.dart';
 import '../../l10n/app_localizations.dart';
+import '../notifications/notification_tap_handler.dart';
 import '../splash/splash_gate.dart';
 import 'data_refresher.dart';
 
@@ -42,7 +43,8 @@ class CarsiPazarApp extends StatelessWidget {
             child: child ?? const SizedBox.shrink(),
           );
         },
-        home: SplashGate(showSplash: showSplash),
+        // Inside the navigator, so a tapped notification can open a screen.
+        home: NotificationTapHandler(child: SplashGate(showSplash: showSplash)),
       ),
     );
   }

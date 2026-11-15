@@ -117,6 +117,59 @@ final hits = index.value?.query(text) ?? const [];      // List<SearchHit>
 **Web görünümü:** `chain.webUrl` (her zaman mutlak https). Bu zincirlerin (`ChainKind.webview`:
 A101, CarrefourSA, Gratis) katalogda broşürü yoktur.
 
+## Bildirimler
+
+"Yeni broşür" bildirimi Firebase Cloud Messaging konularıyla çalışır: kazıyıcı yeni broşür
+yayınlayan her market için `chain-<id>` konusuna tek mesaj atar (başlık "BİM: yeni broşür",
+gövde "13–19 Kasım broşürü yayında" ya da "2 yeni broşür yayında"). Bildirimler açıkken uygulama
+favori marketlerin konularına abone olur ve favori eklenip çıkarıldıkça aboneliği kendisi
+eşitler; ekranların bir şey yapması gerekmez. Cihaz belirteci hiçbir yere gönderilmez.
+
+| Sağlayıcı | Tür | Ne verir |
+|---|---|---|
+| `notificationsProvider` | `AsyncValue<NotificationsState>` | `state.status`: `unavailable` (bu yapıda Firebase yok: hiçbir şey göstermeyin), `off` (varsayılan), `on`, `blockedBySystem` (telefon izin vermiyor; yalnızca sistem ayarlarından açılır). |
+| `notificationsProvider.notifier` | `NotificationsController` | `turnOn()`: işletim sisteminden izin ister (Android 13+ / iOS penceresi; bundan önce hiçbir şey sorulmaz) ve kullanıcının bildirim istediğini kaydeder; izin verilirse favorileri abone eder (`on`), reddedilirse `blockedBySystem`. `turnOff()`: bütün market konularından çıkar, "kapalı"yı kaydeder. `openSystemSettings()` → `Future<bool>`: telefonun ayarlarında bu uygulamanın bildirim sayfasını açar (aşağıya bakın). Üçü de hata fırlatmaz; beklenmedik bir hatada önceki durum kalır. |
+| `notificationTapProvider` | `AsyncValue<NotificationTap>` (StreamProvider) | Kullanıcı bildirime dokundu: önce uygulamayı açan bildirim (varsa), sonra arka plandayken dokunulanlar. `tap.chainId` (market), `tap.brochureId` (en yeni yeni broşür; `null` olabilir, katalogdan da düşmüş olabilir → `brochureProvider` `null`). |
+
+- `notificationTapProvider`'ı uygulama kökünde açılıştan itibaren `ref.listen` ile dinleyin (dinlenmeden
+  gelen dokunuş kaçar). Kullanılamıyorsa hiç olay gelmez.
+- Her dokunuş ayrı bir olaydır: aynı bildirime iki kez dokunulursa iki olay gelir (`NotificationTap`
+  değer eşitliği taşımaz; `tap.sequence` oturum içinde artar, aynı hedef için `tap.sameTarget(other)`).
+- Uygulama öndeyken gelen bildirim için hiçbir şey gösterilmez (sistem de göstermez).
+- `blockedBySystem` kalıcıdır: kullanıcı `turnOn` dedi ama telefon izin vermiyor; uygulama yeniden
+  açılınca da böyle görünür, `turnOff()` ile `off` olur. Uygulama her öne geldiğinde izin kendiliğinden
+  yeniden denetlenir: kullanıcı telefon ayarlarından izin verip döndüyse açma işlemi tamamlanır
+  (`on`, favoriler abone edilir); açıkken izni ayarlardan kaldırdıysa `blockedBySystem` olur. Ekranın
+  `invalidate` yapması gerekmez.
+- `openSystemSettings()`: Android'de uygulamanın bildirim ayarları sayfası (Android 8+; açılamazsa
+  uygulama bilgileri sayfası, `MainActivity.kt` içindeki küçük kanal), iOS'ta `app-settings:` ile
+  Ayarlar'daki uygulama sayfası. Açılamazsa ya da desteklenmeyen platformda `false` döner; "Ayarları
+  aç" düğmesi `false` gelirse kullanıcıya elle yolu anlatın.
+- Android bildirim kanalı `new_brochures` ("Yeni broşürler"), `MainActivity.kt` içinde açılışta kurulur.
+
+**Firebase ile çalıştırma.** Firebase ayarı repoda durmaz; uygulama `FirebaseOptions`'ı dört
+`--dart-define` değerinden kurar: `FIREBASE_API_KEY`, `FIREBASE_APP_ID`,
+`FIREBASE_MESSAGING_SENDER_ID`, `FIREBASE_PROJECT_ID`. Biri bile eksikse Firebase hiç başlatılmaz
+ve durum `unavailable` olur (testler, CI ve ayarsız yerel derlemeler böyle çalışır). Aynı değerler
+Android derlemesinde Firebase'in yerel kaynaklarına da yazılır (`android/app/build.gradle.kts`),
+böylece uygulama kapalıyken gelen bildirim de işlenir. Firebase konsolundan indirilen
+`google-services.json` kökteki `secrets/` klasörüne (git dışı) konur, sonra:
+
+```bash
+python app/tool/firebase_defines.py            # secrets/google-services.json -> secrets/firebase_defines.json
+cd app
+flutter run --dart-define-from-file=../secrets/firebase_defines.json
+```
+
+Betik `dev.aktuelbrosur.aktuel_brosur` paketinin Android uygulamasını seçer, değerleri ekrana
+yazmaz ve çıktı dosyasındaki başka anahtarları (ör. `CATALOG_BASE_URL`) korur.
+
+**Testte:** `pushMessagingProvider.overrideWith((ref) async => null)` → `unavailable`; sahte bir
+`PushMessaging` ile gerçek denetleyici sınanır (`test/data/notifications_test.dart`).
+`notificationsStoreProvider.overrideWithValue(MemoryNotificationsStore())`; uygulamanın öne gelmesi
+`appResumedProvider.overrideWithValue(stream)`, ayarlar sayfası
+`systemSettingsOpenerProvider.overrideWithValue(sahteAcici)` ile taklit edilir.
+
 ## Durumları okumak
 
 ```dart

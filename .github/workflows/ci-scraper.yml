@@ -8,12 +8,14 @@ on:
       - "scraper/**"
       - "schema/**"
       - "pyproject.toml"
+      - "app/tool/**"
       - ".github/workflows/ci-scraper.yml"
   pull_request:
     paths:
       - "scraper/**"
       - "schema/**"
       - "pyproject.toml"
+      - "app/tool/**"
       - ".github/workflows/ci-scraper.yml"
 
 permissions:

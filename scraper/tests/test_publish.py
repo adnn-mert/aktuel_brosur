@@ -112,6 +112,16 @@ def test_size_guard(repo, tmp_path, capsys) -> None:
     assert git(repo, "ls-remote", "--heads", "origin", "data") == ""
 
 
+@pytest.mark.parametrize(("code", "published"), [(0, True), (2, True), (1, False)])
+def test_step_output_says_whether_data_went_out(repo, tmp_path, monkeypatch, code: int, published: bool) -> None:
+    # The notification step runs only when this output is "true", even after a red publish step.
+    output = tmp_path / "github_output"
+    output.write_text("", encoding="utf-8")
+    monkeypatch.setenv("GITHUB_OUTPUT", str(output))
+    publish(repo, make_output(tmp_path / "out"), code)
+    assert output.read_text(encoding="utf-8") == ("published=true\n" if published else "")
+
+
 def test_fetch_state(repo, tmp_path) -> None:
     state = tmp_path / "state"
     # First run: no data branch yet, which is not an error.

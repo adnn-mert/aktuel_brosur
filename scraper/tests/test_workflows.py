@@ -49,7 +49,15 @@ def test_scrape_workflow() -> None:
     scrape = next(s for s in job["steps"] if s.get("id") == "scrape")
     # The scraper's exit code must reach the publish step instead of failing the job early.
     assert "set +e" in scrape["run"] and "--state-dir state --out out" in scrape["run"]
-    assert "${{ steps.scrape.outputs.code }}" in runs[-1] and "scraper.publish publish" in runs[-1]
+    publish = next(s for s in job["steps"] if s.get("id") == "publish")
+    assert "${{ steps.scrape.outputs.code }}" in publish["run"] and "scraper.publish publish" in publish["run"]
+    # Notifications come last, only after the data went out, and can never fail the job.
+    notify = job["steps"][-1]
+    assert notify["run"] == "python -m scraper.notify --previous state/catalog.json --current out/catalog.json"
+    assert notify["if"] == "${{ !cancelled() && steps.publish.outputs.published == 'true' }}"
+    assert notify["continue-on-error"] is True
+    assert notify["env"] == {"FIREBASE_SERVICE_ACCOUNT": "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"}
+    assert job["steps"].index(publish) < job["steps"].index(notify)
 
 
 def test_ci_workflows_are_read_only_and_path_filtered() -> None:

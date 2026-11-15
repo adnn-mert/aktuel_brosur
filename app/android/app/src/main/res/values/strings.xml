@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Must match ANDROID_CHANNEL_ID in scraper/notify.py and newBrochuresChannelId in Dart. -->
+    <string name="new_brochures_channel_id" translatable="false">new_brochures</string>
+    <!-- Shown in the system's notification settings. -->
+    <string name="new_brochures_channel_name">Yeni broşürler</string>
+</resources>

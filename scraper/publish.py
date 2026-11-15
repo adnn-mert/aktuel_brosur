@@ -131,6 +131,17 @@ def _commit_message(out_dir: Path) -> str:
     return f"Publish scraper output generated at {generated}"
 
 
+def _set_step_output(name: str, value: str) -> None:
+    path = os.environ.get("GITHUB_OUTPUT")
+    if not path:
+        return
+    try:
+        with Path(path).open("a", encoding="utf-8") as fh:
+            fh.write(f"{name}={value}\n")
+    except OSError as exc:
+        print(f"::warning::could not write step output {name}: {exc}")
+
+
 def _cmd_fetch_state(args: argparse.Namespace) -> int:
     found = fetch_state(args.repo, args.dir, remote=args.remote, branch=args.branch)
     print(f"previous state: {'restored from ' + args.branch if found else 'none (first run)'} -> {args.dir}")
@@ -152,6 +163,8 @@ def _cmd_publish(args: argparse.Namespace) -> int:
         return 1
     sha = publish_tree(args.repo, out_dir, _commit_message(out_dir), remote=args.remote, branch=args.branch)
     print(f"published {size / 1_048_576:.1f} MB to {args.branch} as {sha[:12]}")
+    # Later steps (notifications) must know the data went out even when this step fails.
+    _set_step_output("published", "true")
     if decision is Decision.PUBLISH_THEN_FAIL:
         print("::error::published, but a source has failed 3 or more runs in a row (see the run summary)")
         return 1

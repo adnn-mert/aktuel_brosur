@@ -11,6 +11,8 @@ import '../../design/widgets/feedback.dart';
 import '../../design/widgets/logo_mark.dart';
 import '../../l10n/app_localizations.dart';
 import '../app/navigation.dart';
+import '../notifications/notification_control.dart';
+import '../notifications/notification_offer.dart';
 import '../search/search_entry_button.dart';
 import 'chain_card.dart';
 
@@ -102,6 +104,14 @@ class _HomeContent extends ConsumerWidget {
     final wasFavorite = ref.read(isFavoriteProvider(chain.id));
     final saved = await ref.read(favoritesProvider.notifier).toggle(chain.id);
     if (!context.mounted) return;
+    // The very first star is the moment to offer new-brochure notifications
+    // (once, ever); the offer window then also says where the card went.
+    if (saved &&
+        !wasFavorite &&
+        await offerNotificationsAfterFirstFavorite(context, ref, chain)) {
+      return;
+    }
+    if (!context.mounted) return;
     showAppMessage(
       context,
       !saved
@@ -188,6 +198,11 @@ class _HomeContent extends ConsumerWidget {
                   ),
                   const SizedBox(height: AppSpace.xs),
                   grid(favorites),
+                  // Right under the markets it is about; draws nothing
+                  // when notifications are unavailable.
+                  NotificationControl(
+                    chainNames: [for (final chain in favorites) chain.name],
+                  ),
                   if (others.isNotEmpty) ...[
                     SectionHeader(title: l10n.homeOthers),
                     const SizedBox(height: AppSpace.xs),

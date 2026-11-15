@@ -6,7 +6,7 @@ değişmez. Büyük görsel kararlar (renk, yazı tipi, logo) değiştirilmeden 
 
 ## Durum
 
-Son güncelleme: 15 Kasım 2026. **D1, D2 ve D3 (ürün arama) görevleri tamamlandı.**
+Son güncelleme: 15 Kasım 2026. **D1, D2, D3 (ürün arama) ve D4 (yeni broşür bildirimi) görevleri tamamlandı.**
 
 | Dilim | Durum |
 |---|---|
@@ -25,8 +25,13 @@ Son güncelleme: 15 Kasım 2026. **D1, D2 ve D3 (ürün arama) görevleri tamaml
 | D3-2. Arama ekranı (yazmadan önce, bekleme, sonuç, bulunamadı, internet yok) | **Bitti** (`lib/features/search/`); kurallar bölüm 15 |
 | D3-3. Sonuçtan broşüre: sayfa ya da "Aradığınız ürün" en üstte | **Bitti** (`navigation.dart`: `openSearchHit`; `ProductList.highlight`); kurallar bölüm 15 |
 | D3-4. Yeni marketlerin ad kartı renkleri | **Bitti** (`lib/design/chain_logos.dart`: `chainPlateColors`); kurallar bölüm 6 |
+| D4-1. Ana ekranda bildirim denetimi (kapalı / açık / telefonda kapalı; kullanılamıyorsa hiçbir şey) | **Bitti** (`lib/features/notifications/notification_control.dart`); kurallar bölüm 16 |
+| D4-2. İlk yıldızdan sonra bir kez teklif penceresi, telefonun izninden önce tek cümle | **Bitti** (`notification_offer.dart`, `notification_offer_store.dart`); kurallar bölüm 16 |
+| D4-3. Bildirime dokununca broşür ya da market | **Bitti** (`notification_tap_handler.dart`, `app.dart`); kurallar bölüm 16 |
+| D4-4. Telefonda kapalıyken "Telefon ayarlarını aç" düğmesi | **Bitti** (`openSystemSettings()`; açılamazsa yazılı adımlar kendiliğinden açılır); kurallar bölüm 16 |
 | Testler (D2 sonu) | `flutter test`: 226 geçiyor (114 veri + 112 arayüz; 2 araç testi bilerek atlanır). D2 testleri `test/ui/prices_and_pages_test.dart` |
-| Ekran görüntüleri | `design/screenshots/`, hepsi WebP (açık, koyu, büyük yazı, yakınlaştırılmış, uçak modu). D2: `40`–`42` üyelik fiyatlı ürün listesi (açık, koyu, büyük yazı), `43` uzun katalogda sayfa göstergesi düğmesi, `44`–`46` "Sayfa seç" ekranı (açık, koyu, büyük yazı) |
+| Testler (D4 sonu) | `flutter test`: 413 geçiyor, 11 bilerek atlanır (2 simge + 9 ekran görüntüsü aracı); `flutter analyze` temiz. D4 testleri `test/ui/notifications_test.dart` (78) |
+| Ekran görüntüleri | `design/screenshots/`, hepsi WebP (açık, koyu, büyük yazı, yakınlaştırılmış, uçak modu). D2: `40`–`42` üyelik fiyatlı ürün listesi (açık, koyu, büyük yazı), `43` uzun katalogda sayfa göstergesi düğmesi, `44`–`46` "Sayfa seç" ekranı (açık, koyu, büyük yazı); D4: `61`–`69` bildirim (aşağıdaki not) |
 
 Emülatörde (Medium_Phone) uçtan uca denenen akış: aç → market → broşür → + ile ve çift dokunmayla
 yakınlaştır → büyütülmüşken kaydır (sayfa değişmedi) → okla sayfa değiştir → geri → favori işaretle →
@@ -40,6 +45,14 @@ elle denenmesi iyi olur. iOS tarafı (ad, simge, açılış zemini) Mac olmadı�
 
 Derleme notu: bu makinede `flutter build apk --debug` yalnızca şu ortam değişkeniyle çalışıyor
 (boşluksuz, kısa bir klasör): `JAVA_TOOL_OPTIONS=-Djdk.net.unixdomain.tmpdir=C:\Users\Public\uds`.
+
+D4 (bildirim) ekran görüntüleri `61`–`69` emülatörden değil **widget testinden** çekildi
+(`test/tools/notification_screenshots_test.dart`, `--dart-define=SCREENSHOTS_DIR=…`; uygulamaya
+girmez): Firebase yapılandırması olmayan yapıda durum `unavailable`dır ve hiçbir şey görünmez, durumlar
+testlerdeki sahte sağlayıcıyla üretildi. Gerçek yazı tipleri, logolar ve simgeler, Medium_Phone ölçüsü;
+sistem durum çubuğu yok. `61` kapalı, `62` ilk yıldızdan sonra teklif, `63` açık, `64` telefonda kapalı
+("Telefon ayarlarını aç" + "Elle nasıl açılır?"), `65`–`66` koyu teklif / açık, `67`–`68` yazı ölçeği
+2,0 teklif / açık, `69` 320 dp + 2,0 telefonda kapalı (yazılı adımlar açık). Telefonun gerçek izin penceresi ve gerçek bildirim emülatörde **denenmedi**.
 
 D3 testleri `test/ui/search_test.dart` (durumlar, sıra, üyelik fiyatı, ekran okuyucu etiketi, sonuçtan
 broşüre geçiş; yazı ölçeği 1,0 / 1,3 / 2,0 × açık / koyu × 411 / 320 dp taşma denemeleri, klavye açıkken
@@ -84,6 +97,7 @@ Dil: **kâğıt ve mürekkep**. Sıcak krem zemin (kâğıt), sıcak siyah yazı
 | `primarySoft` / `onPrimarySoft` | `#DCE9DF` / `#143D2F` | `#213F33` / `#CFEBDD` | Sakin düğmeler, vurgu zemini |
 | `star` / `starOutline` | `#F2B01E` / `#6B4A00` | `#FFC83D` | Favori yıldızı (dolu) ve çerçevesi |
 | `fresh` / `onFresh` | `#B5281C` / beyaz | `#FF9D8C` / `#3B0A05` | "Yeni" rozeti, indirim etiketi |
+| `scrim` | mürekkep %60 | siyah %70 | Pencerenin (bildirim teklifi) arkasındaki karartma |
 | `notice` / `onNotice` / `noticeLine` | `#FBEBC2` / `#3D2E00` / `#DDBF6A` | `#3A2F12` / `#FBE7B5` / `#6B5720` | Sakin bilgi şeridi (internet yok, veri eski, güncelleme) |
 | `logoPlate` | beyaz | `#FAF8F4` | Market logosunun arkasındaki plaka |
 
@@ -210,6 +224,7 @@ Açılış → Ana ekran ─┬─ (web görünümü zinciri) ──────
                     ├─ (tek broşürü olan market) ────────────→ Broşür
                     ├─ Market ekranı → Broşür (sayfalar ⇄ ürün listesi)
                     └─ "Ürün ara" → Arama → Broşür (ürünün sayfası ya da listesi)
+Bildirime dokunma ──────→ Broşür (katalogda varsa) ya da market (kartı gibi)
 ```
 
 **En az dokunuş kuralı:** bir marketin gösterilecek **tek** broşürü varsa (bu hafta + gelecek +
@@ -358,6 +373,8 @@ Watsons kataloğu 46 sayfa; ortadaki bir sayfaya gitmek için oka 20 kez basmak 
 | Arama: bulunamadı | "“kivi” bulunamadı", ne denenebileceği, hangi marketlere bakıldığı, "Başka ürün ara" |
 | Arama: internet yok, kayıt var | Sakin şerit: "Yalnızca daha önce açtığınız broşürlerde aranıyor." |
 | Arama: yapılamıyor | Tam alan: "Arama şu an yapılamıyor" + "Tekrar dene" |
+| Bildirim: kullanılamıyor / bilinmiyor | Hiçbir şey (bölüm 16) |
+| Bildirim: telefonda kapalı | Krem panel, büyük "Telefon ayarlarını aç"; altında "Elle nasıl açılır?" ile üç adım; sarı uyarı değil (bölüm 16) |
 
 Dil kuralı: önce ne olduğu, sonra ne yapılabileceği. "Hata", "bağlantı zaman aşımı", "sunucu" gibi
 sözcükler kullanılmaz.
@@ -399,7 +416,8 @@ Ekrana özgü bileşenler: `ChainCard`, `ChainGrid` (ana ekran); `BrochureCard` 
 `ZoomablePage`, `PageZoomController`, `ViewerControls`, `ModeTabs`, `PagePickerScreen` (broşür);
 `ProductCard`, `ProductFacts`, `PriceWithUnit`, `MemberPriceTag`, `ProductList` (ürünler);
 `SearchEntryButton`, `SearchScreen`, `SearchField`, `SearchResultCard` (arama); `WebCatalogBar`,
-`WebCatalogError` (web).
+`WebCatalogError` (web); `NotificationControl`, `NotificationOfferDialog`, `NotificationTapHandler`
+(bildirim, bölüm 16).
 
 **`ProductFacts`** bir ürünün fotoğrafını, adını, markasını ve fiyatlarını çizen tek yerdir; ürün kartı
 da arama sonucu da onu kullanır. Bölüm 14'teki fiyat dili böylece iki ekranda **kendiliğinden** aynıdır;
@@ -452,7 +470,9 @@ Test altyapısı: `test/ui/support.dart` (`pumpUi`, `FakeRepository`, `TestImage
   görselleri gerçekte 17 Kasım Salı afişleridir (o gün için yayınlanmış görsel yoktu). Şok ve Migros
   sayfaları göreli yoldur, uygulamaya gömülü değildir; "sayfa açılamadı" durumunu göstermek için
   öyle bırakıldı.
-- **Bildirim izni ekranı (1I)** tasarlanmadı.
+- **Bildirim (bölüm 16):** Teklifin "bir kez" kaydı
+  şimdilik arayüz tarafında (`notification_offer_store.dart`, `shared_preferences`); veri katmanı bir
+  yer verirse oraya taşınabilir. Gerçek izin penceresi ve bildirim cihazda denenmedi.
 - **Arama, sözcük sonu yumuşamasını bilmiyor:** "ekmek" yazınca "Tam Buğday Ekmeği", "tavuk" yazınca
   "Köy Tavuğu" bulunmuyor (k → ğ, p → b, ç → c, t → d). "Bulunamadı" iletisi bu yüzden somut bir yol
   gösterir ("ekmek" yerine "ekme"). Asıl çözüm veri katmanındadır (istek iletildi); gelince ileti
@@ -605,3 +625,137 @@ Ana ekran "Ürün ara" → Arama (klavye açık) → yaz ya da örnek sözcüğe
 
 `flutter test`: 299 geçiyor (2 araç testi bilerek atlanır); `flutter analyze` temiz.
 Ekran görüntüleri: bkz. "Durum" bölümünün altındaki not.
+
+## 16. Yeni broşür bildirimi
+
+Teyze "Sık baktıklarım"a yıldız koyduğu marketler yeni broşür çıkarınca telefonuna kısa bir bildirim
+gelsin ister. Kod `lib/features/notifications/`, veri `notificationsProvider` ve
+`notificationTapProvider` (`lib/data/notifications.dart`, veri katmanının).
+
+**Ana kural: sor, bir kez sor, sonra sus.** Bildirim izni bir rica; ısrar edilen bir rica güveni
+bozar. Teklif kendiliğinden **en fazla bir kez** gelir; sonrası hep görünür bir düğmenin işidir.
+
+### Nerede
+
+- **Ana ekranda, "Sık baktıklarım" kartlarının hemen altında** (`NotificationControl`), "Diğer
+  marketler" başlığının üstünde. Gerekçeler:
+  - Ana ekranın menüsü yok (bilerek); ayarlar ekranı olmadığı için saklanacak bir yer de yok.
+  - Bildirim yıldızlı marketler içindir; düğme konuştuğu şeyin yanında durur. Favoriler en üstte
+    olduğu için düğme çoğu telefonda ilk ekranda görünür.
+  - **Favori yokken hiç görünmez:** haber verilecek market yokken düğme boş bir söz olur. Favori
+    yokken ızgaranın altındaki yıldız ipucu zaten ilk adımı öğretir.
+- **İlk yıldızın hemen ardından teklif penceresi** (`offerNotificationsAfterFirstFavorite`). En
+  doğru an budur: kullanıcı az önce "bu marketi takip ediyorum" dedi. Ana ekrandaki ve market
+  ekranındaki yıldızın ikisi de bu anı yakalar. Koşullar: favoriler boştan bire çıktı, bildirim
+  durumu `off`, teklif daha önce yapılmadı. Pencere açıldığı anda "yapıldı" diye kaydedilir; cevap ne
+  olursa olsun bir daha kendiliğinden açılmaz. Kullanıcı düğmeyle açar ya da kapatırsa da kaydedilir.
+
+### Teklif penceresi (`NotificationOfferDialog`)
+
+Telefonun kendi izin penceresinden **önce** ne olacağını tek bir sade cümleyle söyler:
+
+```
+★ Şok en üste alındı.              (yalnızca ilk yıldızdan gelince)
+(zil)
+Yeni broşür çıkınca haber verelim mi?
+Şok yeni broşür çıkarınca telefonunuza kısa bir bildirim gelir.
+ⓘ Telefon izin sorarsa “İzin ver”e dokunun.
+[ 🔔 Evet, haber ver ]              birincil, 64 dp, tam genişlik
+[ Şimdi değil ]                     çerçeveli, 64 dp, tam genişlik
+```
+
+- **Pencere, tam ekran değil:** bu bir seçim listesi değil, o ana bağlı tek bir evet / hayır
+  sorusu; arkada ana ekranın görünmesi "nerede olduğumu" korur. Yine de bölüm 12'deki kural
+  geçerlidir: sürükleyerek kapanmaz, alt sayfa değildir.
+- **Pencerenin dışına dokunmak bir şey yapmaz** (`barrierDismissible: false`): kazara bir dokunuş
+  soruyu cevaplamamalı. Telefonun geri tuşu "Şimdi değil" demektir.
+- **"İzin ver" notu:** telefonun izin penceresi yaşlı kullanıcıyı ürkütür (başka renk, başka dil);
+  hangi düğmeye basacağını önceden bilmek bu korkuyu alır. Android'de düğmenin Türkçe adı budur.
+- İlk yıldızdan gelince pencerenin ilk satırı yıldızın ne yaptığını söyler ("Şok en üste alındı.");
+  alttan çıkan ileti bu yüzden gösterilmez (pencerenin arkasında okunmazdı).
+- Yazılar sola dayalıdır (uzun ortalı metin zor okunur); pencere uzun gelirse kendi içinde kayar.
+- Zemin karartması `scrim` rengidir (açık: mürekkep %60, koyu: siyah %70). Belirme kısa bir solma;
+  "hareketi azalt" açıkken anında açılır.
+- "Evet" → `turnOn()` → telefon izin sorar. Sonuç alttan iletiyle söylenir: açıldıysa "Tamam. Yeni
+  broşür çıkınca haber vereceğiz.", telefon izin vermediyse "Telefon izin vermediği için bildirim
+  açılmadı.", başka bir aksilikte "Bildirim şu an ayarlanamadı. Biraz sonra tekrar deneyin."
+
+### Durumlar
+
+| Durum | Görünüş |
+|---|---|
+| `unavailable` (ya da durum henüz bilinmiyor) | **Hiçbir şey.** Ana ekran bildirim yokmuş gibi, aralık bile eklenmez; ilk yıldızda pencere açılmaz |
+| `off` | Tek satır düğme (en az 64 dp): solda yumuşak yeşil karede boş zil, kalın "Yeni broşür çıkınca haber ver", altında "Bildirim şu an kapalı", sağda ›. Basınca teklif penceresi |
+| `on` | Yumuşak yeşil panel: dolu yeşil karede çalan zil, "Yeni broşür bildirimi açık", "Şok ve BİM yeni broşür çıkarınca telefonunuza bildirim gelir." ve altında çerçeveli "Bildirimi kapat" (56 dp) |
+| `blockedBySystem` | Sakin krem panel: üstü çizili zil, "Bildirimler telefonda kapalı", neden gerektiği tek cümle; altında tam genişlikte, 64 dp, yumuşak yeşil **"Telefon ayarlarını aç"**, onun altında çerçeveli "Elle nasıl açılır?" (basınca numaralı üç adım açılır, düğme "Adımları gizle" olur) |
+
+- **Kapalı = basılır görünüş.** "Krem zemin + koyu çerçeve" bu uygulamada her yerde "basılır" demektir
+  (bölüm 8); "Ürün ara" ile aynı aile. Zil karesi dolu yeşil değil yumuşak yeşildir: ana ekranın asıl
+  işi market seçmek, bu bir teklif.
+- **Açık = onay, düğme değil.** Panelin kendisi basılmaz; yeşil zemin "tamam, açık" der. Hangi
+  marketler için açık olduğu adıyla yazılır (dört ve üstünde "Sık baktığınız 5 market"); nasıl
+  kapatılacağı da görünür bir düğmedir. Kapatmak için "emin misiniz?" sorulmaz: geri açmak tek dokunuş.
+- **Telefonda kapalı = sarı değil.** Kullanıcı izni bilerek vermemiş olabilir; ana ekranda kalıcı bir
+  sarı uyarı kutusu sürekli "düzelt beni" der ve dırdır olur. Krem panel durumu söyler, adımlar bir
+  düğme uzaklıktadır.
+- **"Telefon ayarlarını aç" asıl yoldur.** `openSystemSettings()` Android'de doğrudan bu uygulamanın
+  bildirim sayfasını açar (orada tek bir anahtar kalır); üç adımı okuyup uygulamak yerine bir dokunuş.
+  Büyük ve tam genişliktedir ama **dolu yeşil değil yumuşak yeşildir** (`tonal`): ana ekranın tek işi
+  market seçmek, bu bir durum paneli.
+- **Yazılı adımlar yedektir.** "Elle nasıl açılır?" düğmesinin arkasında durur. Ayar sayfası açılamazsa
+  (`false`) adımlar kendiliğinden açılır ve alttan ileti söyler: "Telefonun ayarları açılamadı. Aşağıdaki
+  adımları izleyin." Düğmeye yeniden basmak adımları kapatmaz.
+- **Dönüşte kendiliğinden açık.** Kullanıcı ayarlardan izin verip uygulamaya dönünce veri katmanı izni
+  yeniden denetler, panel kendiliğinden yeşil "açık" paneline döner; ekranın yapacağı bir şey yok.
+  `blockedBySystem` uygulama yeniden açılınca da sürer.
+- Adımlar: "1 Telefonun Ayarlar uygulamasını açın." "2 “Uygulamalar”a, sonra “Çarşı Pazar”a
+  dokunun." "3 “Bildirimler”e dokunup açın, sonra buraya geri dönün." Numara yumuşak yeşil karede;
+  ekran okuyucu "Adım 1: …" okur. Ok karakteri kullanılmaz (bölüm 3).
+- Panelin içindeki düğme metnin **altındadır**, yanında değil: büyük yazıda yan yana düğme sözcükleri
+  sıkıştırır. Yazı ölçeği 1,3'ün üstünde bu paneldeki düğmelerin simgesi kalkar, adım numarası da
+  cümlenin üstüne geçer: 320 dp + 2,0'da yanlarında kalınca "ayarlarını" ve "uygulamasını" ortadan
+  bölünüyordu (ekran görüntüsünde görüldü).
+- Yazı ölçeği 1,3'ün üstündeyse (`useStackedBars`) zil karesi sözcüklerin **üstüne** geçer ve sözcükler
+  bütün genişliği alır; yanında kalınca 320 dp + 2,0'da "Bildirimler" ortadan bölünüyordu (denendi).
+  Kapalı düğmenin › işareti de bu ölçekte kalkar ("Ürün ara" ile aynı).
+- Durum henüz bilinmiyorken (açılışta Firebase hazırlanırken) de hiçbir şey çizilmez; bilinince denetim
+  belirir. İlk yıldızda teklif, durumu en çok 2 sn bekler; bilinmezse teklif yapılmaz (ve "yapıldı"
+  sayılmaz), yıldızın iletisi beklemez.
+
+### Bildirime dokununca (`NotificationTapHandler`)
+
+Uygulamanın ilk sayfasını sarar (`app.dart`); uygulama bildirime dokunularak açıldıysa da ilk kareden
+dinler. Katalog henüz yükleniyorsa yüklenmesini bekler. Bildirim anahtarını (`notificationsProvider`)
+da açılışta başlatır: durum ilk yıldıza kadar bilinir ve yıldızlı marketlerin abonelikleri, ekranda
+denetim görünmese de güncel kalır.
+
+- Bildirim bir broşür adı veriyorsa ve broşür katalogda **o markete ait** olarak duruyorsa: **broşür
+  doğrudan açılır.** Altına market ekranı sıkıştırılmaz; "Geri" kullanıcının bildirimden önce
+  bulunduğu yere döner (ilke 4: görmediği ara ekran yığına girmez).
+- Broşür yoksa (süresi dolmuş, silinmiş) ya da başka bir markete aitse: **market**, ana ekrandaki
+  kartı nasıl açıyorsa öyle (`openChain`: market ekranı, tek broşürü, ya da sitesi).
+- Market katalogda yoksa ya da katalog hiç alınamadıysa: ana ekranda kalınır; ana ekran durumu
+  (internet yok vb.) zaten kendisi söyler.
+- Her dokunuş ayrı bir olaydır: aynı bildirime ikinci kez dokunmak ekranı yeniden açar.
+
+### Yap / yapma
+
+| Yap | Yapma |
+|---|---|
+| Teklifi ilk yıldızın ardından bir kez yap | Açılışta, her yıldızda ya da "kapalı" diye tekrar tekrar sor |
+| Telefonun izin penceresinden önce ne olacağını tek cümleyle söyle | Hiçbir şey demeden telefonun izin penceresini aç |
+| Açık durumu marketlerin adıyla doğrula, kapatma düğmesini göster | Yalnızca bir anahtar (switch) koy; ne açık, kimin için belli olmasın |
+| `unavailable` iken hiçbir şey çizme | Kullanılamayan bir özellik için gri düğme ya da açıklama göster |
+| Telefonda kapalıyken önce ayar sayfasını aç, adımları yedek tut | Sarı / kırmızı kalıcı uyarı kutusu koy; yalnızca "ayarlara gidin" deyip yolu göstermeme |
+
+### Doğrulama
+
+Testler `test/ui/notifications_test.dart`: her durum, teklifin bir kez gösterilmesi (geri tuşu, dışarı
+dokunma, ikinci yıldız, daha önce yapılmış, `on` / `blocked` / `unavailable` iken açılmaması, market
+ekranından), telefonun izni reddetmesi, "Telefon ayarlarını aç" (açıldı / açılamadı → adımlar), bildirime dokununca
+açılan ekran (broşür, olmayan broşür, başka marketin broşürü, bilinmeyen market, aynı bildirime ikinci
+dokunuş), "hareketi azalt", ad listesi; yazı ölçeği 1,0 / 1,3 / 2,0
+× açık / koyu × 411 / 320 dp taşma denemeleri (üç durum + pencere). 78 test.
+
+`flutter test`: 413 geçiyor, 11 atlanıyor (2 simge + 9 ekran görüntüsü aracı; bilerek);
+`flutter analyze` temiz. Ekran görüntüleri: "Durum" bölümünün altındaki D4 notu.

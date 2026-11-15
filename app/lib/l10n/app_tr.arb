@@ -622,5 +622,165 @@
   "searchOfflineEmptyMessage": "İnternet yokken yalnızca daha önce açtığınız broşürlerde aranabiliyor. Bağlantınızı kontrol edip tekrar deneyin.",
   "@searchOfflineEmptyMessage": {
     "description": "Message when the device is offline and no product list is saved."
+  },
+
+  "notifyOffTitle": "Yeni broşür çıkınca haber ver",
+  "@notifyOffTitle": {
+    "description": "Bold line of the home screen button that offers new-brochure notifications (shown under the favourite markets while notifications are off)."
+  },
+  "notifyOffDetail": "Bildirim şu an kapalı",
+  "@notifyOffDetail": {
+    "description": "Second line of the notification offer button: the current state."
+  },
+  "notifyOffSpoken": "Yeni broşür çıkınca haber ver. Bildirim şu an kapalı. Açmak için dokunun.",
+  "@notifyOffSpoken": {
+    "description": "Screen-reader text of the notification offer button."
+  },
+  "notifyOnTitle": "Yeni broşür bildirimi açık",
+  "@notifyOnTitle": {
+    "description": "Title of the home screen panel while new-brochure notifications are on."
+  },
+  "notifyOnDetail": "{names} yeni broşür çıkarınca telefonunuza bildirim gelir.",
+  "@notifyOnDetail": {
+    "description": "Explains what the switched-on notification does. names is a list such as 'Şok ve BİM' or 'Sık baktığınız 5 market'.",
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "notifyTurnOff": "Bildirimi kapat",
+  "@notifyTurnOff": {
+    "description": "Button that switches new-brochure notifications off."
+  },
+  "notifyBlockedTitle": "Bildirimler telefonda kapalı",
+  "@notifyBlockedTitle": {
+    "description": "Title of the home screen panel when the phone's settings do not allow this app's notifications."
+  },
+  "notifyBlockedDetail": "Yeni broşür haberi almak için telefonun ayarlarından bu uygulamaya izin vermeniz gerekiyor.",
+  "@notifyBlockedDetail": {
+    "description": "Explains why no notification can come and what is needed."
+  },
+  "notifyOpenSettings": "Telefon ayarlarını aç",
+  "@notifyOpenSettings": {
+    "description": "Big button on the blocked-notifications panel that opens this app's notification page in the phone's settings."
+  },
+  "notifySettingsFailed": "Telefonun ayarları açılamadı. Aşağıdaki adımları izleyin.",
+  "@notifySettingsFailed": {
+    "description": "Snack message when the phone's settings page could not be opened; the written steps are shown instead."
+  },
+  "notifyBlockedHowTo": "Elle nasıl açılır?",
+  "@notifyBlockedHowTo": {
+    "description": "Quieter button under 'Telefon ayarlarını aç' that shows the written steps for allowing notifications by hand."
+  },
+  "notifyBlockedHideSteps": "Adımları gizle",
+  "@notifyBlockedHideSteps": {
+    "description": "Button that hides the steps again."
+  },
+  "notifyBlockedStep1": "Telefonun Ayarlar uygulamasını açın.",
+  "@notifyBlockedStep1": {
+    "description": "Step 1 of allowing notifications in the phone's settings."
+  },
+  "notifyBlockedStep2": "“Uygulamalar”a, sonra “{app}”a dokunun.",
+  "@notifyBlockedStep2": {
+    "description": "Step 2 of allowing notifications. app is the app's name as shown on the phone.",
+    "placeholders": {
+      "app": {
+        "type": "String"
+      }
+    }
+  },
+  "notifyBlockedStep3": "“Bildirimler”e dokunup açın, sonra buraya geri dönün.",
+  "@notifyBlockedStep3": {
+    "description": "Step 3 of allowing notifications."
+  },
+  "notifyStepSpoken": "Adım {number}: {text}",
+  "@notifyStepSpoken": {
+    "description": "Screen-reader text of one numbered step.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "notifyOfferTitle": "Yeni broşür çıkınca haber verelim mi?",
+  "@notifyOfferTitle": {
+    "description": "Question of the window that explains notifications before the phone asks for permission."
+  },
+  "notifyOfferMessage": "{names} yeni broşür çıkarınca telefonunuza kısa bir bildirim gelir.",
+  "@notifyOfferMessage": {
+    "description": "The one plain sentence that says what will happen, shown before the phone's own permission window.",
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "notifyOfferPermissionNote": "Telefon izin sorarsa “İzin ver”e dokunun.",
+  "@notifyOfferPermissionNote": {
+    "description": "Prepares the user for the phone's own permission window ('İzin ver' is the Android button text)."
+  },
+  "notifyOfferYes": "Evet, haber ver",
+  "@notifyOfferYes": {
+    "description": "Accepts notifications; the phone's permission window may follow."
+  },
+  "notifyOfferNo": "Şimdi değil",
+  "@notifyOfferNo": {
+    "description": "Declines the offer; it is not shown again on its own."
+  },
+  "notifyTurnedOn": "Tamam. Yeni broşür çıkınca haber vereceğiz.",
+  "@notifyTurnedOn": {
+    "description": "Snack message after notifications were switched on."
+  },
+  "notifyNotAllowed": "Telefon izin vermediği için bildirim açılmadı.",
+  "@notifyNotAllowed": {
+    "description": "Snack message when the phone's permission was refused."
+  },
+  "notifyTurnedOff": "Bildirim kapatıldı.",
+  "@notifyTurnedOff": {
+    "description": "Snack message after notifications were switched off."
+  },
+  "notifyFailed": "Bildirim şu an ayarlanamadı. Biraz sonra tekrar deneyin.",
+  "@notifyFailed": {
+    "description": "Snack message when switching notifications on or off did not work."
+  },
+  "nameListTwo": "{first} ve {second}",
+  "@nameListTwo": {
+    "description": "Two market names in a sentence, e.g. 'Şok ve BİM'.",
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "second": {
+        "type": "String"
+      }
+    }
+  },
+  "nameListThree": "{first}, {second} ve {third}",
+  "@nameListThree": {
+    "description": "Three market names in a sentence, e.g. 'Şok, BİM ve Migros'.",
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "second": {
+        "type": "String"
+      },
+      "third": {
+        "type": "String"
+      }
+    }
+  },
+  "favoriteChainsCount": "Sık baktığınız {count} market",
+  "@favoriteChainsCount": {
+    "description": "Stands for the list of favourite markets when there are more than three.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   }
 }

@@ -777,6 +777,174 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'İnternet yokken yalnızca daha önce açtığınız broşürlerde aranabiliyor. Bağlantınızı kontrol edip tekrar deneyin.'**
   String get searchOfflineEmptyMessage;
+
+  /// Bold line of the home screen button that offers new-brochure notifications (shown under the favourite markets while notifications are off).
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni broşür çıkınca haber ver'**
+  String get notifyOffTitle;
+
+  /// Second line of the notification offer button: the current state.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bildirim şu an kapalı'**
+  String get notifyOffDetail;
+
+  /// Screen-reader text of the notification offer button.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni broşür çıkınca haber ver. Bildirim şu an kapalı. Açmak için dokunun.'**
+  String get notifyOffSpoken;
+
+  /// Title of the home screen panel while new-brochure notifications are on.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni broşür bildirimi açık'**
+  String get notifyOnTitle;
+
+  /// Explains what the switched-on notification does. names is a list such as 'Şok ve BİM' or 'Sık baktığınız 5 market'.
+  ///
+  /// In tr, this message translates to:
+  /// **'{names} yeni broşür çıkarınca telefonunuza bildirim gelir.'**
+  String notifyOnDetail(String names);
+
+  /// Button that switches new-brochure notifications off.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bildirimi kapat'**
+  String get notifyTurnOff;
+
+  /// Title of the home screen panel when the phone's settings do not allow this app's notifications.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bildirimler telefonda kapalı'**
+  String get notifyBlockedTitle;
+
+  /// Explains why no notification can come and what is needed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni broşür haberi almak için telefonun ayarlarından bu uygulamaya izin vermeniz gerekiyor.'**
+  String get notifyBlockedDetail;
+
+  /// Big button on the blocked-notifications panel that opens this app's notification page in the phone's settings.
+  ///
+  /// In tr, this message translates to:
+  /// **'Telefon ayarlarını aç'**
+  String get notifyOpenSettings;
+
+  /// Snack message when the phone's settings page could not be opened; the written steps are shown instead.
+  ///
+  /// In tr, this message translates to:
+  /// **'Telefonun ayarları açılamadı. Aşağıdaki adımları izleyin.'**
+  String get notifySettingsFailed;
+
+  /// Quieter button under 'Telefon ayarlarını aç' that shows the written steps for allowing notifications by hand.
+  ///
+  /// In tr, this message translates to:
+  /// **'Elle nasıl açılır?'**
+  String get notifyBlockedHowTo;
+
+  /// Button that hides the steps again.
+  ///
+  /// In tr, this message translates to:
+  /// **'Adımları gizle'**
+  String get notifyBlockedHideSteps;
+
+  /// Step 1 of allowing notifications in the phone's settings.
+  ///
+  /// In tr, this message translates to:
+  /// **'Telefonun Ayarlar uygulamasını açın.'**
+  String get notifyBlockedStep1;
+
+  /// Step 2 of allowing notifications. app is the app's name as shown on the phone.
+  ///
+  /// In tr, this message translates to:
+  /// **'“Uygulamalar”a, sonra “{app}”a dokunun.'**
+  String notifyBlockedStep2(String app);
+
+  /// Step 3 of allowing notifications.
+  ///
+  /// In tr, this message translates to:
+  /// **'“Bildirimler”e dokunup açın, sonra buraya geri dönün.'**
+  String get notifyBlockedStep3;
+
+  /// Screen-reader text of one numbered step.
+  ///
+  /// In tr, this message translates to:
+  /// **'Adım {number}: {text}'**
+  String notifyStepSpoken(int number, String text);
+
+  /// Question of the window that explains notifications before the phone asks for permission.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni broşür çıkınca haber verelim mi?'**
+  String get notifyOfferTitle;
+
+  /// The one plain sentence that says what will happen, shown before the phone's own permission window.
+  ///
+  /// In tr, this message translates to:
+  /// **'{names} yeni broşür çıkarınca telefonunuza kısa bir bildirim gelir.'**
+  String notifyOfferMessage(String names);
+
+  /// Prepares the user for the phone's own permission window ('İzin ver' is the Android button text).
+  ///
+  /// In tr, this message translates to:
+  /// **'Telefon izin sorarsa “İzin ver”e dokunun.'**
+  String get notifyOfferPermissionNote;
+
+  /// Accepts notifications; the phone's permission window may follow.
+  ///
+  /// In tr, this message translates to:
+  /// **'Evet, haber ver'**
+  String get notifyOfferYes;
+
+  /// Declines the offer; it is not shown again on its own.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şimdi değil'**
+  String get notifyOfferNo;
+
+  /// Snack message after notifications were switched on.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tamam. Yeni broşür çıkınca haber vereceğiz.'**
+  String get notifyTurnedOn;
+
+  /// Snack message when the phone's permission was refused.
+  ///
+  /// In tr, this message translates to:
+  /// **'Telefon izin vermediği için bildirim açılmadı.'**
+  String get notifyNotAllowed;
+
+  /// Snack message after notifications were switched off.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bildirim kapatıldı.'**
+  String get notifyTurnedOff;
+
+  /// Snack message when switching notifications on or off did not work.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bildirim şu an ayarlanamadı. Biraz sonra tekrar deneyin.'**
+  String get notifyFailed;
+
+  /// Two market names in a sentence, e.g. 'Şok ve BİM'.
+  ///
+  /// In tr, this message translates to:
+  /// **'{first} ve {second}'**
+  String nameListTwo(String first, String second);
+
+  /// Three market names in a sentence, e.g. 'Şok, BİM ve Migros'.
+  ///
+  /// In tr, this message translates to:
+  /// **'{first}, {second} ve {third}'**
+  String nameListThree(String first, String second, String third);
+
+  /// Stands for the list of favourite markets when there are more than three.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sık baktığınız {count} market'**
+  String favoriteChainsCount(int count);
 }
 
 class _AppLocalizationsDelegate

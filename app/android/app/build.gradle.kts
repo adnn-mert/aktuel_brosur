@@ -1,3 +1,5 @@
+import java.util.Base64
+
 plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
@@ -27,6 +29,20 @@ android {
         // flag during build.
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        // Firebase without google-services.json or its Gradle plugin: the same four
+        // --dart-define values the Dart code reads (lib/data/notifications.dart) become the
+        // string resources Firebase's own startup reads. That lets FCM start Firebase in a
+        // process where Flutter is not running (a message arriving while the app is closed).
+        // Without the values nothing is added and notifications are simply unavailable.
+        val firebase = firebaseResources(dartDefines())
+        if (firebase.isNotEmpty()) {
+            firebase.forEach { (name, value) -> resValue("string", name, value) }
+        }
+    }
+
+    buildFeatures {
+        resValues = true
     }
 
     buildTypes {
@@ -46,4 +62,31 @@ kotlin {
 
 flutter {
     source = "../.."
+}
+
+// The flutter tool passes --dart-define and --dart-define-from-file values as one property:
+// comma separated, each entry base64("KEY=value").
+fun dartDefines(): Map<String, String> {
+    val raw = project.findProperty("dart-defines") as String? ?: return emptyMap()
+    return raw.split(",").filter { it.isNotBlank() }.mapNotNull { entry ->
+        val decoded = try {
+            String(Base64.getDecoder().decode(entry), Charsets.UTF_8)
+        } catch (e: IllegalArgumentException) {
+            return@mapNotNull null
+        }
+        val eq = decoded.indexOf('=')
+        if (eq <= 0) null else decoded.substring(0, eq) to decoded.substring(eq + 1)
+    }.toMap()
+}
+
+// Resource names are the ones the google-services plugin would generate.
+fun firebaseResources(defines: Map<String, String>): Map<String, String> {
+    val resources = mapOf(
+        "google_api_key" to defines["FIREBASE_API_KEY"],
+        "google_app_id" to defines["FIREBASE_APP_ID"],
+        "gcm_defaultSenderId" to defines["FIREBASE_MESSAGING_SENDER_ID"],
+        "project_id" to defines["FIREBASE_PROJECT_ID"],
+    )
+    if (resources.values.any { it.isNullOrBlank() }) return emptyMap()
+    return resources.mapValues { it.value!!.trim() }
 }

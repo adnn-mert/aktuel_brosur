@@ -9,6 +9,7 @@ import '../../design/widgets/chain_mark.dart';
 import '../../design/widgets/feedback.dart';
 import '../../l10n/app_localizations.dart';
 import '../app/navigation.dart';
+import '../notifications/notification_offer.dart';
 import 'brochure_card.dart';
 
 /// One market: its brochures under "Bu hafta", "Gelecek hafta" and
@@ -50,6 +51,17 @@ class ChainScreen extends ConsumerWidget {
                   final saved = await ref
                       .read(favoritesProvider.notifier)
                       .toggle(chain.id);
+                  if (!context.mounted) return;
+                  // Same first-star moment as on the home screen.
+                  if (saved &&
+                      !isFavorite &&
+                      await offerNotificationsAfterFirstFavorite(
+                        context,
+                        ref,
+                        chain,
+                      )) {
+                    return;
+                  }
                   if (!context.mounted) return;
                   showAppMessage(
                     context,

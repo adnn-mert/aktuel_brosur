@@ -13,6 +13,8 @@ dependencies = [
     "selectolax>=0.3.27",
     "pymupdf>=1.25",
     "pillow>=11",
+    # Mints the OAuth2 access token for FCM HTTP v1 from the service account (scraper/notify.py).
+    "google-auth>=2.40,<3",
 ]
 
 [project.optional-dependencies]
