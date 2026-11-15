@@ -1,4 +1,5 @@
 import java.util.Base64
+import java.util.Properties
 
 plugins {
     id("com.android.application")
@@ -45,11 +46,49 @@ android {
         resValues = true
     }
 
+    // The key that signs release APKs. Android only installs an update over an app signed with
+    // the same key, so it must stay the same across releases (see releaseSigning() below).
+    val signing = releaseSigning()
+    if (signing != null) {
+        signingConfigs {
+            create("release") {
+                storeFile = signing.storeFile
+                storePassword = signing.storePassword
+                keyAlias = signing.keyAlias
+                keyPassword = signing.keyPassword
+            }
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = if (signing != null) {
+                signingConfigs.getByName("release")
+            } else {
+                // Local development only; `flutter run --release` keeps working without a key.
+                signingConfigs.getByName("debug")
+            }
+        }
+    }
+}
+
+if (releaseSigning() == null) {
+    val message = "No release signing key found (ANDROID_KEYSTORE_* environment variables, " +
+        "android/key.properties or secrets/android/keystore.properties)."
+    gradle.taskGraph.whenReady {
+        val buildsRelease = allTasks.any { task ->
+            val name = task.name
+            task.project == project && name.endsWith("Release") &&
+                (name.startsWith("assemble") || name.startsWith("package") || name.startsWith("bundle"))
+        }
+        if (buildsRelease) {
+            // CI must never publish an APK signed with a throwaway debug key: nobody could
+            // install it over the previous release.
+            if (!System.getenv("CI").isNullOrBlank()) {
+                throw GradleException("$message Refusing to sign a CI release with the debug key.")
+            }
+            logger.warn("WARNING: $message Signing the release build with the DEBUG key; " +
+                "this APK cannot update an installed release build.")
         }
     }
 }
@@ -89,4 +128,40 @@ fun firebaseResources(defines: Map<String, String>): Map<String, String> {
     )
     if (resources.values.any { it.isNullOrBlank() }) return emptyMap()
     return resources.mapValues { it.value!!.trim() }
+}
+
+class ReleaseSigning(
+    val storeFile: File,
+    val storePassword: String,
+    val keyAlias: String,
+    val keyPassword: String,
+)
+
+// Order: environment variables (CI), android/key.properties, secrets/android/keystore.properties
+// (repository root). The last two are git-ignored; a relative storeFile is resolved against the
+// folder of the properties file.
+fun releaseSigning(): ReleaseSigning? {
+    fun env(name: String) = System.getenv(name)?.takeIf { it.isNotBlank() }
+    val envPath = env("ANDROID_KEYSTORE_PATH")
+    val envStorePassword = env("ANDROID_KEYSTORE_PASSWORD")
+    val envAlias = env("ANDROID_KEY_ALIAS")
+    val envKeyPassword = env("ANDROID_KEY_PASSWORD")
+    if (envPath != null && envStorePassword != null && envAlias != null && envKeyPassword != null) {
+        return ReleaseSigning(File(envPath), envStorePassword, envAlias, envKeyPassword)
+    }
+    val candidates = listOf(
+        rootProject.file("key.properties"),
+        rootProject.projectDir.resolve("../../secrets/android/keystore.properties").normalize(),
+    )
+    for (file in candidates.filter { it.isFile }) {
+        val props = Properties().apply { file.inputStream().use { load(it) } }
+        val store = props.getProperty("storeFile")?.trim().orEmpty()
+        val storePassword = props.getProperty("storePassword")?.trim().orEmpty()
+        val alias = props.getProperty("keyAlias")?.trim().orEmpty()
+        val keyPassword = props.getProperty("keyPassword")?.trim().orEmpty()
+        if (store.isEmpty() || storePassword.isEmpty() || alias.isEmpty() || keyPassword.isEmpty()) continue
+        val storeFile = File(store).let { if (it.isAbsolute) it else file.parentFile.resolve(it) }
+        return ReleaseSigning(storeFile, storePassword, alias, keyPassword)
+    }
+    return null
 }

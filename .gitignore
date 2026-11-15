@@ -1,6 +1,10 @@
 # Secrets
 secrets/
 google-services.json
+# Android release signing key and its settings
+app/android/key.properties
+*.jks
+*.keystore
 GoogleService-Info.plist
 .env
 .env.*

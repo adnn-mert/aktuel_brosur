@@ -93,18 +93,76 @@ def test_release_workflow() -> None:
     # The workflow_dispatch input is untrusted: it may only reach the shell through env.
     for step in job["steps"]:
         assert "inputs." not in step.get("run", ""), step.get("name")
+    by_name = {s["name"]: s for s in job["steps"] if "name" in s}
+    # Each secret reaches only the steps that need it, each with an exact env mapping; no other
+    # step may mention a secret, so none can print one by accident.
+    def reaching(secret: str) -> list[str | None]:
+        return [s.get("name") for s in job["steps"] if f"secrets.{secret}" in str(s)]
+
+    assert reaching("FIREBASE_GOOGLE_SERVICES_JSON") == ["Write dart-define file"]
+    assert reaching("ANDROID_KEYSTORE_BASE64") == ["Restore the release signing key"]
+    for secret in ("ANDROID_KEYSTORE_PASSWORD", "ANDROID_KEY_ALIAS", "ANDROID_KEY_PASSWORD"):
+        assert reaching(secret) == ["Restore the release signing key", "Build APKs"], secret
+    assert [s.get("name") for s in job["steps"] if "secrets." in str(s)] == [
+        "Restore the release signing key",
+        "Write dart-define file",
+        "Build APKs",
+    ]
     # The Firebase secret only reaches the step that turns it into dart-defines, via a temp file.
-    with_secret = [s for s in job["steps"] if "secrets." in str(s)]
-    assert [s["id"] for s in with_secret] == ["defines"]
-    defines = with_secret[0]
+    defines = by_name["Write dart-define file"]
+    assert defines["id"] == "defines"
     assert defines["env"] == {"FIREBASE_GOOGLE_SERVICES_JSON": "${{ secrets.FIREBASE_GOOGLE_SERVICES_JSON }}"}
     assert '"$RUNNER_TEMP/google-services.json"' in defines["run"]
     assert "python3 app/tool/firebase_defines.py" in defines["run"]
     assert "notifications=false" in defines["run"]
     assert "echo $FIREBASE" not in defines["run"] and "cat " not in defines["run"]
-    build = next(s for s in job["steps"] if s.get("name") == "Build APK")
+    # The release key: all four secrets only in the restore step; the build gets everything except
+    # the base64 keystore (it reads the decoded file through ANDROID_KEYSTORE_PATH).
+    restore = by_name["Restore the release signing key"]
+    assert restore["env"] == {
+        "ANDROID_KEYSTORE_BASE64": "${{ secrets.ANDROID_KEYSTORE_BASE64 }}",
+        "ANDROID_KEYSTORE_PASSWORD": "${{ secrets.ANDROID_KEYSTORE_PASSWORD }}",
+        "ANDROID_KEY_ALIAS": "${{ secrets.ANDROID_KEY_ALIAS }}",
+        "ANDROID_KEY_PASSWORD": "${{ secrets.ANDROID_KEY_PASSWORD }}",
+    }
+    script = restore["run"]
+    assert "exit 1" in script and "Missing repository secrets" in script
+    assert '"$RUNNER_TEMP/release.jks"' in script
+    assert 'base64 --decode > "$keystore"' in script
+    # Only the path is exported; no secret is echoed, cat-ed or written to GITHUB_ENV/OUTPUT.
+    assert script.count("GITHUB_ENV") == 1
+    assert 'echo "ANDROID_KEYSTORE_PATH=$keystore" >> "$GITHUB_ENV"' in script
+    assert "GITHUB_OUTPUT" not in script and "cat " not in script
+    for secret in restore["env"]:
+        assert f"echo ${secret}" not in script and f'echo "${secret}' not in script
+        assert f"${{{secret}" not in script.replace("${!name}", "")
+    build = by_name["Build APKs"]
+    assert build["env"] == {
+        "DEFINES": "${{ steps.defines.outputs.file }}",
+        "BUILD_NUMBER": "${{ github.run_number }}",
+        "ANDROID_KEYSTORE_PASSWORD": "${{ secrets.ANDROID_KEYSTORE_PASSWORD }}",
+        "ANDROID_KEY_ALIAS": "${{ secrets.ANDROID_KEY_ALIAS }}",
+        "ANDROID_KEY_PASSWORD": "${{ secrets.ANDROID_KEY_PASSWORD }}",
+    }
+    assert "ANDROID_KEYSTORE_BASE64" not in str(build)
     assert '"--dart-define-from-file=$DEFINES"' in build["run"] and "flutter build apk" in build["run"]
-    assert "carsi-pazar-$TAG.apk" in build["run"]
+    assert "--split-per-abi" in build["run"]
+    for abi in ("arm64", "armv7", "x86_64"):
+        assert f'"$RUNNER_TEMP/dist/carsi-pazar-$TAG-{abi}.apk"' in build["run"]
+    assert "carsi-pazar-$TAG.apk" not in build["run"]
+    assert 'rm -f "$DEFINES" "$ANDROID_KEYSTORE_PATH"' in build["run"]
+    # The signing check runs after the build and before publishing; a debug certificate fails it.
+    check = by_name["Check the APK signature"]
+    assert "secrets." not in str(check)
+    assert "apksigner" in check["run"] and "verify --print-certs" in check["run"]
+    assert "Android Debug" in check["run"] and "exit 1" in check["run"]
+    order = [s.get("name") for s in job["steps"]]
+    assert order.index("Restore the release signing key") < order.index("Build APKs")
+    assert order.index("Build APKs") < order.index("Check the APK signature") < len(order) - 1
     publish = job["steps"][-1]
     assert publish["env"]["GH_TOKEN"] == "${{ github.token }}"
-    assert "gh release create" in publish["run"] and "Bilinmeyen kaynaklardan" in publish["run"]
+    assert publish["env"].keys() == {"GH_TOKEN", "NOTIFICATIONS"}
+    assert 'apks=("$RUNNER_TEMP"/dist/*.apk)' in publish["run"]
+    assert 'gh release create "$TAG" "${apks[@]}"' in publish["run"]
+    assert 'gh release upload "$TAG" "${apks[@]}"' in publish["run"]
+    assert "Bilinmeyen kaynaklardan" in publish["run"]

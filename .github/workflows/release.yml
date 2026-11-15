@@ -1,6 +1,8 @@
 name: Release APK
 
-# Builds the Android release APK and attaches it to a GitHub Release.
+# Builds the signed Android release APKs (one per CPU architecture) and attaches them to a
+# GitHub Release. Needs the secrets ANDROID_KEYSTORE_BASE64, ANDROID_KEYSTORE_PASSWORD,
+# ANDROID_KEY_ALIAS and ANDROID_KEY_PASSWORD.
 # - Push a tag `v*` to release that commit.
 # - Or run it by hand with a tag name: an existing tag is checked out and rebuilt; a new tag
 #   is created on the commit the run starts from (the branch picked in the Run dialog).
@@ -54,6 +56,30 @@ jobs:
           flutter-version: "3.47.5"
           cache: true
 
+      # The release key is the same on every run, so a new release installs over the old one.
+      # The keystore goes to a file outside the repository; only the path is exported.
+      # Missing secrets stop the job: it must never fall back to a debug key.
+      - name: Restore the release signing key
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          missing=()
+          for name in ANDROID_KEYSTORE_BASE64 ANDROID_KEYSTORE_PASSWORD ANDROID_KEY_ALIAS ANDROID_KEY_PASSWORD; do
+            if [ -z "${!name}" ]; then
+              missing+=("$name")
+            fi
+          done
+          if [ "${#missing[@]}" -gt 0 ]; then
+            echo "::error::Missing repository secrets: ${missing[*]}. Add them under Settings > Secrets and variables > Actions; this job does not publish an APK signed with a debug key."
+            exit 1
+          fi
+          keystore="$RUNNER_TEMP/release.jks"
+          printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$keystore"
+          echo "ANDROID_KEYSTORE_PATH=$keystore" >> "$GITHUB_ENV"
+
       # The secret goes to a file outside the repository and is never printed; the helper
       # prints only key names. Without the secret the APK is built without notifications.
       - name: Write dart-define file
@@ -77,36 +103,64 @@ jobs:
 
       # versionName comes from the tag when it is x.y.z, otherwise from pubspec.yaml;
       # versionCode is the run number so every release installs over an older one.
-      - name: Build APK
+      # One APK per CPU architecture keeps each download small (~20 MB instead of ~55 MB).
+      - name: Build APKs
         working-directory: app
         env:
           DEFINES: ${{ steps.defines.outputs.file }}
           BUILD_NUMBER: ${{ github.run_number }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
         run: |
           flutter pub get
-          args=(--release "--dart-define-from-file=$DEFINES" "--build-number=$BUILD_NUMBER")
+          args=(--release --split-per-abi "--dart-define-from-file=$DEFINES" "--build-number=$BUILD_NUMBER")
           if [[ "$TAG" =~ ^v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
             args+=("--build-name=${BASH_REMATCH[1]}")
           fi
           flutter build apk "${args[@]}"
           mkdir -p "$RUNNER_TEMP/dist"
-          cp build/app/outputs/flutter-apk/app-release.apk "$RUNNER_TEMP/dist/carsi-pazar-$TAG.apk"
-          rm -f "$DEFINES"
+          out=build/app/outputs/flutter-apk
+          cp "$out/app-arm64-v8a-release.apk" "$RUNNER_TEMP/dist/carsi-pazar-$TAG-arm64.apk"
+          cp "$out/app-armeabi-v7a-release.apk" "$RUNNER_TEMP/dist/carsi-pazar-$TAG-armv7.apk"
+          cp "$out/app-x86_64-release.apk" "$RUNNER_TEMP/dist/carsi-pazar-$TAG-x86_64.apk"
+          rm -f "$DEFINES" "$ANDROID_KEYSTORE_PATH"
+
+      # The certificate fingerprint is public. Printing it lets a reader compare it with the
+      # previous release; a debug certificate fails the job.
+      - name: Check the APK signature
+        run: |
+          apksigner="$(ls "$ANDROID_HOME"/build-tools/*/apksigner | sort -V | tail -n 1)"
+          for apk in "$RUNNER_TEMP"/dist/*.apk; do
+            certs="$("$apksigner" verify --print-certs "$apk")"
+            echo "$(basename "$apk"): $(echo "$certs" | grep 'certificate SHA-256 digest')"
+            if echo "$certs" | grep -qi 'Android Debug'; then
+              echo "::error::$(basename "$apk") is signed with a debug certificate"
+              exit 1
+            fi
+          done
 
       - name: Create the GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
           NOTIFICATIONS: ${{ steps.defines.outputs.notifications }}
         run: |
-          apk="$RUNNER_TEMP/dist/carsi-pazar-$TAG.apk"
           notes="$RUNNER_TEMP/notes.md"
           {
             echo "## Çarşı Pazar $TAG (Android)"
             echo
-            echo "**Kurulum:** \`carsi-pazar-$TAG.apk\` dosyasını telefona indirip açın. Telefon sorarsa bu kaynaktan yüklemeye izin verin (Ayarlar → Bilinmeyen kaynaklardan yüklemeye izin verin)."
+            echo "**Hangisini indirmeliyim?** Çoğu telefon için **arm64** dosyası doğrudur. Eski bir telefonda kurulmazsa **armv7** dosyasını deneyin. **x86_64** yalnızca bilgisayardaki emülatör içindir."
             echo
-            echo "- Uygulama mağazada değildir. APK, Flutter'ın varsayılan ayarıyla **hata ayıklama (debug) anahtarıyla imzalanmıştır**; mağaza imzası yoktur."
-            echo "- Her sürüm farklı bir derleme makinesinde imzalandığı için yeni sürüm eskisinin üzerine kurulmazsa önce eski sürümü kaldırın (favoriler sıfırlanır)."
+            echo "| Dosya | Kimin için |"
+            echo "| --- | --- |"
+            echo "| \`carsi-pazar-$TAG-arm64.apk\` | Çoğu telefon (son yıllarda alınanlar) |"
+            echo "| \`carsi-pazar-$TAG-armv7.apk\` | Eski telefonlar |"
+            echo "| \`carsi-pazar-$TAG-x86_64.apk\` | Bilgisayardaki emülatör |"
+            echo
+            echo "**Kurulum:** dosyayı telefona indirip açın. Telefon sorarsa bu kaynaktan yüklemeye izin verin (Ayarlar → Bilinmeyen kaynaklardan yüklemeye izin verin)."
+            echo
+            echo "- Uygulama mağazada değildir. APK, bu projeye ait sabit bir anahtarla imzalanır; sonraki sürümler bunun üzerine kurulur ve favoriler korunur."
+            echo "- **v1.0.0 kullananlar (tek seferlik):** v1.0.0 geçici bir anahtarla imzalanmıştı. Eski sürümü kaldırıp bu sürümü kurun; favorileriniz bir kez sıfırlanır. Bundan sonraki güncellemelerde kaldırmanız gerekmez."
             if [ "$NOTIFICATIONS" = "true" ]; then
               echo "- Yeni broşür bildirimleri bu sürümde açılabilir."
             else
@@ -115,9 +169,10 @@ jobs:
             echo
             echo "Android only; iOS is not built. Brochure content belongs to the respective chains."
           } > "$notes"
+          apks=("$RUNNER_TEMP"/dist/*.apk)
           if gh release view "$TAG" > /dev/null 2>&1; then
-            gh release upload "$TAG" "$apk" --clobber
+            gh release upload "$TAG" "${apks[@]}" --clobber
             gh release edit "$TAG" --notes-file "$notes"
           else
-            gh release create "$TAG" "$apk" --title "Çarşı Pazar $TAG" --notes-file "$notes" --target "$(git rev-parse HEAD)"
+            gh release create "$TAG" "${apks[@]}" --title "Çarşı Pazar $TAG" --notes-file "$notes" --target "$(git rev-parse HEAD)"
           fi

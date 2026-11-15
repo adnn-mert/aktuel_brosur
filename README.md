@@ -4,7 +4,11 @@
 > toplayan bir Android uygulamasıdır. Yaşlı kullanıcılar düşünülerek tasarlandı: büyük düğmeler,
 > büyük yazı, yüksek kontrast, iki parmakla ya da + / − düğmeleriyle yakınlaştırma ve internetsiz
 > okuma. Sunucusu yoktur: broşürleri günde üç kez bir GitHub Actions işi toplar, uygulama yalnızca
-> yayınlanan veriyi okur. Mağazada değildir; APK [Releases](https://github.com/adnn-mert/aktuel_brosur/releases/latest) sayfasındadır.
+> yayınlanan veriyi okur. Mağazada değildir; APK dosyaları [Releases](https://github.com/adnn-mert/aktuel_brosur/releases/latest)
+> sayfasındadır. Üç dosya vardır: çoğu telefon için **arm64**, eski telefonlar için **armv7**,
+> bilgisayardaki emülatör için **x86_64**. Sürümler artık sabit bir anahtarla imzalanır ve birbirinin
+> üzerine kurulur; v1.0.0 geçici anahtarla imzalandığı için onu kullananlar bir kez kaldırıp yeniden
+> kurmalıdır.
 
 Weekly promotional brochures ("aktüel broşür") of Turkish supermarket chains in one app, designed
 for elderly users. There is no server and no budget: a scheduled GitHub Actions scraper publishes
@@ -145,14 +149,44 @@ No Firebase configuration is committed; without it the app simply has no notific
 
 ### Release
 
-Pushing a tag `v*` (or running `release.yml` by hand) builds the APK and attaches it to a GitHub
-Release. The Firebase values come from the `FIREBASE_GOOGLE_SERVICES_JSON` repository secret.
+Pushing a tag `v*` (or running `release.yml` by hand with a tag name) builds the signed APKs
+(`flutter build apk --split-per-abi`) and attaches them to a GitHub Release. The workflow needs
+these repository secrets (Settings > Secrets and variables > Actions):
+
+| Secret | Content |
+| --- | --- |
+| `ANDROID_KEYSTORE_BASE64` | the release keystore (JKS), base64-encoded |
+| `ANDROID_KEYSTORE_PASSWORD` | password of the keystore |
+| `ANDROID_KEY_ALIAS` | alias of the signing key inside the keystore |
+| `ANDROID_KEY_PASSWORD` | password of that key |
+| `FIREBASE_GOOGLE_SERVICES_JSON` | contents of `google-services.json`; optional, without it the APKs have no notifications |
+
+If one of the four `ANDROID_*` secrets is missing the job stops: it never publishes an APK signed
+with a debug key. The keystore is decoded to a temporary file outside the repository and deleted
+after the build; the job then checks every APK with `apksigner` and prints the public certificate
+fingerprint so it can be compared with the previous release.
+
+The keystore itself is never committed (`*.jks`, `*.keystore`, `key.properties` and `secrets/` are
+git-ignored). Keep a backup: Android installs an update only over an app signed with the same key,
+so a lost key forces every user to uninstall once. For local release builds Gradle looks for the key
+in `ANDROID_KEYSTORE_*` environment variables, then `app/android/key.properties`, then
+`secrets/android/keystore.properties` (see [`app/README.md`](app/README.md)).
 
 ## Download
 
-Android APK: [latest release](https://github.com/adnn-mert/aktuel_brosur/releases/latest).
-Allow installing from unknown sources when the phone asks. The APK is signed with Flutter's
-default debug key, not a store key.
+Android APKs: [latest release](https://github.com/adnn-mert/aktuel_brosur/releases/latest). Each
+release has three files, named `carsi-pazar-<tag>-<abi>.apk`:
+
+| File | For |
+| --- | --- |
+| `...-arm64.apk` | most phones (recommended) |
+| `...-armv7.apk` | older 32-bit phones; try it if arm64 does not install |
+| `...-x86_64.apk` | emulators on a PC |
+
+Allow installing from unknown sources when the phone asks. Releases are signed with a permanent
+project key (not a store key), so a newer version installs over the previous one and keeps the
+favourites. **v1.0.0 was signed with a temporary debug key:** anyone who installed it has to
+uninstall it once (favourites are reset) before installing a later version.
 
 ## How it was built
 
