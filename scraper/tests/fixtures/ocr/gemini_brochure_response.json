@@ -1,0 +1,26 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "role": "model",
+    "parts": [
+     {
+      "text": "Thinking summary that must be ignored.",
+      "thought": true
+     },
+     {
+      "text": "{\"products\": [{\"page_index\": 0, \"name\": \"Bouquet Çay Bardağı\", \"brand\": \"Paşabahçe\", \"quantity_text\": \"~170 cc 6'lı\", \"price\": \"219\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Cam Kupa\", \"brand\": \"Glass in Love\", \"quantity_text\": \"~190 ml\", \"price\": \"229₺\", \"old_price\": null}, {\"page_index\": 1, \"name\": \"Tasty Cam Kavanoz\", \"brand\": \"LAV\", \"quantity_text\": \"~575 cc\", \"price\": \"35\", \"old_price\": null}, {\"page_index\": 1, \"name\": \"Tasty Cam Kavanoz\", \"brand\": \"LAV\", \"quantity_text\": \"~1050 cc\", \"price\": \"45\", \"old_price\": null}, {\"page_index\": \"2\", \"name\": \"Erkek Trekking Ayakkabı\", \"brand\": null, \"quantity_text\": null, \"price\": \"799\", \"old_price\": null}, {\"page_index\": 7, \"name\": \"Kahve Makinesi\", \"brand\": null, \"quantity_text\": null, \"price\": \"1.299,00\", \"old_price\": null}]}"
+     }
+    ]
+   },
+   "finishReason": "STOP"
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 3900,
+  "candidatesTokenCount": 640,
+  "thoughtsTokenCount": 1500,
+  "totalTokenCount": 6040
+ },
+ "modelVersion": "gemini-3.8-flash"
+}

@@ -9,11 +9,17 @@ import pytest
 from scraper.ocr import evaluate
 from scraper.ocr.gemini import (
     API_KEY_ENV,
+    BROCHURE_PROMPT_VERSION,
+    MAX_INLINE_REQUEST_BYTES,
     GeminiClient,
     GeminiError,
     MissingApiKey,
+    brochure_prompt,
+    brochure_timeout,
+    build_brochure_request,
     build_request,
     load_api_key,
+    parse_brochure_response,
     parse_response,
     retry_delay,
 )
@@ -414,3 +420,407 @@ def test_live_read_caches_response_with_latency(tmp_path: Path) -> None:
     saved = json.loads(cache.read_text(encoding="utf-8"))
     assert saved["thinking_level"] == "LOW"
     assert FAKE_KEY not in cache.read_text(encoding="utf-8")
+
+
+# --- brochure batch mode --------------------------------------------------------------------
+
+MODEL = "gemini-3.8-flash"
+BASE = "https://data.example/"
+
+
+def brochure_fixture() -> dict:
+    return json.loads((FIXTURES / "ocr" / "gemini_brochure_response.json").read_text(encoding="utf-8"))
+
+
+def page_urls(brochure_id: str, count: int) -> list[str]:
+    return [f"https://cdn1.bim.com.tr/uploads/afisler/{brochure_id}-p{i}.jpg" for i in range(count)]
+
+
+def catalog_entry(brochure_id: str, pages: int, chain: str = "bim") -> dict:
+    return {
+        "id": brochure_id,
+        "chain_id": chain,
+        "pages": [{"url": u} for u in page_urls(brochure_id, pages)],
+        "products_url": f"products/{brochure_id}.json",
+    }
+
+
+TRUTH = [
+    written("6'LI BOUQUET ÇAY BARDAĞI ~170 CC", 21900, brand="PAŞABAHÇE", group=2),
+    written("CAM 6LI KUPA ~190 CC", 22900, brand="GLASS IN LOVE", group=2),
+    written("TASTY KAVANOZ ~575 CC", 3500, brand="LAV", group=2),
+    written("TASTY KAVANOZ ~1050 CC", 4500, brand="LAV", group=2),
+    written("ERKEK TREKKING AYAKKABI", 79900, group=3),
+]
+
+
+def write_data(root: Path, brochures: list[dict]) -> None:
+    """Cache the catalog and product lists exactly where ``Store`` looks for them."""
+    data = root / "data"
+    entries = [("catalog", BASE + "catalog.json", {"brochures": brochures})]
+    entries += [("products", BASE + b["products_url"], {"products": TRUTH}) for b in brochures]
+    for sub, url, body in entries:
+        (data / sub).mkdir(parents=True, exist_ok=True)
+        (data / sub / f"{evaluate.digest(url)}.json").write_text(json.dumps(body), encoding="utf-8")
+
+
+def write_brochure_cache(root: Path, urls: list[str], index: int = 0, count: int = 1, thinking=None,
+                         body: dict | None = None, elapsed: float | None = 30.0) -> Path:
+    path = evaluate.gemini_brochure_cache_path(root, urls, index, count, MODEL, None, thinking)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps({"image_urls": urls, "elapsed_s": elapsed, "response": body or brochure_fixture()}),
+        encoding="utf-8",
+    )
+    return path
+
+
+def write_poster_cache(root: Path, url: str, thinking=None) -> None:
+    path = evaluate.gemini_cache_path(root, url, MODEL, None, thinking)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({"image_url": url, "elapsed_s": 10.0, "response": gemini_fixture()}), encoding="utf-8")
+
+
+def run_offline(entries: list[dict], root: Path, max_pages: int = 10):
+    return evaluate.run_brochures(
+        entries, mode="brochure", base=BASE, out=root, store=evaluate.Store(root / "data", None), gemini=None,
+        model=MODEL, media_resolution=None, thinking_level=None, threshold=0.6, max_pages=max_pages,
+        log=lambda *_a, **_k: None,
+    )
+
+
+def test_build_brochure_request_sends_all_images_in_one_request() -> None:
+    body = build_brochure_request([b"one", b"two", b"three"], media_resolution="MEDIA_RESOLUTION_HIGH",
+                                  thinking_level="low")
+    assert len(body["contents"]) == 1
+    parts = body["contents"][0]["parts"]
+    assert parts[0] == {"text": brochure_prompt(3)}
+    assert "page_index 2" in parts[0]["text"]
+    # Each image is preceded by its label so the model needn't count.
+    assert [p["text"] for p in parts[1::2]] == ["page_index: 0", "page_index: 1", "page_index: 2"]
+    images = [p["inlineData"] for p in parts[2::2]]
+    assert [i["data"] for i in images] == ["b25l", "dHdv", "dGhyZWU="]
+    assert {i["mimeType"] for i in images} == {"image/jpeg"}
+    config = body["generationConfig"]
+    assert config["thinkingConfig"] == {"thinkingLevel": "LOW"}
+    assert config["mediaResolution"] == "MEDIA_RESOLUTION_HIGH"
+    item = config["responseJsonSchema"]["properties"]["products"]["items"]
+    assert "page_index" in item["required"]
+    assert "page_index" in item["properties"]
+    assert "thinkingConfig" not in build_brochure_request([b"x"])["generationConfig"]
+
+
+def test_build_brochure_request_needs_an_image() -> None:
+    with pytest.raises(ValueError):
+        build_brochure_request([])
+
+
+def test_chunk_pages_splits_in_order_into_even_chunks() -> None:
+    pages = list(range(23))
+    chunks = evaluate.chunk_pages(pages, 10)
+    assert [len(c) for c in chunks] == [8, 8, 7]
+    assert [x for c in chunks for x in c] == pages
+    assert [len(c) for c in evaluate.chunk_pages(list(range(11)), 10)] == [6, 5]
+    assert evaluate.chunk_pages(list(range(10)), 10) == [list(range(10))]
+    assert evaluate.chunk_pages([], 10) == []
+    with pytest.raises(ValueError):
+        evaluate.chunk_pages([1], 0)
+
+
+def test_parse_brochure_response_assigns_page_indexes_from_fixture() -> None:
+    result = parse_brochure_response(brochure_fixture(), 3)
+    # The string "2" is coerced; 7 is out of range for three images.
+    assert [p["page_index"] for p in result.products] == [0, 0, 1, 1, 2, None]
+    assert result.products[0]["name"] == "Bouquet Çay Bardağı"
+    assert result.usage.prompt_tokens == 3900
+    assert result.usage.output_tokens == 640
+    assert result.usage.thought_tokens == 1500
+    assert result.finish_reason == "STOP"
+
+
+@pytest.mark.parametrize(
+    ("value", "expected"),
+    [(True, None), (1.0, 1), (1.5, None), (-1, None), ("x", None), (None, None), (3, None), (" 2 ", 2)],
+)
+def test_brochure_page_index_coercion(value, expected) -> None:
+    text = json.dumps({"products": [{"page_index": value, "name": "a", "price": "1"}]})
+    body = {"candidates": [{"content": {"parts": [{"text": text}]}}]}
+    assert parse_brochure_response(body, 3).products[0]["page_index"] == expected
+
+
+def test_brochure_cache_key_never_collides_with_poster_or_other_settings(tmp_path: Path) -> None:
+    urls = page_urls("bim-x", 4)
+    base = evaluate.gemini_brochure_cache_path(tmp_path, urls, 0, 1, MODEL, None, None)
+    assert base == evaluate.gemini_brochure_cache_path(tmp_path, urls, 0, 1, MODEL, None, None)
+    variants = {
+        "thinking": evaluate.gemini_brochure_cache_path(tmp_path, urls, 0, 1, MODEL, None, "LOW"),
+        "resolution": evaluate.gemini_brochure_cache_path(tmp_path, urls, 0, 1, MODEL, "MEDIA_RESOLUTION_HIGH", None),
+        "model": evaluate.gemini_brochure_cache_path(tmp_path, urls, 0, 1, "other-model", None, None),
+        "chunk size": evaluate.gemini_brochure_cache_path(tmp_path, urls, 0, 2, MODEL, None, None),
+        "chunk position": evaluate.gemini_brochure_cache_path(tmp_path, urls, 1, 2, MODEL, None, None),
+        "images": evaluate.gemini_brochure_cache_path(tmp_path, urls[:3], 0, 1, MODEL, None, None),
+    }
+    assert len({base, *variants.values()}) == len(variants) + 1
+    assert evaluate.gemini_brochure_cache_path(tmp_path, urls, 0, 1, MODEL, None, "low") == variants["thinking"]
+    # Poster answers for the same URL or the same settings live in another folder.
+    poster = evaluate.gemini_cache_path(tmp_path, urls[0], MODEL, None, None)
+    assert poster.parent != base.parent
+    assert poster != base
+
+
+def test_poster_cache_key_is_unchanged(tmp_path: Path) -> None:
+    """Brochure mode must not orphan the poster answers cached before it existed."""
+    path = evaluate.gemini_cache_path(tmp_path, "https://x/y.jpg", MODEL, None, None)
+    assert path.parent.name == evaluate.digest(f"{MODEL}|v1|-|-", 8)
+
+
+def test_select_brochures_for_batch_prefers_discount_brochures() -> None:
+    catalog = {"brochures": [
+        catalog_entry("bim-aktuel-1", 2),
+        catalog_entry("migros-1", 2, chain="migros"),
+        catalog_entry("bim-aktuel-2", 2),
+        catalog_entry("bim-indirim-1", 3),
+        catalog_entry("bim-indirim-2", 3),
+    ]}
+
+    def ids(limit: int, max_images: int | None = None) -> list[str]:
+        return [b["id"] for b in evaluate.select_brochures_for_batch(catalog, limit, max_images)]
+
+    assert ids(3) == ["bim-indirim-1", "bim-indirim-2", "bim-aktuel-1"]
+    assert ids(1) == ["bim-indirim-1"]
+    assert ids(8) == ["bim-indirim-1", "bim-indirim-2", "bim-aktuel-1", "bim-aktuel-2"]
+    # --max-images still keeps whole brochures only and skips ones that do not fit.
+    assert ids(8, 5) == ["bim-indirim-1", "bim-aktuel-1"]
+    args = evaluate.build_parser().parse_args([])
+    assert (args.max_brochures, args.max_pages_per_request) == (8, 10)
+
+
+def test_brochure_timeout_grows_with_images_and_is_capped() -> None:
+    assert brochure_timeout(1) < brochure_timeout(10)
+    assert brochure_timeout(5, 420.0) == 420.0 + 120.0 * 5
+    assert brochure_timeout(500) == 1500.0
+
+
+def timeout_handler(seen: list[httpx.Request]):
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen.append(request)
+        raise httpx.ReadTimeout("slow", request=request)
+
+    return handler
+
+
+def test_brochure_request_times_out_once_then_retries_exactly_once() -> None:
+    seen: list[httpx.Request] = []
+    fake = FakeTime()
+    with gemini_client(timeout_handler(seen), fake, min_interval=0) as client:
+        with pytest.raises(GeminiError, match="network error"):
+            client.read_brochure([b"a", b"b"])
+    assert client.requests_sent == len(seen) == 2
+    # The per-request timeout scales with the image count instead of using the client default.
+    assert seen[0].extensions["timeout"]["read"] == brochure_timeout(2)
+    assert fake.sleeps == [30.0]
+
+
+def test_brochure_request_recovers_when_the_retry_succeeds() -> None:
+    responses: list = [httpx.ReadTimeout("slow"), httpx.Response(200, json=brochure_fixture())]
+
+    def handler(_request: httpx.Request) -> httpx.Response:
+        item = responses.pop(0)
+        if isinstance(item, Exception):
+            raise item
+        return item
+
+    with gemini_client(handler, FakeTime(), min_interval=0) as client:
+        result, _raw = client.read_brochure([b"a", b"b", b"c"])
+    assert client.requests_sent == 2
+    assert len(result.products) == 6
+
+
+def test_poster_request_keeps_the_generic_retry_budget_on_timeouts() -> None:
+    seen: list[httpx.Request] = []
+    with gemini_client(timeout_handler(seen), FakeTime(), min_interval=0) as client:
+        with pytest.raises(GeminiError):
+            client.read_poster(b"img")
+    assert len(seen) == 5  # first try plus MAX_RETRIES (4)
+
+
+def test_brochure_request_over_20_mb_is_refused_before_any_request() -> None:
+    seen: list[httpx.Request] = []
+    half = MAX_INLINE_REQUEST_BYTES * 3 // 8 + 1000  # base64 inflates by 4/3: two of these are just over the limit
+    images = [b"\0" * half, b"\0" * half]
+    with gemini_client(timeout_handler(seen), FakeTime(), min_interval=0) as client:
+        with pytest.raises(GeminiError, match="20 MB"):
+            client.read_brochure(images)
+    assert seen == []
+    assert client.requests_sent == 0
+
+
+def test_brochure_request_under_20_mb_is_sent() -> None:
+    seen: list[httpx.Request] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen.append(request)
+        return httpx.Response(200, json=brochure_fixture())
+
+    images = [b"\0" * (MAX_INLINE_REQUEST_BYTES // 2)]  # 10 MiB raw -> 13.3 MiB encoded
+    with gemini_client(handler, FakeTime(), min_interval=0) as client:
+        client.read_brochure(images)
+    assert len(seen) == 1
+
+
+def test_live_brochure_read_sends_one_request_and_caches_the_chunk(tmp_path: Path) -> None:
+    urls = page_urls("bim-x", 3)
+    seen: list[dict] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen.append(json.loads(request.content))
+        return httpx.Response(200, json=brochure_fixture())
+
+    http = mock_http({u: b"\xff\xd8" + str(i).encode() for i, u in enumerate(urls)})
+    store = evaluate.Store(tmp_path / "data", http)
+    cache = evaluate.gemini_brochure_cache_path(tmp_path, urls, 0, 1, MODEL, None, "LOW")
+    with gemini_client(handler, FakeTime(), min_interval=0, thinking_level="LOW") as client:
+        result, live, _elapsed = evaluate.read_brochure_chunk(urls, store, client, cache)
+        again, live_again, _ = evaluate.read_brochure_chunk(urls, store, client, cache)
+    assert live and not live_again
+    assert len(seen) == 1
+    assert len(seen[0]["contents"][0]["parts"]) == 1 + 2 * 3
+    assert seen[0]["generationConfig"]["thinkingConfig"] == {"thinkingLevel": "LOW"}
+    assert [p["page_index"] for p in again.products] == [p["page_index"] for p in result.products]
+    saved = json.loads(cache.read_text(encoding="utf-8"))
+    assert saved["image_urls"] == urls
+    assert saved["thinking_level"] == "LOW"
+    assert FAKE_KEY not in cache.read_text(encoding="utf-8")
+
+
+def test_read_brochure_chunk_offline_without_cache_fails_cleanly(tmp_path: Path) -> None:
+    store = evaluate.Store(tmp_path / "data", None)
+    with pytest.raises(GeminiError, match="not cached"):
+        evaluate.read_brochure_chunk(["a", "b"], store, None, tmp_path / "missing.json")
+
+
+def test_posters_from_chunk_groups_by_page_and_keeps_strays() -> None:
+    urls = ["u0", "u1"]
+    products = [{"name": "a", "page_index": 1}, {"name": "b", "page_index": 0}, {"name": "c", "page_index": None},
+                {"name": "d", "page_index": 5}]
+    posters = evaluate.posters_from_chunk(urls, products)
+    assert [p.url for p in posters] == ["u0", "u1", "u0" + evaluate.UNASSIGNED]
+    assert [[x["name"] for x in p.products] for p in posters] == [["b"], ["a"], ["c", "d"]]
+    assert len(evaluate.posters_from_chunk(urls, [])) == 2
+
+
+def test_brochure_run_counts_tokens_only_for_fully_read_brochures(tmp_path: Path) -> None:
+    full = catalog_entry("bim-indirim-1", 4)
+    partial = catalog_entry("bim-indirim-2", 4)
+    write_data(tmp_path, [full, partial])
+    full_chunks = evaluate.chunk_pages([p["url"] for p in full["pages"]], 2)
+    partial_chunks = evaluate.chunk_pages([p["url"] for p in partial["pages"]], 2)
+    for i, chunk in enumerate(full_chunks):
+        write_brochure_cache(tmp_path, chunk, i, 2)
+    write_brochure_cache(tmp_path, partial_chunks[0], 0, 2)  # the second chunk is missing
+    run = run_offline([full, partial], tmp_path, max_pages=2)
+    assert [r.brochure_id for r in run.results] == ["bim-indirim-1"]
+    assert run.reads == 2
+    assert run.usage.prompt_tokens == 2 * 3900  # the half-read brochure adds nothing
+    assert run.latencies == [30.0, 30.0]
+    assert len(run.failures) == 1 and run.failures[0].startswith("bim-indirim-2")
+    # In a two-image chunk both "2" and 7 are out of range: 2 strays per chunk, 2 chunks.
+    assert run.unassigned_products == 4
+
+
+def test_brochure_run_unassigned_and_cache_split_by_chunk_size(tmp_path: Path) -> None:
+    entry = catalog_entry("bim-indirim-1", 3)
+    write_data(tmp_path, [entry])
+    write_brochure_cache(tmp_path, [p["url"] for p in entry["pages"]])  # cached for one request of 3 pages
+    run = run_offline([entry], tmp_path, max_pages=10)
+    assert run.reads == 1
+    assert run.unassigned_products == 1  # page_index 7 is out of range for 3 pages
+    # Asking for 2 pages per request is a different split, so the old answer is not reused.
+    again = run_offline([entry], tmp_path, max_pages=2)
+    assert again.results == [] and again.reads == 0
+    assert "not cached" in again.failures[0]
+
+
+def test_brochure_mode_end_to_end_offline(tmp_path: Path, capsys) -> None:
+    entry = catalog_entry("bim-indirim-1", 3)
+    other = catalog_entry("bim-aktuel-1", 3)
+    write_data(tmp_path, [other, entry])
+    write_brochure_cache(tmp_path, [p["url"] for p in entry["pages"]], thinking="LOW")
+
+    code = evaluate.main(["--batch", "brochure", "--offline", "--out", str(tmp_path), "--base-url", BASE,
+                          "--max-brochures", "1", "--thinking-level", "low"])
+    assert code == 0
+    out = capsys.readouterr().out
+    report = json.loads((tmp_path / "report_brochure_low.json").read_text(encoding="utf-8"))
+    # Only the discount brochure was picked (the other has no cached answer) and nothing hit the network.
+    assert report["mode"] == "brochure"
+    assert report["prompt_version"] == BROCHURE_PROMPT_VERSION
+    assert report["options"]["max_pages_per_request"] == 10
+    assert report["options"]["thinking_level"] == "LOW"
+    assert report["live_requests"] == 0
+    assert report["downloads"] == 0
+    assert report["requests_evaluated"] == 1
+    assert report["failures"] == []
+    assert report["unassigned_products"] == 1
+    assert report["summary"]["brochures"] == 1
+    assert report["summary"]["written_expected"] == 5
+    assert report["summary"]["matched"] == 5
+    assert report["usage"]["prompt_tokens"] == 3900
+    assert {p["brochure_id"] for p in report["pairs"]} == {"bim-indirim-1"}
+    assert all(evaluate.UNASSIGNED not in p["image_url"] for p in report["pairs"])
+    assert "mode: brochure (up to 10 pages per request)" in out
+    assert "OCR products without a valid page_index: 1" in out
+    assert (tmp_path / "report_brochure_low.txt").exists()
+    assert not (tmp_path / "report.json").exists()
+
+
+def test_brochure_mode_offline_without_cache_reports_nothing_evaluated(tmp_path: Path, capsys) -> None:
+    write_data(tmp_path, [catalog_entry("bim-indirim-1", 2)])
+    code = evaluate.main(["--batch", "brochure", "--offline", "--out", str(tmp_path), "--base-url", BASE])
+    assert code == 1
+    captured = capsys.readouterr()
+    assert "nothing evaluated" in captured.err
+    assert "not cached" in captured.err
+
+
+def test_compare_prints_runs_side_by_side_without_network(tmp_path: Path, capsys, monkeypatch) -> None:
+    def no_network(*_a, **_k):
+        raise AssertionError("--compare must not create an HTTP or Gemini client")
+
+    monkeypatch.setattr(evaluate, "HttpClient", no_network)
+    monkeypatch.setattr(evaluate, "GeminiClient", no_network)
+    entry = catalog_entry("bim-indirim-1", 2)
+    write_data(tmp_path, [entry])
+    urls = [p["url"] for p in entry["pages"]]
+    for url in urls:
+        write_poster_cache(tmp_path, url)  # poster / default
+    write_brochure_cache(tmp_path, urls)  # brochure / default
+    write_brochure_cache(tmp_path, urls, thinking="LOW")  # brochure / LOW; poster / LOW stays missing
+
+    code = evaluate.main(["--compare", "--out", str(tmp_path), "--base-url", BASE])
+    assert code == 0
+    out = capsys.readouterr().out
+    lines = {line.split()[0]: line for line in out.splitlines() if line.strip()}
+    assert lines["brochure"].split()[1:] == ["poster/default", "brochure/default", "poster/LOW", "brochure/LOW"]
+    cells = lines["bim-indirim-1"].split()[1:]
+    # Cells are "matched/written correct/matched" (two tokens) or a lone "-".
+    assert cells.count("-") == 1
+    assert len(cells) == 3 * 2 + 1
+    assert "poster/LOW: no brochures" in out
+    assert "brochure/default: brochures 1" in out
+    # Poster mode behind these numbers is two requests (two pages), brochure mode one.
+    assert "poster/default: requests 2" in out
+    assert "brochure/default: requests 1" in out
+    assert "tokens in 3900 out 640 thinking 1500" in out
+    assert (tmp_path / "compare.txt").read_text(encoding="utf-8").startswith("comparison from cached answers")
+
+
+def test_compare_fails_when_nothing_is_cached(tmp_path: Path, capsys) -> None:
+    write_data(tmp_path, [catalog_entry("bim-indirim-1", 2)])
+    assert evaluate.main(["--compare", "--out", str(tmp_path), "--base-url", BASE]) == 1
+    assert "no cached results" in capsys.readouterr().err
+
+
+def test_parse_levels_and_compare_defaults() -> None:
+    assert evaluate.parse_levels("-,low") == [None, "LOW"]
+    assert evaluate.build_parser().parse_args([]).compare_levels == [None, "LOW"]

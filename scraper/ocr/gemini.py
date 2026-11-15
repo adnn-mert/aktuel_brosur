@@ -11,7 +11,7 @@ import json
 import os
 import re
 import time
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 from dataclasses import dataclass, field
 from pathlib import Path
 from types import TracebackType
@@ -43,11 +43,24 @@ MAX_RETRIES = 4
 FALLBACK_BACKOFF = 30.0
 MAX_WAIT = 300.0
 
+# A brochure request carries several posters and writes several posters' worth of JSON (plus
+# thinking), so its wall-clock time grows roughly with the image count. The base covers one
+# poster-sized answer; every image adds a slice. The cap keeps a hung connection from holding
+# the run forever. A timeout burns one quota-counted request, so brochure requests are retried
+# at most once after a timeout (poster requests keep the generic retry budget).
+BROCHURE_TIMEOUT_PER_IMAGE = 120.0
+BROCHURE_TIMEOUT_CAP = 1500.0
+BROCHURE_MAX_TIMEOUT_RETRIES = 1
+# https://aistudio.google.com/docs/image-understanding : inline data limits the whole request
+# (prompt plus bytes) to 20 MB. Base64 inflates bytes by 4/3, so refuse before sending.
+MAX_INLINE_REQUEST_BYTES = 20 * 1024 * 1024
+
 PROMPT_VERSION = "v1"
-PROMPT = """\
+_POSTER_INTRO = """\
 This image is one Turkish supermarket (BİM) promotional poster.
 List every product on it that has its own price.
-For each product return:
+"""
+_FIELDS = """\
 - name: the product name exactly as printed (keep Turkish letters; do not translate).
 - brand: the brand printed with it, or null.
 - quantity_text: size/amount/count as printed (e.g. "~190 ml", "6'lı", "1 kg"), or null.
@@ -55,8 +68,29 @@ For each product return:
 Kuruş are often printed small and raised next to the lira digits; include them after a comma. \
 Ignore installment text such as "PEŞİN FİYATINA 6 TAKSİT".
 - old_price: a crossed-out or "yerine" earlier price if printed, else null.
-Do not invent products or prices that are not visible. If one price covers several variants, list it once.
 """
+_RULES = "Do not invent products or prices that are not visible. If one price covers several variants, list it once.\n"
+# Assembled from shared pieces; the text must stay identical to the v1 prompt the cache was built with.
+PROMPT = f"{_POSTER_INTRO}For each product return:\n{_FIELDS}{_RULES}"
+
+# Brochure mode: all posters of one brochure in one request. The version is part of the cache key.
+BROCHURE_PROMPT_VERSION = "b1"
+
+
+def brochure_prompt(count: int) -> str:
+    last = count - 1
+    return (
+        f"These {count} images are the posters of ONE Turkish supermarket (BİM) promotional brochure, "
+        f'in order. Each image is preceded by a text label "page_index: k"; the first image is page_index 0 '
+        f"and the last is page_index {last}.\n"
+        "List every product on every poster that has its own price. Read each poster on its own: "
+        "a product belongs to the poster it is printed on, and the same product on two posters is listed twice.\n"
+        "For each product return:\n"
+        "- page_index: the 0-based index of the poster the product is printed on "
+        f"(an integer from 0 to {last}).\n"
+        f"{_FIELDS}{_RULES}"
+    )
+
 
 RESPONSE_SCHEMA: dict[str, Any] = {
     "type": "object",
@@ -73,6 +107,25 @@ RESPONSE_SCHEMA: dict[str, Any] = {
                     "old_price": {"type": ["string", "null"]},
                 },
                 "required": ["name", "price"],
+            },
+        }
+    },
+    "required": ["products"],
+}
+
+# Same product shape plus the poster it was read from, so a product can later be linked to a page.
+BROCHURE_RESPONSE_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "properties": {
+        "products": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "page_index": {"type": "integer"},
+                    **RESPONSE_SCHEMA["properties"]["products"]["items"]["properties"],
+                },
+                "required": ["page_index", "name", "price"],
             },
         }
     },
@@ -103,6 +156,22 @@ def load_api_key(env: dict[str, str] | None = None, key_file: Path = API_KEY_FIL
     return value
 
 
+def _image_part(image: bytes, mime_type: str) -> dict[str, Any]:
+    return {"inlineData": {"mimeType": mime_type, "data": base64.b64encode(image).decode("ascii")}}
+
+
+def _generation_config(
+    schema: dict[str, Any], media_resolution: str | None, thinking_level: str | None
+) -> dict[str, Any]:
+    config: dict[str, Any] = {"responseMimeType": "application/json", "responseJsonSchema": schema}
+    if media_resolution:
+        config["mediaResolution"] = media_resolution
+    if thinking_level:
+        # The REST enum is upper case; accept "low" from the command line too.
+        config["thinkingConfig"] = {"thinkingLevel": thinking_level.upper()}
+    return config
+
+
 def build_request(
     image: bytes,
     mime_type: str = "image/jpeg",
@@ -110,27 +179,41 @@ def build_request(
     media_resolution: str | None = None,
     thinking_level: str | None = None,
 ) -> dict[str, Any]:
-    generation_config: dict[str, Any] = {
-        "responseMimeType": "application/json",
-        "responseJsonSchema": RESPONSE_SCHEMA,
-    }
-    if media_resolution:
-        generation_config["mediaResolution"] = media_resolution
-    if thinking_level:
-        # The REST enum is upper case; accept "low" from the command line too.
-        generation_config["thinkingConfig"] = {"thinkingLevel": thinking_level.upper()}
     return {
-        "contents": [
-            {
-                "role": "user",
-                "parts": [
-                    {"inlineData": {"mimeType": mime_type, "data": base64.b64encode(image).decode("ascii")}},
-                    {"text": PROMPT},
-                ],
-            }
-        ],
-        "generationConfig": generation_config,
+        "contents": [{"role": "user", "parts": [_image_part(image, mime_type), {"text": PROMPT}]}],
+        "generationConfig": _generation_config(RESPONSE_SCHEMA, media_resolution, thinking_level),
     }
+
+
+def build_brochure_request(
+    images: Sequence[bytes],
+    mime_type: str = "image/jpeg",
+    *,
+    media_resolution: str | None = None,
+    thinking_level: str | None = None,
+) -> dict[str, Any]:
+    """One request, many images: prompt first, then a label and an ``inlineData`` part per image.
+
+    Format per https://aistudio.google.com/docs/image-understanding (several images in one
+    request, text prompt before the images) and the ``Content.parts`` reference at
+    https://aistudio.google.com/docs/api-reference/generate-content ("Ordered Parts ... may
+    have different MIME types"). The label before each image makes the order explicit so the
+    model can report ``page_index`` without counting.
+    """
+    if not images:
+        raise ValueError("a brochure request needs at least one image")
+    parts: list[dict[str, Any]] = [{"text": brochure_prompt(len(images))}]
+    for index, image in enumerate(images):
+        parts.append({"text": f"page_index: {index}"})
+        parts.append(_image_part(image, mime_type))
+    return {
+        "contents": [{"role": "user", "parts": parts}],
+        "generationConfig": _generation_config(BROCHURE_RESPONSE_SCHEMA, media_resolution, thinking_level),
+    }
+
+
+def brochure_timeout(image_count: int, base: float = DEFAULT_TIMEOUT) -> float:
+    return min(BROCHURE_TIMEOUT_CAP, base + BROCHURE_TIMEOUT_PER_IMAGE * image_count)
 
 
 @dataclass(frozen=True)
@@ -180,6 +263,27 @@ def parse_response(body: dict[str, Any]) -> OcrResult:
         usage=usage,
         finish_reason=first.get("finishReason"),
     )
+
+
+def _page_index(value: Any, count: int) -> int | None:
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, float) and value.is_integer():
+        value = int(value)
+    elif isinstance(value, str) and value.strip().isdigit():
+        value = int(value.strip())
+    return value if isinstance(value, int) and 0 <= value < count else None
+
+
+def parse_brochure_response(body: dict[str, Any], image_count: int) -> OcrResult:
+    """Like ``parse_response`` but with ``page_index`` coerced to an int in range, else None.
+
+    A bad index must not discard a response that already cost a quota-counted request; the
+    product keeps ``page_index: None`` and the evaluator reports it as unassigned.
+    """
+    result = parse_response(body)
+    products = [dict(p) | {"page_index": _page_index(p.get("page_index"), image_count)} for p in result.products]
+    return OcrResult(products=products, usage=result.usage, finish_reason=result.finish_reason)
 
 
 _DELAY = re.compile(r"^(\d+(?:\.\d+)?)s$")
@@ -234,6 +338,7 @@ class GeminiClient:
         self.requests_sent = 0
         # Seconds the last successful request took on the wire (pacing and retries excluded).
         self.last_elapsed: float | None = None
+        self._base_timeout = timeout
         self._key = api_key
         self._clock = clock
         self._sleep = sleep
@@ -264,15 +369,44 @@ class GeminiClient:
         payload = build_request(
             image, mime_type, media_resolution=self.media_resolution, thinking_level=self.thinking_level
         )
+        body = self._generate(payload, timeout=None, max_timeout_retries=None)
+        return parse_response(body), body
+
+    def read_brochure(
+        self, images: Sequence[bytes], mime_type: str = "image/jpeg"
+    ) -> tuple[OcrResult, dict[str, Any]]:
+        """Read all ``images`` (one brochure, or one chunk of it) in a single request."""
+        payload = build_brochure_request(
+            images, mime_type, media_resolution=self.media_resolution, thinking_level=self.thinking_level
+        )
+        if sum(len(i) for i in images) * 4 // 3 > MAX_INLINE_REQUEST_BYTES:
+            raise GeminiError(
+                f"{len(images)} images exceed the 20 MB inline request limit; lower --max-pages-per-request"
+            )
+        timeout = brochure_timeout(len(images), self._base_timeout)
+        self._log(f"gemini: brochure request with {len(images)} images, timeout {timeout:.0f}s")
+        body = self._generate(payload, timeout=timeout, max_timeout_retries=BROCHURE_MAX_TIMEOUT_RETRIES)
+        return parse_brochure_response(body, len(images)), body
+
+    def _generate(
+        self, payload: dict[str, Any], *, timeout: float | None, max_timeout_retries: int | None
+    ) -> dict[str, Any]:
+        """POST with pacing and retries; ``timeout`` overrides the client default for this request."""
         attempt = 0
+        timeouts = 0
         while True:
             self._wait_for_slot()
             self.requests_sent += 1
             started = self._clock()
             try:
-                response = self._client.post(self.url, json=payload)
+                response = self._client.post(
+                    self.url, json=payload, **({} if timeout is None else {"timeout": timeout})
+                )
             except httpx.TransportError as exc:
-                if attempt >= self.max_retries:
+                if isinstance(exc, httpx.TimeoutException):
+                    timeouts += 1
+                out_of_timeout_retries = max_timeout_retries is not None and timeouts > max_timeout_retries
+                if attempt >= self.max_retries or out_of_timeout_retries:
                     raise GeminiError(self._scrub(f"network error: {type(exc).__name__}")) from None
                 attempt += 1
                 self._log(f"gemini: {type(exc).__name__}, retry {attempt} in {FALLBACK_BACKOFF * attempt:.0f}s")
@@ -284,7 +418,7 @@ class GeminiClient:
                 except ValueError:
                     raise GeminiError("HTTP 200 with a non-JSON body") from None
                 self.last_elapsed = self._clock() - started
-                return parse_response(body), body
+                return body
             retryable = response.status_code == 429 or response.status_code >= 500
             if not retryable or attempt >= self.max_retries:
                 raise GeminiError(self._scrub(f"HTTP {response.status_code}: {_error_message(response)}"))
