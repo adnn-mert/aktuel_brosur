@@ -221,6 +221,24 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String get pagePickerTitle => 'Sayfa seç';
+
+  @override
+  String pagePickerOpenSpoken(int page, int count) {
+    return 'Sayfa $page, toplam $count sayfa. Başka sayfaya gitmek için dokunun';
+  }
+
+  @override
+  String pageNumberSpoken(int page) {
+    return 'Sayfa $page';
+  }
+
+  @override
+  String pageNumberCurrentSpoken(int page) {
+    return 'Sayfa $page, şu an buradasınız';
+  }
+
+  @override
   String pageImageSpoken(int page) {
     return 'Broşür sayfası $page';
   }
@@ -258,6 +276,16 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String oldPriceSpoken(String price) {
     return 'Eski fiyat $price';
+  }
+
+  @override
+  String priceWithUnit(String price, String unit) {
+    return '$price, $unit';
+  }
+
+  @override
+  String memberPriceSpoken(String label, String price) {
+    return '$label: $price';
   }
 
   @override

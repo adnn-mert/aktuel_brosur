@@ -9,8 +9,20 @@ import '../../design/widgets/catalog_image.dart';
 import '../../design/widgets/feedback.dart';
 import '../../l10n/app_localizations.dart';
 
-/// One priced product: name, brand and amount, a big price, the earlier
-/// price crossed out and the discount when the market printed them.
+/// One priced product.
+///
+/// Three prices can meet on a card and each has its own visual language so
+/// none can be taken for another (DESIGN.md, section 14):
+///
+/// * the **shelf price**: what everyone pays today. Always the largest
+///   number, plain ink, never crossed out;
+/// * the **old price**: small, soft and crossed out, with a "%20 indirim"
+///   pill;
+/// * the **member price**: inside a framed green tag together with its label
+///   ("Money ile"). It never appears without the label and never replaces the
+///   shelf price.
+///
+/// A unit note ("kg fiyatı") is glued to every price it applies to.
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key, required this.product, this.onShowPage});
 
@@ -26,18 +38,17 @@ class ProductCard extends StatelessWidget {
     final oldPrice = product.oldPrice;
     final discount = product.discountPercent;
     final brand = product.brand?.trim() ?? '';
-    final quantity = product.quantityText?.trim() ?? '';
-    final facts = brand.isNotEmpty && quantity.isNotEmpty
-        ? l10n.pairWithDot(brand, quantity)
-        : '$brand$quantity';
+    final unit = product.quantityText?.trim() ?? '';
+    final memberPrice = product.memberPrice;
+    final memberLabel = product.memberPriceLabel;
 
     final details = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(product.name, style: AppType.title.copyWith(color: c.ink)),
-        if (facts.isNotEmpty) ...[
+        if (brand.isNotEmpty) ...[
           const SizedBox(height: AppSpace.xxs),
-          Text(facts, style: AppType.body.copyWith(color: c.inkSoft)),
+          Text(brand, style: AppType.body.copyWith(color: c.inkSoft)),
         ],
         const SizedBox(height: AppSpace.xs),
         Wrap(
@@ -45,9 +56,12 @@ class ProductCard extends StatelessWidget {
           runSpacing: AppSpace.xxs,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
-            Text(
-              product.price.format(),
-              style: AppType.price.copyWith(color: c.ink),
+            PriceWithUnit(
+              key: const ValueKey('shelf-price'),
+              price: product.price.format(),
+              unit: unit,
+              priceStyle: AppType.price.copyWith(color: c.ink),
+              unitStyle: AppType.bodyStrong.copyWith(color: c.ink),
             ),
             if (oldPrice != null)
               Semantics(
@@ -55,6 +69,7 @@ class ProductCard extends StatelessWidget {
                 excludeSemantics: true,
                 child: Text(
                   oldPrice.format(),
+                  key: const ValueKey('old-price'),
                   style: AppType.priceOld.copyWith(
                     color: c.inkSoft,
                     decorationColor: c.inkSoft,
@@ -64,6 +79,14 @@ class ProductCard extends StatelessWidget {
             if (discount != null) Pill(text: l10n.discountPercent(discount)),
           ],
         ),
+        if (memberPrice != null && memberLabel != null) ...[
+          const SizedBox(height: AppSpace.xs),
+          MemberPriceTag(
+            label: memberLabel,
+            price: memberPrice.format(),
+            unit: unit,
+          ),
+        ],
       ],
     );
 
@@ -114,6 +137,119 @@ class ProductCard extends StatelessWidget {
             ),
           ],
         ],
+      ),
+    );
+  }
+}
+
+/// A price with the note that says what it is the price of ("kg fiyatı").
+/// The two are one unit: laid out together, wrapped together, read together
+/// by a screen reader. With an empty [unit] it is just the price.
+class PriceWithUnit extends StatelessWidget {
+  const PriceWithUnit({
+    super.key,
+    required this.price,
+    required this.unit,
+    required this.priceStyle,
+    required this.unitStyle,
+  });
+
+  final String price;
+  final String unit;
+  final TextStyle priceStyle;
+  final TextStyle unitStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    final priceText = Text(price, style: priceStyle);
+    if (unit.isEmpty) return priceText;
+    return Semantics(
+      label: AppLocalizations.of(context).priceWithUnit(price, unit),
+      excludeSemantics: true,
+      child: Wrap(
+        spacing: AppSpace.xs,
+        crossAxisAlignment: WrapCrossAlignment.end,
+        children: [
+          priceText,
+          Padding(
+            // Sits on the price's baseline rather than under its descender.
+            padding: const EdgeInsets.only(bottom: AppSpace.xxs / 2),
+            child: Text(unit, style: unitStyle),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The card-holder price: a framed tag that carries its own label, so the
+/// number can never be read as the price everyone pays.
+class MemberPriceTag extends StatelessWidget {
+  const MemberPriceTag({
+    super.key,
+    required this.label,
+    required this.price,
+    this.unit = '',
+  });
+
+  /// Who gets this price, in the market's words ("Money ile").
+  final String label;
+  final String price;
+  final String unit;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final l10n = AppLocalizations.of(context);
+    final spokenPrice = unit.isEmpty ? price : l10n.priceWithUnit(price, unit);
+    return Semantics(
+      label: l10n.memberPriceSpoken(label, spokenPrice),
+      excludeSemantics: true,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: c.primarySoft,
+          borderRadius: AppRadius.smAll,
+          border: Border.all(color: c.primary, width: AppSize.outline),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppSpace.sm,
+            vertical: AppSpace.xs,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.card_membership_rounded,
+                    size: AppSize.iconSmall,
+                    color: c.onPrimarySoft,
+                  ),
+                  const SizedBox(width: AppSpace.xs),
+                  Flexible(
+                    child: Text(
+                      label,
+                      style: AppType.bodyStrong.copyWith(
+                        color: c.onPrimarySoft,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              PriceWithUnit(
+                price: price,
+                unit: unit,
+                priceStyle: AppType.memberPrice.copyWith(
+                  color: c.onPrimarySoft,
+                ),
+                unitStyle: AppType.bodyStrong.copyWith(color: c.onPrimarySoft),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

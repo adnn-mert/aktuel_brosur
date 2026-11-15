@@ -103,6 +103,16 @@ abstract final class AppType {
     fontFeatures: [FontFeature.tabularFigures()],
   );
 
+  /// The card-holder price inside its labelled tag. One step below [price]:
+  /// the shelf price is what everyone pays and stays the largest number.
+  static const TextStyle memberPrice = TextStyle(
+    fontFamily: AppFonts.text,
+    fontWeight: FontWeight.w700,
+    fontSize: 24,
+    height: 1.15,
+    fontFeatures: [FontFeature.tabularFigures()],
+  );
+
   /// Crossed-out earlier price.
   static const TextStyle priceOld = TextStyle(
     fontFamily: AppFonts.text,

@@ -6,7 +6,7 @@ değişmez. Büyük görsel kararlar (renk, yazı tipi, logo) değiştirilmeden 
 
 ## Durum
 
-Son güncelleme: 14 Kasım 2026. **D1 görevi tamamlandı**; sekiz dilimin hepsi bitti.
+Son güncelleme: 15 Kasım 2026. **D1 ve D2 görevleri tamamlandı.**
 
 | Dilim | Durum |
 |---|---|
@@ -18,12 +18,18 @@ Son güncelleme: 14 Kasım 2026. **D1 görevi tamamlandı**; sekiz dilimin hepsi
 | 6. Web görünümü | **Bitti** (`lib/features/web/`); A101 ve CarrefourSA ile, internet varken ve yokken denendi |
 | 7. Logo, açılış, uygulama simgesi, görünen ad | **Bitti** (`lib/design/widgets/logo_mark.dart`, `lib/features/splash/`, `test/tools/generate_icons_test.dart`) |
 | 8. Durumlar ve cila | **Bitti**; yer tutucu klasör silindi |
-| Testler | `flutter test`: 80 veri + 79 arayüz testi geçiyor (2 araç testi bilerek atlanır) |
-| Ekran görüntüleri | `design/screenshots/` (açık, koyu, büyük yazı, yakınlaştırılmış, uçak modu) |
+| D2-1. Ürün kartında üyelik fiyatı | **Bitti** (`lib/features/products/product_card.dart`: `MemberPriceTag`); kurallar bölüm 14 |
+| D2-2. Fiyat birimi notu ("kg fiyatı") | **Bitti** (`PriceWithUnit`); kurallar bölüm 14 |
+| D2-3. Uzun katalogda sayfaya atlama | **Bitti** (`lib/features/brochure/page_picker_screen.dart`); kurallar bölüm 8 |
+| Testler | `flutter test`: 226 geçiyor (114 veri + 112 arayüz; 2 araç testi bilerek atlanır). D2 testleri `test/ui/prices_and_pages_test.dart` |
+| Ekran görüntüleri | `design/screenshots/`, hepsi WebP (açık, koyu, büyük yazı, yakınlaştırılmış, uçak modu). D2: `40`–`42` üyelik fiyatlı ürün listesi (açık, koyu, büyük yazı), `43` uzun katalogda sayfa göstergesi düğmesi, `44`–`46` "Sayfa seç" ekranı (açık, koyu, büyük yazı) |
 
 Emülatörde (Medium_Phone) uçtan uca denenen akış: aç → market → broşür → + ile ve çift dokunmayla
 yakınlaştır → büyütülmüşken kaydır (sayfa değişmedi) → okla sayfa değiştir → geri → favori işaretle →
 uygulamayı kapat aç (favori üstte) → uçak modunda daha önce açılan broşür ve ürün listesi açıldı.
+D2 için örnek veriyle denenen akış: Migros ürün listesi (üç üyelik fiyatlı kart; açık, koyu, yazı
+ölçeği 2,0) ve Watsons (46 sayfa) → "1 / 46" düğmesi → "Sayfa seç" → 23 → görüntüleyici 23. sayfada
+açıldı. Üyelik fiyatı canlı veriyle emülatörde denenmedi.
 İki parmakla yakınlaştırma emülatörde `adb` ile üretilemediği için yalnızca widget testiyle doğrulandı
 (`test/ui/viewer_test.dart`, "two fingers zoom the page and never turn it"); gerçek cihazda bir kez
 elle denenmesi iyi olur. iOS tarafı (ad, simge, açılış zemini) Mac olmadığı için derlenip denenmedi.
@@ -115,7 +121,8 @@ U+20BA yok; eski sürümde İ de yok). Fiyat bu uygulamanın en önemli metni ol
 | `label` | Lexend 600 | 20 | Düğme yazısı |
 | `badge` | Lexend 700 | 18 | "Yeni", "%20 indirim" |
 | `chainName` | Lexend 700 | 38 | Logosu olmayan marketin ad kartı |
-| `price` / `priceOld` | Lexend 700 / 500 | 28 / 18 | Fiyat / üstü çizili eski fiyat (sabit genişlikli rakam) |
+| `price` / `priceOld` | Lexend 700 / 500 | 28 / 18 | Raf fiyatı / üstü çizili eski fiyat (sabit genişlikli rakam) |
+| `memberPrice` | Lexend 700 | 24 | Üyelik fiyatı, yalnızca etiketli kutusunun içinde (bölüm 14) |
 | `pageIndicator` | Lexend 700 | 24 | "3 / 8" |
 
 Sistem yazı büyütmesi **%200'e kadar** aynen uygulanır (`maxTextScale`). Bu yüzden:
@@ -229,8 +236,8 @@ düşürmek (ilke 4) daha kötüdür, o yüzden yalnızca gerçekten tek seçene
 Bkz. bölüm 8.
 
 ### Ürün listesi
-- Tek sütun büyük kartlar: ad (kalın), marka, miktar, büyük fiyat, varsa üstü çizili eski fiyat ve
-  "%20 indirim" etiketi; ürün fotoğrafı varsa solda.
+- Tek sütun büyük kartlar: ad (kalın), marka, fiyatlar; ürün fotoğrafı varsa solda. Fiyatların
+  görsel dili bölüm 14'te (raf fiyatı, eski fiyat, üyelik fiyatı, birim notu).
 - Broşürde sayfa da varsa (`kind: both`) üstte iki büyük sekme: "Broşür" | "Ürünler". Sekme her
   zaman görünür; üründe sayfa numarası varsa "Sayfada göster" düğmesi o sayfayı açar.
 
@@ -283,6 +290,28 @@ Uygulama kuralları:
   kullanıcının az önce seçtiği şeyi doğrular.
 - Denetimler dokununca gizlenmez; "tam ekran" kipi yoktur (ilke 3).
 
+### Sayfaya atlama (uzun kataloglar)
+
+Watsons kataloğu 46 sayfa; ortadaki bir sayfaya gitmek için oka 20 kez basmak gerekmemeli.
+
+- **9 sayfa ve üstünde** (`AppZoom.pagePickerMinPages`) alt çubuktaki "3 / 46" göstergesi bir düğmeye
+  dönüşür: aynı yerde, aynı yazı, ama "Geri" ile aynı çerçeveli düğme biçiminde ve 56 dp. 8 sayfa ve
+  altında gösterge düz yazı olarak kalır; kısa broşürde oklar zaten daha hızlıdır ve çubuk
+  kalabalıklaşmaz.
+- Düğme **"Sayfa seç"** ekranını açar: her sayfa için büyük, numaralı bir düğme (telefonda 5 sütun,
+  46 sayfa tek ekrana sığar; çok büyük yazıda 3 sütun). Bulunulan sayfa dolu (birincil renk) ve ekran
+  okuyucuda "şu an buradasınız" diye okunur; ekran o sayfa görünür biçimde açılır.
+- **Tam ekran, alt sayfa (bottom sheet) değil.** Alt sayfa sürükleyerek kapatılır; bu gizli bir
+  harekettir. "Sayfa seç" her ekrandaki "Geri" ile kapanır ve sayfa değişmeden döner.
+- **Yalnızca numara, küçük görsel yok.** Publitas'ta ve kendi WebP'lerimizde ayrı küçük görsel yok;
+  küçük resim göstermek her sayfanın tamamını indirmek demek (Watsons'ta 46 × ~1,2 MB). Mobil veriyi
+  bir dokunuşta harcamamak, "şampuan sayfası"nı resminden bulmaktan önce gelir. Kazıyıcı ileride
+  küçük görsel üretirse bu ekran onları numaranın üstünde gösterebilir.
+- Numaraya basınca o sayfaya **doğrudan** gidilir (aradaki sayfalardan kayarak geçilmez) ve büyütme
+  sıfırlanır.
+- Göstergenin yanına simge konmaz: dar çubukta rakamları küçültüyordu (denendi). Bu uygulamada
+  "krem zemin + koyu çerçeve" her yerde "basılır" demektir.
+
 ## 9. Durumlar
 
 | Durum | Görünüş |
@@ -330,8 +359,9 @@ lib/l10n/app_tr.arb    bütün metinler
 | `LogoMark`, `LogoPainter`, `LogoPalette` | `logo_mark.dart` | Uygulama logosu |
 
 Ekrana özgü bileşenler: `ChainCard`, `ChainGrid` (ana ekran); `BrochureCard` (market ekranı);
-`ZoomablePage`, `PageZoomController`, `ViewerControls`, `ModeTabs` (broşür); `ProductCard`,
-`ProductList` (ürünler); `WebCatalogBar`, `WebCatalogError` (web).
+`ZoomablePage`, `PageZoomController`, `ViewerControls`, `ModeTabs`, `PagePickerScreen` (broşür);
+`ProductCard`, `PriceWithUnit`, `MemberPriceTag`, `ProductList` (ürünler); `WebCatalogBar`,
+`WebCatalogError` (web).
 
 Test altyapısı: `test/ui/support.dart` (`pumpUi`, `FakeRepository`, `TestImageProvider`,
 `uiOverrides`). Arayüz testleri gerçek yazı tipleriyle ölçer; yeni ekranın testi mutlaka yazı ölçeği
@@ -353,6 +383,10 @@ Test altyapısı: `test/ui/support.dart` (`pumpUi`, `FakeRepository`, `TestImage
 | Hareketi `context.motion(...)` ile ver | "Hareketi azalt" ayarını yok sayan animasyon ekleme |
 | Görsel adresini `catalogImageProvider` ile çöz | Ekranda `Image.network`, `http`, dosya okuma kullanma |
 | Geri'yi bir önceki ekrana döndür | Kullanıcının görmediği ara ekranı yığına sokma |
+| Raf fiyatını en büyük, düz ve çizgisiz göster | Üyelik fiyatını raf fiyatının yerine ya da ondan büyük yazma |
+| Üyelik fiyatını etiketiyle aynı kutuda göster | Üyelik fiyatını etiketsiz, üstü çizili fiyatın yanında ya da indirim rozetiyle gösterme |
+| Birim notunu ("kg fiyatı") ait olduğu her fiyata yapıştır | Birim notunu marka satırına, kartın başka bir köşesine koyma |
+| Seçim ekranını "Geri"li tam ekran aç | Sürükleyerek kapanan alt sayfa, açılır menü kullanma |
 
 ## 13. Açık noktalar ve sonraya kalanlar
 
@@ -360,8 +394,9 @@ Test altyapısı: `test/ui/support.dart` (`pumpUi`, `FakeRepository`, `TestImage
   ekranı yeniden sıralamaz (kural `lib/data/README.md` içinde).
 - **"Yeni" rozeti:** kazıyıcı ilk kez çalıştığında bütün broşürler "Yeni" görünür (hepsi aynı gün
   görülmüş olur); birkaç gün içinde kendiliğinden düzelir.
-- **Uzun kataloglarda sayfaya atlama:** Watsons 46 sayfa; şu an yalnızca oklarla ve kaydırarak
-  gezilir. İleride "3 / 46" göstergesine basınca açılan büyük numaralı bir sayfa seçici düşünülebilir.
+- **Sayfa seçicide küçük görsel yok** (bölüm 8); kazıyıcı küçük sayfa görseli üretirse eklenebilir.
+- **Üyelik fiyatı yalnızca Migros örneğiyle denendi** ("Money ile"); başka bir marketin etiketi çok
+  uzunsa kutu kendi içinde sarar (testte 320 dp + yazı ölçeği 2,0 ile denendi).
 - **Kapak görseli yüklenemezse** yer tutucu kalır; ekran yeniden açılınca tekrar denenir (listede
   kart başına "Tekrar dene" bilerek yok).
 - **A101 ve Watsons logoları** yok (siteleri otomatik isteği engelliyor); dosya eklenirse
@@ -372,3 +407,46 @@ Test altyapısı: `test/ui/support.dart` (`pumpUi`, `FakeRepository`, `TestImage
   sayfaları göreli yoldur, uygulamaya gömülü değildir; "sayfa açılamadı" durumunu göstermek için
   öyle bırakıldı.
 - **Ürün arama (Aşama 2)** ve **bildirim izni ekranı (1I)** tasarlanmadı; yerleri bölüm 7'de.
+
+## 14. Fiyatlar: raf fiyatı, eski fiyat, üyelik fiyatı, birim notu
+
+Projenin en büyük korkusu teyzeye yanlış fiyat göstermektir. Bir üründe üç ayrı fiyat bulunabilir;
+her birinin **kendine ait, başkasıyla karışmayan** bir görünüşü vardır
+(`lib/features/products/product_card.dart`).
+
+| Fiyat | Anlamı | Görünüşü |
+|---|---|---|
+| **Raf fiyatı** (`price`) | Bugün herkesin ödediği | Kartın en büyük rakamı (`AppType.price`, 28), düz mürekkep, çerçevesiz, **asla üstü çizili değil**; her kartta aynı yerde |
+| **Eski fiyat** (`oldPrice`) | Artık geçerli olmayan | Küçük (18), soluk, **üstü çizili**, raf fiyatının yanında; yanında kırmızı "%20 indirim" rozeti |
+| **Üyelik fiyatı** (`memberPrice`) | Yalnızca kart sahibinin ödediği | Raf fiyatının hemen altında, **yeşil çerçeveli kutu** içinde: üstte kart simgesi + etiket ("Money ile"), altında fiyat (`AppType.memberPrice`, 24) |
+
+**Hangisi baskın: raf fiyatı en büyük rakam, üyelik fiyatı en renkli öğe.** Gerekçe:
+- Kartsız teyze kartın en büyük rakamını okur; o rakam her zaman onun ödeyeceği fiyat olmalı. Tersi
+  (büyük üyelik fiyatı) kasada daha yüksek bir fiyatla karşılaşması demek; kaçınılacak hata bu.
+- Kartlı teyze için haber üyelik fiyatıdır; onu kaçırmaması boyutla değil **renk ve çerçeveyle**
+  sağlanır: kartta renkli çerçevesi olan tek öğe o kutudur.
+- Raf fiyatı bütün kartlarda (üyelik fiyatı olsun olmasın) aynı yerde ve aynı biçimdedir; liste
+  aşağı doğru taranırken "herkesin fiyatı" sütunu hiç bozulmaz.
+
+Kurallar:
+- Üyelik fiyatı **asla etiketsiz** görünmez. Etiket ile fiyat aynı kutunun içindedir, aralarında
+  boşluk yoktur, ekran okuyucu ikisini tek cümle okur ("Money ile: 77,95 ₺"). Etiketi olmayan üyelik
+  fiyatını model zaten düşürür; kart da göstermenin bir yolunu aramaz (testli).
+- Üyelik fiyatı **asla raf fiyatının yerine geçmez**, ondan büyük yazılmaz, üstü çizili fiyatla yan
+  yana durmaz. Raf fiyatının üstü çizilmez: o "eski fiyat" değil, kartı olmayanın bugünkü fiyatıdır.
+- "%… indirim" rozeti yalnızca eski fiyat → raf fiyatı içindir (`discountPercent`); üyelik fiyatı
+  için indirim yüzdesi hesaplanmaz ve gösterilmez.
+- Kutu yeşildir (`primarySoft` zemin, `primary` çerçeve), kırmızı değil: kırmızı (`fresh`) "Yeni" ve
+  indirimin rengidir; üyelik fiyatı bir indirim rozeti gibi görünürse raf fiyatı "eski fiyat" sanılır.
+- Üç fiyat birden varsa sıra: üst satırda raf fiyatı + eski fiyat + indirim rozeti, altında üyelik
+  kutusu. Dar ekranda ve büyük yazıda satırlar sarar, kutu küçülmez.
+
+**Birim notu** (`quantityText`, ör. "kg fiyatı"): fiyatın neyin fiyatı olduğunu söyler; 1.799,00 ₺'nin
+paket fiyatı sanılmaması gerekir.
+- Not, ait olduğu fiyatın **hemen sağında, aynı satırda** durur (`PriceWithUnit`); sığmazsa fiyatın
+  hemen altına iner ama araya başka bir şey girmez. Ekran okuyucu "1.799,00 ₺, kg fiyatı" okur.
+- Üyelik fiyatı da aynı birim içindir; not **kutunun içinde de yinelenir** ("1.499,90 ₺ kg fiyatı").
+- Not kalın ve mürekkep rengindedir (soluk değil): fiyatın parçasıdır, ek bilgi değil.
+- `quantityText` boşsa hiçbir şey çizilmez, boşluk kalmaz. Eski veride "700 g", "5 L" gibi değerler
+  gelirse aynı yerde gösterilir ("149,50 ₺ 700 g"); raf etiketlerindeki okuyuşla aynıdır.
+- Marka artık tek başına ad satırının altındadır; miktar marka satırına yazılmaz.

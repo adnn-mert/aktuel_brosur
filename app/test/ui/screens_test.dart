@@ -179,7 +179,15 @@ void main() {
       );
       final l10n = l10nOf(tester);
       expect(find.text('Süzme Peynir'), findsOneWidget);
-      expect(find.text('Sütaş · 500 g'), findsOneWidget);
+      expect(find.text('Sütaş'), findsOneWidget);
+      // The amount belongs to the price and sits right beside it.
+      expect(
+        find.descendant(
+          of: find.byKey(const ValueKey('shelf-price')),
+          matching: find.text('500 g'),
+        ),
+        findsOneWidget,
+      );
       expect(find.text('119,90 ₺'), findsOneWidget);
       expect(find.text('149,90 ₺'), findsOneWidget);
       expect(find.text(l10n.discountPercent(20)), findsOneWidget);

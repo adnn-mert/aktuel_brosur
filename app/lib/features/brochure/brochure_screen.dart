@@ -82,6 +82,7 @@ class _BrochureScreenState extends ConsumerState<BrochureScreen> {
         key: _viewerKey,
         brochure: brochure,
         initialPage: widget.initialPage,
+        pickerTitle: chain?.name,
       );
     } else {
       // Both stay alive, so switching tabs keeps the page and the scroll
@@ -93,6 +94,7 @@ class _BrochureScreenState extends ConsumerState<BrochureScreen> {
             key: _viewerKey,
             brochure: brochure,
             initialPage: widget.initialPage,
+            pickerTitle: chain?.name,
           ),
           if (_productsOpened)
             ProductList(

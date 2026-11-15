@@ -264,6 +264,10 @@ abstract final class AppSize {
   /// Content never grows wider than this on tablets / landscape.
   static const double maxContentWidth = 640;
 
+  /// Page picker: width of one numbered button, and with a very large font.
+  static const double pagePickerCell = 64;
+  static const double pagePickerCellLarge = 112;
+
   /// Width below which the home grid falls back to a single column when the
   /// system font is very large.
   static const double minCardWidth = 150;
@@ -300,6 +304,11 @@ abstract final class AppZoom {
   /// read (plus [prefetchAhead] pages ahead).
   static const int prefetchWholeLimit = 16;
   static const int prefetchAhead = 3;
+
+  /// From this many pages on, the page indicator becomes a button that opens
+  /// the page picker. Shorter brochures are quicker with the arrows and stay
+  /// uncluttered.
+  static const int pagePickerMinPages = 9;
 }
 
 /// Durations and curves. Motion is short and purposeful; all of it is

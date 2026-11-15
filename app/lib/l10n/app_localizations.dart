@@ -400,6 +400,30 @@ abstract class AppLocalizations {
   /// **'Sayfa {page}, toplam {count} sayfa'**
   String pageIndicatorSpoken(int page, int count);
 
+  /// Title of the screen that lists every page number of a long catalog.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sayfa seç'**
+  String get pagePickerTitle;
+
+  /// Screen-reader text of the page indicator when it opens the page picker.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sayfa {page}, toplam {count} sayfa. Başka sayfaya gitmek için dokunun'**
+  String pagePickerOpenSpoken(int page, int count);
+
+  /// Screen-reader text of one page button in the page picker.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sayfa {page}'**
+  String pageNumberSpoken(int page);
+
+  /// Screen-reader text of the current page's button in the page picker.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sayfa {page}, şu an buradasınız'**
+  String pageNumberCurrentSpoken(int page);
+
   /// Screen-reader text of a brochure page image.
   ///
   /// In tr, this message translates to:
@@ -465,6 +489,18 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Eski fiyat {price}'**
   String oldPriceSpoken(String price);
+
+  /// Screen-reader text of a price together with its unit note, e.g. '1.799,00 ₺, kg fiyatı'.
+  ///
+  /// In tr, this message translates to:
+  /// **'{price}, {unit}'**
+  String priceWithUnit(String price, String unit);
+
+  /// Screen-reader text of the card-holder price tag, e.g. 'Money ile: 77,95 ₺'.
+  ///
+  /// In tr, this message translates to:
+  /// **'{label}: {price}'**
+  String memberPriceSpoken(String label, String price);
 
   /// Button on a product card that opens the brochure page showing it.
   ///

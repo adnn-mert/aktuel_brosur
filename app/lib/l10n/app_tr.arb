@@ -287,6 +287,40 @@
       }
     }
   },
+  "pagePickerTitle": "Sayfa seç",
+  "@pagePickerTitle": {
+    "description": "Title of the screen that lists every page number of a long catalog."
+  },
+  "pagePickerOpenSpoken": "Sayfa {page}, toplam {count} sayfa. Başka sayfaya gitmek için dokunun",
+  "@pagePickerOpenSpoken": {
+    "description": "Screen-reader text of the page indicator when it opens the page picker.",
+    "placeholders": {
+      "page": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pageNumberSpoken": "Sayfa {page}",
+  "@pageNumberSpoken": {
+    "description": "Screen-reader text of one page button in the page picker.",
+    "placeholders": {
+      "page": {
+        "type": "int"
+      }
+    }
+  },
+  "pageNumberCurrentSpoken": "Sayfa {page}, şu an buradasınız",
+  "@pageNumberCurrentSpoken": {
+    "description": "Screen-reader text of the current page's button in the page picker.",
+    "placeholders": {
+      "page": {
+        "type": "int"
+      }
+    }
+  },
   "pageImageSpoken": "Broşür sayfası {page}",
   "@pageImageSpoken": {
     "description": "Screen-reader text of a brochure page image.",
@@ -342,6 +376,30 @@
   "@oldPriceSpoken": {
     "description": "Screen-reader text for the crossed-out price.",
     "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "priceWithUnit": "{price}, {unit}",
+  "@priceWithUnit": {
+    "description": "Screen-reader text of a price together with its unit note, e.g. '1.799,00 ₺, kg fiyatı'.",
+    "placeholders": {
+      "price": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "memberPriceSpoken": "{label}: {price}",
+  "@memberPriceSpoken": {
+    "description": "Screen-reader text of the card-holder price tag, e.g. 'Money ile: 77,95 ₺'.",
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
       "price": {
         "type": "String"
       }

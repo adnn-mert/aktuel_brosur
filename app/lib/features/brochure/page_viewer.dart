@@ -5,6 +5,7 @@ import '../../data/data.dart';
 import '../../design/theme.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets/catalog_image.dart';
+import 'page_picker_screen.dart';
 import 'viewer_controls.dart';
 import 'zoomable_page.dart';
 
@@ -18,9 +19,13 @@ class BrochurePageViewer extends ConsumerStatefulWidget {
     super.key,
     required this.brochure,
     this.initialPage = 0,
+    this.pickerTitle,
   });
 
   final Brochure brochure;
+
+  /// Shown under "Sayfa seç" in the page picker (the market's name).
+  final String? pickerTitle;
 
   /// 0-based.
   final int initialPage;
@@ -75,6 +80,21 @@ class BrochurePageViewerState extends ConsumerState<BrochurePageViewer> {
     final target = index.clamp(0, _pages.length - 1);
     _zoom.reset();
     if (_pageController.hasClients) _pageController.jumpToPage(target);
+  }
+
+  /// Long catalogs: choose a page by its number instead of pressing the
+  /// arrow twenty times.
+  Future<void> _pickPage() async {
+    final chosen = await Navigator.of(context).push<int>(
+      MaterialPageRoute(
+        builder: (_) => PagePickerScreen(
+          pageCount: _pages.length,
+          currentPage: _page,
+          title: widget.pickerTitle,
+        ),
+      ),
+    );
+    if (chosen != null && mounted) showPage(chosen);
   }
 
   void _turn(int delta) {
@@ -197,6 +217,9 @@ class BrochurePageViewerState extends ConsumerState<BrochurePageViewer> {
           onNext: () => _turn(1),
           onZoomIn: _zoom.zoomIn,
           onZoomOut: _zoom.zoomOut,
+          onPickPage: _pages.length >= AppZoom.pagePickerMinPages
+              ? _pickPage
+              : null,
         ),
       ],
     );

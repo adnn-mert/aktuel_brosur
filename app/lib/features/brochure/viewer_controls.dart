@@ -24,6 +24,7 @@ class ViewerControls extends StatelessWidget {
     required this.onNext,
     required this.onZoomIn,
     required this.onZoomOut,
+    this.onPickPage,
   });
 
   /// 0-based index of the page on screen.
@@ -34,6 +35,10 @@ class ViewerControls extends StatelessWidget {
   final VoidCallback onNext;
   final VoidCallback onZoomIn;
   final VoidCallback onZoomOut;
+
+  /// Opens the page picker. When set, the indicator is drawn as a button
+  /// (long catalogs); when null it is plain text (short brochures).
+  final VoidCallback? onPickPage;
 
   /// Narrower than this, the indicator would become too small next to four
   /// buttons; the zoom pair then moves to its own row.
@@ -76,20 +81,56 @@ class ViewerControls extends StatelessWidget {
       iconSize: AppSize.iconLarge,
       onPressed: zoom.canZoomIn ? onZoomIn : null,
     );
-    final indicator = Semantics(
-      label: l10n.pageIndicatorSpoken(page + 1, pageCount),
-      excludeSemantics: true,
-      liveRegion: true,
-      child: FittedBox(
-        fit: BoxFit.scaleDown,
-        child: Text(
-          l10n.pageIndicator(page + 1, pageCount),
-          key: const ValueKey('viewer-indicator'),
-          maxLines: 1,
-          style: AppType.pageIndicator.copyWith(color: c.ink),
-        ),
-      ),
+    final indicatorText = Text(
+      l10n.pageIndicator(page + 1, pageCount),
+      key: const ValueKey('viewer-indicator'),
+      maxLines: 1,
+      style: AppType.pageIndicator.copyWith(color: c.ink),
     );
+    final pickPage = onPickPage;
+    final Widget indicator = pickPage == null
+        ? Semantics(
+            label: l10n.pageIndicatorSpoken(page + 1, pageCount),
+            excludeSemantics: true,
+            liveRegion: true,
+            child: FittedBox(fit: BoxFit.scaleDown, child: indicatorText),
+          )
+        : Semantics(
+            button: true,
+            label: l10n.pagePickerOpenSpoken(page + 1, pageCount),
+            excludeSemantics: true,
+            liveRegion: true,
+            child: Material(
+              key: const ValueKey('viewer-pick-page'),
+              color: c.surface,
+              shape: RoundedRectangleBorder(
+                borderRadius: AppRadius.mdAll,
+                side: BorderSide(color: c.lineStrong, width: AppSize.outline),
+              ),
+              clipBehavior: Clip.antiAlias,
+              child: InkWell(
+                onTap: pickPage,
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(
+                    minHeight: AppSize.touch,
+                    minWidth: AppSize.touch,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: AppSpace.xs,
+                    ),
+                    // No icon beside the number: it would squeeze the
+                    // digits. The outlined shape is this app's sign for
+                    // "press me" (like "Geri").
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: indicatorText,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
 
     const fixedWidth =
         AppSize.touchLarge * 2 +
