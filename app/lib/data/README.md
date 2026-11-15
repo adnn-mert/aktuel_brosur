@@ -107,7 +107,9 @@ final hits = index.value?.query(text) ?? const [];      // List<SearchHit>
 - `query`: boş/boşluk-only metin → `[]`. Türkçe duyarlı: büyük/küçük harf, İ/I/ı/i ve ç ğ ö ş ü
   harfleri yok sayılır ("SÜT" → "Süt", "cay" → "Çay", "ISIRGAN" → "ısırgan"); noktalama yok sayılır.
   Metin kelimelere bölünür, **her** kelime `ad + marka` içindeki bir kelimenin başıyla eşleşmelidir
-  (kelime ortası eşleşmez). Sonuçlar **raf fiyatına** göre artan, eşitlikte ada göre sıralı gelir
+  (kelime ortası eşleşmez). Sıralama iki kademelidir: önce her sorgu kelimesi `ad + marka`
+  içindeki bir kelimeyle **tam** eşleşen ürünler gelir ("süt" → "Süt" önce, "Sütlü" sonra), ardından
+  yalnızca önek eşleşenler. Her kademe **raf fiyatına** göre artan, eşitlikte ada göre sıralıdır
   (üyelik fiyatı sıralamayı etkilemez); ekranda yeniden sıralamayın. Fiyatı olmayan (0) ürünler dizine girmez.
 - Her tuş vuruşunda `query` çağırmak ucuzdur (bellekte tarama); yine de yazma sırasında kısa bir
   bekleme (debounce) önerilir. Zincir süzgeci için sonuçları `hit.chain.id` ile ekranda süzün.

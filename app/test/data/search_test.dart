@@ -243,6 +243,73 @@ void main() {
     });
   });
 
+  group('ranking tiers', () {
+    Future<SearchIndex> indexOf(List<Product> products) => _index(
+      {'b1': products},
+      [_withProducts('b1', from: d(2026, 11, 13), to: d(2026, 11, 19))],
+    );
+
+    test('whole-word match outranks a cheaper prefix match', () async {
+      final index = await indexOf([
+        _product('Sütlü Çikolatalı Gofret', 800),
+        _product('Tam Yağlı Süt 1 L', 4500),
+      ]);
+      expect(_names(index, 'süt'), [
+        'Tam Yağlı Süt 1 L',
+        'Sütlü Çikolatalı Gofret',
+      ]);
+    });
+
+    test('within a tier the cheaper one comes first', () async {
+      final index = await indexOf([
+        _product('Süt B', 5000),
+        _product('Sütlü Gofret', 100),
+        _product('Süt A', 3000),
+        _product('Sütlaç', 200),
+      ]);
+      expect(_names(index, 'süt'), [
+        'Süt A',
+        'Süt B',
+        'Sütlü Gofret',
+        'Sütlaç',
+      ]);
+    });
+
+    test('a query word that is only a prefix drops the hit to tier 2', () async {
+      final index = await indexOf([
+        _product('Siyah Çay Demlik Poşet', 9000),
+        _product('Siyah Çaylı Bisküvi', 100),
+        _product('Yeşil Çay Siyah Biber', 4000),
+      ]);
+      // "cay" is a prefix of "Çaylı" only, so that hit is tier 2.
+      expect(_names(index, 'siyah cay'), [
+        'Yeşil Çay Siyah Biber',
+        'Siyah Çay Demlik Poşet',
+        'Siyah Çaylı Bisküvi',
+      ]);
+    });
+
+    test('Turkish case folding applies to whole-word matches', () async {
+      final index = await indexOf([
+        _product('Çaylı Bisküvi', 100),
+        _product('Rize Çay 500 g', 9000),
+        _product('Sütlü Gofret', 100),
+        _product('Süt 1 L', 4500),
+      ]);
+      expect(_names(index, 'ÇAY'), ['Rize Çay 500 g', 'Çaylı Bisküvi']);
+      expect(_names(index, 'SÜT'), ['Süt 1 L', 'Sütlü Gofret']);
+    });
+
+    test('brand words count as whole words; member price is ignored', () async {
+      final index = await indexOf([
+        _product('Peynir', 3000, brand: 'Sütaş', memberMinor: 50),
+        _product('Yoğurt', 6000, brand: 'Süt'),
+        _product('Ayran', 4000, brand: 'Süt'),
+      ]);
+      expect(_names(index, 'süt'), ['Ayran', 'Yoğurt', 'Peynir']);
+    });
+  });
+
   group('which brochures are indexed', () {
     test('current and upcoming yes, past no', () async {
       final repo = _Repo({

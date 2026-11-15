@@ -79,6 +79,10 @@ class _Entry {
 
   bool matchesAll(List<String> prefixes) =>
       prefixes.every((p) => words.any((w) => w.startsWith(p)));
+
+  // Whole-word match: "sut" is exact for "Süt" but not for "Sütlü".
+  bool matchesAllExactly(List<String> queryWords) =>
+      queryWords.every(words.contains);
 }
 
 /// Searchable snapshot of every product in the current and upcoming
@@ -124,15 +128,21 @@ class SearchIndex {
   final List<Chain> chains;
 
   /// Products whose name or brand contains every word of [text] as a word
-  /// prefix, cheapest shelf price first, then by name. Empty or blank [text]
-  /// gives an empty list.
+  /// prefix. Hits where every query word is a whole word come first (so
+  /// "süt" lists milk before "Sütlü" chocolate); each tier is sorted by
+  /// cheapest shelf price, then by name. Empty or blank [text] gives an empty
+  /// list.
   List<SearchHit> query(String text) {
-    final prefixes = _words(text);
-    if (prefixes.isEmpty) return const [];
-    return List.unmodifiable([
-      for (final e in _entries)
-        if (e.matchesAll(prefixes)) e.hit,
-    ]);
+    final queryWords = _words(text);
+    if (queryWords.isEmpty) return const [];
+    // _entries is already in price order, so a stable split keeps it per tier.
+    final exact = <SearchHit>[];
+    final prefixOnly = <SearchHit>[];
+    for (final e in _entries) {
+      if (!e.matchesAll(queryWords)) continue;
+      (e.matchesAllExactly(queryWords) ? exact : prefixOnly).add(e.hit);
+    }
+    return List.unmodifiable([...exact, ...prefixOnly]);
   }
 }
 
