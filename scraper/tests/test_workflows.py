@@ -11,7 +11,12 @@ import yaml
 from scraper.tests.conftest import ROOT
 
 WORKFLOWS = ROOT / ".github" / "workflows"
-ALLOWED_ACTIONS = {"actions/checkout@v4", "actions/setup-python@v5", "subosito/flutter-action@v2"}
+ALLOWED_ACTIONS = {
+    "actions/checkout@v4",
+    "actions/setup-python@v5",
+    "actions/setup-java@v4",
+    "subosito/flutter-action@v2",
+}
 
 
 def load(name: str) -> dict[str, Any]:
@@ -73,3 +78,33 @@ def test_ci_workflows_are_read_only_and_path_filtered() -> None:
     flutter = next(s for s in steps(app) if s.get("uses", "").startswith("subosito/"))
     assert flutter["with"]["flutter-version"] == "3.47.5" and flutter["with"]["channel"] == "stable"
     assert [s["run"] for s in steps(app) if "run" in s] == ["flutter pub get", "flutter analyze", "flutter test"]
+
+
+def test_release_workflow() -> None:
+    wf = load("release.yml")
+    assert wf["on"]["push"] == {"tags": ["v*"]}
+    assert wf["on"]["workflow_dispatch"]["inputs"]["tag"]["required"] is True
+    assert wf["permissions"] == {"contents": "write"}
+    job = wf["jobs"]["release"]
+    assert job["env"]["CATALOG_BASE_URL"] == "https://adnn-mert.github.io/aktuel_brosur/"
+    # Same Flutter as CI, so a release never builds with an untested toolchain.
+    flutter = next(s for s in job["steps"] if s.get("uses", "").startswith("subosito/"))
+    assert flutter["with"]["flutter-version"] == "3.47.5" and flutter["with"]["channel"] == "stable"
+    # The workflow_dispatch input is untrusted: it may only reach the shell through env.
+    for step in job["steps"]:
+        assert "inputs." not in step.get("run", ""), step.get("name")
+    # The Firebase secret only reaches the step that turns it into dart-defines, via a temp file.
+    with_secret = [s for s in job["steps"] if "secrets." in str(s)]
+    assert [s["id"] for s in with_secret] == ["defines"]
+    defines = with_secret[0]
+    assert defines["env"] == {"FIREBASE_GOOGLE_SERVICES_JSON": "${{ secrets.FIREBASE_GOOGLE_SERVICES_JSON }}"}
+    assert '"$RUNNER_TEMP/google-services.json"' in defines["run"]
+    assert "python3 app/tool/firebase_defines.py" in defines["run"]
+    assert "notifications=false" in defines["run"]
+    assert "echo $FIREBASE" not in defines["run"] and "cat " not in defines["run"]
+    build = next(s for s in job["steps"] if s.get("name") == "Build APK")
+    assert '"--dart-define-from-file=$DEFINES"' in build["run"] and "flutter build apk" in build["run"]
+    assert "carsi-pazar-$TAG.apk" in build["run"]
+    publish = job["steps"][-1]
+    assert publish["env"]["GH_TOKEN"] == "${{ github.token }}"
+    assert "gh release create" in publish["run"] and "Bilinmeyen kaynaklardan" in publish["run"]

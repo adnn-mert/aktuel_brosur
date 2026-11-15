@@ -1,0 +1,123 @@
+name: Release APK
+
+# Builds the Android release APK and attaches it to a GitHub Release.
+# - Push a tag `v*` to release that commit.
+# - Or run it by hand with a tag name: an existing tag is checked out and rebuilt; a new tag
+#   is created on the commit the run starts from (the branch picked in the Run dialog).
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to release, e.g. v1.0.0"
+        required: true
+        type: string
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      # Untrusted input reaches shell steps only through this variable, never inline.
+      TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+      CATALOG_BASE_URL: https://adnn-mert.github.io/aktuel_brosur/
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check the tag and check it out if it already exists
+        run: |
+          if ! [[ "$TAG" =~ ^v[0-9A-Za-z._-]+$ ]]; then
+            echo "::error::Tag must look like v1.0.0"
+            exit 1
+          fi
+          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" > /dev/null; then
+            git fetch --depth=1 origin "refs/tags/$TAG:refs/tags/$TAG"
+            git checkout --detach "$TAG"
+          fi
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: "3.47.5"
+          cache: true
+
+      # The secret goes to a file outside the repository and is never printed; the helper
+      # prints only key names. Without the secret the APK is built without notifications.
+      - name: Write dart-define file
+        id: defines
+        env:
+          FIREBASE_GOOGLE_SERVICES_JSON: ${{ secrets.FIREBASE_GOOGLE_SERVICES_JSON }}
+        run: |
+          defines="$RUNNER_TEMP/dart_defines.json"
+          python3 -c 'import json, os, sys; json.dump({"CATALOG_BASE_URL": os.environ["CATALOG_BASE_URL"]}, open(sys.argv[1], "w"))' "$defines"
+          if [ -n "$FIREBASE_GOOGLE_SERVICES_JSON" ]; then
+            services="$RUNNER_TEMP/google-services.json"
+            printf '%s' "$FIREBASE_GOOGLE_SERVICES_JSON" > "$services"
+            python3 app/tool/firebase_defines.py "$services" -o "$defines"
+            rm -f "$services"
+            echo "notifications=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::FIREBASE_GOOGLE_SERVICES_JSON is empty; building without notifications"
+            echo "notifications=false" >> "$GITHUB_OUTPUT"
+          fi
+          echo "file=$defines" >> "$GITHUB_OUTPUT"
+
+      # versionName comes from the tag when it is x.y.z, otherwise from pubspec.yaml;
+      # versionCode is the run number so every release installs over an older one.
+      - name: Build APK
+        working-directory: app
+        env:
+          DEFINES: ${{ steps.defines.outputs.file }}
+          BUILD_NUMBER: ${{ github.run_number }}
+        run: |
+          flutter pub get
+          args=(--release "--dart-define-from-file=$DEFINES" "--build-number=$BUILD_NUMBER")
+          if [[ "$TAG" =~ ^v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+            args+=("--build-name=${BASH_REMATCH[1]}")
+          fi
+          flutter build apk "${args[@]}"
+          mkdir -p "$RUNNER_TEMP/dist"
+          cp build/app/outputs/flutter-apk/app-release.apk "$RUNNER_TEMP/dist/carsi-pazar-$TAG.apk"
+          rm -f "$DEFINES"
+
+      - name: Create the GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NOTIFICATIONS: ${{ steps.defines.outputs.notifications }}
+        run: |
+          apk="$RUNNER_TEMP/dist/carsi-pazar-$TAG.apk"
+          notes="$RUNNER_TEMP/notes.md"
+          {
+            echo "## Çarşı Pazar $TAG (Android)"
+            echo
+            echo "**Kurulum:** \`carsi-pazar-$TAG.apk\` dosyasını telefona indirip açın. Telefon sorarsa bu kaynaktan yüklemeye izin verin (Ayarlar → Bilinmeyen kaynaklardan yüklemeye izin verin)."
+            echo
+            echo "- Uygulama mağazada değildir. APK, Flutter'ın varsayılan ayarıyla **hata ayıklama (debug) anahtarıyla imzalanmıştır**; mağaza imzası yoktur."
+            echo "- Her sürüm farklı bir derleme makinesinde imzalandığı için yeni sürüm eskisinin üzerine kurulmazsa önce eski sürümü kaldırın (favoriler sıfırlanır)."
+            if [ "$NOTIFICATIONS" = "true" ]; then
+              echo "- Yeni broşür bildirimleri bu sürümde açılabilir."
+            else
+              echo "- Bu sürüm **bildirimsiz** derlendi (Firebase ayarı yoktu); yeni broşür bildirimi görünmez."
+            fi
+            echo
+            echo "Android only; iOS is not built. Brochure content belongs to the respective chains."
+          } > "$notes"
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            gh release upload "$TAG" "$apk" --clobber
+            gh release edit "$TAG" --notes-file "$notes"
+          else
+            gh release create "$TAG" "$apk" --title "Çarşı Pazar $TAG" --notes-file "$notes" --target "$(git rev-parse HEAD)"
+          fi
