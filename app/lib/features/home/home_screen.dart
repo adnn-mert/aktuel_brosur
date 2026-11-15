@@ -11,6 +11,7 @@ import '../../design/widgets/feedback.dart';
 import '../../design/widgets/logo_mark.dart';
 import '../../l10n/app_localizations.dart';
 import '../app/navigation.dart';
+import '../search/search_entry_button.dart';
 import 'chain_card.dart';
 
 /// Home: "which market shall we look at?" and the markets as big cards.
@@ -32,7 +33,11 @@ class HomeScreen extends ConsumerWidget {
 }
 
 class _HomeHeader extends ConsumerWidget {
-  const _HomeHeader();
+  const _HomeHeader({this.onSearch});
+
+  /// Opens the product search; null (while nothing is loaded yet) leaves
+  /// the button out.
+  final VoidCallback? onSearch;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -63,6 +68,13 @@ class _HomeHeader extends ConsumerWidget {
             ),
           ],
         ),
+        if (onSearch != null) ...[
+          const SizedBox(height: AppSpace.lg),
+          SearchEntryButton(
+            key: const ValueKey('home-search'),
+            onPressed: onSearch!,
+          ),
+        ],
         const SizedBox(height: AppSpace.xl),
         Semantics(
           header: true,
@@ -147,7 +159,7 @@ class _HomeContent extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const _HomeHeader(),
+                _HomeHeader(onSearch: () => openSearch(context)),
                 if (updateRequired) ...[
                   const SizedBox(height: AppSpace.md),
                   NoticeStrip(

@@ -591,6 +591,192 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Uygulamayı güncelleyince bütün broşürler görünür.'**
   String get updateRequiredDetail;
+
+  /// Label of the big search button on the home screen and title of the search screen.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ürün ara'**
+  String get searchTitle;
+
+  /// Second line of the home screen's search button: what searching is for.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hangi markette kaç lira?'**
+  String get searchEntryHint;
+
+  /// Screen-reader text of the home screen's search button.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ürün ara. Hangi markette kaç lira, bakın.'**
+  String get searchEntrySpoken;
+
+  /// Hint inside the empty search field.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ürün adı yazın'**
+  String get searchFieldHint;
+
+  /// Screen-reader label of the search field.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aranacak ürünün adı'**
+  String get searchFieldSpoken;
+
+  /// Label of the button that empties the search field.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazıyı sil'**
+  String get searchClear;
+
+  /// Heading of the search screen before anything is typed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ne arıyorsunuz?'**
+  String get searchIdleTitle;
+
+  /// Explanation under searchIdleTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ürünün adını yazın. Broşürlerde hangi markette kaç lira olduğunu ucuzdan pahalıya sıralarız.'**
+  String get searchIdleMessage;
+
+  /// Shown while fewer than two letters are typed.
+  ///
+  /// In tr, this message translates to:
+  /// **'En az iki harf yazın.'**
+  String get searchTooShort;
+
+  /// Heading above the example words.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ya da birine dokunun'**
+  String get searchExamplesTitle;
+
+  /// Comma-separated example words offered as big buttons before typing. Only those that have results are shown.
+  ///
+  /// In tr, this message translates to:
+  /// **'Süt, Çay, Peynir, Yumurta, Yağ, Şeker, Makarna, Pirinç, Deterjan, Kahve, Tavuk, Şampuan'**
+  String get searchExamples;
+
+  /// Screen-reader text of an example word button.
+  ///
+  /// In tr, this message translates to:
+  /// **'{word} ara'**
+  String searchExampleSpoken(String word);
+
+  /// Heading above the markets whose brochures can be searched.
+  ///
+  /// In tr, this message translates to:
+  /// **'Arama yapılan marketler'**
+  String get searchCoverageTitle;
+
+  /// Honest note: image-only brochures are not searched.
+  ///
+  /// In tr, this message translates to:
+  /// **'Diğer marketler broşürlerini resim olarak yayınlıyor; onların içinde arama yapılamıyor. Onlara ana ekrandan bakabilirsiniz.'**
+  String get searchCoverageNote;
+
+  /// Honesty note shown with the results and before typing.
+  ///
+  /// In tr, this message translates to:
+  /// **'Fiyatlar broşürde yazdığı gibidir; broşürün tarihlerinde geçerlidir.'**
+  String get searchPriceNote;
+
+  /// Explains the order of the results and its limit.
+  ///
+  /// In tr, this message translates to:
+  /// **'En ucuzu en üstte. Paket boyları farklı olabilir.'**
+  String get searchSortNote;
+
+  /// Heading above the results.
+  ///
+  /// In tr, this message translates to:
+  /// **'{count, plural, =1{1 ürün bulundu} other{{count} ürün bulundu}}'**
+  String searchResultCount(int count);
+
+  /// Shown while the search index is being built.
+  ///
+  /// In tr, this message translates to:
+  /// **'Broşürlerdeki ürünler hazırlanıyor…'**
+  String get searchLoading;
+
+  /// Title when nothing matches the typed text.
+  ///
+  /// In tr, this message translates to:
+  /// **'“{query}” bulunamadı'**
+  String searchNoResultsTitle(String query);
+
+  /// Advice under searchNoResultsTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aranan broşürlerde bu adla bir ürün yok. Sözcüğün yalnızca başını yazmayı deneyin; örneğin “ekmek” yerine “ekme”.'**
+  String get searchNoResultsMessage;
+
+  /// Says which markets were searched when nothing was found.
+  ///
+  /// In tr, this message translates to:
+  /// **'Arama yapılan marketler: {names}. Diğer marketlerin broşürlerinde henüz arama yapılamıyor.'**
+  String searchNoResultsCoverage(String names);
+
+  /// Button that empties the field after a search without results.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başka ürün ara'**
+  String get searchNewSearch;
+
+  /// Title when the search index could not be built.
+  ///
+  /// In tr, this message translates to:
+  /// **'Arama şu an yapılamıyor'**
+  String get searchErrorTitle;
+
+  /// Title when no brochure publishes its prices as text.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şu an aranabilecek broşür yok'**
+  String get searchEmptyIndexTitle;
+
+  /// Message under searchEmptyIndexTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Marketler fiyatlarını yazı olarak yayınlayınca burada arayabilirsiniz. Broşürlere ana ekrandan bakabilirsiniz.'**
+  String get searchEmptyIndexMessage;
+
+  /// Notice on the search screen when cached data is used.
+  ///
+  /// In tr, this message translates to:
+  /// **'İnternet yok. Yalnızca daha önce açtığınız broşürlerde aranıyor.'**
+  String get searchOfflineNotice;
+
+  /// Screen-reader hint at the end of a search result.
+  ///
+  /// In tr, this message translates to:
+  /// **'Broşürde görmek için dokunun'**
+  String get searchOpenSpoken;
+
+  /// Tag on a search result whose brochure starts on a later day.
+  ///
+  /// In tr, this message translates to:
+  /// **'Henüz başlamadı'**
+  String get searchUpcoming;
+
+  /// Heading above the product the user came for, at the top of a brochure's product list.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aradığınız ürün'**
+  String get searchedProductTitle;
+
+  /// Heading above the full product list when a searched product is shown first.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu broşürdeki bütün ürünler'**
+  String get allProductsTitle;
+
+  /// Message when the device is offline and no product list is saved.
+  ///
+  /// In tr, this message translates to:
+  /// **'İnternet yokken yalnızca daha önce açtığınız broşürlerde aranabiliyor. Bağlantınızı kontrol edip tekrar deneyin.'**
+  String get searchOfflineEmptyMessage;
 }
 
 class _AppLocalizationsDelegate

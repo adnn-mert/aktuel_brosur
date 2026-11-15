@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../data/data.dart';
 import '../brochure/brochure_screen.dart';
 import '../chain/chain_screen.dart';
+import '../search/search_screen.dart';
 import '../web/web_catalog_screen.dart';
 
 /// What opening a market shows first.
@@ -61,6 +62,32 @@ Future<void> openBrochure(
 }) => _push(
   context,
   BrochureScreen(brochureId: brochureId, initialPage: initialPage),
+);
+
+/// Opens the product search.
+Future<void> openSearch(BuildContext context) =>
+    _push(context, const SearchScreen());
+
+/// The 0-based brochure page that shows the product of [hit], when the
+/// brochure has pages and the product says which one; otherwise null.
+int? searchHitPage(SearchHit hit) {
+  final page = hit.product.pageIndex;
+  final known =
+      hit.brochure.hasPages && page != null && page < hit.brochure.pages.length;
+  return known ? page : null;
+}
+
+/// Opens the brochure of a search result "at that product": on the page
+/// that prints it when the page is known (the printed page is the best
+/// proof of a price), otherwise on the product list of the brochure with
+/// the product shown first.
+Future<void> openSearchHit(BuildContext context, SearchHit hit) => _push(
+  context,
+  BrochureScreen(
+    brochureId: hit.brochure.id,
+    initialPage: searchHitPage(hit) ?? 0,
+    focusProduct: hit.product,
+  ),
 );
 
 /// Opens the chain's own brochure page inside the app.

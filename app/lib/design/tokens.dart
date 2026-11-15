@@ -268,6 +268,24 @@ abstract final class AppSize {
   static const double pagePickerCell = 64;
   static const double pagePickerCellLarge = 112;
 
+  /// Search: the market plate on a result card and in the list of searched
+  /// markets.
+  static const double resultMark = 48;
+  static const double resultMarkWidth = 92;
+
+  /// Search: a result card narrower than this puts its "Aç" cue on its own
+  /// row.
+  static const double resultRowMinWidth = 320;
+
+  /// Home: the filled magnifier square of the "Ürün ara" button.
+  static const double entryIcon = 44;
+
+  /// Search: fewest letters that start a search.
+  static const int searchMinLetters = 2;
+
+  /// Search: how many example words are offered before typing.
+  static const int searchExampleCount = 6;
+
   /// Width below which the home grid falls back to a single column when the
   /// system font is very large.
   static const double minCardWidth = 150;

@@ -368,6 +368,83 @@ class AppCard extends StatelessWidget {
   }
 }
 
+/// A button-shaped cue inside a card that is itself the button ("Aç ›"). It
+/// is not a separate target; it only makes "this opens" unmistakable.
+class OpenCue extends StatelessWidget {
+  const OpenCue({super.key, required this.label, this.filled = false});
+
+  final String label;
+
+  /// Filled with the action colour (the one prominent card of a screen).
+  final bool filled;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final background = filled ? c.primary : c.primarySoft;
+    final foreground = filled ? c.onPrimary : c.onPrimarySoft;
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: background,
+        borderRadius: AppRadius.mdAll,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(
+          AppSpace.md,
+          AppSpace.xs,
+          AppSpace.xs,
+          AppSpace.xs,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Flexible(
+              child: Text(
+                label,
+                style: AppType.label.copyWith(color: foreground),
+              ),
+            ),
+            Icon(
+              Icons.chevron_right_rounded,
+              size: AppSize.icon,
+              color: foreground,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// A quiet explanatory line with an "i" mark: facts the user should know
+/// but that are not a warning (how prices are to be read, what is searched).
+class InfoNote extends StatelessWidget {
+  const InfoNote({super.key, required this.text});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ExcludeSemantics(
+          child: Icon(
+            Icons.info_outline_rounded,
+            size: AppSize.icon,
+            color: c.inkSoft,
+          ),
+        ),
+        const SizedBox(width: AppSpace.xs),
+        Expanded(
+          child: Text(text, style: AppType.body.copyWith(color: c.inkSoft)),
+        ),
+      ],
+    );
+  }
+}
+
 /// Shows a snack message, replacing any that is still on screen. It stays
 /// long enough to be read slowly.
 void showAppMessage(BuildContext context, String text) {

@@ -131,57 +131,11 @@ class BrochureCard extends ConsumerWidget {
                   Text(detail, style: AppType.body.copyWith(color: c.inkSoft)),
                 ],
                 const SizedBox(height: AppSpace.sm),
-                _OpenCue(label: l10n.open, filled: prominent),
+                OpenCue(label: l10n.open, filled: prominent),
               ],
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-/// A button-shaped cue inside the card. It is not a separate target (the
-/// whole card is); it only makes "this opens" unmistakable.
-class _OpenCue extends StatelessWidget {
-  const _OpenCue({required this.label, required this.filled});
-
-  final String label;
-  final bool filled;
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.colors;
-    final background = filled ? c.primary : c.primarySoft;
-    final foreground = filled ? c.onPrimary : c.onPrimarySoft;
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: background,
-        borderRadius: AppRadius.mdAll,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(
-          AppSpace.md,
-          AppSpace.xs,
-          AppSpace.xs,
-          AppSpace.xs,
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Flexible(
-              child: Text(
-                label,
-                style: AppType.label.copyWith(color: foreground),
-              ),
-            ),
-            Icon(
-              Icons.chevron_right_rounded,
-              size: AppSize.icon,
-              color: foreground,
-            ),
-          ],
-        ),
       ),
     );
   }

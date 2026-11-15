@@ -6,7 +6,7 @@ değişmez. Büyük görsel kararlar (renk, yazı tipi, logo) değiştirilmeden 
 
 ## Durum
 
-Son güncelleme: 15 Kasım 2026. **D1 ve D2 görevleri tamamlandı.**
+Son güncelleme: 15 Kasım 2026. **D1, D2 ve D3 (ürün arama) görevleri tamamlandı.**
 
 | Dilim | Durum |
 |---|---|
@@ -21,7 +21,11 @@ Son güncelleme: 15 Kasım 2026. **D1 ve D2 görevleri tamamlandı.**
 | D2-1. Ürün kartında üyelik fiyatı | **Bitti** (`lib/features/products/product_card.dart`: `MemberPriceTag`); kurallar bölüm 14 |
 | D2-2. Fiyat birimi notu ("kg fiyatı") | **Bitti** (`PriceWithUnit`); kurallar bölüm 14 |
 | D2-3. Uzun katalogda sayfaya atlama | **Bitti** (`lib/features/brochure/page_picker_screen.dart`); kurallar bölüm 8 |
-| Testler | `flutter test`: 226 geçiyor (114 veri + 112 arayüz; 2 araç testi bilerek atlanır). D2 testleri `test/ui/prices_and_pages_test.dart` |
+| D3-1. Ana ekranda "Ürün ara" girişi | **Bitti** (`lib/features/search/search_entry_button.dart`); kurallar bölüm 7 ve 15 |
+| D3-2. Arama ekranı (yazmadan önce, bekleme, sonuç, bulunamadı, internet yok) | **Bitti** (`lib/features/search/`); kurallar bölüm 15 |
+| D3-3. Sonuçtan broşüre: sayfa ya da "Aradığınız ürün" en üstte | **Bitti** (`navigation.dart`: `openSearchHit`; `ProductList.highlight`); kurallar bölüm 15 |
+| D3-4. Yeni marketlerin ad kartı renkleri | **Bitti** (`lib/design/chain_logos.dart`: `chainPlateColors`); kurallar bölüm 6 |
+| Testler (D2 sonu) | `flutter test`: 226 geçiyor (114 veri + 112 arayüz; 2 araç testi bilerek atlanır). D2 testleri `test/ui/prices_and_pages_test.dart` |
 | Ekran görüntüleri | `design/screenshots/`, hepsi WebP (açık, koyu, büyük yazı, yakınlaştırılmış, uçak modu). D2: `40`–`42` üyelik fiyatlı ürün listesi (açık, koyu, büyük yazı), `43` uzun katalogda sayfa göstergesi düğmesi, `44`–`46` "Sayfa seç" ekranı (açık, koyu, büyük yazı) |
 
 Emülatörde (Medium_Phone) uçtan uca denenen akış: aç → market → broşür → + ile ve çift dokunmayla
@@ -36,6 +40,11 @@ elle denenmesi iyi olur. iOS tarafı (ad, simge, açılış zemini) Mac olmadı�
 
 Derleme notu: bu makinede `flutter build apk --debug` yalnızca şu ortam değişkeniyle çalışıyor
 (boşluksuz, kısa bir klasör): `JAVA_TOOL_OPTIONS=-Djdk.net.unixdomain.tmpdir=C:\Users\Public\uds`.
+
+D3 testleri `test/ui/search_test.dart` (durumlar, sıra, üyelik fiyatı, ekran okuyucu etiketi, sonuçtan
+broşüre geçiş; yazı ölçeği 1,0 / 1,3 / 2,0 × açık / koyu × 411 / 320 dp taşma denemeleri, klavye açıkken
+dahil) ve `test/ui/tokens_test.dart` (ad kartı renkleri). Güncel test sayısı ve D3 ekran görüntüleri
+bölüm 15'in sonunda.
 
 Bilinen açık noktalar bölüm 13'te.
 
@@ -183,6 +192,15 @@ Yap: `padding: EdgeInsets.all(AppSpace.md)`. Yapma: `EdgeInsets.all(16)`, `Sized
   yazı rengi beyaz ya da siyahtan hangisi daha okunaklıysa o seçilir (`AppColors.onBrand`), böylece
   hangi renk gelirse gelsin en az 4,5:1 kontrast kalır (testle doğrulanır). Renk de yoksa `primarySoft` zemin.
   Yeni bir zincir geldiğinde hiçbir kod değişmeden ad kartıyla çalışır. **Uydurma logo çizilmez.**
+- **Katalog renk vermiyorsa** (`brand_color` yok) ad kartının rengi `chain_logos.dart` içindeki
+  `chainPlateColors` kaydından gelir; katalogdaki renk varsa her zaman o kazanır. Şimdilik beş market:
+  Hakmar `#D62B1F` (sıcak kırmızı), bonVeno `#B5175E` (ahududu), Metro `#003B7E` (lacivert), Rossmann
+  `#B00030` (koyu kırmızı), Tarım Kredi Market `#00843D` (yeşil). Renkler marketin kendi broşür ve
+  tabelasındaki baskın renge **yakın** seçilmiştir, resmî kurumsal renk kodu oldukları iddia edilmez;
+  yalnızca düz zemin rengidir, logo ya da logo benzeri bir çizim değildir. İki kırmızı (Hakmar, Rossmann)
+  bilerek farklı sıcaklıktadır; yine de marketi ayıran şey renk değil, büyük yazılmış **addır**.
+  Her renk için yazı rengi `onBrand` ile seçilir ve en az 4,5:1 kontrast testle doğrulanır.
+  Kazıyıcı ileride bu marketlere `brand_color` yazarsa kayıttaki satır silinebilir.
 - Yeni logo eklemek: dosyayı `assets/logos/` altına koy, `chain_logos.dart` içine bir satır ekle.
 
 ## 7. Ekranlar ve akış
@@ -190,7 +208,8 @@ Yap: `padding: EdgeInsets.all(AppSpace.md)`. Yapma: `EdgeInsets.all(16)`, `Sized
 ```
 Açılış → Ana ekran ─┬─ (web görünümü zinciri) ───────────────→ Web görünümü
                     ├─ (tek broşürü olan market) ────────────→ Broşür
-                    └─ Market ekranı → Broşür (sayfalar ⇄ ürün listesi)
+                    ├─ Market ekranı → Broşür (sayfalar ⇄ ürün listesi)
+                    └─ "Ürün ara" → Arama → Broşür (ürünün sayfası ya da listesi)
 ```
 
 **En az dokunuş kuralı:** bir marketin gösterilecek **tek** broşürü varsa (bu hafta + gelecek +
@@ -200,7 +219,8 @@ göstermek boş bir adımdır; ama araya kullanıcının görmediği bir ekran s
 düşürmek (ilke 4) daha kötüdür, o yüzden yalnızca gerçekten tek seçenek varken atlanır.
 
 ### Ana ekran
-- Üstte logo + "Çarşı Pazar", altında tek soru: "Hangi markete bakalım?". Menü, sekme, arama yok.
+- Üstte logo + "Çarşı Pazar", altında "Ürün ara" düğmesi, onun altında tek soru: "Hangi markete
+  bakalım?". Menü, sekme, köşede büyüteç simgesi yok.
 - 2 sütun market kartı. Kart: üstte kenardan kenara logo plakası (ya da ad kartı), altında iki
   satır durum (kalın "Bu hafta" / "Gelecek hafta" / "Geçmiş" + "2 broşür"; ya da "Marketin sitesi",
   "Broşür yok") ve sağ altta favori yıldızı (56 dp hedef). Kartın tamamı tek düğmedir, yalnızca
@@ -217,8 +237,16 @@ düşürmek (ilke 4) daha kötüdür, o yüzden yalnızca gerçekten tek seçene
   kartın içinde ortadan bölünür). Aynı eşik üst çubukların alt alta geçmesini de yönetir
   (`context.useStackedBars`).
 - Aşağı çekip yenileme çalışır ama tek yol değildir: listenin sonunda "Broşürleri yenile" düğmesi var.
-- **Aşama 2 "ürün ara" girişi:** başlık ile ızgara arasına, tam genişlikte, 64 dp yüksekliğinde,
-  içinde büyüteç ve "Ürün ara" yazan tek bir düğme olarak gelecek. Şimdi yok; yeri budur.
+- **"Ürün ara" girişi** (`SearchEntryButton`): uygulama adının hemen altında, sorunun **üstünde**, tam
+  genişlikte, en az 64 dp yüksekliğinde tek düğme. Solda yeşil kare içinde büyüteç, yanında kalın
+  "Ürün ara" ve altında ne işe yaradığını söyleyen "Hangi markette kaç lira?". Gerekçeler:
+  - Sorunun üstünde durur, çünkü "Hangi markete bakalım?" sorusunun cevabı hemen altındaki market
+    kartlarıdır; araya düğme girerse soru ile cevabı kopar.
+  - Dolu yeşil (`primary`) değil, "krem zemin + koyu çerçeve" düğmesidir: ana ekranın asıl işi market
+    seçmektir, arama ikinci yoldur. Yeşil yalnızca büyüteç karesindedir; düğmeyi kartlardan ayırır.
+  - Yalnızca simge değil **sözcük**: köşedeki büyüteç bu kullanıcı için görünmezdir.
+  - Katalog daha yüklenmemişken (ilk açılış, internet yok) düğme gösterilmez; basılınca yalnızca bekleme
+    ya da hata gösterecek bir düğme ilk ekranı kalabalıklaştırır.
 
 ### Market ekranı
 - Üst çubuk: "Geri", market logosu / adı, favori yıldızı.
@@ -240,6 +268,8 @@ Bkz. bölüm 8.
   görsel dili bölüm 14'te (raf fiyatı, eski fiyat, üyelik fiyatı, birim notu).
 - Broşürde sayfa da varsa (`kind: both`) üstte iki büyük sekme: "Broşür" | "Ürünler". Sekme her
   zaman görünür; üründe sayfa numarası varsa "Sayfada göster" düğmesi o sayfayı açar.
+- Aramadan gelindiyse (`ProductList.highlight`) liste "Aradığınız ürün" başlığı ve yeşil çerçeveli
+  kartla başlar, altında "Bu broşürdeki bütün ürünler" başlığıyla listenin tamamı sürer (bölüm 15).
 
 ### Web görünümü (A101, CarrefourSA, Gratis)
 - Üst çubukta "Geri" her zaman uygulamaya döner. Site içinde gezinme için altta "Sitede geri"
@@ -323,6 +353,11 @@ Watsons kataloğu 46 sayfa; ortadaki bir sayfaya gitmek için oka 20 kez basmak 
 | Görsel yüklenemedi | Kapakta kâğıt yer tutucu; sayfada ileti + "Tekrar dene" |
 | Boş market | "Şu an broşür yok" + "Marketin sitesine bak" |
 | Güncelleme gerekli | Ana ekranın üstünde şerit: "Uygulamanın yeni sürümü gerekiyor…" |
+| Arama: yazmadan önce | "Ne arıyorsunuz?", örnek sözcük düğmeleri, arama yapılan marketler, fiyat notu (bölüm 15) |
+| Arama: hazırlanıyor | Halka + "Broşürlerdeki ürünler hazırlanıyor…"; yazı alanı bu sırada da kullanılır |
+| Arama: bulunamadı | "“kivi” bulunamadı", ne denenebileceği, hangi marketlere bakıldığı, "Başka ürün ara" |
+| Arama: internet yok, kayıt var | Sakin şerit: "Yalnızca daha önce açtığınız broşürlerde aranıyor." |
+| Arama: yapılamıyor | Tam alan: "Arama şu an yapılamıyor" + "Tekrar dene" |
 
 Dil kuralı: önce ne olduğu, sonra ne yapılabileceği. "Hata", "bağlantı zaman aşımı", "sunucu" gibi
 sözcükler kullanılmaz.
@@ -354,14 +389,21 @@ lib/l10n/app_tr.arb    bütün metinler
 | `NoticeStrip` | `feedback.dart` | Sakin durum bildirimi (internet yok, veri eski, güncelleme) |
 | `StateView` | `feedback.dart` | Tam alan durum: başlık + tek cümle + büyük düğme |
 | `AppCard`, `SectionHeader`, `Pill`, `SkeletonBox`, `showAppMessage` | `feedback.dart` | Kart yüzeyi, bölüm başlığı, "Yeni" / indirim rozeti, yükleme iskeleti, alttan ileti (5 sn) |
+| `OpenCue` | `feedback.dart` | Tamamı düğme olan kartın içindeki "Aç ›" işareti (broşür kartı, arama sonucu). Ayrı hedef değildir |
+| `InfoNote` | `feedback.dart` | "i" simgeli sakin açıklama satırı: uyarı olmayan ama bilinmesi gereken şey (fiyat nasıl okunur, nerede arandı) |
 | `ChainMark` | `chain_mark.dart` | Market logosu ya da ad kartı |
 | `CatalogImage`, `CoverPlaceholder`, `catalogImageProvider` | `catalog_image.dart` | Katalogdaki her görsel (adres çözme + disk önbelleği burada) |
 | `LogoMark`, `LogoPainter`, `LogoPalette` | `logo_mark.dart` | Uygulama logosu |
 
 Ekrana özgü bileşenler: `ChainCard`, `ChainGrid` (ana ekran); `BrochureCard` (market ekranı);
 `ZoomablePage`, `PageZoomController`, `ViewerControls`, `ModeTabs`, `PagePickerScreen` (broşür);
-`ProductCard`, `PriceWithUnit`, `MemberPriceTag`, `ProductList` (ürünler); `WebCatalogBar`,
+`ProductCard`, `ProductFacts`, `PriceWithUnit`, `MemberPriceTag`, `ProductList` (ürünler);
+`SearchEntryButton`, `SearchScreen`, `SearchField`, `SearchResultCard` (arama); `WebCatalogBar`,
 `WebCatalogError` (web).
+
+**`ProductFacts`** bir ürünün fotoğrafını, adını, markasını ve fiyatlarını çizen tek yerdir; ürün kartı
+da arama sonucu da onu kullanır. Bölüm 14'teki fiyat dili böylece iki ekranda **kendiliğinden** aynıdır;
+fiyat gösteren yeni bir ekran da fiyatı kendi çizmez, bunu kullanır.
 
 Test altyapısı: `test/ui/support.dart` (`pumpUi`, `FakeRepository`, `TestImageProvider`,
 `uiOverrides`). Arayüz testleri gerçek yazı tipleriyle ölçer; yeni ekranın testi mutlaka yazı ölçeği
@@ -387,6 +429,10 @@ Test altyapısı: `test/ui/support.dart` (`pumpUi`, `FakeRepository`, `TestImage
 | Üyelik fiyatını etiketiyle aynı kutuda göster | Üyelik fiyatını etiketsiz, üstü çizili fiyatın yanında ya da indirim rozetiyle gösterme |
 | Birim notunu ("kg fiyatı") ait olduğu her fiyata yapıştır | Birim notunu marka satırına, kartın başka bir köşesine koyma |
 | Seçim ekranını "Geri"li tam ekran aç | Sürükleyerek kapanan alt sayfa, açılır menü kullanma |
+| Fiyatı `ProductFacts` ile göster | Yeni bir ekranda fiyatı elle, başka boyut ya da renkle yeniden çizme |
+| Aramada hangi marketlere bakıldığını adıyla söyle | "Bütün marketlerde en ucuz", "en uygun fiyat" gibi kanıtlanamayan söz yazma |
+| Sonuçta marketi ve broşür tarihini her kartta göster | Fiyatı kaynağı ve tarihi olmadan gösterme |
+| Örnek sözcüğü yalnızca sonucu varsa öner | Basınca "bulunamadı" çıkacak öneri gösterme |
 
 ## 13. Açık noktalar ve sonraya kalanlar
 
@@ -406,7 +452,19 @@ Test altyapısı: `test/ui/support.dart` (`pumpUi`, `FakeRepository`, `TestImage
   görselleri gerçekte 17 Kasım Salı afişleridir (o gün için yayınlanmış görsel yoktu). Şok ve Migros
   sayfaları göreli yoldur, uygulamaya gömülü değildir; "sayfa açılamadı" durumunu göstermek için
   öyle bırakıldı.
-- **Ürün arama (Aşama 2)** ve **bildirim izni ekranı (1I)** tasarlanmadı; yerleri bölüm 7'de.
+- **Bildirim izni ekranı (1I)** tasarlanmadı.
+- **Arama, sözcük sonu yumuşamasını bilmiyor:** "ekmek" yazınca "Tam Buğday Ekmeği", "tavuk" yazınca
+  "Köy Tavuğu" bulunmuyor (k → ğ, p → b, ç → c, t → d). "Bulunamadı" iletisi bu yüzden somut bir yol
+  gösterir ("ekmek" yerine "ekme"). Asıl çözüm veri katmanındadır (istek iletildi); gelince ileti
+  sadeleştirilebilir.
+- **Arama sırası raf fiyatına göredir, birim fiyata göre değil:** 200 ml süt 1 L sütün üstünde çıkar.
+  Sonuçların üstünde "Paket boyları farklı olabilir" yazar; birim fiyat hesaplamak ürün eşleştirme
+  gerektirir ve bilerek yapılmadı (yanlış hesap, eksik bilgiden kötüdür).
+- **Arama yalnızca fiyatını yazı olarak yayınlayan broşürlerde çalışır** (şimdi BİM ve Migros); ekran
+  bunu her durumda söyler. Bir marketin ürün dosyası indirilemezse o market sessizce listeden düşer
+  (veri katmanı hangisinin eksik olduğunu bildirmiyor; istek iletildi).
+- **Macrocenter** katalogda renksiz geliyor ve `chainPlateColors` içinde yok; ad kartı sakin yeşil
+  (`primarySoft`) zeminle görünür.
 
 ## 14. Fiyatlar: raf fiyatı, eski fiyat, üyelik fiyatı, birim notu
 
@@ -450,3 +508,100 @@ paket fiyatı sanılmaması gerekir.
 - `quantityText` boşsa hiçbir şey çizilmez, boşluk kalmaz. Eski veride "700 g", "5 L" gibi değerler
   gelirse aynı yerde gösterilir ("149,50 ₺ 700 g"); raf etiketlerindeki okuyuşla aynıdır.
 - Marka artık tek başına ad satırının altındadır; miktar marka satırına yazılmaz.
+
+## 15. Ürün arama ("Broşürlerde ara")
+
+Teyze ürünün adını yazar ("süt", "çay"); fiyatını **yazı olarak** yayınlayan bütün güncel broşürlerdeki
+eşleşen ürünler, ucuzdan pahalıya sıralı gelir. Yapay zekâ ve ürün eşleştirme yoktur: fiyat, marketin
+bastığı fiyattır. Kod `lib/features/search/`, veri `searchIndexProvider` (`lib/data/search.dart`).
+
+**Ana kural: ekran bildiğinden fazlasını söylemez.** Arama bütün marketleri kapsamaz (çoğu broşür
+resimdir), fiyat her gün geçerli değildir, paketler aynı boyda değildir. Bunların üçü de ekranda yazar.
+
+### Akış
+
+```
+Ana ekran "Ürün ara" → Arama (klavye açık) → yaz ya da örnek sözcüğe bas → sonuçlar
+   → karta bas → Broşür: ürünün basıldığı sayfa (sayfası biliniyorsa)
+                         ya da ürün listesi, "Aradığınız ürün" en üstte
+   → "Geri" → sonuçlar (yazı ve liste yerinde)
+```
+
+### Arama ekranı
+
+- **Üst çubuk** tek satırdır (`keepOnOneRow`): klavye açıkken altta kalan her dp sonuçlarındır.
+- **Yazı alanı** (`SearchField`) çubuğun altında sabittir, kaymaz. En az 64 dp, 21 sp yazı, kalın çerçeve;
+  klavye üstündeyken çerçeve yeşile döner ve kalınlaşır (çerçeve yazının üstüne çizilir, yazı yerinden
+  oynamaz). Ekran açılınca klavye kendiliğinden gelir. Çok büyük yazıda baştaki büyüteç simgesi kalkar
+  (harflere yer açmak için).
+- **"Yazıyı sil"** düğmesi (56 dp, ×) yalnızca silinecek yazı varken görünür; basınca alan boşalır ve
+  klavye geri gelir.
+- **Yazdıkça arar**; "Ara" düğmesi yoktur (basılacak bir adım daha, unutulacak bir adım daha). Klavyenin
+  kendi "Ara" tuşu ve listeyi kaydırmak klavyeyi kapatır.
+- **En az iki harf** (`AppSize.searchMinLetters`): tek harfte yüzlerce ilgisiz ürün gelir; onun yerine
+  "En az iki harf yazın." yazar.
+
+### Yazmadan önce
+
+1. "Ne arıyorsunuz?" + tek cümle açıklama.
+2. **Örnek sözcükler**: "Süt", "Çay", "Yağ"… büyük düğmeler (56 dp, çerçeveli; küçük "çip" değil).
+   Yazmak zor gelen için tek dokunuşla arama. Liste `searchExamples` metnindedir ve **yalnızca o hafta
+   sonucu olanlar** gösterilir (en çok 6): basınca "bulunamadı" çıkacak bir öneri küçük bir yalandır.
+   Basınca klavye kapanır ki sonuçlar arkasında kalmasın.
+3. **"Arama yapılan marketler"**: `SearchIndex.chains` içindeki marketlerin logo / ad plakaları ve altında
+   "Diğer marketler broşürlerini resim olarak yayınlıyor; onların içinde arama yapılamıyor. Onlara ana
+   ekrandan bakabilirsiniz."
+4. Fiyat notu (`InfoNote`): "Fiyatlar broşürde yazdığı gibidir; broşürün tarihlerinde geçerlidir."
+
+### Sonuçlar
+
+- Başlık: "24 ürün bulundu" (ekran okuyucuya canlı bölge olarak duyurulur), altında "En ucuzu en üstte.
+  Paket boyları farklı olabilir." ve fiyat notu. Yazı ölçeği 1,3'ün üstündeyse fiyat notu listenin
+  **sonuna** iner: yoksa notlar ekranı doldurur, ilk sonuç görünmez (320 dp + ölçek 2,0'da denendi).
+- Liste sonunda her zaman: "Arama yapılan marketler: BİM, Migros. Diğer marketlerin broşürlerinde henüz
+  arama yapılamıyor." "En ucuzu" sözü ancak bu cümleyle birlikte doğrudur.
+- **Sıra** veri katmanından gelir: raf fiyatı artan. Üyelik fiyatı sırayı **etkilemez** (kartsız teyzeye
+  göre sıralanır); ekran yeniden sıralamaz.
+- **Sonuç kartı** (`SearchResultCard`), tamamı tek düğme:
+  - Üstte `ProductFacts`: fotoğraf (varsa), ad, marka, raf fiyatı (+ birim notu), eski fiyat ve indirim
+    rozeti, üyelik etiketi. Bölüm 14 aynen geçerlidir; kart fiyatı kendi çizmez.
+  - İnce çizgi, altında **kaynak satırı**: market plakası (logo ya da ad kartı, 92 × 48), yanında market
+    adı **yazıyla** ve broşürün tarih aralığı ("12–25 Kasım"), en sağda "Aç ›" işareti (`OpenCue`).
+    Ad yazıyla da durur, çünkü küçük plakadaki logo tanınmayabilir ve plaka yazı ölçeğiyle büyümez.
+  - Broşür **henüz başlamadıysa** (`valid_from` bugünden sonra) tarihin altında sakin sarı "Henüz
+    başlamadı" etiketi çıkar; fiyat bugün geçerli değildir ve kart bunu söylemek zorundadır.
+  - Dar kartta (320 dp'den dar) ya da çok büyük yazıda "Aç ›" kaynak satırının altına iner.
+  - Ekran okuyucu tek cümle okur: ad, marka, fiyat (birimiyle), eski fiyat, "Money ile: …", market,
+    tarih, (henüz başlamadı), "Broşürde görmek için dokunun".
+
+### Sonuca basınca
+
+- Ürünün sayfası biliniyorsa (`pageIndex`, broşürde sayfa var: BİM) broşür **o sayfada** açılır. Basılı
+  sayfa fiyatın en sağlam kanıtıdır; "Ürünler" sekmesine geçilirse ürün orada da en üsttedir.
+- Sayfa bilinmiyorsa (Migros: yalnızca ürün listesi) ürün listesi açılır; en üstte **"Aradığınız ürün"**
+  başlığı ve yeşil çerçeveli kart, altında "Bu broşürdeki bütün ürünler" ile listenin tamamı (ürün kendi
+  yerinde yeniden görünür). Listeyi ürüne kaydırmak yerine ürünü üste almak seçildi: kayan liste yaşlı
+  kullanıcıyı şaşırtır, değişken yükseklikli kartlarda da hedefi tutturmak güvenilir değildir.
+- Ürün o broşürün listesinde artık yoksa (dosya arada değişmişse) hiçbir şey üste alınmaz: eski bir
+  fiyatı "aradığınız ürün" diye göstermektense göstermemek.
+- "Geri" her zaman sonuçlara döner; araya başka ekran girmez.
+
+### Bulunamadı, bekleme, internet yok
+
+- **Bulunamadı:** "“kivi” bulunamadı", altında ne denenebileceği (sözcüğün yalnızca başını yazmak) ve
+  hangi marketlere bakıldığı, bakılamayanların da olduğu. Büyük "Başka ürün ara" düğmesi alanı boşaltıp
+  klavyeyi geri getirir. "Hiçbir markette yok" **denmez**; bilinen yalnızca aranan broşürlerde olmadığıdır.
+- **Hazırlanıyor:** halka + "Broşürlerdeki ürünler hazırlanıyor…". Alan bu sırada yazılabilir; dizin
+  gelince sonuçlar kendiliğinden görünür.
+- **İnternet yok, kayıt var:** sakin şerit; arama elde olanlarla çalışır.
+- **İnternet yok, kayıtlı ürün listesi yok** ya da katalog hiç alınamadı: tam alan "Arama şu an
+  yapılamıyor" + ne yapılacağı + "Tekrar dene".
+- **Hiçbir market yazılı fiyat yayınlamıyor:** "Şu an aranabilecek broşür yok" + broşürlere ana ekrandan
+  bakılabileceği.
+- Arka plandaki sessiz katalog yenilemesi sonuçları silmez (`skipLoadingOnReload`).
+- Bu ekranda hareket yoktur (bekleme halkası dışında); "hareketi azalt" için kapatılacak bir şey kalmaz.
+
+### Doğrulama
+
+`flutter test`: 299 geçiyor (2 araç testi bilerek atlanır); `flutter analyze` temiz.
+Ekran görüntüleri: bkz. "Durum" bölümünün altındaki not.

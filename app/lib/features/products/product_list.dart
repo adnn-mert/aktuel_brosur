@@ -12,9 +12,19 @@ import 'product_card.dart';
 
 /// The priced product list of a brochure, in the market's own order.
 class ProductList extends ConsumerWidget {
-  const ProductList({super.key, required this.brochure, this.onShowPage});
+  const ProductList({
+    super.key,
+    required this.brochure,
+    this.onShowPage,
+    this.highlight,
+  });
 
   final Brochure brochure;
+
+  /// The product the user came for (from the search). It is shown first,
+  /// under its own heading, and again at its place in the list below.
+  /// Ignored when the list of the brochure no longer contains it.
+  final Product? highlight;
 
   /// Called with a 0-based page index when "Sayfada göster" is pressed.
   /// Null (or a brochure without pages) hides those buttons.
@@ -65,6 +75,19 @@ class ProductList extends ConsumerWidget {
           );
         }
         final canShowPages = onShowPage != null && brochure.hasPages;
+        VoidCallback? showPageOf(Product product) {
+          final pageIndex = product.pageIndex;
+          final hasPage =
+              canShowPages &&
+              pageIndex != null &&
+              pageIndex < brochure.pages.length;
+          return hasPage ? () => onShowPage!(pageIndex) : null;
+        }
+
+        final wanted = highlight;
+        final pinned = wanted != null && file.products.contains(wanted)
+            ? wanted
+            : null;
         return ListView.builder(
           padding: const EdgeInsets.fromLTRB(
             AppSpace.screen,
@@ -75,31 +98,54 @@ class ProductList extends ConsumerWidget {
           itemCount: file.products.length + 1,
           itemBuilder: (context, index) {
             if (index == 0) {
+              final count = Text(
+                l10n.productCount(file.products.length),
+                style: AppType.body.copyWith(color: c.inkSoft),
+              );
               return ContentWidth(
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: AppSpace.sm),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      l10n.productCount(file.products.length),
-                      style: AppType.body.copyWith(color: c.inkSoft),
-                    ),
-                  ),
+                  child: pinned == null
+                      ? Align(alignment: Alignment.centerLeft, child: count)
+                      : Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Semantics(
+                              header: true,
+                              child: Text(
+                                l10n.searchedProductTitle,
+                                style: AppType.section.copyWith(color: c.ink),
+                              ),
+                            ),
+                            const SizedBox(height: AppSpace.sm),
+                            ProductCard(
+                              key: const ValueKey('searched-product'),
+                              product: pinned,
+                              highlighted: true,
+                              onShowPage: showPageOf(pinned),
+                            ),
+                            const SizedBox(height: AppSpace.xl),
+                            Semantics(
+                              header: true,
+                              child: Text(
+                                l10n.allProductsTitle,
+                                style: AppType.section.copyWith(color: c.ink),
+                              ),
+                            ),
+                            const SizedBox(height: AppSpace.xxs),
+                            count,
+                          ],
+                        ),
                 ),
               );
             }
             final product = file.products[index - 1];
-            final pageIndex = product.pageIndex;
-            final hasPage =
-                canShowPages &&
-                pageIndex != null &&
-                pageIndex < brochure.pages.length;
             return ContentWidth(
               child: Padding(
                 padding: const EdgeInsets.only(bottom: AppSpace.sm),
                 child: ProductCard(
                   product: product,
-                  onShowPage: hasPage ? () => onShowPage!(pageIndex) : null,
+                  onShowPage: showPageOf(product),
                 ),
               ),
             );

@@ -346,4 +346,120 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get updateRequiredDetail =>
       'Uygulamayı güncelleyince bütün broşürler görünür.';
+
+  @override
+  String get searchTitle => 'Ürün ara';
+
+  @override
+  String get searchEntryHint => 'Hangi markette kaç lira?';
+
+  @override
+  String get searchEntrySpoken => 'Ürün ara. Hangi markette kaç lira, bakın.';
+
+  @override
+  String get searchFieldHint => 'Ürün adı yazın';
+
+  @override
+  String get searchFieldSpoken => 'Aranacak ürünün adı';
+
+  @override
+  String get searchClear => 'Yazıyı sil';
+
+  @override
+  String get searchIdleTitle => 'Ne arıyorsunuz?';
+
+  @override
+  String get searchIdleMessage =>
+      'Ürünün adını yazın. Broşürlerde hangi markette kaç lira olduğunu ucuzdan pahalıya sıralarız.';
+
+  @override
+  String get searchTooShort => 'En az iki harf yazın.';
+
+  @override
+  String get searchExamplesTitle => 'Ya da birine dokunun';
+
+  @override
+  String get searchExamples =>
+      'Süt, Çay, Peynir, Yumurta, Yağ, Şeker, Makarna, Pirinç, Deterjan, Kahve, Tavuk, Şampuan';
+
+  @override
+  String searchExampleSpoken(String word) {
+    return '$word ara';
+  }
+
+  @override
+  String get searchCoverageTitle => 'Arama yapılan marketler';
+
+  @override
+  String get searchCoverageNote =>
+      'Diğer marketler broşürlerini resim olarak yayınlıyor; onların içinde arama yapılamıyor. Onlara ana ekrandan bakabilirsiniz.';
+
+  @override
+  String get searchPriceNote =>
+      'Fiyatlar broşürde yazdığı gibidir; broşürün tarihlerinde geçerlidir.';
+
+  @override
+  String get searchSortNote =>
+      'En ucuzu en üstte. Paket boyları farklı olabilir.';
+
+  @override
+  String searchResultCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ürün bulundu',
+      one: '1 ürün bulundu',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get searchLoading => 'Broşürlerdeki ürünler hazırlanıyor…';
+
+  @override
+  String searchNoResultsTitle(String query) {
+    return '“$query” bulunamadı';
+  }
+
+  @override
+  String get searchNoResultsMessage =>
+      'Aranan broşürlerde bu adla bir ürün yok. Sözcüğün yalnızca başını yazmayı deneyin; örneğin “ekmek” yerine “ekme”.';
+
+  @override
+  String searchNoResultsCoverage(String names) {
+    return 'Arama yapılan marketler: $names. Diğer marketlerin broşürlerinde henüz arama yapılamıyor.';
+  }
+
+  @override
+  String get searchNewSearch => 'Başka ürün ara';
+
+  @override
+  String get searchErrorTitle => 'Arama şu an yapılamıyor';
+
+  @override
+  String get searchEmptyIndexTitle => 'Şu an aranabilecek broşür yok';
+
+  @override
+  String get searchEmptyIndexMessage =>
+      'Marketler fiyatlarını yazı olarak yayınlayınca burada arayabilirsiniz. Broşürlere ana ekrandan bakabilirsiniz.';
+
+  @override
+  String get searchOfflineNotice =>
+      'İnternet yok. Yalnızca daha önce açtığınız broşürlerde aranıyor.';
+
+  @override
+  String get searchOpenSpoken => 'Broşürde görmek için dokunun';
+
+  @override
+  String get searchUpcoming => 'Henüz başlamadı';
+
+  @override
+  String get searchedProductTitle => 'Aradığınız ürün';
+
+  @override
+  String get allProductsTitle => 'Bu broşürdeki bütün ürünler';
+
+  @override
+  String get searchOfflineEmptyMessage =>
+      'İnternet yokken yalnızca daha önce açtığınız broşürlerde aranabiliyor. Bağlantınızı kontrol edip tekrar deneyin.';
 }

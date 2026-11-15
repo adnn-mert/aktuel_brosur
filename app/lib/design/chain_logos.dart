@@ -8,6 +8,7 @@
 library;
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/painting.dart' show Color;
 
 @immutable
 class ChainLogo {
@@ -33,4 +34,23 @@ const Map<String, ChainLogo> chainLogos = {
   'migros': ChainLogo('$_dir/migros.png', onBrandColor: true),
   'carrefoursa': ChainLogo('$_dir/carrefoursa.png'),
   'gratis': ChainLogo('$_dir/gratis.png'),
+};
+
+/// Name-card colours for chains the catalog gives no `brand_color` for.
+///
+/// Used only when the chain has no logo file and the catalog has no colour
+/// (a colour in the catalog always wins). Each is a flat background close to
+/// the dominant colour of the market's own brochures and shop signs; none is
+/// claimed to be an official brand value and none is artwork. The name on
+/// top picks black or white by contrast (`AppColors.onBrand`), so every
+/// entry stays at 4.5:1 or better (tested).
+///
+/// The two reds differ in warmth on purpose, but what tells two markets
+/// apart is the name written large, never the colour alone.
+const Map<String, Color> chainPlateColors = {
+  'hakmar': Color(0xFFD62B1F), // warm red
+  'bonveno': Color(0xFFB5175E), // raspberry
+  'metro': Color(0xFF003B7E), // navy
+  'rossmann': Color(0xFFB00030), // deep crimson
+  'tkkoop': Color(0xFF00843D), // green
 };

@@ -1,7 +1,13 @@
+import 'package:aktuel_brosur/data/data.dart';
+import 'package:aktuel_brosur/design/chain_logos.dart';
 import 'package:aktuel_brosur/design/tokens.dart';
 import 'package:aktuel_brosur/design/typography.dart';
 import 'package:flutter/material.dart';
+import 'package:aktuel_brosur/design/widgets/chain_mark.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import '../helpers.dart';
+import 'support.dart';
 
 void main() {
   for (final (name, c) in [
@@ -58,6 +64,76 @@ void main() {
         reason: brand.toString(),
       );
     }
+  });
+
+  group('name-card colours of chains without a catalog colour', () {
+    test('cover the new chains and keep the name readable', () {
+      expect(
+        chainPlateColors.keys,
+        containsAll(['hakmar', 'bonveno', 'metro', 'rossmann', 'tkkoop']),
+      );
+      for (final MapEntry(key: id, value: plate) in chainPlateColors.entries) {
+        for (final c in [AppColors.light, AppColors.dark]) {
+          expect(
+            contrastRatio(c.onBrand(plate), plate),
+            greaterThanOrEqualTo(4.5),
+            reason: id,
+          );
+        }
+        // No bundled logo: these are name cards, not logo plates.
+        expect(chainLogos.containsKey(id), isFalse, reason: id);
+      }
+      // Every plate is its own colour.
+      expect(chainPlateColors.values.toSet().length, chainPlateColors.length);
+    });
+
+    Color plateOf(WidgetTester tester) =>
+        (tester.widget<Container>(find.byType(Container)).decoration!
+                as BoxDecoration)
+            .color!;
+
+    testWidgets('a chain without a colour gets its plate colour', (
+      tester,
+    ) async {
+      await pumpUi(
+        tester,
+        Scaffold(
+          body: ChainMark(chain: chain('tkkoop', name: 'Tarım Kredi')),
+        ),
+      );
+      expect(plateOf(tester), chainPlateColors['tkkoop']);
+      expect(find.text('Tarım Kredi'), findsOneWidget);
+    });
+
+    testWidgets('a colour from the catalog wins over the plate colour', (
+      tester,
+    ) async {
+      const fromCatalog = Chain(
+        id: 'hakmar',
+        name: 'Hakmar',
+        country: 'TR',
+        kind: ChainKind.scraped,
+        webUrl: 'https://example.com',
+        status: ChainStatus.ok,
+        lastOkAt: null,
+        sortOrder: 0,
+        brandColor: 0xFF123456,
+      );
+      await pumpUi(tester, const Scaffold(body: ChainMark(chain: fromCatalog)));
+      expect(plateOf(tester), const Color(0xFF123456));
+    });
+
+    testWidgets('an unknown chain without a colour keeps the calm plate', (
+      tester,
+    ) async {
+      await pumpUi(
+        tester,
+        Scaffold(
+          body: ChainMark(chain: chain('yeni', name: 'Yeni Market')),
+        ),
+      );
+      expect(plateOf(tester), AppColors.light.primarySoft);
+    });
   });
 
   test('no text style is smaller than 18 sp', () {

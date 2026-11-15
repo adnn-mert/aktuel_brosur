@@ -32,7 +32,11 @@ class ChainMark extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.colors;
     final logo = chainLogos[chain.id];
-    final brand = chain.brandColor == null ? null : Color(chain.brandColor!);
+    // The catalog's colour wins; the app's own list covers chains that
+    // come without one.
+    final brand = chain.brandColor == null
+        ? chainPlateColors[chain.id]
+        : Color(chain.brandColor!);
 
     final Color plate;
     final Widget content;

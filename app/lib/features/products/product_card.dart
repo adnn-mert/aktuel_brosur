@@ -24,12 +24,69 @@ import '../../l10n/app_localizations.dart';
 ///
 /// A unit note ("kg fiyatı") is glued to every price it applies to.
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key, required this.product, this.onShowPage});
+  const ProductCard({
+    super.key,
+    required this.product,
+    this.onShowPage,
+    this.highlighted = false,
+  });
 
   final Product product;
 
   /// Opens the brochure page that shows this product; null hides the button.
   final VoidCallback? onShowPage;
+
+  /// Frames the card in the action colour: the product the user came here
+  /// for (from the search). The frame is extra; the heading above it says so
+  /// in words.
+  final bool highlighted;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final l10n = AppLocalizations.of(context);
+
+    final card = AppCard(
+      padding: const EdgeInsets.all(AppSpace.md),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          MergeSemantics(child: ProductFacts(product: product)),
+          if (onShowPage != null) ...[
+            const SizedBox(height: AppSpace.sm),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: AppButton(
+                label: l10n.showOnPage,
+                icon: Icons.menu_book_rounded,
+                kind: AppButtonKind.tonal,
+                minHeight: AppSize.touch,
+                onPressed: onShowPage,
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+    if (!highlighted) return card;
+    return DecoratedBox(
+      position: DecorationPosition.foreground,
+      decoration: BoxDecoration(
+        borderRadius: AppRadius.lgAll,
+        border: Border.all(color: c.primary, width: AppSize.focusRing),
+      ),
+      child: card,
+    );
+  }
+}
+
+/// What a product is and what it costs: photo, name, brand and the prices.
+/// The one place the price language of section 14 is drawn, so a product
+/// looks the same in a brochure's list and in the search results.
+class ProductFacts extends StatelessWidget {
+  const ProductFacts({super.key, required this.product});
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -90,54 +147,31 @@ class ProductCard extends StatelessWidget {
       ],
     );
 
-    return AppCard(
-      padding: const EdgeInsets.all(AppSpace.md),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          MergeSemantics(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (product.image != null) ...[
-                  ClipRRect(
-                    borderRadius: AppRadius.smAll,
-                    child: SizedBox.square(
-                      dimension: AppSize.productImage,
-                      child: ColoredBox(
-                        color: c.logoPlate,
-                        child: CatalogImage(
-                          url: product.image,
-                          fit: BoxFit.contain,
-                          logicalWidth: AppSize.productImage,
-                          placeholder: const CoverPlaceholder(
-                            icon: Icons.shopping_basket_rounded,
-                          ),
-                        ),
-                      ),
-                    ),
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (product.image != null) ...[
+          ClipRRect(
+            borderRadius: AppRadius.smAll,
+            child: SizedBox.square(
+              dimension: AppSize.productImage,
+              child: ColoredBox(
+                color: c.logoPlate,
+                child: CatalogImage(
+                  url: product.image,
+                  fit: BoxFit.contain,
+                  logicalWidth: AppSize.productImage,
+                  placeholder: const CoverPlaceholder(
+                    icon: Icons.shopping_basket_rounded,
                   ),
-                  const SizedBox(width: AppSpace.md),
-                ],
-                Expanded(child: details),
-              ],
-            ),
-          ),
-          if (onShowPage != null) ...[
-            const SizedBox(height: AppSpace.sm),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: AppButton(
-                label: l10n.showOnPage,
-                icon: Icons.menu_book_rounded,
-                kind: AppButtonKind.tonal,
-                minHeight: AppSize.touch,
-                onPressed: onShowPage,
+                ),
               ),
             ),
-          ],
+          ),
+          const SizedBox(width: AppSpace.md),
         ],
-      ),
+        Expanded(child: details),
+      ],
     );
   }
 }

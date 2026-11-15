@@ -18,12 +18,18 @@ class BrochureScreen extends ConsumerStatefulWidget {
     super.key,
     required this.brochureId,
     this.initialPage = 0,
+    this.focusProduct,
   });
 
   final String brochureId;
 
   /// 0-based page to open first.
   final int initialPage;
+
+  /// The product the user came for (from the search). The product list
+  /// shows it first; a brochure that has pages opens on the list instead of
+  /// the pages when the product does not say which page prints it.
+  final Product? focusProduct;
 
   @override
   ConsumerState<BrochureScreen> createState() => _BrochureScreenState();
@@ -70,13 +76,19 @@ class _BrochureScreenState extends ConsumerState<BrochureScreen> {
     final today = ref.watch(clockProvider).today();
     final dates = formatBrochureDates(brochure, today);
     final both = brochure.hasPages && brochure.hasProducts;
+    final focus = widget.focusProduct;
+    final focusPage = focus?.pageIndex;
+    // Coming from the search without a known page: start on the list.
+    final startOnProducts =
+        focus != null &&
+        (focusPage == null || focusPage >= brochure.pages.length);
     final showProducts = brochure.hasPages
-        ? (brochure.hasProducts && (_showProducts ?? false))
+        ? (brochure.hasProducts && (_showProducts ?? startOnProducts))
         : true;
 
     final Widget body;
     if (!brochure.hasPages) {
-      body = ProductList(brochure: brochure);
+      body = ProductList(brochure: brochure, highlight: focus);
     } else if (!brochure.hasProducts) {
       body = BrochurePageViewer(
         key: _viewerKey,
@@ -96,9 +108,10 @@ class _BrochureScreenState extends ConsumerState<BrochureScreen> {
             initialPage: widget.initialPage,
             pickerTitle: chain?.name,
           ),
-          if (_productsOpened)
+          if (_productsOpened || showProducts)
             ProductList(
               brochure: brochure,
+              highlight: focus,
               onShowPage: (index) {
                 _select(products: false);
                 _viewerKey.currentState?.showPage(index);

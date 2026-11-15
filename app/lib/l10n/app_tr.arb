@@ -478,5 +478,149 @@
   "updateRequiredDetail": "Uygulamayı güncelleyince bütün broşürler görünür.",
   "@updateRequiredDetail": {
     "description": "Second line of the update notice."
+  },
+  "searchTitle": "Ürün ara",
+  "@searchTitle": {
+    "description": "Label of the big search button on the home screen and title of the search screen."
+  },
+  "searchEntryHint": "Hangi markette kaç lira?",
+  "@searchEntryHint": {
+    "description": "Second line of the home screen's search button: what searching is for."
+  },
+  "searchEntrySpoken": "Ürün ara. Hangi markette kaç lira, bakın.",
+  "@searchEntrySpoken": {
+    "description": "Screen-reader text of the home screen's search button."
+  },
+  "searchFieldHint": "Ürün adı yazın",
+  "@searchFieldHint": {
+    "description": "Hint inside the empty search field."
+  },
+  "searchFieldSpoken": "Aranacak ürünün adı",
+  "@searchFieldSpoken": {
+    "description": "Screen-reader label of the search field."
+  },
+  "searchClear": "Yazıyı sil",
+  "@searchClear": {
+    "description": "Label of the button that empties the search field."
+  },
+  "searchIdleTitle": "Ne arıyorsunuz?",
+  "@searchIdleTitle": {
+    "description": "Heading of the search screen before anything is typed."
+  },
+  "searchIdleMessage": "Ürünün adını yazın. Broşürlerde hangi markette kaç lira olduğunu ucuzdan pahalıya sıralarız.",
+  "@searchIdleMessage": {
+    "description": "Explanation under searchIdleTitle."
+  },
+  "searchTooShort": "En az iki harf yazın.",
+  "@searchTooShort": {
+    "description": "Shown while fewer than two letters are typed."
+  },
+  "searchExamplesTitle": "Ya da birine dokunun",
+  "@searchExamplesTitle": {
+    "description": "Heading above the example words."
+  },
+  "searchExamples": "Süt, Çay, Peynir, Yumurta, Yağ, Şeker, Makarna, Pirinç, Deterjan, Kahve, Tavuk, Şampuan",
+  "@searchExamples": {
+    "description": "Comma-separated example words offered as big buttons before typing. Only those that have results are shown."
+  },
+  "searchExampleSpoken": "{word} ara",
+  "@searchExampleSpoken": {
+    "description": "Screen-reader text of an example word button.",
+    "placeholders": {
+      "word": {
+        "type": "String"
+      }
+    }
+  },
+  "searchCoverageTitle": "Arama yapılan marketler",
+  "@searchCoverageTitle": {
+    "description": "Heading above the markets whose brochures can be searched."
+  },
+  "searchCoverageNote": "Diğer marketler broşürlerini resim olarak yayınlıyor; onların içinde arama yapılamıyor. Onlara ana ekrandan bakabilirsiniz.",
+  "@searchCoverageNote": {
+    "description": "Honest note: image-only brochures are not searched."
+  },
+  "searchPriceNote": "Fiyatlar broşürde yazdığı gibidir; broşürün tarihlerinde geçerlidir.",
+  "@searchPriceNote": {
+    "description": "Honesty note shown with the results and before typing."
+  },
+  "searchSortNote": "En ucuzu en üstte. Paket boyları farklı olabilir.",
+  "@searchSortNote": {
+    "description": "Explains the order of the results and its limit."
+  },
+  "searchResultCount": "{count, plural, =1{1 ürün bulundu} other{{count} ürün bulundu}}",
+  "@searchResultCount": {
+    "description": "Heading above the results.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "searchLoading": "Broşürlerdeki ürünler hazırlanıyor…",
+  "@searchLoading": {
+    "description": "Shown while the search index is being built."
+  },
+  "searchNoResultsTitle": "“{query}” bulunamadı",
+  "@searchNoResultsTitle": {
+    "description": "Title when nothing matches the typed text.",
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "searchNoResultsMessage": "Aranan broşürlerde bu adla bir ürün yok. Sözcüğün yalnızca başını yazmayı deneyin; örneğin “ekmek” yerine “ekme”.",
+  "@searchNoResultsMessage": {
+    "description": "Advice under searchNoResultsTitle."
+  },
+  "searchNoResultsCoverage": "Arama yapılan marketler: {names}. Diğer marketlerin broşürlerinde henüz arama yapılamıyor.",
+  "@searchNoResultsCoverage": {
+    "description": "Says which markets were searched when nothing was found.",
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "searchNewSearch": "Başka ürün ara",
+  "@searchNewSearch": {
+    "description": "Button that empties the field after a search without results."
+  },
+  "searchErrorTitle": "Arama şu an yapılamıyor",
+  "@searchErrorTitle": {
+    "description": "Title when the search index could not be built."
+  },
+  "searchEmptyIndexTitle": "Şu an aranabilecek broşür yok",
+  "@searchEmptyIndexTitle": {
+    "description": "Title when no brochure publishes its prices as text."
+  },
+  "searchEmptyIndexMessage": "Marketler fiyatlarını yazı olarak yayınlayınca burada arayabilirsiniz. Broşürlere ana ekrandan bakabilirsiniz.",
+  "@searchEmptyIndexMessage": {
+    "description": "Message under searchEmptyIndexTitle."
+  },
+  "searchOfflineNotice": "İnternet yok. Yalnızca daha önce açtığınız broşürlerde aranıyor.",
+  "@searchOfflineNotice": {
+    "description": "Notice on the search screen when cached data is used."
+  },
+  "searchOpenSpoken": "Broşürde görmek için dokunun",
+  "@searchOpenSpoken": {
+    "description": "Screen-reader hint at the end of a search result."
+  },
+  "searchUpcoming": "Henüz başlamadı",
+  "@searchUpcoming": {
+    "description": "Tag on a search result whose brochure starts on a later day."
+  },
+  "searchedProductTitle": "Aradığınız ürün",
+  "@searchedProductTitle": {
+    "description": "Heading above the product the user came for, at the top of a brochure's product list."
+  },
+  "allProductsTitle": "Bu broşürdeki bütün ürünler",
+  "@allProductsTitle": {
+    "description": "Heading above the full product list when a searched product is shown first."
+  },
+  "searchOfflineEmptyMessage": "İnternet yokken yalnızca daha önce açtığınız broşürlerde aranabiliyor. Bağlantınızı kontrol edip tekrar deneyin.",
+  "@searchOfflineEmptyMessage": {
+    "description": "Message when the device is offline and no product list is saved."
   }
 }
