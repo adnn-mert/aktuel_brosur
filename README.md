@@ -159,8 +159,7 @@ default debug key, not a store key.
 The project was planned and reviewed by a Claude orchestrator session; the code was written by
 Claude subagents with the `worker` (scraper, data layer, workflows, tests) and `designer` (UI and
 UX) roles defined in [`.claude/agents/`](.claude/agents/). The orchestrator wrote the tasks,
-read the diffs, re-ran the tests and checked the app on an emulator before committing. Every
-decision and the progress log are in [`PLAN.md`](PLAN.md) (in Turkish).
+read the diffs, re-ran the tests and checked the app on an emulator before committing.
 
 ## Status and limitations
 
