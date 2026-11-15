@@ -166,7 +166,7 @@ def test_relative_and_https_urls_are_accepted(catalog) -> None:
         (("generated_at",), "2026-11-13T09:00:12+03:00", "generated_at"),
         (("generated_at",), "2026-13-45T09:00:12Z", "generated_at"),
         (("min_app_version",), 0, "min_app_version"),
-        (("chains", 0, "country"), "tr", "chains[0].country"),
+        (("chains", 0, "country"), "DE", "chains[0].country"),
         (("chains", 0, "kind"), "scrape", "chains[0].kind"),
         (("chains", 0, "status"), "broken", "chains[0].status"),
         (("chains", 0, "brand_color"), "red", "chains[0].brand_color"),

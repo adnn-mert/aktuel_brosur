@@ -28,7 +28,6 @@ class Chain {
   const Chain({
     required this.id,
     required this.name,
-    required this.country,
     required this.kind,
     required this.webUrl,
     required this.status,
@@ -63,7 +62,6 @@ class Chain {
     return Chain(
       id: id,
       name: r.nonEmptyString('name'),
-      country: r.string('country'),
       kind: kind,
       webUrl: r.nonEmptyString('web_url'),
       status: status,
@@ -82,9 +80,6 @@ class Chain {
 
   /// Display name with correct Turkish letters (e.g. `BİM`, `Şok`).
   final String name;
-
-  /// ISO 3166-1 alpha-2 country code (`TR`).
-  final String country;
 
   final ChainKind kind;
 
@@ -115,7 +110,6 @@ class Chain {
       other is Chain &&
       other.id == id &&
       other.name == name &&
-      other.country == country &&
       other.kind == kind &&
       other.webUrl == webUrl &&
       other.status == status &&
@@ -128,7 +122,6 @@ class Chain {
   int get hashCode => Object.hash(
     id,
     name,
-    country,
     kind,
     webUrl,
     status,

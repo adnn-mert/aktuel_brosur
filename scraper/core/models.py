@@ -76,7 +76,6 @@ class Page:
 class Chain:
     id: str
     name: str
-    country: str
     kind: ChainKind
     web_url: str
     status: ChainStatus
@@ -93,7 +92,8 @@ class Chain:
         out: dict[str, Any] = {
             "id": self.id,
             "name": self.name,
-            "country": self.country,
+            # Legacy: app v1.0.0 requires this key; keep until that release is retired.
+            "country": "TR",
             "kind": self.kind.value,
             "web_url": self.web_url,
             "status": self.status.value,
@@ -112,7 +112,6 @@ class Chain:
         return cls(
             id=data["id"],
             name=data["name"],
-            country=data["country"],
             kind=ChainKind(data["kind"]),
             web_url=data["web_url"],
             status=ChainStatus(data["status"]),

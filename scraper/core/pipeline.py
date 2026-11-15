@@ -567,7 +567,6 @@ def _chain(info: ChainInfo, status: ChainStatus, last_ok_at: datetime | None) ->
     return Chain(
         id=info.id,
         name=info.name,
-        country=info.country,
         kind=info.kind,
         web_url=info.web_url,
         status=status,

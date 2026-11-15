@@ -89,6 +89,8 @@ void main() {
       json['future_root_field'] = {'x': 1};
       for (final c in _chains(json)) {
         (c as Map<String, dynamic>)['future'] = [1, 2];
+        // Catalogs published for app v1.0.0 still carry this key.
+        c['legacy_key'] = 'TR';
       }
       for (final b in _brochures(json)) {
         final map = b as Map<String, dynamic>;

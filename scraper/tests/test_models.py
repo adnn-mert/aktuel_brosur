@@ -54,7 +54,6 @@ def _catalog() -> Catalog:
             Chain(
                 id="sok",
                 name="Şok",
-                country="TR",
                 kind=ChainKind.SCRAPED,
                 web_url="https://kurumsal.sokmarket.com.tr/tr/firsatlar",
                 status=ChainStatus.OK,
@@ -65,7 +64,6 @@ def _catalog() -> Catalog:
             Chain(
                 id="gratis",
                 name="Gratis",
-                country="TR",
                 kind=ChainKind.WEBVIEW,
                 web_url="https://www.gratis.com/gratis-katalog",
                 status=ChainStatus.OK,
@@ -191,6 +189,12 @@ def test_optional_chain_fields_are_omitted_when_none() -> None:
     assert "logo_url" not in data["chains"][0]
     assert data["chains"][0]["brand_color"] == "#FFD100"
     assert "brand_color" not in data["chains"][1]
+
+
+def test_serialised_chains_carry_legacy_country(catalog) -> None:
+    # App v1.0.0 still requires the key; the model no longer has the attribute.
+    assert all(c["country"] == "TR" for c in _catalog().to_dict()["chains"])
+    assert not hasattr(Catalog.from_dict(catalog).chains[0], "country")
 
 
 def test_from_dict_ignores_unknown_fields(catalog) -> None:

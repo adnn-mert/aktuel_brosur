@@ -26,7 +26,6 @@ Chain chain(
 }) => Chain(
   id: id,
   name: name ?? id,
-  country: 'TR',
   kind: kind,
   webUrl: 'https://example.com/$id',
   status: status,

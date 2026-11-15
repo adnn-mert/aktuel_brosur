@@ -55,7 +55,10 @@
       "properties": {
         "id": { "$ref": "#/$defs/chainId" },
         "name": { "$ref": "#/$defs/nonEmptyString" },
-        "country": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "country": {
+          "const": "TR",
+          "description": "Legacy: app v1.0.0 requires this key on every chain; always TR. Keep until that release is retired."
+        },
         "kind": { "enum": ["scraped", "webview"] },
         "web_url": { "$ref": "#/$defs/httpsUrl" },
         "status": { "enum": ["ok", "stale"] },

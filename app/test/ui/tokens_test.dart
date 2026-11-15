@@ -111,7 +111,6 @@ void main() {
       const fromCatalog = Chain(
         id: 'hakmar',
         name: 'Hakmar',
-        country: 'TR',
         kind: ChainKind.scraped,
         webUrl: 'https://example.com',
         status: ChainStatus.ok,

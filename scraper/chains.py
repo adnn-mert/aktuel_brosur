@@ -20,7 +20,6 @@ class ChainInfo:
     kind: ChainKind
     web_url: str
     sort_order: int
-    country: str = "TR"
     # The designer's contrast-checked colours (app/assets/sample/catalog.json). A chain
     # without one is left empty; the app falls back to a neutral colour.
     brand_color: str | None = None
