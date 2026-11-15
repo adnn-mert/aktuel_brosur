@@ -175,4 +175,5 @@ decision and the progress log are in [`PLAN.md`](PLAN.md) (in Turkish).
 
 ## License
 
-No license has been chosen yet: all rights reserved for now.
+The code is released under the [MIT License](LICENSE). Brochure content (images, texts and
+prices) belongs to the respective chains and is not covered by this license.
