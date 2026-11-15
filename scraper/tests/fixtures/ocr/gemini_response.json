@@ -1,0 +1,21 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "role": "model",
+    "parts": [
+     {"text": "Thinking summary that must be ignored.", "thought": true},
+     {"text": "{\"products\": [{\"name\": \"Bouquet Çay Bardağı\", \"brand\": \"Paşabahçe\", \"quantity_text\": \"~170 cc 6'lı\", \"price\": \"219\", \"old_price\": null}, {\"name\": \"Cam Kupa\", \"brand\": \"Glass in Love\", \"quantity_text\": \"~190 ml\", \"price\": \"229₺\", \"old_price\": null}, {\"name\": \"Tasty Cam Kavanoz\", \"brand\": \"LAV\", \"quantity_text\": \"~575 cc\", \"price\": \"35\", \"old_price\": null}, {\"name\": \"Tasty Cam Kavanoz\", \"brand\": \"LAV\", \"quantity_text\": \"~1050 cc\", \"price\": \"45\", \"old_price\": null}, {\"name\": \"Gravür Kenarlı Borcam Fırın Tepsisi\", \"brand\": \"Borcam\", \"quantity_text\": \"~37 cm ~2850 cc\", \"price\": \"2.990\", \"old_price\": null}, {\"name\": \"Kahve Makinesi\", \"brand\": null, \"quantity_text\": null, \"price\": \"1.299,00\", \"old_price\": null}]}"}
+    ]
+   },
+   "finishReason": "STOP"
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 1290,
+  "candidatesTokenCount": 410,
+  "thoughtsTokenCount": 800,
+  "totalTokenCount": 2500
+ },
+ "modelVersion": "gemini-3.8-flash"
+}

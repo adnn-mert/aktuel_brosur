@@ -1,0 +1,38 @@
+{
+ "image_url": "https://cdn1.bim.com.tr/uploads/afisler/61ea4622-fecc-4a48-b009-04e9606cb1d2.jpg",
+ "brochure_id": "bim-aktuel-2026-11-22",
+ "response": {
+  "candidates": [
+   {
+    "content": {
+     "parts": [
+      {
+       "text": "{\"products\":[{\"name\":\"TAM OTOMATİK ESPRESSO MAKİNE EP3341/50\",\"brand\":\"PHILIPS\",\"quantity_text\":null,\"price\":\"15.900\",\"old_price\":null},{\"name\":\"El Blender Seti\",\"brand\":\"arnica\",\"quantity_text\":null,\"price\":\"1.990\",\"old_price\":null},{\"name\":\"Choppstar Doğrayıcı\",\"brand\":\"Heifer CHEF'S\",\"quantity_text\":null,\"price\":\"1.290\",\"old_price\":null},{\"name\":\"Cam Kettle\",\"brand\":\"Heifer\",\"quantity_text\":null,\"price\":\"990\",\"old_price\":null},{\"name\":\"Pro Suction X 250 W Şarjlı Dikey Süpürge\",\"brand\":\"Heifer\",\"quantity_text\":null,\"price\":\"5.900\",\"old_price\":null},{\"name\":\"Masaj Tabancası\",\"brand\":\"NORDICA.\",\"quantity_text\":null,\"price\":\"590\",\"old_price\":null},{\"name\":\"Türk Kahve Makinesi\",\"brand\":\"Fakir\",\"quantity_text\":null,\"price\":\"1.990\",\"old_price\":null},{\"name\":\"Dik Durabilen Süpürge Lucky\",\"brand\":\"Fakir\",\"quantity_text\":null,\"price\":\"2.490\",\"old_price\":null},{\"name\":\"Smart Tartı PSC84\",\"brand\":\"polosmart\",\"quantity_text\":null,\"price\":\"599\",\"old_price\":null},{\"name\":\"Sıfır Sakal Tıraş Makinesi Mini PSC118\",\"brand\":\"polosmart\",\"quantity_text\":null,\"price\":\"699\",\"old_price\":null},{\"name\":\"Hibrit Tıraş Makinesi\",\"brand\":\"PHILIPS OneBlade\",\"quantity_text\":null,\"price\":\"1.390\",\"old_price\":null},{\"name\":\"Epilatör Bre229/00\",\"brand\":\"PHILIPS\",\"quantity_text\":null,\"price\":\"1.190\",\"old_price\":null}]}"
+      }
+     ],
+     "role": "model"
+    },
+    "finishReason": "STOP",
+    "index": 0
+   }
+  ],
+  "usageMetadata": {
+   "promptTokenCount": 1311,
+   "candidatesTokenCount": 451,
+   "totalTokenCount": 2135,
+   "promptTokensDetails": [
+    {
+     "modality": "IMAGE",
+     "tokenCount": 1080
+    },
+    {
+     "modality": "TEXT",
+     "tokenCount": 231
+    }
+   ],
+   "thoughtsTokenCount": 373,
+   "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-3.8-flash"
+ }
+}
