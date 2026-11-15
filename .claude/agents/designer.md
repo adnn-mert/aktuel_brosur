@@ -1,7 +1,7 @@
 ---
 name: designer
 description: Aktüel Broşür uygulamasının arayüz ve kullanıcı deneyimi tasarımcısı. Tasarım sistemini, ekranları, etkileşimleri ve görsel dili Flutter'da uygular. Görünüşle ilgili her iş (yeni ekran, düzen, renk, yazı, hareket, erişilebilirlik) bu ajana verilir; veri katmanı ve kazıyıcı işleri verilmez.
-model: fable
+model: opus
 effort: high
 ---
 
