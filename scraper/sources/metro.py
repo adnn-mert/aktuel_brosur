@@ -8,6 +8,8 @@ or an adjacent month. The quarterly "Metro Gastro" magazine ("sayi" slugs) is no
 
 from __future__ import annotations
 
+import re
+from dataclasses import replace
 from datetime import date, timedelta
 
 import httpx
@@ -34,6 +36,22 @@ KNOWN_SLUGS = (
 MAX_CHECKED = 12
 MAX_AGE_DAYS = 45
 MAGAZINE_WORD = "sayi"
+_MONTH_SUFFIX = re.compile(r"\s*\|\s*([^|]+?)\s*$")
+
+
+def clean_title(title: str) -> str:
+    """Drop a trailing " | Kasım" style month suffix (any Turkish month, optional year).
+
+    The month is already shown as the brochure's dates; only the display title changes,
+    never the id or the validity.
+    """
+    m = _MONTH_SUFFIX.search(title)
+    if not m:
+        return title
+    words = fold_turkish(m.group(1)).split()
+    if words and words[0] in TURKISH_MONTHS and (len(words) == 1 or (len(words) == 2 and words[1].isdigit())):
+        return title[: m.start()].rstrip() or title
+    return title
 
 
 def candidate_slugs(sitemap_slugs: list[str], today: date) -> list[str]:
@@ -76,7 +94,8 @@ class MetroSource:
             except (SourceError, httpx.HTTPError) as exc:
                 warnings.append(f"{slug}: {exc}")
                 continue
-            brochures.append(publication_brochure(CHAIN_ID, pub, source_url=f"{ROOT}/{slug}/", today=ctx.today, now=ctx.now))
+            brochure = publication_brochure(CHAIN_ID, pub, source_url=f"{ROOT}/{slug}/", today=ctx.today, now=ctx.now)
+            brochures.append(replace(brochure, title=clean_title(brochure.title)))
         if not brochures:
             raise SourceError(f"Metro: no publication found among {MAX_CHECKED} checked slugs; {'; '.join(warnings)}")
         return SourceResult(brochures=brochures, warnings=warnings)

@@ -35,6 +35,66 @@ _IMAGE = re.compile(
 )
 
 
+# The source writes titles without Turkish letters ("Kasim Guzellik Katalogu"). Only words known
+# to be Turkish are restored; anything else (brand names, English words) stays as it is.
+_TURKISH_WORDS = {
+    "ocak": "Ocak",
+    "subat": "Şubat",
+    "mart": "Mart",
+    "nisan": "Nisan",
+    "mayis": "Mayıs",
+    "haziran": "Haziran",
+    "temmuz": "Temmuz",
+    "agustos": "Ağustos",
+    "eylul": "Eylül",
+    "ekim": "Ekim",
+    "kasim": "Kasım",
+    "aralik": "Aralık",
+    "guzellik": "Güzellik",
+    "katalogu": "Kataloğu",
+    "kisisel": "Kişisel",
+    "bakim": "Bakım",
+    "yasam": "Yaşam",
+    "urunleri": "Ürünleri",
+    "urun": "Ürün",
+    "firsatlari": "Fırsatları",
+    "indirim": "İndirim",
+    "indirimleri": "İndirimleri",
+    "ozel": "Özel",
+    "buyuk": "Büyük",
+    "cocuk": "Çocuk",
+    "parfum": "Parfüm",
+    "saglik": "Sağlık",
+    "yilbasi": "Yılbaşı",
+    "kampanyasi": "Kampanyası",
+    "firsat": "Fırsat",
+    "hediye": "Hediye",
+}
+_WORD = re.compile(r"[^\W\d_]+")
+_UPPER = str.maketrans({"i": "İ", "ı": "I"})
+_LOWER_FIRST = str.maketrans({"İ": "i"})
+
+
+def restore_turkish_title(title: str) -> str:
+    """Put Turkish letters back into a title the source wrote in plain ASCII.
+
+    Word-level and case-preserving ("KASIM" stays upper case); unknown words are unchanged.
+    """
+
+    def fix(match: re.Match[str]) -> str:
+        word = match.group(0)
+        known = _TURKISH_WORDS.get(word.lower())
+        if known is None:
+            return word
+        if len(word) > 1 and word.isupper():
+            return known.translate(_UPPER).upper()
+        if word.islower():
+            return known[0].translate(_LOWER_FIRST).lower() + known[1:]
+        return known
+
+    return _WORD.sub(fix, title)
+
+
 @dataclass(frozen=True, slots=True)
 class CatalogRef:
     year: int
@@ -107,7 +167,7 @@ def catalog_brochure(ref: CatalogRef, settings: CatalogSettings, today: date, no
     return Brochure(
         id=brochure_id(CHAIN_ID, ref.year, ref.month, ref.slug),
         chain_id=CHAIN_ID,
-        title=settings.title,
+        title=restore_turkish_title(settings.title),
         # The month is the only date there is; a range label would claim more than the page says.
         date_label=f"{month_name(dates.valid_from.month)} {ref.year}",
         valid_from=dates.valid_from,

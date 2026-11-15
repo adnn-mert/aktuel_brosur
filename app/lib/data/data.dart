@@ -18,3 +18,4 @@ export 'models/media_image.dart';
 export 'models/money.dart';
 export 'models/product.dart';
 export 'providers.dart';
+export 'search.dart';

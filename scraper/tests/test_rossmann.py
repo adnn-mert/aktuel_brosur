@@ -14,6 +14,7 @@ from scraper.sources.rossmann import (
     current_refs,
     parse_catalog_refs,
     parse_settings,
+    restore_turkish_title,
 )
 from scraper.tests.conftest import fixture_text, mock_http
 
@@ -58,6 +59,7 @@ def test_settings_and_brochure() -> None:
         (1149, 1609),
     )
     b = catalog_brochure(ref, settings, TODAY, NOW)
+    assert b.title == "Kasım Güzellik Kataloğu"  # restored; the id below stays ASCII and unchanged
     assert b.id == "rossmann-2026-11-kasim-guzellik-katalogu"
     assert (b.valid_from, b.valid_to, b.date_label) == (date(2026, 11, 1), date(2026, 11, 30), "Kasım 2026")
     assert b.pages[0].url == f"{BASE}/kasim-guzellik-katalogu/Image.ashx?PageNumber=1&ImageType=Zoom"
@@ -100,7 +102,20 @@ def test_collect_makes_one_request_per_catalogue(tmp_path) -> None:
     calls: list[str] = []
     ctx = SourceContext(http=mock_http(_routes(), calls), today=TODAY, now=NOW, media=MediaWriter(tmp_path, None))
     result = RossmannSource().collect(ctx)
-    assert [b.title for b in result.brochures][-1] == "Trends for You"
+    assert [b.title for b in result.brochures] == [
+        "Kasım Güzellik Kataloğu",
+        "Kasım Kişisel Bakım Kataloğu",
+        "Kasım Ev ve Yaşam Kataloğu",
+        "Temizlik Festivali Kataloğu",
+        "Trends for You",
+    ]
+    assert [b.id for b in result.brochures] == [
+        "rossmann-2026-11-kasim-guzellik-katalogu",
+        "rossmann-2026-11-kasim-kisisel-bakim-katalogu",
+        "rossmann-2026-11-kasim-ev-ve-yasam-katalogu",
+        "rossmann-2026-11-temizlik-festivali-katalogu",
+        "rossmann-2026-11-trends-for-you",
+    ]
     assert [len(b.pages) for b in result.brochures] == [26, 34, 18, 26, 14]
     assert len(calls) == 1 + 5 and len(set(calls)) == 6
 
@@ -111,3 +126,23 @@ def test_old_catalogues_only_is_a_source_error(tmp_path) -> None:
     )
     with pytest.raises(SourceError, match="no catalogue"):
         RossmannSource().collect(ctx)
+
+
+@pytest.mark.parametrize(
+    ("raw", "restored"),
+    [
+        ("Kasim Guzellik Katalogu", "Kasım Güzellik Kataloğu"),
+        ("Kasim Kisisel Bakim Katalogu", "Kasım Kişisel Bakım Kataloğu"),
+        ("Kasim Ev ve Yasam Katalogu", "Kasım Ev ve Yaşam Kataloğu"),
+        ("Subat Mayis Agustos Eylul Aralik", "Şubat Mayıs Ağustos Eylül Aralık"),
+        ("KASIM GUZELLIK KATALOGU", "KASIM GÜZELLİK KATALOĞU"),
+        ("kasim katalogu", "kasım kataloğu"),
+        ("Trends for You", "Trends for You"),  # unknown words stay
+        ("Temizlik Festivali Katalogu", "Temizlik Festivali Kataloğu"),
+        ("Kasım Güzellik Kataloğu", "Kasım Güzellik Kataloğu"),  # already Turkish: untouched
+        ("Ekim 2026 - Rossmann!", "Ekim 2026 - Rossmann!"),
+        ("", ""),
+    ],
+)
+def test_restore_turkish_title(raw: str, restored: str) -> None:
+    assert restore_turkish_title(raw) == restored

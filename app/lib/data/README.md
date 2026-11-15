@@ -90,6 +90,28 @@ sayfaya atlamak için, 0 tabanlı). Fiyat metni: `product.price.format()` → `5
   durur). Eski veride ve örnek dosyadaki ilk ürünlerde `"700 g"` gibi değerler de görülebilir;
   metin olduğu gibi gösterilir.
 
+**Ürün arama:** `searchIndexProvider` (`AsyncValue<SearchIndex>`, FutureProvider). Dizin uygulamada,
+katalogdan kurulur: bu hafta ve gelecek hafta broşürlerinden `products_url`'si olanların ürünleri
+`CatalogRepository.loadProducts` ile (önbellek/çevrimdışı davranışı aynı) yüklenir; geçmiş broşürler
+girmez. İlk kurulumda *yükleniyor*, yalnızca katalog yüklenemezse *hata*; yüklenemeyen tek bir ürün
+dosyası atlanır, dizini bozmaz. Katalog ya da gün değişince yeniden kurulur.
+
+```dart
+final index = ref.watch(searchIndexProvider);          // AsyncValue<SearchIndex>
+index.value?.chains;        // en az bir ürünü olan zincirler, katalog sırasıyla (süzgeç çipleri için)
+index.value?.productCount;  // "12.480 üründe ara"
+final hits = index.value?.query(text) ?? const [];      // List<SearchHit>
+// hit.product, hit.chain, hit.brochure -> sonuç satırı + broşüre/sayfaya gitme (product.pageIndex)
+```
+
+- `query`: boş/boşluk-only metin → `[]`. Türkçe duyarlı: büyük/küçük harf, İ/I/ı/i ve ç ğ ö ş ü
+  harfleri yok sayılır ("SÜT" → "Süt", "cay" → "Çay", "ISIRGAN" → "ısırgan"); noktalama yok sayılır.
+  Metin kelimelere bölünür, **her** kelime `ad + marka` içindeki bir kelimenin başıyla eşleşmelidir
+  (kelime ortası eşleşmez). Sonuçlar **raf fiyatına** göre artan, eşitlikte ada göre sıralı gelir
+  (üyelik fiyatı sıralamayı etkilemez); ekranda yeniden sıralamayın. Fiyatı olmayan (0) ürünler dizine girmez.
+- Her tuş vuruşunda `query` çağırmak ucuzdur (bellekte tarama); yine de yazma sırasında kısa bir
+  bekleme (debounce) önerilir. Zincir süzgeci için sonuçları `hit.chain.id` ile ekranda süzün.
+
 **Web görünümü:** `chain.webUrl` (her zaman mutlak https). Bu zincirlerin (`ChainKind.webview`:
 A101, CarrefourSA, Gratis) katalogda broşürü yoktur.
 

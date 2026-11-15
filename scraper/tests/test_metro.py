@@ -6,7 +6,7 @@ import pytest
 
 from scraper.core.media import MediaWriter
 from scraper.core.source import SourceContext, SourceError
-from scraper.sources.metro import KNOWN_SLUGS, ROOT, SITEMAP_URL, MetroSource, candidate_slugs
+from scraper.sources.metro import KNOWN_SLUGS, ROOT, SITEMAP_URL, MetroSource, candidate_slugs, clean_title
 from scraper.sources.publitas import parse_sitemap_slugs
 from scraper.tests.conftest import fixture_text, mock_http
 
@@ -83,3 +83,29 @@ def test_changed_content_under_the_same_slug_is_a_new_brochure(tmp_path) -> None
     )
     second = MetroSource().collect(_ctx(mock_http(routes), tmp_path)).brochures[0]
     assert first.id != second.id and first.pages == second.pages
+
+
+@pytest.mark.parametrize(
+    ("raw", "clean"),
+    [
+        ("İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla | Kasım", "İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla"),
+        ("Foo | Şubat", "Foo"),
+        ("Foo|Ağustos", "Foo"),
+        ("Foo | EYLÜL", "Foo"),
+        ("Foo | Aralık 2026", "Foo"),
+        ("Foo | Kasım  ", "Foo"),
+        ("Foo | Kampanya", "Foo | Kampanya"),  # not a month: untouched
+        ("Foo | Kasım | Bar", "Foo | Kasım | Bar"),  # only a trailing suffix
+        ("Kasım Fırsatları", "Kasım Fırsatları"),
+        ("| Kasım", "| Kasım"),
+    ],
+)
+def test_clean_title_strips_only_a_trailing_month_suffix(raw: str, clean: str) -> None:
+    assert clean_title(raw) == clean
+
+
+def test_collect_cleans_the_title_but_keeps_id_and_dates(tmp_path) -> None:
+    (basics,) = MetroSource().collect(_ctx(mock_http(_routes(BASICS)), tmp_path)).brochures
+    assert basics.title == "İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla"
+    assert basics.id.startswith(f"metro-{BASICS}-")
+    assert (basics.valid_from, basics.valid_to) == (date(2026, 11, 1), date(2026, 11, 30))
