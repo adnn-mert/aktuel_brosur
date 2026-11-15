@@ -205,9 +205,13 @@ ekranların bir şey yapması gerekmez, `clockProvider` / `catalogProvider` izle
   gruplaması yeniden hesaplanır.
 - Aynı anda katalog `catalogMaxAge` (30 dk) süresinden eskiyse (`fetchedAt`'e göre; hiç alınmamışsa
   da) `catalogProvider.notifier.refresh()` çağrılır. Eldeki veri ekranda kalır, hata gösterilmez.
+- Çevrimdışı şeridi görünüyorsa (`isStale`) 30 dk kuralı geçerli değildir: uygulama öne gelince
+  hemen, önde kaldığı sürece de `offlineRetryInterval` (30 sn) arayla sessizce yeniden denenir.
+  İndirme başarılı olunca şerit kendiliğinden kalkar ve denemeler durur; arka planda deneme yapılmaz.
+  Başarısız deneme ekranı değiştirmez (aynı kayıtlı kopya döner).
 - Uygulama açıkken gece yarısı geçilirse bir sonraki gece yarısına kurulan zamanlayıcı günü yeniler.
 
-Kararlar saf fonksiyonlardır (`freshness.dart`): `shouldRefreshCatalog(lastFetchedAt, now)`,
+Kararlar saf fonksiyonlardır (`freshness.dart`): `shouldRefreshCatalog(lastFetchedAt, now, offline:)`,
 `dayChanged(previous, now)`, `untilNextDay(now)`.
 
 ## Adres çözümleme (`resolve`)

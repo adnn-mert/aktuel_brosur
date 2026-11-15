@@ -23,6 +23,24 @@ void main() {
       final fetchedAt = now.subtract(const Duration(minutes: 10)).toUtc();
       expect(shouldRefreshCatalog(fetchedAt, now), isFalse);
     });
+
+    test('the saved copy shown while offline is always fetched again', () {
+      // Its fetch time is the last successful download, not a sign of
+      // freshness.
+      for (final fetchedAt in [
+        now,
+        now.subtract(const Duration(minutes: 5)),
+        now.subtract(const Duration(days: 2)),
+        null,
+      ]) {
+        expect(shouldRefreshCatalog(fetchedAt, now, offline: true), isTrue);
+      }
+    });
+
+    test('the offline retry interval stays under a minute', () {
+      expect(offlineRetryInterval, greaterThan(Duration.zero));
+      expect(offlineRetryInterval, lessThan(const Duration(minutes: 1)));
+    });
   });
 
   group('dayChanged', () {

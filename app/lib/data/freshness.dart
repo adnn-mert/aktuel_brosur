@@ -10,12 +10,28 @@ import 'brochure_grouping.dart' show dateOnly;
 /// data close to the published one without a download on every glance.
 const Duration catalogMaxAge = Duration(minutes: 30);
 
+/// How often the catalog is fetched again while the app is in the foreground
+/// and shows the saved copy because the network was unreachable. The
+/// "no internet" notice must not outlive the outage by much: elderly users
+/// will not think of pulling to refresh. A failed attempt costs one small
+/// request, so half a minute is cheap.
+const Duration offlineRetryInterval = Duration(seconds: 30);
+
 /// Whether the catalog last fetched at [lastFetchedAt] should be fetched
 /// again at [now]. A catalog never fetched (null) should. A fetch time in
 /// the future means the device clock was moved back; trusting it could
 /// postpone the next refresh by days, so that counts as out of date too.
-bool shouldRefreshCatalog(DateTime? lastFetchedAt, DateTime now) {
-  if (lastFetchedAt == null) return true;
+///
+/// [offline] is true when the shown catalog is the saved copy served after
+/// a failed download (`CatalogResult.isStale`). Its [lastFetchedAt] is the
+/// time of the last successful download, which may be minutes old, so age
+/// says nothing about it: it is always fetched again.
+bool shouldRefreshCatalog(
+  DateTime? lastFetchedAt,
+  DateTime now, {
+  bool offline = false,
+}) {
+  if (offline || lastFetchedAt == null) return true;
   final age = now.difference(lastFetchedAt);
   return age.isNegative || age > catalogMaxAge;
 }
