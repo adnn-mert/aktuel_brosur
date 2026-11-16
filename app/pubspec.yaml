@@ -75,6 +75,7 @@ flutter:
   assets:
     - assets/sample/
     - assets/sample/products/
+    - assets/sample/products_ocr/
     # Market logos, one file per chain id (see lib/design/chain_logos.dart).
     - assets/logos/
     # Font licences (SIL OFL) travel with the fonts.

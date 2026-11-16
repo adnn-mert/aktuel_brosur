@@ -68,9 +68,15 @@ abstract class CatalogRepository {
   /// full file.
   Future<CatalogResult> loadCatalog({bool forceRefresh = false});
 
-  /// Loads the product list of [brochure]. Falls back to a cached copy when
-  /// offline; throws [ProductsUnavailableException] when there is none or
-  /// the brochure has no product list.
+  /// Loads the product list of [brochure]: the chain's written list
+  /// (`products_url`) when it has one, otherwise the list read from its pages
+  /// by OCR (`ocr_products_url`); see [Brochure.productListSource]. The
+  /// returned file says which one it is ([ProductFile.isOcr], and
+  /// [Product.isOcr] per product).
+  ///
+  /// Falls back to a cached copy when offline; throws
+  /// [ProductsUnavailableException] when there is none or the brochure has
+  /// no product list ([Brochure.hasProductList] is false).
   Future<ProductFile> loadProducts(Brochure brochure);
 
   /// Resolves an absolute or catalog-relative URL from the JSON to a fetchable
@@ -159,20 +165,19 @@ class HttpCatalogRepository implements CatalogRepository {
 
   @override
   Future<ProductFile> loadProducts(Brochure brochure) async {
-    final path = brochure.productsUrl;
-    if (path == null) {
-      throw ProductsUnavailableException(
-        'brochure ${brochure.id} has no product list',
-      );
-    }
-    final key = productsCacheKey(brochure.id);
+    final list = _productListOf(brochure);
+    final key = switch (list.source) {
+      ProductSource.written => productsCacheKey(brochure.id),
+      ProductSource.ocr => ocrProductsCacheKey(brochure.id),
+    };
+    final parse = list.parser(brochure);
     final cached = await cache.read(key);
-    final cachedFile = _tryParse(cached?.body, ProductFile.parse);
+    final cachedFile = _tryParse(cached?.body, parse);
 
     final fetched = await _fetch(
-      resolve(path),
+      resolve(list.path),
       etag: cachedFile == null ? null : cached?.etag,
-      parse: ProductFile.parse,
+      parse: parse,
     );
     switch (fetched) {
       case _Fresh(:final value, :final body, :final etag):
@@ -191,9 +196,15 @@ class HttpCatalogRepository implements CatalogRepository {
     }
   }
 
-  /// Cache key of a brochure's product file.
+  /// Cache key of a brochure's written product file.
   static String productsCacheKey(String brochureId) =>
       'products/$brochureId.json';
+
+  /// Cache key of a brochure's OCR product file. Separate from
+  /// [productsCacheKey] so the two lists (and their ETags) never overwrite
+  /// each other.
+  static String ocrProductsCacheKey(String brochureId) =>
+      'products_ocr/$brochureId.json';
 
   /// One GET with an optional conditional header and a timeout. Never throws:
   /// every failure (socket, timeout, non-200, unparsable body) becomes
@@ -238,6 +249,32 @@ class HttpCatalogRepository implements CatalogRepository {
       // A full disk must not hide data we already have in hand.
     }
   }
+}
+
+/// Which product file [CatalogRepository.loadProducts] reads for a brochure.
+typedef _ProductList = ({String path, ProductSource source});
+
+/// The written list wins when a brochure has both: it is the chain's own
+/// data, the OCR list only a reading of the same pages.
+_ProductList _productListOf(Brochure brochure) {
+  if (brochure.hasProducts) {
+    return (path: brochure.productsUrl!, source: ProductSource.written);
+  }
+  if (brochure.hasOcrProducts) {
+    return (path: brochure.ocrProductsUrl!, source: ProductSource.ocr);
+  }
+  throw ProductsUnavailableException(
+    'brochure ${brochure.id} has no product list',
+  );
+}
+
+extension on _ProductList {
+  ProductFile Function(String body) parser(Brochure brochure) =>
+      (body) => ProductFile.parse(
+        body,
+        source: source,
+        pageCount: brochure.pages.length,
+      );
 }
 
 sealed class _Fetch<T> {
@@ -306,20 +343,15 @@ class AssetCatalogRepository implements CatalogRepository {
 
   @override
   Future<ProductFile> loadProducts(Brochure brochure) async {
-    final path = brochure.productsUrl;
-    if (path == null) {
-      throw ProductsUnavailableException(
-        'brochure ${brochure.id} has no product list',
-      );
-    }
-    final uri = resolve(path);
+    final list = _productListOf(brochure);
+    final uri = resolve(list.path);
     if (!uri.isBundledAsset) {
       throw ProductsUnavailableException(
-        'sample product file must be a relative path: $path',
+        'sample product file must be a relative path: ${list.path}',
       );
     }
     try {
-      return ProductFile.parse(await _loadText(uri.assetKey));
+      return list.parser(brochure)(await _loadText(uri.assetKey));
     } on CatalogFormatException {
       rethrow;
     } on Object catch (e) {

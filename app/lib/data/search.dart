@@ -29,6 +29,10 @@ class SearchHit {
   final Chain chain;
   final Brochure brochure;
 
+  /// True when the price was read from the brochure page by OCR: show the
+  /// "broşürden okundu" label; [Product.pageIndex] names the page.
+  bool get isOcr => product.isOcr;
+
   @override
   String toString() => 'SearchHit(${product.name}, ${chain.id})';
 }
@@ -151,8 +155,9 @@ class SearchIndex {
 const int _maxParallelLoads = 6;
 
 /// Builds the index for [catalog] as of [today]: every current or upcoming
-/// brochure with a `products_url` contributes its products. A products file
-/// that cannot be loaded is skipped.
+/// brochure with a product list ([Brochure.hasProductList]: the written
+/// `products_url`, otherwise the OCR `ocr_products_url`) contributes its
+/// products. A products file that cannot be loaded is skipped.
 Future<SearchIndex> buildSearchIndex(
   Catalog catalog,
   DateTime today,
@@ -161,7 +166,7 @@ Future<SearchIndex> buildSearchIndex(
   final groups = groupBrochures(catalog.brochures, today);
   final brochures = [
     for (final b in [...groups.current, ...groups.upcoming])
-      if ((b.productsUrl ?? '').isNotEmpty) b,
+      if (b.hasProductList) b,
   ];
 
   final files = List<ProductFile?>.filled(brochures.length, null);

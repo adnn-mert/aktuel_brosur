@@ -19,7 +19,7 @@ Bu klasöre (`lib/data/`) arayüz kodu yazmayın; yeni bir veri ihtiyacı olursa
 | `chainProvider(chainId)` | `AsyncValue<Chain?>` | Tek zincir (ad, `brandColor`, `logoUrl`, `webUrl`, `kind`). |
 | `brochureGroupsProvider(chainId)` | `AsyncValue<BrochureGroups>` | `current` ("Bu hafta"), `upcoming` ("Gelecek hafta"), `past` ("Geçmiş", son 28 gün). Sıralı gelir (aşağıya bakın); ekranda yeniden sıralamayın. |
 | `brochureProvider(brochureId)` | `AsyncValue<Brochure?>` | Tek broşür (sayfalar, kapak, tarih). `null` = artık yok (süresi dolup silinmiş). |
-| `productsProvider(brochureId)` | `AsyncValue<ProductFile>` (FutureProvider) | Ürün listesi; ilk izlendiğinde iner, diske önbelleklenir, ekran kapanınca bellekten atılır. |
+| `productsProvider(brochureId)` | `AsyncValue<ProductFile>` (FutureProvider) | Ürün listesi (yazılı liste, yoksa OCR listesi; `file.isOcr`); ilk izlendiğinde iner, diske önbelleklenir, ekran kapanınca bellekten atılır. |
 | `favoritesProvider` | `AsyncValue<Set<String>>` | Favori zincir kimlikleri. `.notifier.toggle(chainId)` → `Future<bool>` (kaydedilemezse geri alır, `false`). |
 | `isFavoriteProvider(chainId)` | `bool` | Yıldız simgesi için kısa yol. |
 | `appUpdateRequiredProvider` | `bool` | Yayınlanan veri bu uygulamadan yeni bir sürüm istiyor → "uygulamayı güncelleyin" uyarısı. |
@@ -68,12 +68,13 @@ Kart görseli `brochure.thumbnail` (kapak, yoksa ilk sayfa, o da yoksa `null`).
 
 **Broşür görüntüleyici:** `brochureProvider(id)`; `brochure.hasPages` ise `brochure.pages`
 (`MediaImage`: `url`, `width`, `height`, `aspectRatio`). `aspectRatio` biliniyorsa görsel gelmeden
-yer ayırın. "3 / 8" için `pages.length`. `brochure.hasProducts` ise ürün listesine geçiş düğmesi
-gösterin (BİM'de ikisi birden var: `kind == BrochureKind.both`).
+yer ayırın. "3 / 8" için `pages.length`. `brochure.hasProductList` ise ürün listesine geçiş düğmesi
+gösterin (BİM'de ikisi birden var: `kind == BrochureKind.both`; Şok/Hakmar'da sayfalar + OCR
+listesi). `hasProducts` yalnızca zincirin **yazılı** listesini söyler; OCR için aşağıya bakın.
 
 **Ürün listesi:** `productsProvider(brochureId)`. `Product`: `name`, `brand?`, `quantityText?`,
 `price` (`Money`), `oldPrice?`, `discountPercent?`, `image?`, `pageIndex?` (görüntüleyicide o
-sayfaya atlamak için, 0 tabanlı). Fiyat metni: `product.price.format()` → `54,95 ₺`,
+sayfaya atlamak için, 0 tabanlı), `isOcr` (fiyat broşür sayfasından okundu; aşağıdaki OCR bölümü). Fiyat metni: `product.price.format()` → `54,95 ₺`,
 `1.249,90 ₺`. Fiyatı kendiniz biçimlendirmeyin. Yeniden deneme: `ref.invalidate(productsProvider(id))`.
 
 - **Raf fiyatı (`price`)** herkesin ödediği fiyattır; kartın büyük fiyatı her zaman budur.
@@ -91,17 +92,19 @@ sayfaya atlamak için, 0 tabanlı). Fiyat metni: `product.price.format()` → `5
   metin olduğu gibi gösterilir.
 
 **Ürün arama:** `searchIndexProvider` (`AsyncValue<SearchIndex>`, FutureProvider). Dizin uygulamada,
-katalogdan kurulur: bu hafta ve gelecek hafta broşürlerinden `products_url`'si olanların ürünleri
-`CatalogRepository.loadProducts` ile (önbellek/çevrimdışı davranışı aynı) yüklenir; geçmiş broşürler
-girmez. İlk kurulumda *yükleniyor*, yalnızca katalog yüklenemezse *hata*; yüklenemeyen tek bir ürün
+katalogdan kurulur: bu hafta ve gelecek hafta broşürlerinden ürün listesi olanların
+(`hasProductList`: yazılı liste ya da OCR listesi) ürünleri `CatalogRepository.loadProducts` ile
+(önbellek/çevrimdışı davranışı aynı) yüklenir; geçmiş broşürler girmez. İlk kurulumda *yükleniyor*, yalnızca katalog yüklenemezse *hata*; yüklenemeyen tek bir ürün
 dosyası atlanır, dizini bozmaz. Katalog ya da gün değişince yeniden kurulur.
 
 ```dart
 final index = ref.watch(searchIndexProvider);          // AsyncValue<SearchIndex>
-index.value?.chains;        // en az bir ürünü olan zincirler, katalog sırasıyla (süzgeç çipleri için)
+index.value?.chains;        // en az bir ürünü olan zincirler (OCR dahil), katalog sırasıyla
+                            // ("Arama yapılan marketler" ve süzgeç çipleri için)
 index.value?.productCount;  // "12.480 üründe ara"
 final hits = index.value?.query(text) ?? const [];      // List<SearchHit>
 // hit.product, hit.chain, hit.brochure -> sonuç satırı + broşüre/sayfaya gitme (product.pageIndex)
+// hit.isOcr -> "broşürden okundu" etiketi
 ```
 
 - `query`: boş/boşluk-only metin → `[]`. Türkçe duyarlı: büyük/küçük harf, İ/I/ı/i ve ç ğ ö ş ü
@@ -116,6 +119,47 @@ final hits = index.value?.query(text) ?? const [];      // List<SearchHit>
 
 **Web görünümü:** `chain.webUrl` (her zaman mutlak https). Bu zincirlerin (`ChainKind.webview`:
 A101, CarrefourSA, Gratis) katalogda broşürü yoktur.
+
+## OCR ürünleri ("broşürden okundu")
+
+Fiyatını yalnızca broşür görsellerinde basan zincirlerin (şu an Şok ve Hakmar) sayfaları kazıyıcıda
+Gemini ile okunur. Sonuç ayrı bir dosyadadır ve yalnızca bu sürüm okur; eski sürümler alanı bilmez,
+OCR fiyatlarını hiç görmez.
+
+- **Katalogda:** broşürde isteğe bağlı `ocr_products_url` (`products_ocr/<id>.json`) →
+  `Brochure.ocrProductsUrl`. `kind` (`pages`), `products_url` (null) ve `product_count` (0) değişmez;
+  `productCount` OCR ürünlerini saymaz. Alan yoksa, string değilse ya da göreli yol biçiminde
+  değilse (şema `relativePath`) `null` olur; broşür yine gösterilir. Sayfası olmayan broşürde
+  (`kind == products`) yok sayılır.
+- **Üründe:** `source: "ocr"` → `Product.isOcr` (`source == ProductSource.ocr`). `source` yoksa
+  yazılı fiyattır. Bilinmeyen bir `source` değeri (ya da string olmayan) ürünü **atlar**
+  (`skippedCount`): yazılı listeden gelmediğini bildiğimiz bir fiyatı etiketsiz göstermek, ayrı
+  dosyanın önlemek için var olduğu hatadır. OCR ürününde `pageIndex` her zaman doludur ve broşürün
+  sayfaları içindedir; sayfası olmayan, negatif ya da sayfa sayısını aşan OCR ürünü atlanır.
+  OCR dosyasındaki her ürün, kendi `source` alanı eksik olsa bile OCR sayılır.
+- **Hangi liste:** `CatalogRepository.loadProducts(brochure)` (ve `productsProvider`) yazılı liste
+  varsa onu, yoksa OCR listesini döndürür. İkisi birden varsa (şu an yok: BİM ve Migros OCR izin
+  listesinde değil) **yazılı liste önceliklidir**; OCR listesi o zaman hiç indirilmez. Yüklemeden önce
+  hangisinin geleceği `brochure.productListSource` (`written` / `ocr` / `null`).
+- **Önbellek:** OCR dosyası `HttpCatalogRepository.ocrProductsCacheKey(id)` =
+  `products_ocr/<id>.json` anahtarıyla saklanır; yazılı listenin `productsCacheKey(id)` =
+  `products/<id>.json` anahtarıyla çakışmaz. ETag ile koşullu istek, 15 sn zaman aşımı, çevrimdışıyken
+  son iyi kopya, bozuk yanıtın iyi kopyanın üzerine yazılmaması aynıdır.
+- **Örnek veri:** `assets/sample/products_ocr/sok-2026-11-11-haftanin-firsatlari.json`
+  (`schema/examples/products_ocr.example.json` ile aynı), örnek katalogda bu haftanın Şok broşürüne bağlı.
+
+Arayüzün kullanacağı getter'lar:
+
+| Ne | Nereden |
+|---|---|
+| Ürün listesi düğmesi gösterilsin mi | `brochure.hasProductList` |
+| Liste OCR mı (yüklenmeden) | `brochure.productListSource == ProductSource.ocr` / `brochure.hasOcrProducts` |
+| Yüklenen liste OCR mı | `productFile.isOcr` |
+| Bu fiyat için "broşürden okundu" etiketi | `product.isOcr` (arama sonucunda `hit.isOcr`) |
+| Fiyatın basıldığı sayfa | `product.pageIndex` (OCR'da her zaman dolu; aramadan `searchHitPage(hit)`) |
+
+Etiketi **ürün başına** `product.isOcr` ile verin, dosya başına değil: yazılı bir listede tek tük OCR
+ürünü de bulunabilir.
 
 ## Bildirimler
 
@@ -192,8 +236,8 @@ return chains.when(
 - `source == CatalogSource.cache` tek başına "çevrimdışı" demek değildir (sunucu "değişmedi" dediğinde
   de önbellek kullanılır). Şerit için **yalnızca `isStale`** kullanın.
 - `source == CatalogSource.bundledSample`: geliştirme yapısı, gömülü örnek veri.
-- Ürün hataları: `ProductsUnavailableException` (internet yok ve önbellek yok) ya da
-  `CatalogFormatException`.
+- Ürün hataları: `ProductsUnavailableException` (internet yok ve önbellek yok; ya da broşürün ürün
+  listesi yok) ya da `CatalogFormatException`. OCR listesi için de aynıdır.
 
 ## Gün değişimi ve sessiz yenileme
 
@@ -241,7 +285,8 @@ bileşenlerinin hata/yer tutucu durumu bu yüzden baştan tasarlanmalıdır.
   uygulama destek klasöründe saklanır, bozuk yanıt iyi kopyanın üzerine yazılmaz.
 - Verilmezse `AssetCatalogRepository`: `assets/sample/` altındaki örnek veri. Bugünün tarihi
   2026-11-13 kabul edilerek hazırlanmıştır. Kaynak: `schema/examples/catalog.example.json` ve
-  `products.example.json` (→ `products/migros-910.json`); A101 web görünümüne çevrildi;
+  `products.example.json` (→ `products/migros-910.json`) ve `products_ocr.example.json`
+  (→ `products_ocr/sok-2026-11-11-haftanin-firsatlari.json`); A101 web görünümüne çevrildi;
   `products/bim-2026-11-13-cuma.json` elle yazıldı.
 
 ## Testte

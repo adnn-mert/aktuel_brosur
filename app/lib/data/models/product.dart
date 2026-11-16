@@ -6,6 +6,16 @@ import '../errors.dart';
 import 'json_reader.dart';
 import 'money.dart';
 
+/// Where a product's price comes from.
+enum ProductSource {
+  /// The chain's own written product list (BİM, Migros...).
+  written,
+
+  /// Read from a brochure page image by a vision model ("broşürden okundu").
+  /// [Product.pageIndex] then names the page that prints it.
+  ocr,
+}
+
 /// One priced product as the chain printed it.
 class Product {
   const Product({
@@ -17,6 +27,7 @@ class Product {
     this.image,
     this.pageIndex,
     this.sourceUrl,
+    this.source = ProductSource.written,
     Money? memberPrice,
     String? memberPriceLabel,
   }) : memberPrice = memberPriceLabel == null ? null : memberPrice,
@@ -24,13 +35,38 @@ class Product {
 
   /// Throws [JsonFieldException] for a malformed record; the product file
   /// parser skips it.
-  factory Product.fromJson(Object? json, {String currency = 'TRY'}) {
+  ///
+  /// [ocrFile] is true for a file published as OCR output
+  /// (`ocr_products_url`): every product in it is OCR whatever its own
+  /// `source` says, so a record that forgot the field is never shown as the
+  /// chain's written price.
+  ///
+  /// An OCR product must name its page (`page_index` >= 0): its price is only
+  /// trustworthy next to the page it was read from. A `source` value this
+  /// build does not know is rejected rather than taken as written: it marks a
+  /// price that is not from the chain's own list, and showing it without the
+  /// right label is exactly what the separate OCR file exists to prevent.
+  factory Product.fromJson(
+    Object? json, {
+    String currency = 'TRY',
+    bool ocrFile = false,
+  }) {
     final r = JsonReader(json, context: 'product');
     final price = r.integer('price_minor');
     final oldPrice = r.optInteger('old_price_minor');
     final pageIndex = r.optInteger('page_index');
     if (price < 0 || (oldPrice != null && oldPrice < 0)) {
       throw const JsonFieldException('product: negative price');
+    }
+    final source = switch (r.optString('source')) {
+      null => ocrFile ? ProductSource.ocr : ProductSource.written,
+      'ocr' => ProductSource.ocr,
+      final other => throw JsonFieldException(
+        'product: unknown source "$other"',
+      ),
+    };
+    if (source == ProductSource.ocr && (pageIndex == null || pageIndex < 0)) {
+      throw const JsonFieldException('product: OCR product without a page');
     }
     final member = _memberPrice(r, price, currency);
     return Product(
@@ -43,6 +79,7 @@ class Product {
       // A bad page link is not worth losing the product over.
       pageIndex: pageIndex != null && pageIndex >= 0 ? pageIndex : null,
       sourceUrl: r.optString('source_url'),
+      source: source,
       memberPrice: member?.$1,
       memberPriceLabel: member?.$2,
     );
@@ -86,6 +123,14 @@ class Product {
 
   final String? sourceUrl;
 
+  /// Where [price] comes from; see [isOcr].
+  final ProductSource source;
+
+  /// True when the price was read from the brochure page by OCR, not taken
+  /// from the chain's written list. Show it with the "broşürden okundu"
+  /// label and a link to page [pageIndex] (always set for OCR products).
+  bool get isOcr => source == ProductSource.ocr;
+
   /// Lower price paid only by holders of the chain's card (Migros: "Money
   /// ile"). [price] stays the price everyone pays: show this next to it with
   /// [memberPriceLabel], never instead of it. Always below [price]; set
@@ -116,6 +161,7 @@ class Product {
       other.image == image &&
       other.pageIndex == pageIndex &&
       other.sourceUrl == sourceUrl &&
+      other.source == source &&
       other.memberPrice == memberPrice &&
       other.memberPriceLabel == memberPriceLabel;
 
@@ -129,15 +175,17 @@ class Product {
     image,
     pageIndex,
     sourceUrl,
+    source,
     memberPrice,
     memberPriceLabel,
   );
 
   @override
-  String toString() => 'Product($name, $price)';
+  String toString() => 'Product($name, $price${isOcr ? ', ocr' : ''})';
 }
 
-/// Contents of `products/<brochure_id>.json`.
+/// Contents of `products/<brochure_id>.json` (the chain's written list) or
+/// `products_ocr/<brochure_id>.json` (read from the pages by OCR).
 class ProductFile {
   ProductFile({
     required this.schemaVersion,
@@ -145,11 +193,22 @@ class ProductFile {
     required this.currency,
     required List<Product> products,
     this.skippedCount = 0,
+    this.source = ProductSource.written,
   }) : products = List.unmodifiable(products);
 
   /// Broken product records are skipped and counted; a bad root throws
   /// [CatalogFormatException].
-  factory ProductFile.fromJson(Object? json) {
+  ///
+  /// [source] is [ProductSource.ocr] for the file behind
+  /// `ocr_products_url`: every product is then OCR (see [Product.fromJson]),
+  /// and with [pageCount] (the brochure's number of pages) an OCR product
+  /// whose page does not exist is skipped too, since its price could not be
+  /// shown next to its page.
+  factory ProductFile.fromJson(
+    Object? json, {
+    ProductSource source = ProductSource.written,
+    int? pageCount,
+  }) {
     final JsonReader root;
     final int schemaVersion;
     final String brochureId;
@@ -164,11 +223,23 @@ class ProductFile {
     } on JsonFieldException catch (e) {
       throw CatalogFormatException(e.message, e);
     }
+    final ocrFile = source == ProductSource.ocr;
     final products = <Product>[];
     var skipped = 0;
     for (final raw in rawProducts) {
       try {
-        products.add(Product.fromJson(raw, currency: currency));
+        final product = Product.fromJson(
+          raw,
+          currency: currency,
+          ocrFile: ocrFile,
+        );
+        if (product.isOcr &&
+            pageCount != null &&
+            product.pageIndex! >= pageCount) {
+          skipped++;
+          continue;
+        }
+        products.add(product);
       } on JsonFieldException {
         skipped++;
       }
@@ -179,17 +250,23 @@ class ProductFile {
       currency: currency,
       products: products,
       skippedCount: skipped,
+      source: source,
     );
   }
 
-  factory ProductFile.parse(String body) {
+  /// See [ProductFile.fromJson] for [source] and [pageCount].
+  factory ProductFile.parse(
+    String body, {
+    ProductSource source = ProductSource.written,
+    int? pageCount,
+  }) {
     final Object? decoded;
     try {
       decoded = jsonDecode(body);
     } on FormatException catch (e) {
       throw CatalogFormatException('product file is not valid JSON', e);
     }
-    return ProductFile.fromJson(decoded);
+    return ProductFile.fromJson(decoded, source: source, pageCount: pageCount);
   }
 
   final int schemaVersion;
@@ -203,6 +280,14 @@ class ProductFile {
 
   final int skippedCount;
 
+  /// Which list this is: the chain's written one or the OCR one. Every
+  /// product of an OCR file has [Product.isOcr]; a written file may still
+  /// carry single OCR products, so label per product, not per file.
+  final ProductSource source;
+
+  /// True for the OCR list (`ocr_products_url`).
+  bool get isOcr => source == ProductSource.ocr;
+
   @override
   bool operator ==(Object other) =>
       other is ProductFile &&
@@ -210,7 +295,8 @@ class ProductFile {
       other.brochureId == brochureId &&
       other.currency == currency &&
       listEquals(other.products, products) &&
-      other.skippedCount == skippedCount;
+      other.skippedCount == skippedCount &&
+      other.source == source;
 
   @override
   int get hashCode => Object.hash(
@@ -219,8 +305,11 @@ class ProductFile {
     currency,
     Object.hashAll(products),
     skippedCount,
+    source,
   );
 
   @override
-  String toString() => 'ProductFile($brochureId, ${products.length} products)';
+  String toString() =>
+      'ProductFile($brochureId, ${products.length} products'
+      '${isOcr ? ', ocr' : ''})';
 }

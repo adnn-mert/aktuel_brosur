@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart' show listEquals;
 
 import 'json_reader.dart';
 import 'media_image.dart';
+import 'product.dart';
 
 /// What a brochure contains.
 enum BrochureKind {
@@ -16,6 +17,20 @@ enum BrochureKind {
 }
 
 final RegExp _brochureId = RegExp(r'^[a-z0-9_-]+$');
+
+// `relativePath` in schema/catalog.schema.json: no scheme, no leading slash,
+// no "..", no whitespace or backslash.
+final RegExp _relativePath = RegExp(
+  r'^(?![A-Za-z][A-Za-z0-9+.-]*:)(?!/)(?!.*\.\.)[^\s\\]+$',
+);
+
+// `ocr_products_url` is optional extra data: a value of the wrong type or
+// shape drops the OCR list, never the brochure.
+String? _ocrProductsUrl(JsonReader r) {
+  final Object? value = r.raw('ocr_products_url');
+  if (value is! String || !_relativePath.hasMatch(value)) return null;
+  return value;
+}
 
 /// One brochure (a weekly flyer, a "Cuma" poster set, a monthly catalog...).
 class Brochure {
@@ -34,6 +49,7 @@ class Brochure {
     required this.sourceUrl,
     required this.firstSeen,
     required this.updatedAt,
+    this.ocrProductsUrl,
   });
 
   /// Parses one `brochures[]` entry.
@@ -91,6 +107,8 @@ class Brochure {
       sourceUrl: r.nonEmptyString('source_url'),
       firstSeen: r.dateTime('first_seen'),
       updatedAt: r.dateTime('updated_at'),
+      // OCR products point into the pages; without pages they mean nothing.
+      ocrProductsUrl: pages.isEmpty ? null : _ocrProductsUrl(r),
     );
   }
 
@@ -123,8 +141,14 @@ class Brochure {
   /// Catalog-relative path of the product file; non-null iff [hasProducts].
   final String? productsUrl;
 
-  /// Number of products in the product file (0 for page-only brochures).
+  /// Number of products in the written product file (0 for page-only
+  /// brochures; OCR products are not counted).
   final int productCount;
+
+  /// Catalog-relative path of the products read from the page images by OCR
+  /// (`products_ocr/<id>.json`); non-null iff [hasOcrProducts]. Independent
+  /// of [kind] and [productsUrl], which describe the chain's own data only.
+  final String? ocrProductsUrl;
 
   /// Where the scraper found this brochure (the chain's website).
   final String sourceUrl;
@@ -138,8 +162,25 @@ class Brochure {
   /// True when the page viewer can be opened.
   bool get hasPages => kind != BrochureKind.products && pages.isNotEmpty;
 
-  /// True when the product list can be opened.
+  /// True when the chain's own written product list exists ([productsUrl]).
+  /// Does not include OCR products; see [hasProductList].
   bool get hasProducts => kind != BrochureKind.pages && productsUrl != null;
+
+  /// True when products read from the pages by OCR exist ([ocrProductsUrl]).
+  bool get hasOcrProducts => ocrProductsUrl != null && hasPages;
+
+  /// True when there is any product list to show: the written one or, failing
+  /// that, the OCR one. `CatalogRepository.loadProducts` loads that list.
+  bool get hasProductList => hasProducts || hasOcrProducts;
+
+  /// Which list `CatalogRepository.loadProducts` returns: the written one when
+  /// both exist, the OCR one otherwise, null when there is none. Lets a
+  /// screen show the "broşürden okundu" label before the list has loaded.
+  ProductSource? get productListSource => hasProducts
+      ? ProductSource.written
+      : hasOcrProducts
+      ? ProductSource.ocr
+      : null;
 
   /// Best image for a thumbnail: [cover], else the first page, else null.
   MediaImage? get thumbnail => cover ?? (pages.isEmpty ? null : pages.first);
@@ -158,6 +199,7 @@ class Brochure {
       listEquals(other.pages, pages) &&
       other.productsUrl == productsUrl &&
       other.productCount == productCount &&
+      other.ocrProductsUrl == ocrProductsUrl &&
       other.sourceUrl == sourceUrl &&
       other.firstSeen == firstSeen &&
       other.updatedAt == updatedAt;
@@ -175,6 +217,7 @@ class Brochure {
     Object.hashAll(pages),
     productsUrl,
     productCount,
+    ocrProductsUrl,
     sourceUrl,
     firstSeen,
     updatedAt,
