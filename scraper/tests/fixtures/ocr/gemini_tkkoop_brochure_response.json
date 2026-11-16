@@ -1,0 +1,20 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "role": "model",
+    "parts": [
+     {
+      "text": "{\"products\": [{\"page_index\": 0, \"name\": \"Piliç Pirzola\", \"brand\": null, \"quantity_text\": \"kg\", \"price\": \"199,00\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Saklı Dem Çay\", \"brand\": \"Tarım Kredi\", \"quantity_text\": \"1 kg\", \"price\": \"265,00\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Organik Yumurta\", \"brand\": \"Tarım Kredi\", \"quantity_text\": \"A sınıfı, M orta boy, 10'lu\", \"price\": \"105,00\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Baton Salam\", \"brand\": \"Banvit\", \"quantity_text\": \"850 g\", \"price\": \"89,90\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Dana Kokteyl Sosis\", \"brand\": \"Tarım Kredi\", \"quantity_text\": \"200 g\", \"price\": \"99,90\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Ayran\", \"brand\": \"Tarım Kredi\", \"quantity_text\": \"285 ml\", \"price\": \"12,50\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Sütaş Yoğurt Kova\", \"brand\": \"Sütaş\", \"quantity_text\": \"2000 g\", \"price\": \"147,90\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Uno Süper Tost\", \"brand\": \"Uno\", \"quantity_text\": \"470 g\", \"price\": \"85,00\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Uno Süper Sandviç Ekmeği\", \"brand\": \"Uno\", \"quantity_text\": \"400 g\", \"price\": \"85,00\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Untad Premium Hamburger Susamlı\", \"brand\": \"Untad\", \"quantity_text\": \"6x85 g\", \"price\": \"124,00\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"İç Çiğ Badem Naturel\", \"brand\": \"Tarım Kredi\", \"quantity_text\": \"340 g\", \"price\": \"229,90\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Kızılay Doğal Maden Suyu\", \"brand\": \"Kızılay\", \"quantity_text\": \"200 cl 12'li\", \"price\": \"99,90\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Patates\", \"brand\": null, \"quantity_text\": \"kg\", \"price\": \"28,90\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Soğan\", \"brand\": null, \"quantity_text\": \"kg\", \"price\": \"28,90\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Portakal\", \"brand\": null, \"quantity_text\": \"kg\", \"price\": \"29,90\", \"old_price\": null}, {\"page_index\": 0, \"name\": \"Muz Yerli\", \"brand\": null, \"quantity_text\": \"kg\", \"price\": \"89,00\", \"old_price\": null}]}"
+     }
+    ]
+   },
+   "finishReason": "STOP"
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 1400,
+  "candidatesTokenCount": 1100,
+  "thoughtsTokenCount": 0
+ }
+}

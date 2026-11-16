@@ -18,6 +18,25 @@ _POSTER_GROUP = re.compile(r"_\d+X\d+_\d+_(\d+)_\d+_", re.IGNORECASE)
 # Below this the pair is plausible but not certain, so a price miss may be the matcher's fault.
 WEAK_MATCH = 0.6
 
+# Tie-break costs: a wrong price always costs more than any difference between right ones.
+_PRICE_MISS = 10**9
+_PRICE_UNREADABLE = 2 * _PRICE_MISS
+
+
+def price_tie_cost(ocr: dict[str, Any], written: dict[str, Any]) -> int:
+    """How wrong this pairing would make the OCR price; used only between same-named candidates.
+
+    Two products the names cannot tell apart ("Enerji İçeceği" at 36,00 and at 40,50) would
+    otherwise be paired in input order and report two errors for prices read correctly.
+    """
+    ocr_minor = parse_ocr_price(ocr.get("price"))
+    if ocr_minor is None:
+        return _PRICE_UNREADABLE
+    true_minor = int(written["price_minor"])
+    if ocr_minor == true_minor:
+        return 0
+    return _PRICE_MISS + min(abs(ocr_minor - true_minor), _PRICE_MISS - 1)
+
 
 def poster_group(image_url: str | None) -> str | None:
     if not image_url:
@@ -91,7 +110,7 @@ def evaluate_brochure(
     threshold: float = DEFAULT_THRESHOLD,
 ) -> BrochureResult:
     ocr_items: list[tuple[str, dict[str, Any]]] = [(p.url, item) for p in posters for item in p.products]
-    matches = match_products([item for _, item in ocr_items], written, threshold)
+    matches = match_products([item for _, item in ocr_items], written, threshold, tie_cost=price_tie_cost)
     result = BrochureResult(brochure_id=brochure_id, written_count=len(written), ocr_count=len(ocr_items))
     matched_ocr = {m.ocr_index for m in matches}
     matched_written = {m.written_index for m in matches}

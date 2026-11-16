@@ -77,7 +77,18 @@ PROMPT = f"{_POSTER_INTRO}For each product return:\n{_FIELDS}{_RULES}"
 BROCHURE_PROMPT_VERSION = "b1"
 
 
-def brochure_prompt(count: int) -> str:
+# Chains other than BİM print multi-product brochure pages, not single posters. Their prompt
+# says so, and their cache folder is keyed by the chain, so the BİM text and cache stay as built.
+BROCHURE_STORES = {"tkkoop": "Tarım Kredi Koop"}
+_PAGE_RULES = (
+    'A product shown only with a percentage discount (e.g. "%20 İNDİRİM") and no price of its own '
+    "has no price: leave it out.\n"
+)
+
+
+def brochure_prompt(count: int, chain: str = "bim") -> str:
+    if chain != "bim":
+        return _pages_prompt(count, BROCHURE_STORES[chain])
     last = count - 1
     return (
         f"These {count} images are the posters of ONE Turkish supermarket (BİM) promotional brochure, "
@@ -89,6 +100,21 @@ def brochure_prompt(count: int) -> str:
         "- page_index: the 0-based index of the poster the product is printed on "
         f"(an integer from 0 to {last}).\n"
         f"{_FIELDS}{_RULES}"
+    )
+
+
+def _pages_prompt(count: int, store: str) -> str:
+    last = count - 1
+    return (
+        f"These {count} images are the pages of ONE Turkish supermarket ({store}) promotional brochure, "
+        f'in order. Each image is preceded by a text label "page_index: k"; the first image is page_index 0 '
+        f"and the last is page_index {last}.\n"
+        "List every product on every page that has its own price. Read each page on its own: "
+        "a product belongs to the page it is printed on, and the same product on two pages is listed twice.\n"
+        "For each product return:\n"
+        "- page_index: the 0-based index of the page the product is printed on "
+        f"(an integer from 0 to {last}).\n"
+        f"{_FIELDS}{_RULES}{_PAGE_RULES}"
     )
 
 
@@ -191,6 +217,7 @@ def build_brochure_request(
     *,
     media_resolution: str | None = None,
     thinking_level: str | None = None,
+    chain: str = "bim",
 ) -> dict[str, Any]:
     """One request, many images: prompt first, then a label and an ``inlineData`` part per image.
 
@@ -202,7 +229,7 @@ def build_brochure_request(
     """
     if not images:
         raise ValueError("a brochure request needs at least one image")
-    parts: list[dict[str, Any]] = [{"text": brochure_prompt(len(images))}]
+    parts: list[dict[str, Any]] = [{"text": brochure_prompt(len(images), chain)}]
     for index, image in enumerate(images):
         parts.append({"text": f"page_index: {index}"})
         parts.append(_image_part(image, mime_type))
@@ -373,11 +400,15 @@ class GeminiClient:
         return parse_response(body), body
 
     def read_brochure(
-        self, images: Sequence[bytes], mime_type: str = "image/jpeg"
+        self, images: Sequence[bytes], mime_type: str = "image/jpeg", chain: str = "bim"
     ) -> tuple[OcrResult, dict[str, Any]]:
         """Read all ``images`` (one brochure, or one chunk of it) in a single request."""
         payload = build_brochure_request(
-            images, mime_type, media_resolution=self.media_resolution, thinking_level=self.thinking_level
+            images,
+            mime_type,
+            media_resolution=self.media_resolution,
+            thinking_level=self.thinking_level,
+            chain=chain,
         )
         if sum(len(i) for i in images) * 4 // 3 > MAX_INLINE_REQUEST_BYTES:
             raise GeminiError(
