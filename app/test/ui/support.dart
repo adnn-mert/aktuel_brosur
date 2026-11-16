@@ -77,7 +77,18 @@ class FakeRepository implements CatalogRepository {
   Future<ProductFile> loadProducts(Brochure brochure) async {
     final failure = productsError;
     if (failure != null) throw failure;
-    return ProductFile.parse(sampleText(brochure.productsUrl!));
+    // Same choice as the real repositories: the written list, otherwise the
+    // prices read from the pages (OCR).
+    final source = brochure.productListSource!;
+    return ProductFile.parse(
+      sampleText(
+        source == ProductSource.ocr
+            ? brochure.ocrProductsUrl!
+            : brochure.productsUrl!,
+      ),
+      source: source,
+      pageCount: brochure.pages.length,
+    );
   }
 
   @override

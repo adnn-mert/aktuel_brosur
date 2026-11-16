@@ -23,6 +23,11 @@ import '../../l10n/app_localizations.dart';
 ///   shelf price.
 ///
 /// A unit note ("kg fiyatı") is glued to every price it applies to.
+///
+/// A price the app read from the brochure page (OCR, [Product.isOcr]) carries
+/// a quiet "Broşürden okundu" tag under it, and its page button names the
+/// page ("Broşürde gör, sayfa 3"): the printed page is the proof of that
+/// price (DESIGN.md, section 17).
 class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
@@ -34,6 +39,7 @@ class ProductCard extends StatelessWidget {
   final Product product;
 
   /// Opens the brochure page that shows this product; null hides the button.
+  /// For an OCR product the button says which page it opens.
   final VoidCallback? onShowPage;
 
   /// Frames the card in the action colour: the product the user came here
@@ -45,6 +51,10 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.colors;
     final l10n = AppLocalizations.of(context);
+    final page = product.pageIndex;
+    final pageLabel = product.isOcr && page != null
+        ? l10n.ocrShowOnPage(page + 1)
+        : l10n.showOnPage;
 
     final card = AppCard(
       padding: const EdgeInsets.all(AppSpace.md),
@@ -57,7 +67,8 @@ class ProductCard extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: AppButton(
-                label: l10n.showOnPage,
+                key: const ValueKey('show-on-page'),
+                label: pageLabel,
                 icon: Icons.menu_book_rounded,
                 kind: AppButtonKind.tonal,
                 minHeight: AppSize.touch,
@@ -136,6 +147,10 @@ class ProductFacts extends StatelessWidget {
             if (discount != null) Pill(text: l10n.discountPercent(discount)),
           ],
         ),
+        if (product.isOcr) ...[
+          const SizedBox(height: AppSpace.xs),
+          const OcrSourceTag(),
+        ],
         if (memberPrice != null && memberLabel != null) ...[
           const SizedBox(height: AppSpace.xs),
           MemberPriceTag(
@@ -285,6 +300,41 @@ class MemberPriceTag extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// "Broşürden okundu": says that the price above was read from the brochure
+/// page by the app, not written by the market. A provenance line, not a
+/// warning and not a button: soft ink, bold, a "scanned page" icon; no fill
+/// and no frame (those mean "press me" in this app, and the page button sits
+/// right below), no red or yellow (those mean news or caution). The word
+/// carries the meaning; the screen reader reads it with the price.
+class OcrSourceTag extends StatelessWidget {
+  const OcrSourceTag({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return Row(
+      key: const ValueKey('ocr-tag'),
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        ExcludeSemantics(
+          child: Icon(
+            Icons.document_scanner_outlined,
+            size: AppSize.iconSmall,
+            color: c.inkSoft,
+          ),
+        ),
+        const SizedBox(width: AppSpace.xs),
+        Flexible(
+          child: Text(
+            AppLocalizations.of(context).ocrTag,
+            style: AppType.bodyStrong.copyWith(color: c.inkSoft),
+          ),
+        ),
+      ],
     );
   }
 }

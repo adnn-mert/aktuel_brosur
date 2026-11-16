@@ -6,7 +6,7 @@ değişmez. Büyük görsel kararlar (renk, yazı tipi, logo) değiştirilmeden 
 
 ## Durum
 
-Son güncelleme: 15 Kasım 2026. **D1, D2, D3 (ürün arama) ve D4 (yeni broşür bildirimi) görevleri tamamlandı.**
+Son güncelleme: 17 Kasım 2026. **D1, D2, D3 (ürün arama), D4 (yeni broşür bildirimi) ve 3B.3 (broşürden okunan fiyatlar) görevleri tamamlandı.**
 
 | Dilim | Durum |
 |---|---|
@@ -29,8 +29,12 @@ Son güncelleme: 15 Kasım 2026. **D1, D2, D3 (ürün arama) ve D4 (yeni broşü
 | D4-2. İlk yıldızdan sonra bir kez teklif penceresi, telefonun izninden önce tek cümle | **Bitti** (`notification_offer.dart`, `notification_offer_store.dart`); kurallar bölüm 16 |
 | D4-3. Bildirime dokununca broşür ya da market | **Bitti** (`notification_tap_handler.dart`, `app.dart`); kurallar bölüm 16 |
 | D4-4. Telefonda kapalıyken "Telefon ayarlarını aç" düğmesi | **Bitti** (`openSystemSettings()`; açılamazsa yazılı adımlar kendiliğinden açılır); kurallar bölüm 16 |
+| 3B.3-1. "Broşürden okundu" satırı ve "Broşürde gör, sayfa 3" düğmesi | **Bitti** (`product_card.dart`: `OcrSourceTag`); kurallar bölüm 17 |
+| 3B.3-2. Şok / Hakmar broşüründe "Broşür / Ürünler" sekmeleri, listenin başında tek açıklama | **Bitti** (`brochure_screen.dart`: `hasProductList`; `product_list.dart`); kurallar bölüm 17 |
+| 3B.3-3. Aramada etiket, sayfaya açılış, artık doğru olmayan metinlerin yenilenmesi | **Bitti** (`search_screen.dart`, `search_result_card.dart`, `app_tr.arb`); kurallar bölüm 15 ve 17 |
 | Testler (D2 sonu) | `flutter test`: 226 geçiyor (114 veri + 112 arayüz; 2 araç testi bilerek atlanır). D2 testleri `test/ui/prices_and_pages_test.dart` |
 | Testler (D4 sonu) | `flutter test`: 413 geçiyor, 11 bilerek atlanır (2 simge + 9 ekran görüntüsü aracı); `flutter analyze` temiz. D4 testleri `test/ui/notifications_test.dart` (78) |
+| Testler (3B.3 sonu) | `flutter test`: 508 geçiyor, 11 bilerek atlanır; `flutter analyze` temiz. 3B.3 testleri `test/ui/ocr_test.dart` (39) |
 | Ekran görüntüleri | `design/screenshots/`, hepsi WebP (açık, koyu, büyük yazı, yakınlaştırılmış, uçak modu). D2: `40`–`42` üyelik fiyatlı ürün listesi (açık, koyu, büyük yazı), `43` uzun katalogda sayfa göstergesi düğmesi, `44`–`46` "Sayfa seç" ekranı (açık, koyu, büyük yazı); D4: `61`–`69` bildirim (aşağıdaki not) |
 
 Emülatörde (Medium_Phone) uçtan uca denenen akış: aç → market → broşür → + ile ve çift dokunmayla
@@ -58,6 +62,14 @@ D3 testleri `test/ui/search_test.dart` (durumlar, sıra, üyelik fiyatı, ekran 
 broşüre geçiş; yazı ölçeği 1,0 / 1,3 / 2,0 × açık / koyu × 411 / 320 dp taşma denemeleri, klavye açıkken
 dahil) ve `test/ui/tokens_test.dart` (ad kartı renkleri). Güncel test sayısı ve D3 ekran görüntüleri
 bölüm 15'in sonunda.
+
+3B.3 (broşürden okunan fiyatlar) ekran görüntüleri `70`–`75` emülatörden (Medium_Phone, örnek veri,
+Şok "11–17 Kasım" broşürü): `70` ürün listesi, `71` "lastik" araması (aynı adlı iki ürün, "2 cm" / "3 cm"),
+`72` koyu "omo" araması, `73` koyu ürün listesi, `74` yazı ölçeği 2,0 liste başı, `75` yazı ölçeği 2,0 kart.
+Emülatörde denenen akış: ana ekran → Şok → 11–17 Kasım → "Ürünler" → "Broşürde gör, sayfa 2" → görüntüleyici
+2 / 4'te; "Ürün ara" → "lastik" → sonuca dokun → Şok 2 / 4'te. Örnek veride Şok sayfa görselleri gömülü
+olmadığı için sayfanın kendisi "Bu sayfa açılamadı" gösterir (bölüm 13); doğru sayfaya gidildiği göstergeden
+ve ekran okuyucu ağacından doğrulandı. Canlı OCR dosyasıyla henüz denenmedi.
 
 Bilinen açık noktalar bölüm 13'te.
 
@@ -281,8 +293,9 @@ Bkz. bölüm 8.
 ### Ürün listesi
 - Tek sütun büyük kartlar: ad (kalın), marka, fiyatlar; ürün fotoğrafı varsa solda. Fiyatların
   görsel dili bölüm 14'te (raf fiyatı, eski fiyat, üyelik fiyatı, birim notu).
-- Broşürde sayfa da varsa (`kind: both`) üstte iki büyük sekme: "Broşür" | "Ürünler". Sekme her
-  zaman görünür; üründe sayfa numarası varsa "Sayfada göster" düğmesi o sayfayı açar.
+- Broşürde sayfa da varsa (`kind: both`, ya da sayfalardan okunmuş fiyatlar: `hasProductList`) üstte
+  iki büyük sekme: "Broşür" | "Ürünler". Sekme her zaman görünür; üründe sayfa numarası varsa "Sayfada
+  göster" düğmesi (broşürden okunan fiyatta "Broşürde gör, sayfa 3") o sayfayı açar (bölüm 17).
 - Aramadan gelindiyse (`ProductList.highlight`) liste "Aradığınız ürün" başlığı ve yeşil çerçeveli
   kartla başlar, altında "Bu broşürdeki bütün ürünler" başlığıyla listenin tamamı sürer (bölüm 15).
 
@@ -407,14 +420,14 @@ lib/l10n/app_tr.arb    bütün metinler
 | `StateView` | `feedback.dart` | Tam alan durum: başlık + tek cümle + büyük düğme |
 | `AppCard`, `SectionHeader`, `Pill`, `SkeletonBox`, `showAppMessage` | `feedback.dart` | Kart yüzeyi, bölüm başlığı, "Yeni" / indirim rozeti, yükleme iskeleti, alttan ileti (5 sn) |
 | `OpenCue` | `feedback.dart` | Tamamı düğme olan kartın içindeki "Aç ›" işareti (broşür kartı, arama sonucu). Ayrı hedef değildir |
-| `InfoNote` | `feedback.dart` | "i" simgeli sakin açıklama satırı: uyarı olmayan ama bilinmesi gereken şey (fiyat nasıl okunur, nerede arandı) |
+| `InfoNote` | `feedback.dart` | "i" simgeli sakin açıklama satırı: uyarı olmayan ama bilinmesi gereken şey (fiyat nasıl okunur, nerede arandı, fiyatlar broşürden okundu) |
 | `ChainMark` | `chain_mark.dart` | Market logosu ya da ad kartı |
 | `CatalogImage`, `CoverPlaceholder`, `catalogImageProvider` | `catalog_image.dart` | Katalogdaki her görsel (adres çözme + disk önbelleği burada) |
 | `LogoMark`, `LogoPainter`, `LogoPalette` | `logo_mark.dart` | Uygulama logosu |
 
 Ekrana özgü bileşenler: `ChainCard`, `ChainGrid` (ana ekran); `BrochureCard` (market ekranı);
 `ZoomablePage`, `PageZoomController`, `ViewerControls`, `ModeTabs`, `PagePickerScreen` (broşür);
-`ProductCard`, `ProductFacts`, `PriceWithUnit`, `MemberPriceTag`, `ProductList` (ürünler);
+`ProductCard`, `ProductFacts`, `PriceWithUnit`, `MemberPriceTag`, `OcrSourceTag`, `ProductList` (ürünler);
 `SearchEntryButton`, `SearchScreen`, `SearchField`, `SearchResultCard` (arama); `WebCatalogBar`,
 `WebCatalogError` (web); `NotificationControl`, `NotificationOfferDialog`, `NotificationTapHandler`
 (bildirim, bölüm 16).
@@ -451,6 +464,8 @@ Test altyapısı: `test/ui/support.dart` (`pumpUi`, `FakeRepository`, `TestImage
 | Aramada hangi marketlere bakıldığını adıyla söyle | "Bütün marketlerde en ucuz", "en uygun fiyat" gibi kanıtlanamayan söz yazma |
 | Sonuçta marketi ve broşür tarihini her kartta göster | Fiyatı kaynağı ve tarihi olmadan gösterme |
 | Örnek sözcüğü yalnızca sonucu varsa öner | Basınca "bulunamadı" çıkacak öneri gösterme |
+| Broşürden okunan fiyatı "Broşürden okundu" satırıyla, ürün başına göster | Etiketi dosya başına koyma; okunan fiyatı etiketsiz, yazılı fiyatın görünüşüyle gösterme |
+| Okunan fiyatın düğmesine sayfa numarasını yaz ("Broşürde gör, sayfa 3") | Kanıtı (sayfayı) bir menünün ya da gizli hareketin arkasına koyma |
 
 ## 13. Açık noktalar ve sonraya kalanlar
 
@@ -480,9 +495,16 @@ Test altyapısı: `test/ui/support.dart` (`pumpUi`, `FakeRepository`, `TestImage
 - **Arama sırası raf fiyatına göredir, birim fiyata göre değil:** 200 ml süt 1 L sütün üstünde çıkar.
   Sonuçların üstünde "Paket boyları farklı olabilir" yazar; birim fiyat hesaplamak ürün eşleştirme
   gerektirir ve bilerek yapılmadı (yanlış hesap, eksik bilgiden kötüdür).
-- **Arama yalnızca fiyatını yazı olarak yayınlayan broşürlerde çalışır** (şimdi BİM ve Migros); ekran
-  bunu her durumda söyler. Bir marketin ürün dosyası indirilemezse o market sessizce listeden düşer
+- **Arama yalnızca fiyat listesi olan broşürlerde çalışır**: marketin yazılı listesi (BİM, Migros) ya da
+  sayfalardan okunan fiyatlar (Şok, Hakmar; bölüm 17). A101, Gratis, CarrefourSA (web görünümü) ve henüz
+  okunmamış broşürler aranmaz; ekran bunu her durumda söyler. Bir marketin ürün dosyası indirilemezse o market sessizce listeden düşer
   (veri katmanı hangisinin eksik olduğunu bildirmiyor; istek iletildi).
+- **Broşürden okunan fiyatlar canlı veriyle denenmedi** (ilk gerçek okuma 17 Kasım 12:17 çalışmasında);
+  örnek veride 4 ürün var. Uzun bir listede (30+ ürün) her kartta satır + düğme kartları uzatır;
+  canlı veriyle bakılmalı.
+- **Arama dizini okunmuş fiyatı kendisi söylemiyor:** yazmadan önceki fiyat notunun hangisi olacağı
+  (bölüm 15) katalogdan çıkarılıyor (aranan bir markette okunmuş listeli broşür var mı). Veri katmanı
+  `SearchIndex`'e bu bilgiyi eklerse oraya taşınmalı (istek iletildi).
 - **Macrocenter** katalogda renksiz geliyor ve `chainPlateColors` içinde yok; ad kartı sakin yeşil
   (`primarySoft`) zeminle görünür.
 
@@ -531,12 +553,15 @@ paket fiyatı sanılmaması gerekir.
 
 ## 15. Ürün arama ("Broşürlerde ara")
 
-Teyze ürünün adını yazar ("süt", "çay"); fiyatını **yazı olarak** yayınlayan bütün güncel broşürlerdeki
-eşleşen ürünler, ucuzdan pahalıya sıralı gelir. Yapay zekâ ve ürün eşleştirme yoktur: fiyat, marketin
-bastığı fiyattır. Kod `lib/features/search/`, veri `searchIndexProvider` (`lib/data/search.dart`).
+Teyze ürünün adını yazar ("süt", "çay"); **fiyat listesi olan** bütün güncel broşürlerdeki eşleşen ürünler,
+ucuzdan pahalıya sıralı gelir. Fiyat listesi ya marketin kendi yazdığıdır (BİM, Migros) ya da broşür
+sayfalarından otomatik okunmuştur (Şok, Hakmar); ikincisi her kartta "Broşürden okundu" satırıyla
+ayrılır (bölüm 17). Ürün eşleştirme yoktur. Kod `lib/features/search/`, veri `searchIndexProvider`
+(`lib/data/search.dart`).
 
-**Ana kural: ekran bildiğinden fazlasını söylemez.** Arama bütün marketleri kapsamaz (çoğu broşür
-resimdir), fiyat her gün geçerli değildir, paketler aynı boyda değildir. Bunların üçü de ekranda yazar.
+**Ana kural: ekran bildiğinden fazlasını söylemez.** Arama bütün marketleri kapsamaz (web görünümündeki
+marketler ve henüz okunmamış broşürler aranmaz), fiyat her gün geçerli değildir, paketler aynı boyda
+değildir, okunan fiyat bir makine okumasıdır. Bunların hepsi ekranda yazar.
 
 ### Akış
 
@@ -569,9 +594,18 @@ Ana ekran "Ürün ara" → Arama (klavye açık) → yaz ya da örnek sözcüğe
    sonucu olanlar** gösterilir (en çok 6): basınca "bulunamadı" çıkacak bir öneri küçük bir yalandır.
    Basınca klavye kapanır ki sonuçlar arkasında kalmasın.
 3. **"Arama yapılan marketler"**: `SearchIndex.chains` içindeki marketlerin logo / ad plakaları ve altında
-   "Diğer marketler broşürlerini resim olarak yayınlıyor; onların içinde arama yapılamıyor. Onlara ana
-   ekrandan bakabilirsiniz."
-4. Fiyat notu (`InfoNote`): "Fiyatlar broşürde yazdığı gibidir; broşürün tarihlerinde geçerlidir."
+   "Diğer marketlerin broşürlerinde henüz arama yapılamıyor. Onlara ana ekrandan bakabilirsiniz."
+   (Eskiden "resim olarak yayınlıyor" diyordu; Şok ve Hakmar okununca bu yanlış oldu. Yeni cümle A101,
+   Gratis, CarrefourSA ve henüz okunmamış broşürler için doğrudur.)
+4. Fiyat notu (`InfoNote`, anahtar `search-price-note`). İki biçimi var:
+   - Okunmuş fiyat yoksa: "Fiyatlar broşürde yazdığı gibidir; broşürün tarihlerinde geçerlidir."
+   - Okunmuş fiyat görünebiliyorsa: "Fiyatlar broşürün tarihlerinde geçerlidir. “Broşürden okundu”
+     yazanları broşür sayfasından otomatik okuduk; dokununca o sayfa açılır." "Yazdığı gibidir" bu
+     biçimde **yoktur**: okunan fiyat için bunu biz garanti edemeyiz.
+
+   Yazmadan önce: aranan bir markette okunmuş listeli broşür varsa ikincisi. Sonuçlarda: ekrandaki
+   sonuçlardan biri okunmuşsa ikincisi (yalnızca BİM sütü arayan, görmeyeceği bir etiketin açıklamasını
+   okumaz).
 
 ### Sonuçlar
 
@@ -591,12 +625,15 @@ Ana ekran "Ürün ara" → Arama (klavye açık) → yaz ya da örnek sözcüğe
   - Broşür **henüz başlamadıysa** (`valid_from` bugünden sonra) tarihin altında sakin sarı "Henüz
     başlamadı" etiketi çıkar; fiyat bugün geçerli değildir ve kart bunu söylemek zorundadır.
   - Dar kartta (320 dp'den dar) ya da çok büyük yazıda "Aç ›" kaynak satırının altına iner.
-  - Ekran okuyucu tek cümle okur: ad, marka, fiyat (birimiyle), eski fiyat, "Money ile: …", market,
-    tarih, (henüz başlamadı), "Broşürde görmek için dokunun".
+  - Okunmuş fiyatta `ProductFacts` fiyatın altına "Broşürden okundu" satırını kendisi koyar; kartta ayrı
+    bir düğme yoktur (kartın tamamı zaten o sayfayı açar).
+  - Ekran okuyucu tek cümle okur: ad, marka, fiyat (birimiyle), eski fiyat, "Money ile: …", (Broşürden
+    okundu), market, tarih, (henüz başlamadı), "Broşürde görmek için dokunun".
 
 ### Sonuca basınca
 
-- Ürünün sayfası biliniyorsa (`pageIndex`, broşürde sayfa var: BİM) broşür **o sayfada** açılır. Basılı
+- Ürünün sayfası biliniyorsa (`pageIndex`, broşürde sayfa var: BİM; okunmuş fiyatta her zaman) broşür
+  **o sayfada** açılır. Basılı
   sayfa fiyatın en sağlam kanıtıdır; "Ürünler" sekmesine geçilirse ürün orada da en üsttedir.
 - Sayfa bilinmiyorsa (Migros: yalnızca ürün listesi) ürün listesi açılır; en üstte **"Aradığınız ürün"**
   başlığı ve yeşil çerçeveli kart, altında "Bu broşürdeki bütün ürünler" ile listenin tamamı (ürün kendi
@@ -616,8 +653,9 @@ Ana ekran "Ürün ara" → Arama (klavye açık) → yaz ya da örnek sözcüğe
 - **İnternet yok, kayıt var:** sakin şerit; arama elde olanlarla çalışır.
 - **İnternet yok, kayıtlı ürün listesi yok** ya da katalog hiç alınamadı: tam alan "Arama şu an
   yapılamıyor" + ne yapılacağı + "Tekrar dene".
-- **Hiçbir market yazılı fiyat yayınlamıyor:** "Şu an aranabilecek broşür yok" + broşürlere ana ekrandan
-  bakılabileceği.
+- **Aranabilecek fiyat listesi yok:** "Şu an aranabilecek broşür yok" + "Broşürlerin fiyatları
+  hazırlanınca burada arayabilirsiniz. O zamana kadar broşürlere ana ekrandan bakabilirsiniz." (Eskiden
+  "marketler fiyatlarını yazı olarak yayınlayınca" diyordu; artık fiyat okunarak da gelebiliyor.)
 - Arka plandaki sessiz katalog yenilemesi sonuçları silmez (`skipLoadingOnReload`).
 - Bu ekranda hareket yoktur (bekleme halkası dışında); "hareketi azalt" için kapatılacak bir şey kalmaz.
 
@@ -759,3 +797,101 @@ dokunuş), "hareketi azalt", ad listesi; yazı ölçeği 1,0 / 1,3 / 2,0
 
 `flutter test`: 413 geçiyor, 11 atlanıyor (2 simge + 9 ekran görüntüsü aracı; bilerek);
 `flutter analyze` temiz. Ekran görüntüleri: "Durum" bölümünün altındaki D4 notu.
+
+## 17. Broşürden okunan fiyatlar ("Broşürden okundu")
+
+Şok ve Hakmar fiyatlarını yazı olarak yayınlamıyor; kazıyıcı broşür sayfalarını bir yapay zekâ modeliyle
+okuyor (ölçümde fiyat doğruluğu ~%100, ama yine de makine okuması). Kullanıcı kararı: bu fiyatlar
+gösterilir, **her biri etiketiyle ve broşürün o sayfasına giden bağlantıyla.** Veri: `product.isOcr`,
+`hit.isOcr`, `product.pageIndex` (okunmuş fiyatta her zaman dolu), `brochure.hasProductList`
+(`lib/data/README.md`, "OCR ürünleri").
+
+**Ana kural: okunan fiyat marketin yazdığı fiyatla karışmaz, ama korkutmaz da.** Teyze iki şeyi bilmeli:
+bu fiyatı market yazmadı, biz okuduk; emin olmak isterse broşürdeki sayfası bir dokunuş uzakta. "Yanlış
+olabilir", "dikkat", sarı uyarı kutusu yok: ölçülen doğruluk buna gerek bırakmıyor ve ürküten bir etiket
+fiyatın kendisinden daha çok dikkat çeker.
+
+### Sözcükler
+
+| Yer | Metin | Neden |
+|---|---|---|
+| Fiyatın altındaki satır (`ocrTag`) | **Broşürden okundu** | Kısa, gündelik: fiyatın nereden geldiğini söyler; "makine", "tahmini", "yanlış olabilir" gibi ürküten ya da teknik sözcük taşımaz. "Okundu" yazılı listeden ayırır. |
+| Kartın düğmesi (`ocrShowOnPage`) | **Broşürde gör, sayfa 3** | Eylem önce (ne olacak), sayfa sonra (nereye). Sayı sonda olduğu için Türkçe ek hesaplanmaz ("3'te", "6'da"). "Sayfada göster"den farkı: burada kanıt asıl iştir, sayfa adıyla söylenir. |
+| Listenin başı, bir kez (`ocrListNote`) | **Bu fiyatları broşür sayfalarından otomatik okuduk. Emin olmak için “Broşürde gör”e dokunun.** | "Otomatik" yalnızca burada, bir kez söylenir: dürüst olan bu, ama her kartta yinelenirse dırdır olur. İkinci cümle ne yapılacağını düğmenin adıyla söyler. "Kasada broşürdeki fiyat geçerlidir" **denmedi**: kasada neyin geçerli olduğunu biz bilemeyiz. |
+| Aramadaki fiyat notu (`searchPriceNoteOcr`) | **Fiyatlar broşürün tarihlerinde geçerlidir. “Broşürden okundu” yazanları broşür sayfasından otomatik okuduk; dokununca o sayfa açılır.** | Etiketi açıklar ve kanıtın yolunu verir. Yalnızca okunmuş fiyat görünebiliyorsa çıkar (bölüm 15). |
+
+### Ürün kartı (`ProductCard`, `ProductFacts`, `OcrSourceTag`)
+
+```
+Lastik                              ad
+139,00 ₺ 2 cm                       raf fiyatı + birim / miktar (bölüm 14, değişmedi)
+(tarama) Broşürden okundu           OcrSourceTag: fiyatın hemen altı, sol kenarı fiyatla aynı
+[ (kitap) Broşürde gör, sayfa 2 ]   yumuşak yeşil düğme, en az 56 dp
+```
+
+- **Satır; rozet ya da düğme değil.** Soluk mürekkep (`inkSoft`, yüzeyde 7:1 üstü), kalın 18 sp, solda
+  "taranmış sayfa" simgesi (`document_scanner_outlined`). Zemin ve çerçeve **yok**: bu uygulamada dolu ya
+  da çerçeveli yuvarlak kutu "basılır" demektir ve hemen altında gerçek bir düğme durur. İlk denemede
+  krem zeminli kutu + kitap simgesi kullanıldı; emülatörde altındaki "Broşürde gör" ile iki düğme gibi
+  göründü, değiştirildi.
+- **Kırmızı ya da sarı değil.** Kırmızı "Yeni" / indirim, sarı "henüz başlamadı" ve durum şeritleri içindir;
+  okunan fiyat bir uyarı değil, bir köken bilgisidir.
+- **Yeri sabit:** fiyat satırının (raf fiyatı + eski fiyat + indirim) hemen altında, üyelik kutusundan önce.
+  Etiket fiyata aittir; kartın başka köşesinde fiyattan kopar.
+- **Ürün başına**, dosya başına değil: yazılı bir listede tek bir okunmuş ürün de etiketini alır. Yazılı
+  fiyatlı kartlar (BİM, Migros) hiç değişmedi.
+- **Miktar görünür:** `quantity_text` ("2 cm", "5 L", "6 kg") fiyatın yanında, bölüm 14'teki birim notu
+  yerinde durur. Aynı adlı iki "Lastik" böyle ayrılır; ad satırına ayrıca eklenmedi (aynı bilgi iki
+  yerde kalabalık eder).
+- **Düğme** `AppButton` tonal, `minHeight: AppSize.touch`; büyük yazıda iki satıra sarar ("Broşürde gör, /
+  sayfa 1"), kesilmez. Basınca "Broşür" sekmesine geçilir ve o sayfa açılır.
+- **Ekran okuyucu:** kartın bilgisi tek düğüm, sırası: ad, marka, fiyat (birimiyle), eski fiyat, indirim,
+  "Broşürden okundu". Düğme ayrı düğüm: "Broşürde gör, sayfa 2".
+
+### Ürün listesi ve broşür ekranı
+
+- Okunmuş listesi olan broşürde (Şok, Hakmar) "Broşür | Ürünler" sekmeleri görünür
+  (`brochure.hasProductList`; eskiden yalnızca yazılı liste için). Broşür sayfalarla açılır; liste ancak
+  "Ürünler"e basılınca indirilir.
+- Listede okunmuş fiyat varsa en üstte, ürün sayısının üstünde, **bir kez** `InfoNote` (`ocr-list-note`).
+  Aramadan gelinip "Aradığınız ürün" gösteriliyorsa not onun da üstündedir.
+- Yazı ölçeği 2,0'da ilk metin 7 satır tutup ilk ürünü ekrandan itiyordu; iki kısa cümleye indirildi, şimdi
+  ilk kart ve düğmesi ilk ekranda (ekran görüntüsü `74`).
+- Sekmeler eklenince 320 dp + 2,0'da sayfa kâğıdı küçüldü ve "Sayfa yükleniyor…" yazısı taştı
+  (`zoomable_page.dart`, `_PageLoading`): yazı artık sığmazsa solarak çekilir, halka her zaman görünür.
+
+### Market ekranı (broşür kartı)
+
+Kartta "4 sayfa · 14 ürün" yalnızca marketin yazılı listesi için yazar; **okunmuş fiyatlar sayılmaz**, kart
+"4 sayfa" der. Gerekçe: okunan sayı marketin broşüre koyduğu ürün sayısı değil, okumanın bulabildiği
+sayıdır; "38 ürün" bir eksiksizlik sözü gibi okunur ve okuma ilerledikçe değişebilir. Listenin varlığı
+broşür açılınca sekmeden zaten görünür. Veri katmanından sayı istenmedi.
+
+### Arama
+
+- Sonuç kartında etiket `ProductFacts` üzerinden kendiliğinden gelir; karta basınca broşür o sayfada
+  açılır (`openSearchHit`, `searchHitPage`; okunmuş fiyatta sayfa her zaman bilinir). "Ürünler" sekmesine
+  geçilirse ürün "Aradığınız ürün" olarak en üstte, etiketiyle.
+- Fiyat notu ve "Arama yapılan marketler" metinleri bölüm 15'te.
+
+### Yap / yapma
+
+| Yap | Yapma |
+|---|---|
+| "Broşürden okundu"yu fiyatın hemen altına sakin bir satır olarak koy | Etiketi rozet, düğme ya da renkli kutu yap; kırmızı / sarı kullan |
+| "Otomatik okuduk"u listenin başında bir kez söyle | Her kartta "otomatik", "tahmini", "yanlış olabilir" yaz |
+| Düğmede sayfa numarasını sona koy ("Broşürde gör, sayfa 3") | Sayıya Türkçe ek ekle ("3'te") ya da sayfayı söylemeden "Göster" de |
+| Okunmuş fiyatları broşür kartında sayma | Okuma sayısını marketin listesiymiş gibi "38 ürün" diye göster |
+| "Yazdığı gibidir" sözünü yalnızca yazılı fiyatlar için kullan | Okunan fiyat için "broşürde yazdığı gibidir" ya da "kasada geçerlidir" garantisi ver |
+
+### Doğrulama
+
+`test/ui/ocr_test.dart` (39 test): etiket yalnızca okunmuş fiyatta ve fiyatın altında, 18 sp, rozet değil;
+yazılı kartta etiket yok ve "Sayfada göster" aynen; düğme sayfayı söylüyor, 56 dp, basınca çalışıyor;
+ekran okuyucu etiketi fiyattan sonra okuyor; Şok broşüründe sekmeler, liste başında tek not, 4 etiket,
+"2 cm" / "3 cm", "Broşürde gör, sayfa 4" → görüntüleyici 4 / 4; BİM listesinde not ve etiket yok; broşür
+kartı okunmuş fiyatı saymıyor; aramada etiket, ekran okuyucu cümlesi, iki fiyat notu, sonuçtan 4 / 4 ve
+"Ürünler"de en üstte etiketli ürün; metinlerde "resim" / "yazı olarak" kalmadı; yazı ölçeği 1,0 / 1,3 / 2,0
+× açık / koyu × 411 / 320 dp taşma denemeleri (liste ve arama). `test/ui/support.dart`'taki sahte depo artık
+okunmuş listeyi de veriyor; bu yüzden `search_test.dart`'ta Şok aranan marketler arasında (4 test buna göre
+güncellendi). Ekran görüntüleri `70`–`75`: "Durum" bölümünün altındaki 3B.3 notu.

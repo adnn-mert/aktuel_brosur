@@ -203,14 +203,17 @@ void main() {
       await _open(tester);
       final l10n = l10nOf(tester);
       expect(find.text(l10n.searchCoverageTitle), findsOneWidget);
-      // BİM and Migros publish prices as text; Şok and Watsons only pictures.
+      // BİM and Migros publish prices as text, Şok's were read from its
+      // pages; Watsons has no price list.
       expect(find.byKey(const ValueKey('search-chain-bim')), findsOneWidget);
       expect(find.byKey(const ValueKey('search-chain-migros')), findsOneWidget);
-      expect(find.byKey(const ValueKey('search-chain-sok')), findsNothing);
+      expect(find.byKey(const ValueKey('search-chain-sok')), findsOneWidget);
       expect(find.byKey(const ValueKey('search-chain-watsons')), findsNothing);
-      expect(find.byType(ChainMark), findsNWidgets(2));
+      expect(find.byType(ChainMark), findsNWidgets(3));
       expect(find.text(l10n.searchCoverageNote), findsOneWidget);
-      expect(find.text(l10n.searchPriceNote), findsOneWidget);
+      // Şok's prices can show up, so the note explains their tag.
+      expect(find.text(l10n.searchPriceNoteOcr), findsOneWidget);
+      expect(find.text(l10n.searchPriceNote), findsNothing);
     });
 
     testWidgets('tapping an example searches for it', (tester) async {
@@ -242,12 +245,13 @@ void main() {
       await _type(tester, 'ayçiçek');
       final l10n = l10nOf(tester);
 
-      expect(find.byType(SearchResultCard), findsNWidgets(2));
-      expect(find.text(l10n.searchResultCount(2)), findsOneWidget);
+      expect(find.byType(SearchResultCard), findsNWidgets(3));
+      expect(find.text(l10n.searchResultCount(3)), findsOneWidget);
       expect(find.text(l10n.searchSortNote), findsOneWidget);
-      expect(find.text(l10n.searchPriceNote), findsOneWidget);
+      // Şok's 349,90 ₺ was read from its page: the note says what that means.
+      expect(find.text(l10n.searchPriceNoteOcr), findsOneWidget);
 
-      // BİM 319,50 ₺ is above Migros 329,95 ₺.
+      // BİM 319,50 ₺ is above Migros 329,95 ₺, Şok 349,90 ₺ last.
       final bim = _result(0);
       final migros = _result(1);
       expect(
@@ -284,10 +288,14 @@ void main() {
         find.descendant(of: migros, matching: find.text('12–25 Kasım')),
         findsOneWidget,
       );
-      expect(find.byType(ChainMark), findsNWidgets(2));
+      expect(
+        find.descendant(of: _result(2), matching: find.text('349,90 ₺')),
+        findsOneWidget,
+      );
+      expect(find.byType(ChainMark), findsNWidgets(3));
       // The list ends by saying what was (and was not) searched.
       expect(
-        find.text(l10n.searchNoResultsCoverage('BİM, Migros')),
+        find.text(l10n.searchNoResultsCoverage('BİM, Şok, Migros')),
         findsOneWidget,
       );
     });
@@ -297,7 +305,7 @@ void main() {
     ) async {
       await _open(tester, size: const Size(411, 2400));
       await _type(tester, 'AYCICEK yagi');
-      expect(find.byType(SearchResultCard), findsNWidgets(2));
+      expect(find.byType(SearchResultCard), findsNWidgets(3));
     });
 
     testWidgets('a member price follows section 14: shelf price biggest, '
@@ -516,7 +524,7 @@ void main() {
       expect(find.text(l10n.searchNoResultsTitle('kivi')), findsOneWidget);
       expect(find.text(l10n.searchNoResultsMessage), findsOneWidget);
       expect(
-        find.text(l10n.searchNoResultsCoverage('BİM, Migros')),
+        find.text(l10n.searchNoResultsCoverage('BİM, Şok, Migros')),
         findsOneWidget,
       );
       final again = find.widgetWithText(AppButton, l10n.searchNewSearch);

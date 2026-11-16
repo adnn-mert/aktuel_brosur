@@ -292,6 +292,18 @@ class AppLocalizationsTr extends AppLocalizations {
   String get showOnPage => 'Sayfada göster';
 
   @override
+  String get ocrTag => 'Broşürden okundu';
+
+  @override
+  String ocrShowOnPage(int page) {
+    return 'Broşürde gör, sayfa $page';
+  }
+
+  @override
+  String get ocrListNote =>
+      'Bu fiyatları broşür sayfalarından otomatik okuduk. Emin olmak için “Broşürde gör”e dokunun.';
+
+  @override
   String get webLoading => 'Sayfa açılıyor…';
 
   @override
@@ -392,11 +404,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get searchCoverageNote =>
-      'Diğer marketler broşürlerini resim olarak yayınlıyor; onların içinde arama yapılamıyor. Onlara ana ekrandan bakabilirsiniz.';
+      'Diğer marketlerin broşürlerinde henüz arama yapılamıyor. Onlara ana ekrandan bakabilirsiniz.';
 
   @override
   String get searchPriceNote =>
       'Fiyatlar broşürde yazdığı gibidir; broşürün tarihlerinde geçerlidir.';
+
+  @override
+  String get searchPriceNoteOcr =>
+      'Fiyatlar broşürün tarihlerinde geçerlidir. “Broşürden okundu” yazanları broşür sayfasından otomatik okuduk; dokununca o sayfa açılır.';
 
   @override
   String get searchSortNote =>
@@ -441,7 +457,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get searchEmptyIndexMessage =>
-      'Marketler fiyatlarını yazı olarak yayınlayınca burada arayabilirsiniz. Broşürlere ana ekrandan bakabilirsiniz.';
+      'Broşürlerin fiyatları hazırlanınca burada arayabilirsiniz. O zamana kadar broşürlere ana ekrandan bakabilirsiniz.';
 
   @override
   String get searchOfflineNotice =>

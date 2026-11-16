@@ -416,9 +416,12 @@ class _PageLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
+    // On a small phone with a huge font and the "Broşür | Ürünler" tabs the
+    // sheet can be shorter than spinner + label: the label then gives way
+    // (it fades out) instead of overflowing; the spinner always shows.
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(AppSpace.xl),
+        padding: const EdgeInsets.all(AppSpace.md),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -427,10 +430,13 @@ class _PageLoading extends StatelessWidget {
               child: CircularProgressIndicator(strokeWidth: AppSpace.xxs),
             ),
             const SizedBox(height: AppSpace.md),
-            Text(
-              label,
-              textAlign: TextAlign.center,
-              style: AppType.body.copyWith(color: c.inkSoft),
+            Flexible(
+              child: Text(
+                label,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.fade,
+                style: AppType.body.copyWith(color: c.inkSoft),
+              ),
             ),
           ],
         ),

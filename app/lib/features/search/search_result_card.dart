@@ -21,7 +21,9 @@ bool startsLater(Brochure brochure, DateTime today) {
 /// One search result. Top: the product exactly as its brochure's own list
 /// shows it ([ProductFacts], so the price rules of DESIGN.md section 14 hold
 /// here by construction). Bottom: where the price comes from (which market,
-/// which dates) and an "Aç" cue. The whole card opens the brochure.
+/// which dates) and an "Aç" cue. The whole card opens the brochure; a price
+/// read from the brochure page (OCR) shows the "Broşürden okundu" tag through
+/// [ProductFacts] and opens on that page.
 class SearchResultCard extends ConsumerWidget {
   const SearchResultCard({super.key, required this.hit, required this.onOpen});
 
@@ -54,6 +56,7 @@ class SearchResultCard extends ConsumerWidget {
               ? memberPrice.format()
               : l10n.priceWithUnit(memberPrice.format(), unit),
         ),
+      if (hit.isOcr) l10n.ocrTag,
       hit.chain.name,
       dates,
       if (upcoming) l10n.searchUpcoming,

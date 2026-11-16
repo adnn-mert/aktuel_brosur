@@ -508,6 +508,24 @@ abstract class AppLocalizations {
   /// **'Sayfada göster'**
   String get showOnPage;
 
+  /// Quiet tag under a price that was read from the brochure page by the app (OCR), not written by the market.
+  ///
+  /// In tr, this message translates to:
+  /// **'Broşürden okundu'**
+  String get ocrTag;
+
+  /// Button on a product card whose price was read from the brochure: opens that page. The page number stays at the end so no Turkish suffix is needed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Broşürde gör, sayfa {page}'**
+  String ocrShowOnPage(int page);
+
+  /// Shown once at the top of a product list whose prices were read from the brochure pages (OCR).
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu fiyatları broşür sayfalarından otomatik okuduk. Emin olmak için “Broşürde gör”e dokunun.'**
+  String get ocrListNote;
+
   /// Shown while the chain's web page loads.
   ///
   /// In tr, this message translates to:
@@ -670,17 +688,23 @@ abstract class AppLocalizations {
   /// **'Arama yapılan marketler'**
   String get searchCoverageTitle;
 
-  /// Honest note: image-only brochures are not searched.
+  /// Honest note under the searched markets: the other markets (web-only ones, brochures not read yet) are not searched.
   ///
   /// In tr, this message translates to:
-  /// **'Diğer marketler broşürlerini resim olarak yayınlıyor; onların içinde arama yapılamıyor. Onlara ana ekrandan bakabilirsiniz.'**
+  /// **'Diğer marketlerin broşürlerinde henüz arama yapılamıyor. Onlara ana ekrandan bakabilirsiniz.'**
   String get searchCoverageNote;
 
-  /// Honesty note shown with the results and before typing.
+  /// Honesty note shown with the results and before typing, when no searched price was read from a brochure page.
   ///
   /// In tr, this message translates to:
   /// **'Fiyatlar broşürde yazdığı gibidir; broşürün tarihlerinde geçerlidir.'**
   String get searchPriceNote;
+
+  /// Honesty note instead of searchPriceNote when some searched prices were read from brochure pages (OCR).
+  ///
+  /// In tr, this message translates to:
+  /// **'Fiyatlar broşürün tarihlerinde geçerlidir. “Broşürden okundu” yazanları broşür sayfasından otomatik okuduk; dokununca o sayfa açılır.'**
+  String get searchPriceNoteOcr;
 
   /// Explains the order of the results and its limit.
   ///
@@ -730,7 +754,7 @@ abstract class AppLocalizations {
   /// **'Arama şu an yapılamıyor'**
   String get searchErrorTitle;
 
-  /// Title when no brochure publishes its prices as text.
+  /// Title when no current brochure has a searchable price list.
   ///
   /// In tr, this message translates to:
   /// **'Şu an aranabilecek broşür yok'**
@@ -739,7 +763,7 @@ abstract class AppLocalizations {
   /// Message under searchEmptyIndexTitle.
   ///
   /// In tr, this message translates to:
-  /// **'Marketler fiyatlarını yazı olarak yayınlayınca burada arayabilirsiniz. Broşürlere ana ekrandan bakabilirsiniz.'**
+  /// **'Broşürlerin fiyatları hazırlanınca burada arayabilirsiniz. O zamana kadar broşürlere ana ekrandan bakabilirsiniz.'**
   String get searchEmptyIndexMessage;
 
   /// Notice on the search screen when cached data is used.

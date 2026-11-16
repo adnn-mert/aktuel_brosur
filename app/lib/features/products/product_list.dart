@@ -11,6 +11,9 @@ import '../../l10n/app_localizations.dart';
 import 'product_card.dart';
 
 /// The priced product list of a brochure, in the market's own order.
+///
+/// When any price in it was read from the brochure pages (OCR), the list
+/// opens once with a short note that says so and how to check it.
 class ProductList extends ConsumerWidget {
   const ProductList({
     super.key,
@@ -84,6 +87,7 @@ class ProductList extends ConsumerWidget {
           return hasPage ? () => onShowPage!(pageIndex) : null;
         }
 
+        final readFromPages = file.products.any((p) => p.isOcr);
         final wanted = highlight;
         final pinned = wanted != null && file.products.contains(wanted)
             ? wanted
@@ -102,40 +106,53 @@ class ProductList extends ConsumerWidget {
                 l10n.productCount(file.products.length),
                 style: AppType.body.copyWith(color: c.inkSoft),
               );
+              final header = pinned == null
+                  ? Align(alignment: Alignment.centerLeft, child: count)
+                  : Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Semantics(
+                          header: true,
+                          child: Text(
+                            l10n.searchedProductTitle,
+                            style: AppType.section.copyWith(color: c.ink),
+                          ),
+                        ),
+                        const SizedBox(height: AppSpace.sm),
+                        ProductCard(
+                          key: const ValueKey('searched-product'),
+                          product: pinned,
+                          highlighted: true,
+                          onShowPage: showPageOf(pinned),
+                        ),
+                        const SizedBox(height: AppSpace.xl),
+                        Semantics(
+                          header: true,
+                          child: Text(
+                            l10n.allProductsTitle,
+                            style: AppType.section.copyWith(color: c.ink),
+                          ),
+                        ),
+                        const SizedBox(height: AppSpace.xxs),
+                        count,
+                      ],
+                    );
               return ContentWidth(
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: AppSpace.sm),
-                  child: pinned == null
-                      ? Align(alignment: Alignment.centerLeft, child: count)
-                      : Column(
+                  child: readFromPages
+                      ? Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Semantics(
-                              header: true,
-                              child: Text(
-                                l10n.searchedProductTitle,
-                                style: AppType.section.copyWith(color: c.ink),
-                              ),
+                            InfoNote(
+                              key: const ValueKey('ocr-list-note'),
+                              text: l10n.ocrListNote,
                             ),
-                            const SizedBox(height: AppSpace.sm),
-                            ProductCard(
-                              key: const ValueKey('searched-product'),
-                              product: pinned,
-                              highlighted: true,
-                              onShowPage: showPageOf(pinned),
-                            ),
-                            const SizedBox(height: AppSpace.xl),
-                            Semantics(
-                              header: true,
-                              child: Text(
-                                l10n.allProductsTitle,
-                                style: AppType.section.copyWith(color: c.ink),
-                              ),
-                            ),
-                            const SizedBox(height: AppSpace.xxs),
-                            count,
+                            const SizedBox(height: AppSpace.md),
+                            header,
                           ],
-                        ),
+                        )
+                      : header,
                 ),
               );
             }

@@ -409,6 +409,23 @@
   "@showOnPage": {
     "description": "Button on a product card that opens the brochure page showing it."
   },
+  "ocrTag": "Broşürden okundu",
+  "@ocrTag": {
+    "description": "Quiet tag under a price that was read from the brochure page by the app (OCR), not written by the market."
+  },
+  "ocrShowOnPage": "Broşürde gör, sayfa {page}",
+  "@ocrShowOnPage": {
+    "description": "Button on a product card whose price was read from the brochure: opens that page. The page number stays at the end so no Turkish suffix is needed.",
+    "placeholders": {
+      "page": {
+        "type": "int"
+      }
+    }
+  },
+  "ocrListNote": "Bu fiyatları broşür sayfalarından otomatik okuduk. Emin olmak için “Broşürde gör”e dokunun.",
+  "@ocrListNote": {
+    "description": "Shown once at the top of a product list whose prices were read from the brochure pages (OCR)."
+  },
 
   "webLoading": "Sayfa açılıyor…",
   "@webLoading": {
@@ -536,13 +553,17 @@
   "@searchCoverageTitle": {
     "description": "Heading above the markets whose brochures can be searched."
   },
-  "searchCoverageNote": "Diğer marketler broşürlerini resim olarak yayınlıyor; onların içinde arama yapılamıyor. Onlara ana ekrandan bakabilirsiniz.",
+  "searchCoverageNote": "Diğer marketlerin broşürlerinde henüz arama yapılamıyor. Onlara ana ekrandan bakabilirsiniz.",
   "@searchCoverageNote": {
-    "description": "Honest note: image-only brochures are not searched."
+    "description": "Honest note under the searched markets: the other markets (web-only ones, brochures not read yet) are not searched."
   },
   "searchPriceNote": "Fiyatlar broşürde yazdığı gibidir; broşürün tarihlerinde geçerlidir.",
   "@searchPriceNote": {
-    "description": "Honesty note shown with the results and before typing."
+    "description": "Honesty note shown with the results and before typing, when no searched price was read from a brochure page."
+  },
+  "searchPriceNoteOcr": "Fiyatlar broşürün tarihlerinde geçerlidir. “Broşürden okundu” yazanları broşür sayfasından otomatik okuduk; dokununca o sayfa açılır.",
+  "@searchPriceNoteOcr": {
+    "description": "Honesty note instead of searchPriceNote when some searched prices were read from brochure pages (OCR)."
   },
   "searchSortNote": "En ucuzu en üstte. Paket boyları farklı olabilir.",
   "@searchSortNote": {
@@ -593,9 +614,9 @@
   },
   "searchEmptyIndexTitle": "Şu an aranabilecek broşür yok",
   "@searchEmptyIndexTitle": {
-    "description": "Title when no brochure publishes its prices as text."
+    "description": "Title when no current brochure has a searchable price list."
   },
-  "searchEmptyIndexMessage": "Marketler fiyatlarını yazı olarak yayınlayınca burada arayabilirsiniz. Broşürlere ana ekrandan bakabilirsiniz.",
+  "searchEmptyIndexMessage": "Broşürlerin fiyatları hazırlanınca burada arayabilirsiniz. O zamana kadar broşürlere ana ekrandan bakabilirsiniz.",
   "@searchEmptyIndexMessage": {
     "description": "Message under searchEmptyIndexTitle."
   },

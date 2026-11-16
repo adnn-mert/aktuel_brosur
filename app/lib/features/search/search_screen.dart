@@ -15,12 +15,14 @@ import 'search_field.dart';
 import 'search_result_card.dart';
 
 /// "Broşürlerde ara": type a product name, see every matching product of the
-/// brochures that publish their prices as text, cheapest first.
+/// brochures that have a price list (the market's written one, or prices read
+/// from the pages), cheapest first.
 ///
-/// The screen never claims more than it knows (DESIGN.md, section 15): it
-/// names the markets it searches, says that the other markets' brochures are
-/// pictures and are not searched, and repeats that a price is what the
-/// brochure printed, for the brochure's own dates.
+/// The screen never claims more than it knows (DESIGN.md, sections 15 and
+/// 17): it names the markets it searches, says that the other markets'
+/// brochures are not searched yet, and repeats that a price is valid for the
+/// brochure's own dates; when some prices were read from the pages it says
+/// so, and that tapping one opens that page.
 class SearchScreen extends ConsumerStatefulWidget {
   const SearchScreen({super.key});
 
@@ -127,6 +129,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
     required bool offline,
   }) {
     final l10n = AppLocalizations.of(context);
+    final catalog = ref.watch(catalogProvider).value?.catalog;
 
     if (index.productCount == 0) {
       // Offline, product lists that were never opened cannot be read.
@@ -150,6 +153,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
     if (letters < AppSize.searchMinLetters) {
       return _Idle(
         index: index,
+        priceNote: _priceNote(l10n, _hasOcrList(catalog, index)),
         offline: offline,
         tooShort: letters > 0,
         onExample: _useExample,
@@ -165,7 +169,12 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
         onNewSearch: _clear,
       );
     }
-    return _Results(hits: hits, chains: index.chains, offline: offline);
+    return _Results(
+      hits: hits,
+      chains: index.chains,
+      offline: offline,
+      priceNote: _priceNote(l10n, hits.any((hit) => hit.isOcr)),
+    );
   }
 }
 
@@ -175,6 +184,23 @@ const EdgeInsets _listPadding = EdgeInsets.fromLTRB(
   AppSpace.screen,
   AppSpace.xxl,
 );
+
+/// The price note: the plain one, or the one that also explains the
+/// "Broşürden okundu" tag when such prices are on screen (or searchable).
+String _priceNote(AppLocalizations l10n, bool readFromPages) =>
+    readFromPages ? l10n.searchPriceNoteOcr : l10n.searchPriceNote;
+
+/// True when a searched market has a brochure whose prices were read from
+/// its pages, so the tag can appear in the results.
+bool _hasOcrList(Catalog? catalog, SearchIndex index) {
+  if (catalog == null) return false;
+  final searched = {for (final chain in index.chains) chain.id};
+  return catalog.brochures.any(
+    (b) =>
+        b.productListSource == ProductSource.ocr &&
+        searched.contains(b.chainId),
+  );
+}
 
 /// "BİM, Migros": the searched markets as one phrase.
 String _chainNames(List<Chain> chains) =>
@@ -228,12 +254,14 @@ class _OfflineNotice extends StatelessWidget {
 class _Idle extends StatelessWidget {
   const _Idle({
     required this.index,
+    required this.priceNote,
     required this.offline,
     required this.tooShort,
     required this.onExample,
   });
 
   final SearchIndex index;
+  final String priceNote;
   final bool offline;
 
   /// One letter is typed: say that one more is needed.
@@ -333,7 +361,10 @@ class _Idle extends StatelessWidget {
                 style: AppType.body.copyWith(color: c.inkSoft),
               ),
               const SizedBox(height: AppSpace.lg),
-              InfoNote(text: l10n.searchPriceNote),
+              InfoNote(
+                key: const ValueKey('search-price-note'),
+                text: priceNote,
+              ),
             ],
           ),
         ),
@@ -461,11 +492,13 @@ class _Results extends StatelessWidget {
     required this.hits,
     required this.chains,
     required this.offline,
+    required this.priceNote,
   });
 
   final List<SearchHit> hits;
   final List<Chain> chains;
   final bool offline;
+  final String priceNote;
 
   @override
   Widget build(BuildContext context) {
@@ -503,7 +536,10 @@ class _Results extends StatelessWidget {
                   ),
                   if (noteFirst) ...[
                     const SizedBox(height: AppSpace.sm),
-                    InfoNote(text: l10n.searchPriceNote),
+                    InfoNote(
+                      key: const ValueKey('search-price-note'),
+                      text: priceNote,
+                    ),
                   ],
                 ],
               ),
@@ -518,7 +554,10 @@ class _Results extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   if (!noteFirst) ...[
-                    InfoNote(text: l10n.searchPriceNote),
+                    InfoNote(
+                      key: const ValueKey('search-price-note'),
+                      text: priceNote,
+                    ),
                     const SizedBox(height: AppSpace.md),
                   ],
                   InfoNote(

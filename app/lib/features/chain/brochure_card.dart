@@ -11,6 +11,11 @@ import '../../design/widgets/feedback.dart';
 import '../../l10n/app_localizations.dart';
 
 /// "8 sayfa", "7 ürün" or "4 sayfa · 14 ürün".
+///
+/// Only the market's own written list is counted. Prices read from the pages
+/// (OCR) are not: that number is how much the reading found, not how many
+/// products the market put in the brochure, and it would read as a promise
+/// that the list is complete (DESIGN.md, section 17).
 String brochureDetail(AppLocalizations l10n, Brochure brochure) {
   final pages = brochure.hasPages
       ? l10n.pageCount(brochure.pages.length)

@@ -12,7 +12,8 @@ import '../products/product_list.dart';
 import 'page_viewer.dart';
 
 /// A brochure: its pages (the viewer), its product list, or both behind two
-/// big tabs when the market publishes both (BİM).
+/// big tabs when it has both: the market's written list (BİM) or prices read
+/// from the pages (Şok, Hakmar: OCR, labelled per product).
 class BrochureScreen extends ConsumerStatefulWidget {
   const BrochureScreen({
     super.key,
@@ -75,7 +76,8 @@ class _BrochureScreenState extends ConsumerState<BrochureScreen> {
     final chain = ref.watch(chainProvider(brochure.chainId)).value;
     final today = ref.watch(clockProvider).today();
     final dates = formatBrochureDates(brochure, today);
-    final both = brochure.hasPages && brochure.hasProducts;
+    final hasList = brochure.hasProductList;
+    final both = brochure.hasPages && hasList;
     final focus = widget.focusProduct;
     final focusPage = focus?.pageIndex;
     // Coming from the search without a known page: start on the list.
@@ -83,13 +85,13 @@ class _BrochureScreenState extends ConsumerState<BrochureScreen> {
         focus != null &&
         (focusPage == null || focusPage >= brochure.pages.length);
     final showProducts = brochure.hasPages
-        ? (brochure.hasProducts && (_showProducts ?? startOnProducts))
+        ? (hasList && (_showProducts ?? startOnProducts))
         : true;
 
     final Widget body;
     if (!brochure.hasPages) {
       body = ProductList(brochure: brochure, highlight: focus);
-    } else if (!brochure.hasProducts) {
+    } else if (!hasList) {
       body = BrochurePageViewer(
         key: _viewerKey,
         brochure: brochure,
