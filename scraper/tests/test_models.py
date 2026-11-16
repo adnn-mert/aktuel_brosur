@@ -87,6 +87,11 @@ def test_example_catalog_round_trip(catalog) -> None:
     model = Catalog.from_dict(catalog)
     out = model.to_dict()
     validate_catalog(out)
+    # ocr_products_url belongs to the OCR step (scraper/ocr/pipeline.py), which adds it to the
+    # JSON after the scrape. The model leaves it out on purpose: the scrape step rebuilds the
+    # catalog from it and must not point at OCR files it does not copy.
+    for brochure in catalog["brochures"]:
+        brochure.pop("ocr_products_url", None)
     assert out == catalog
     assert Catalog.from_dict(out) == model
 

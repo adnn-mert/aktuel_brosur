@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-13T06:20:41Z",
+  "model": "gemini-3.8-flash",
+  "thinking_level": "LOW",
+  "usage": {
+    "quota_day": "2026-11-12",
+    "attempts": 3
+  },
+  "brochures": {
+    "hakmar-2026-11-10-10-23-kasim-2026": {
+      "fingerprint": "5d41402abc4b2a76b9719d911017c5925d41402abc4b2a76b9719d911017c592",
+      "failed_attempts": 1,
+      "last_error": "HTTP 400: Request contains an invalid argument.",
+      "last_attempt_at": "2026-11-13T06:19:02Z"
+    },
+    "sok-2026-11-11-haftanin-firsatlari": {
+      "fingerprint": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+      "failed_attempts": 0,
+      "reading": {
+        "products_url": "products_ocr/sok-2026-11-11-haftanin-firsatlari.json",
+        "product_count": 4,
+        "read_at": "2026-11-11T09:31:12Z",
+        "model": "gemini-3.8-flash",
+        "thinking_level": "LOW",
+        "prompt_version": "pages-b1",
+        "requests": 1
+      },
+      "last_attempt_at": "2026-11-11T09:31:12Z"
+    }
+  }
+}

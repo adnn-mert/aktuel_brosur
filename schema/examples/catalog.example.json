@@ -207,6 +207,7 @@
       ],
       "products_url": null,
       "product_count": 0,
+      "ocr_products_url": "products_ocr/sok-2026-11-11-haftanin-firsatlari.json",
       "source_url": "https://kurumsal.sokmarket.com.tr/uploads/pdf/m3Qz8RkT2v-11-17kasim.pdf",
       "first_seen": "2026-11-06T13:00:11Z",
       "updated_at": "2026-11-06T13:00:11Z"

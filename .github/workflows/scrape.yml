@@ -1,8 +1,9 @@
 name: Scrape and publish
 
 # Collects every source three times a day and publishes catalog.json, health.json,
-# products/ and media/ to the `data` branch (served by GitHub Pages). The branch is
-# rewritten as a single commit each time, so it never accumulates history.
+# products/, products_ocr/, ocr_state.json and media/ to the `data` branch (served by
+# GitHub Pages). The branch is rewritten as a single commit each time, so it never
+# accumulates history.
 on:
   schedule:
     # 06:17, 12:17 and 18:17 in Turkey (UTC+3); off the hour to avoid the top-of-hour rush.
@@ -20,7 +21,9 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # Scraping takes a few minutes; the OCR step may take up to 55 more (Gemini reads a page in
+    # about a minute and a half).
+    timeout-minutes: 90
     env:
       # Lets site operators see who is calling; derived from the repo, no personal data.
       SCRAPER_CONTACT_URL: https://github.com/${{ github.repository }}
@@ -46,6 +49,19 @@ jobs:
           set +e
           python -m scraper run --state-dir state --out out
           echo "code=$?" >> "$GITHUB_OUTPUT"
+
+      # Reads new Şok / Hakmar brochure pages with Gemini and adds products_ocr/ files to out/
+      # (each brochure once; the request budget and page fingerprints live in out/ocr_state.json).
+      # Only this step gets the API key. It always exits 0, rolls back any change that fails the
+      # output check, and its own timeout is longer than the code's time budget, so a slow model
+      # can never keep the data from being published. Without the secret it logs "OCR disabled".
+      - name: Read prices from brochure pages (OCR)
+        if: ${{ steps.scrape.outputs.code == '0' || steps.scrape.outputs.code == '2' }}
+        continue-on-error: true
+        timeout-minutes: 55
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python -m scraper ocr --state-dir state --out out
 
       - name: Publish to the data branch
         id: publish

@@ -1,0 +1,22 @@
+{
+ "candidates": [
+  {
+   "content": {
+    "role": "model",
+    "parts": [
+     {
+      "text": "{\"products\": [{\"page_index\": 0, \"name\": \"Ayçiçek Yağı\", \"brand\": \"Yudum\", \"quantity_text\": \"5 L\", \"price\": \"349,90\", \"old_price\": \"399,90\"}, {\"page_index\": 0, \"name\": \"Toz Şeker\", \"brand\": null, \"quantity_text\": \"3 kg\", \"price\": \"119,50\", \"old_price\": null}, {\"page_index\": 1, \"name\": \"Lastik\", \"brand\": null, \"quantity_text\": \"2 cm\", \"price\": \"139\", \"old_price\": null}, {\"page_index\": 1, \"name\": \"Lastik\", \"brand\": null, \"quantity_text\": \"3 cm\", \"price\": \"179\", \"old_price\": null}, {\"page_index\": 1, \"name\": \"  Siyah   Çay \", \"brand\": \"Çaykur\", \"quantity_text\": \"1 kg\", \"price\": \"₺189,00\", \"old_price\": \"179,00\"}, {\"page_index\": 2, \"name\": \"Toz Deterjan\", \"brand\": \"Omo\", \"quantity_text\": \"6 kg\", \"price\": \"1.299,00\", \"old_price\": null}, {\"page_index\": 2, \"name\": \"Bebek Bezi Kampanyası\", \"brand\": null, \"quantity_text\": null, \"price\": \"%20 İNDİRİM\", \"old_price\": null}, {\"page_index\": 2, \"name\": \"\", \"brand\": null, \"quantity_text\": null, \"price\": \"49,90\", \"old_price\": null}, {\"page_index\": 5, \"name\": \"Pirinç\", \"brand\": null, \"quantity_text\": \"1 kg\", \"price\": \"54,90\", \"old_price\": null}]}"
+     }
+    ]
+   },
+   "finishReason": "STOP",
+   "index": 0
+  }
+ ],
+ "usageMetadata": {
+  "promptTokenCount": 7420,
+  "candidatesTokenCount": 612,
+  "totalTokenCount": 8032
+ },
+ "modelVersion": "gemini-3.8-flash"
+}

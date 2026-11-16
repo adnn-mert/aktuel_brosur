@@ -86,6 +86,10 @@ def validate_health(data: Any) -> None:
     _run("health", data, _health_consistency)
 
 
+def validate_ocr_state(data: Any) -> None:
+    _run("ocr_state", data, None)
+
+
 def _run(name: str, data: Any, consistency) -> None:
     found = [leaf for top in _validator(name).iter_errors(data) for leaf in _expand(top)]
     errors = [_format_schema_error(e, data) for e in _sorted(found)]
@@ -210,6 +214,10 @@ def _catalog_consistency(data: dict[str, Any]) -> Iterator[str]:
 
         if b["valid_from"] and b["valid_to"] and b["valid_from"] > b["valid_to"]:
             yield f"{at}.valid_from{hint}: {b['valid_from']} is after valid_to {b['valid_to']}"
+
+        # OCR products point at page images; without pages there is nothing they were read from.
+        if b.get("ocr_products_url") and not b["pages"]:
+            yield f"{at}.ocr_products_url{hint}: needs pages to read products from"
 
 
 def _products_consistency(data: dict[str, Any]) -> Iterator[str]:

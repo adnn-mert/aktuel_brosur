@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "brochure_id": "sok-2026-11-11-haftanin-firsatlari",
+  "currency": "TRY",
+  "products": [
+    {
+      "name": "Ayçiçek Yağı",
+      "brand": "Yudum",
+      "quantity_text": "5 L",
+      "price_minor": 34990,
+      "old_price_minor": 39990,
+      "image": null,
+      "page_index": 0,
+      "source_url": null,
+      "source": "ocr"
+    },
+    {
+      "name": "Lastik",
+      "brand": null,
+      "quantity_text": "2 cm",
+      "price_minor": 13900,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 1,
+      "source_url": null,
+      "source": "ocr"
+    },
+    {
+      "name": "Lastik",
+      "brand": null,
+      "quantity_text": "3 cm",
+      "price_minor": 17900,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 1,
+      "source_url": null,
+      "source": "ocr"
+    },
+    {
+      "name": "Toz Deterjan",
+      "brand": "Omo",
+      "quantity_text": "6 kg",
+      "price_minor": 129900,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 3,
+      "source_url": null,
+      "source": "ocr"
+    }
+  ]
+}

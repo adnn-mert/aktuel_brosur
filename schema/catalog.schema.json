@@ -98,6 +98,10 @@
         "pages": { "type": "array", "items": { "$ref": "#/$defs/image" } },
         "products_url": { "anyOf": [{ "$ref": "#/$defs/relativePath" }, { "type": "null" }] },
         "product_count": { "type": "integer", "minimum": 0 },
+        "ocr_products_url": {
+          "description": "Optional. Products read from the page images by OCR (every product has source \"ocr\" and a page_index into pages), e.g. products_ocr/<id>.json. Kept apart from products_url and kind on purpose: apps that do not know this field must not show OCR prices without their label. Omitted when there are none.",
+          "anyOf": [{ "$ref": "#/$defs/relativePath" }, { "type": "null" }]
+        },
         "source_url": { "$ref": "#/$defs/httpsUrl" },
         "first_seen": { "$ref": "#/$defs/dateTime" },
         "updated_at": { "$ref": "#/$defs/dateTime" }

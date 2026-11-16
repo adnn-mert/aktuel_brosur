@@ -79,7 +79,8 @@ BROCHURE_PROMPT_VERSION = "b1"
 
 # Chains other than BİM print multi-product brochure pages, not single posters. Their prompt
 # says so, and their cache folder is keyed by the chain, so the BİM text and cache stay as built.
-BROCHURE_STORES = {"tkkoop": "Tarım Kredi Koop"}
+# Şok and Hakmar are read by the scrape pipeline (scraper/ocr/pipeline.py), not the evaluator.
+BROCHURE_STORES = {"tkkoop": "Tarım Kredi Koop", "sok": "Şok", "hakmar": "Hakmar"}
 _PAGE_RULES = (
     'A product shown only with a percentage discount (e.g. "%20 İNDİRİM") and no price of its own '
     "has no price: leave it out.\n"
@@ -160,7 +161,15 @@ BROCHURE_RESPONSE_SCHEMA: dict[str, Any] = {
 
 
 class GeminiError(RuntimeError):
-    """A request failed; the message never contains the API key."""
+    """A request failed; the message never contains the API key.
+
+    ``status`` is the HTTP status when the server answered with an error, so callers can tell
+    a spent quota (429) from a server fault (5xx) without parsing the message.
+    """
+
+    def __init__(self, message: str, status: int | None = None) -> None:
+        super().__init__(message)
+        self.status = status
 
 
 class MissingApiKey(GeminiError):
@@ -452,12 +461,16 @@ class GeminiClient:
                 return body
             retryable = response.status_code == 429 or response.status_code >= 500
             if not retryable or attempt >= self.max_retries:
-                raise GeminiError(self._scrub(f"HTTP {response.status_code}: {_error_message(response)}"))
+                raise GeminiError(
+                    self._scrub(f"HTTP {response.status_code}: {_error_message(response)}"),
+                    status=response.status_code,
+                )
             delay = retry_delay(response) or FALLBACK_BACKOFF * 2**attempt
             # A long suggested wait means the daily quota is gone; waiting it out is pointless here.
             if delay > MAX_WAIT:
                 raise GeminiError(
-                    self._scrub(f"HTTP {response.status_code}, retry in {delay:.0f}s: {_error_message(response)}")
+                    self._scrub(f"HTTP {response.status_code}, retry in {delay:.0f}s: {_error_message(response)}"),
+                    status=response.status_code,
                 )
             attempt += 1
             self._log(f"gemini: HTTP {response.status_code}, retry {attempt} in {delay:.0f}s")

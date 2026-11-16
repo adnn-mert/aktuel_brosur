@@ -9,3 +9,8 @@ OCR measurement fixtures.
 - `gemini_tkkoop_brochure_response.json`: hand-made answer for that campaign's one PDF page,
   written from the page as printed (16 products). It is not a recorded Gemini answer. The page
   prints the eggs at 105,00 while the card says 108,00; the tests keep that disagreement on purpose.
+- `gemini_pages_response.json`: hand-made answer in the page-prompt format the scrape pipeline's
+  OCR step uses (`scraper/ocr/pipeline.py`) for a three-page Şok-like brochure. Six usable
+  products (two same-named "Lastik" told apart by `quantity_text`, an "old" price lower than the
+  price) and three that must be dropped: a percentage-only discount, an empty name and a
+  `page_index` past the last page. Not a recorded Gemini answer.

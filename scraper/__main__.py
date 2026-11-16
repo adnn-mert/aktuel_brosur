@@ -8,12 +8,19 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
-from scraper.core.validate import ContractError, validate_catalog, validate_health, validate_products
+from scraper.core.validate import (
+    ContractError,
+    validate_catalog,
+    validate_health,
+    validate_ocr_state,
+    validate_products,
+)
 
 _VALIDATORS = {
     "catalog": validate_catalog,
     "products": validate_products,
     "health": validate_health,
+    "ocr_state": validate_ocr_state,
 }
 
 EXIT_INVALID = 1
@@ -71,6 +78,17 @@ def build_parser() -> argparse.ArgumentParser:
     )
     runner.add_arguments(p_run)
     p_run.set_defaults(func=runner.main)
+
+    from scraper.ocr import pipeline as ocr
+
+    p_ocr = sub.add_parser(
+        "ocr",
+        help="read new brochure pages of allow-listed chains with Gemini and add their products to --out",
+        description="Never fails the job: exit code 0 whatever happens (2 only for bad arguments). "
+        f"Needs {ocr.API_KEY_ENV} in the environment; without it, earlier readings are carried over only.",
+    )
+    ocr.add_arguments(p_ocr)
+    p_ocr.set_defaults(func=ocr.main)
     return parser
 
 

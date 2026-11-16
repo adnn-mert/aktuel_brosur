@@ -47,7 +47,8 @@ def test_scrape_workflow() -> None:
     assert wf["concurrency"] == {"group": "scrape", "cancel-in-progress": False}
     assert wf["permissions"] == {"contents": "write"}
     job = wf["jobs"]["scrape"]
-    assert job["timeout-minutes"] == 30
+    # Room for the scrape plus the OCR step's own 55 minutes.
+    assert job["timeout-minutes"] == 90
     assert job["env"]["SCRAPER_CONTACT_URL"] == "https://github.com/${{ github.repository }}"
     runs = [s.get("run", "") for s in job["steps"]]
     assert any("fetch-state --dir state" in r for r in runs)
@@ -63,6 +64,33 @@ def test_scrape_workflow() -> None:
     assert notify["continue-on-error"] is True
     assert notify["env"] == {"FIREBASE_SERVICE_ACCOUNT": "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"}
     assert job["steps"].index(publish) < job["steps"].index(notify)
+
+
+def test_scrape_workflow_ocr_step() -> None:
+    job = load("scrape.yml")["jobs"]["scrape"]
+    order = [s.get("id") or s.get("name") for s in job["steps"]]
+    ocr = next(s for s in job["steps"] if "scraper ocr" in s.get("run", ""))
+    # Between scraping (which writes out/) and publishing (which ships it).
+    assert order.index("scrape") + 1 == job["steps"].index(ocr) == order.index("publish") - 1
+    assert ocr["run"] == "python -m scraper ocr --state-dir state --out out"
+    # Only when the scrape wrote out/ (the same exit codes the publish step publishes on).
+    assert ocr["if"] == "${{ steps.scrape.outputs.code == '0' || steps.scrape.outputs.code == '2' }}"
+    # It can never fail the job, and its timeout stays inside the job's while leaving the
+    # code's 50-minute time budget (scraper.ocr.pipeline.TIME_BUDGET) room to finish.
+    assert ocr["continue-on-error"] is True
+    assert 50 < ocr["timeout-minutes"] < job["timeout-minutes"]
+    # The key reaches this step only, through an exact env mapping.
+    assert ocr["env"] == {"GEMINI_API_KEY": "${{ secrets.GEMINI_API_KEY }}"}
+    assert [s.get("name") for s in job["steps"] if "GEMINI" in str(s)] == [ocr["name"]]
+    assert "GEMINI" not in str(job.get("env", {}))
+    assert "echo" not in ocr["run"] and "cat " not in ocr["run"]
+
+
+def test_scrape_workflow_ocr_timeout_matches_the_code_budget() -> None:
+    from scraper.ocr.pipeline import TIME_BUDGET
+
+    ocr = next(s for s in load("scrape.yml")["jobs"]["scrape"]["steps"] if "scraper ocr" in s.get("run", ""))
+    assert TIME_BUDGET < ocr["timeout-minutes"] * 60
 
 
 def test_ci_workflows_are_read_only_and_path_filtered() -> None:

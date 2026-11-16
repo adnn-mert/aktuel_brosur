@@ -33,3 +33,5 @@ atomic write. A source never writes JSON itself.
 4. **Register it:** add a `ChainInfo` (kind `SCRAPED`) to `scraper/chains.py` and the
    source instance to `SOURCES` in `scraper/sources/__init__.py`.
 5. **Try it live once:** `python -m scraper run --only <chain> --dry-run`.
+6. **Prices only in the images?** Sources never call Gemini. The OCR step reads the pages
+   after the scrape; to include the chain there, see `scraper/ocr/README.md` ("Adding a chain").

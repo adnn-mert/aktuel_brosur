@@ -1,4 +1,5 @@
-"""Phase 3 OCR measurement: read BİM posters with Gemini and score them against BİM's own product list.
+"""Gemini OCR of brochure pages.
 
-Measurement only. Nothing here is wired into the scrape pipeline or the published data.
+``pipeline`` is the scrape job's OCR step (``python -m scraper ocr``, see README.md here);
+``evaluate`` is the measurement tool that scores OCR against chains' written price lists.
 """

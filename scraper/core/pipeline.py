@@ -55,6 +55,9 @@ FAILURE_ALERT_THRESHOLD = 3
 MAX_ERROR_LENGTH = 300
 
 PRODUCTS_DIR = "products"
+# Products read from page images (scraper/ocr/pipeline.py). A folder of their own so they can
+# never collide with, or be mistaken for, a chain's written list in products/.
+OCR_PRODUCTS_DIR = "products_ocr"
 CATALOG_FILE = "catalog.json"
 HEALTH_FILE = "health.json"
 
@@ -477,6 +480,7 @@ def verify_output(root: Path) -> None:
         raise OutputError([f"output cannot be read back: {_first_line(exc)}"]) from exc
 
     referenced: set[str] = set()
+    referenced_ocr: set[str] = set()
     for b in catalog["brochures"]:
         images = ([b["cover"]] if b["cover"] else []) + b["pages"]
         for image in images:
@@ -485,16 +489,19 @@ def verify_output(root: Path) -> None:
         if b["products_url"] is not None:
             referenced.add(b["products_url"])
             errors.extend(_check_product_file(root, b))
+        if b.get("ocr_products_url") is not None:
+            referenced_ocr.add(b["ocr_products_url"])
+            errors.extend(check_ocr_product_file(root, b))
     for chain in catalog["chains"]:
         logo = chain.get("logo_url")
         if logo and is_local(logo) and not (root / logo).is_file():
             errors.append(f"chain {chain['id']}: missing logo {logo}")
-    products_dir = root / PRODUCTS_DIR
-    if products_dir.is_dir():
-        for path in sorted(products_dir.iterdir()):
-            rel = f"{PRODUCTS_DIR}/{path.name}"
-            if rel not in referenced:
-                errors.append(f"orphan product file {rel}")
+    for folder, wanted in ((PRODUCTS_DIR, referenced), (OCR_PRODUCTS_DIR, referenced_ocr)):
+        if (root / folder).is_dir():
+            for path in sorted((root / folder).iterdir()):
+                rel = f"{folder}/{path.name}"
+                if rel not in wanted:
+                    errors.append(f"orphan product file {rel}")
     if errors:
         raise OutputError(errors)
 
@@ -512,6 +519,34 @@ def _check_product_file(root: Path, b: dict[str, Any]) -> list[str]:
     if len(data["products"]) != b["product_count"]:
         return [f"{b['products_url']}: {len(data['products'])} products, catalog says {b['product_count']}"]
     return []
+
+
+def check_ocr_product_file(root: Path, b: dict[str, Any]) -> list[str]:
+    """An OCR product file must be valid, belong to ``b`` and point every product at one of its pages."""
+    rel = b["ocr_products_url"]
+    try:
+        data = json.loads((root / rel).read_text(encoding="utf-8"))
+        validate_products(data)
+    except ContractError as exc:
+        return [f"{rel}: {e}" for e in exc.errors]
+    except (OSError, ValueError) as exc:
+        return [f"{rel}: {_first_line(exc)}"]
+    return check_ocr_products(data, b, rel)
+
+
+def check_ocr_products(data: dict[str, Any], b: dict[str, Any], rel: str) -> list[str]:
+    """Cross-file rules for a schema-valid OCR product file ``data`` of brochure ``b``."""
+    if data["brochure_id"] != b["id"]:
+        return [f"{rel}: brochure_id {data['brochure_id']!r} does not match {b['id']!r}"]
+    if not data["products"]:
+        return [f"{rel}: no products"]
+    errors: list[str] = []
+    for i, p in enumerate(data["products"]):
+        if p.get("source") != "ocr":
+            errors.append(f"{rel}: products[{i}].source must be 'ocr'")
+        elif p["page_index"] >= len(b["pages"]):
+            errors.append(f"{rel}: products[{i}].page_index {p['page_index']} is past the last page")
+    return errors
 
 
 def backfill_first_seen(brochure: Brochure, today: date, now: datetime) -> datetime:

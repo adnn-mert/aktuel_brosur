@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Brochure products",
-  "description": "products/<brochure_id>.json: the priced products of one brochure, as printed by the chain. Prices are integer minor units (kurus) to avoid floating point drift. Unknown properties are allowed for forward compatibility.",
+  "description": "products/<brochure_id>.json (the chain's written list) or products_ocr/<brochure_id>.json (read by OCR): the priced products of one brochure, as printed by the chain. Prices are integer minor units (kurus) to avoid floating point drift. Unknown properties are allowed for forward compatibility.",
   "type": "object",
   "required": ["schema_version", "brochure_id", "currency", "products"],
   "properties": {
@@ -52,9 +52,17 @@
         "member_price_label": {
           "description": "Who pays member_price_minor, shown next to it, e.g. \"Money ile\". Set together with member_price_minor.",
           "anyOf": [{ "type": "string", "minLength": 1, "pattern": "\\S" }, { "type": "null" }]
+        },
+        "source": {
+          "description": "Optional. \"ocr\": read from the brochure page image by a vision model, not from a written list; page_index then names that page. Omitted for the chain's own written products.",
+          "enum": ["ocr"]
         }
       },
       "allOf": [
+        {
+          "if": { "required": ["source"], "properties": { "source": { "const": "ocr" } } },
+          "then": { "properties": { "page_index": { "type": "integer" } } }
+        },
         {
           "if": { "required": ["member_price_minor"], "properties": { "member_price_minor": { "type": "integer" } } },
           "then": { "required": ["member_price_label"], "properties": { "member_price_label": { "type": "string" } } }

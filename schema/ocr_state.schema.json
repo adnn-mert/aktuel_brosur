@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OCR state",
+  "description": "ocr_state.json published next to catalog.json by the OCR step (python -m scraper ocr). Not read by the app. Remembers which page fingerprint of each brochure was read, failed attempts, and the Gemini requests spent on the current quota day (America/Los_Angeles calendar day).",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "model", "thinking_level", "usage", "brochures"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "generated_at": { "$ref": "#/$defs/dateTime" },
+    "model": { "$ref": "#/$defs/nonEmptyString" },
+    "thinking_level": { "$ref": "#/$defs/nonEmptyString" },
+    "usage": {
+      "type": "object",
+      "required": ["quota_day", "attempts"],
+      "properties": {
+        "quota_day": { "anyOf": [{ "$ref": "#/$defs/date" }, { "type": "null" }] },
+        "attempts": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "brochures": {
+      "type": "object",
+      "propertyNames": { "pattern": "^[a-z0-9_-]+$" },
+      "additionalProperties": { "$ref": "#/$defs/record" }
+    }
+  },
+  "$defs": {
+    "dateTime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "nonEmptyString": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "relativePath": {
+      "type": "string",
+      "pattern": "^(?![A-Za-z][A-Za-z0-9+.-]*:)(?!/)(?!.*\\.\\.)[^\\s\\\\]+$"
+    },
+    "record": {
+      "type": "object",
+      "required": ["fingerprint", "failed_attempts"],
+      "properties": {
+        "fingerprint": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "failed_attempts": { "type": "integer", "minimum": 0 },
+        "last_error": { "type": "string" },
+        "last_attempt_at": { "$ref": "#/$defs/dateTime" },
+        "reading": {
+          "type": "object",
+          "required": ["products_url", "product_count", "read_at", "model", "thinking_level", "prompt_version", "requests"],
+          "properties": {
+            "products_url": { "$ref": "#/$defs/relativePath" },
+            "product_count": { "type": "integer", "minimum": 1 },
+            "read_at": { "$ref": "#/$defs/dateTime" },
+            "model": { "$ref": "#/$defs/nonEmptyString" },
+            "thinking_level": { "$ref": "#/$defs/nonEmptyString" },
+            "prompt_version": { "$ref": "#/$defs/nonEmptyString" },
+            "requests": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    }
+  }
+}

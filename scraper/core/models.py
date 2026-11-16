@@ -232,6 +232,9 @@ class Product:
     # price everyone pays. Both are set together or not at all.
     member_price_minor: int | None = None
     member_price_label: str | None = None
+    # How the product was obtained when not from the chain's own written list: "ocr" means
+    # read from the brochure page image by a vision model (see scraper/ocr/pipeline.py).
+    source: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
         out: dict[str, Any] = {
@@ -249,6 +252,8 @@ class Product:
             out["member_price_minor"] = self.member_price_minor
         if self.member_price_label is not None:
             out["member_price_label"] = self.member_price_label
+        if self.source is not None:
+            out["source"] = self.source
         return out
 
     @classmethod
@@ -264,6 +269,7 @@ class Product:
             source_url=data["source_url"],
             member_price_minor=data.get("member_price_minor"),
             member_price_label=data.get("member_price_label"),
+            source=data.get("source"),
         )
 
 

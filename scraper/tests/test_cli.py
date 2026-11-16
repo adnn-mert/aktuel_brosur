@@ -15,7 +15,12 @@ def test_validate_example_catalog(capsys) -> None:
 
 @pytest.mark.parametrize(
     ("kind", "name"),
-    [("products", "products.example.json"), ("health", "health.example.json")],
+    [
+        ("products", "products.example.json"),
+        ("products", "products_ocr.example.json"),
+        ("health", "health.example.json"),
+        ("ocr_state", "ocr_state.example.json"),
+    ],
 )
 def test_validate_other_examples(kind: str, name: str) -> None:
     assert main(["validate", "--type", kind, str(EXAMPLES / name)]) == 0
