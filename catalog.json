@@ -1,0 +1,3968 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-21T10:57:48Z",
+  "min_app_version": 1,
+  "chains": [
+    {
+      "id": "bim",
+      "name": "BİM",
+      "country": "TR",
+      "kind": "scraped",
+      "web_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "status": "ok",
+      "last_ok_at": "2026-11-21T10:57:48Z",
+      "sort_order": 10,
+      "brand_color": "#E30613"
+    },
+    {
+      "id": "a101",
+      "name": "A101",
+      "country": "TR",
+      "kind": "webview",
+      "web_url": "https://www.a101.com.tr/afisler",
+      "status": "ok",
+      "last_ok_at": null,
+      "sort_order": 20,
+      "brand_color": "#00A0E3"
+    },
+    {
+      "id": "sok",
+      "name": "Şok",
+      "country": "TR",
+      "kind": "scraped",
+      "web_url": "https://kurumsal.sokmarket.com.tr/tr/firsatlar",
+      "status": "ok",
+      "last_ok_at": "2026-11-21T10:57:48Z",
+      "sort_order": 30,
+      "brand_color": "#FFD100"
+    },
+    {
+      "id": "migros",
+      "name": "Migros",
+      "country": "TR",
+      "kind": "scraped",
+      "web_url": "https://www.money.com.tr/migroskop-dijital",
+      "status": "ok",
+      "last_ok_at": "2026-11-21T10:57:48Z",
+      "sort_order": 40,
+      "brand_color": "#FF8300"
+    },
+    {
+      "id": "carrefoursa",
+      "name": "CarrefourSA",
+      "country": "TR",
+      "kind": "webview",
+      "web_url": "https://www.carrefoursa.com/kataloglar",
+      "status": "ok",
+      "last_ok_at": null,
+      "sort_order": 50,
+      "brand_color": "#1E5BC6"
+    },
+    {
+      "id": "hakmar",
+      "name": "Hakmar",
+      "country": "TR",
+      "kind": "scraped",
+      "web_url": "https://hakmar.com.tr/indirim/",
+      "status": "ok",
+      "last_ok_at": "2026-11-21T10:57:48Z",
+      "sort_order": 60
+    },
+    {
+      "id": "tkkoop",
+      "name": "Tarım Kredi Market",
+      "country": "TR",
+      "kind": "scraped",
+      "web_url": "https://www.tkkoop.com.tr/",
+      "status": "ok",
+      "last_ok_at": "2026-11-21T10:57:48Z",
+      "sort_order": 70
+    },
+    {
+      "id": "bonveno",
+      "name": "bonVeno",
+      "country": "TR",
+      "kind": "scraped",
+      "web_url": "https://bonveno.com.tr/Kampanyalarimiz",
+      "status": "ok",
+      "last_ok_at": "2026-11-21T10:57:48Z",
+      "sort_order": 80
+    },
+    {
+      "id": "metro",
+      "name": "Metro",
+      "country": "TR",
+      "kind": "scraped",
+      "web_url": "https://www.metro-tr.com/promosyonlar",
+      "status": "ok",
+      "last_ok_at": "2026-11-21T10:57:48Z",
+      "sort_order": 90
+    },
+    {
+      "id": "macrocenter",
+      "name": "Macrocenter",
+      "country": "TR",
+      "kind": "scraped",
+      "web_url": "https://www.money.com.tr/macrostyle-dijital",
+      "status": "ok",
+      "last_ok_at": "2026-11-21T10:57:48Z",
+      "sort_order": 100
+    },
+    {
+      "id": "gratis",
+      "name": "Gratis",
+      "country": "TR",
+      "kind": "webview",
+      "web_url": "https://www.gratis.com/gratis-katalog",
+      "status": "ok",
+      "last_ok_at": null,
+      "sort_order": 110,
+      "brand_color": "#E5007D"
+    },
+    {
+      "id": "watsons",
+      "name": "Watsons",
+      "country": "TR",
+      "kind": "scraped",
+      "web_url": "https://katalog.watsons.com.tr/",
+      "status": "ok",
+      "last_ok_at": "2026-11-21T10:57:48Z",
+      "sort_order": 120,
+      "brand_color": "#00A6A6"
+    },
+    {
+      "id": "rossmann",
+      "name": "Rossmann",
+      "country": "TR",
+      "kind": "scraped",
+      "web_url": "https://www.rossmann.com.tr/kataloglar",
+      "status": "ok",
+      "last_ok_at": "2026-11-21T10:57:48Z",
+      "sort_order": 130
+    }
+  ],
+  "brochures": [
+    {
+      "id": "bim-aktuel-2026-11-29",
+      "chain_id": "bim",
+      "title": "29 Kasım Pazar",
+      "date_label": "29 Kasım Pazar",
+      "valid_from": "2026-11-29",
+      "valid_to": "2026-12-05",
+      "kind": "products",
+      "cover": null,
+      "pages": [],
+      "products_url": "products/bim-aktuel-2026-11-29.json",
+      "product_count": 65,
+      "source_url": "https://www.bim.com.tr/Categories/100/aktuel-urunler.aspx?top=1&Bim_AktuelTarihKey=1718",
+      "first_seen": "2026-11-19T22:39:49Z",
+      "updated_at": "2026-11-19T22:39:49Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-27",
+      "chain_id": "bim",
+      "title": "27 Kasım Cuma",
+      "date_label": "27 Kasım Cuma",
+      "valid_from": "2026-11-27",
+      "valid_to": "2026-12-03",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_fb59c2e2-95cd-4402-9cc1-5d0b1cf14ad8.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/fb59c2e2-95cd-4402-9cc1-5d0b1cf14ad8.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/07a396b5-4531-452d-9807-b2695c9f99b1.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/d3c08a58-6c2f-4ee3-9d6a-989de94fff84.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/30954460-0c79-4545-9bb1-99ea4c66da08.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-27.json",
+      "product_count": 77,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-19T22:39:49Z",
+      "updated_at": "2026-11-19T22:39:49Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-25",
+      "chain_id": "bim",
+      "title": "25 Kasım Çarşamba",
+      "date_label": "25 Kasım Çarşamba",
+      "valid_from": "2026-11-25",
+      "valid_to": "2026-12-01",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_f3adff4c-7ea5-40ba-a940-6505db4066ab.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/f3adff4c-7ea5-40ba-a940-6505db4066ab.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-25.json",
+      "product_count": 29,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-16T11:09:49Z",
+      "updated_at": "2026-11-16T11:09:49Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-24",
+      "chain_id": "bim",
+      "title": "24 Kasım Salı",
+      "date_label": "24 Kasım Salı",
+      "valid_from": "2026-11-24",
+      "valid_to": "2026-11-30",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_8f71a4d0-04ff-4b4b-8181-ae9dc8c21e82.jpg",
+        "w": 258,
+        "h": 386
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/8f71a4d0-04ff-4b4b-8181-ae9dc8c21e82.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/21fc7f1e-e167-4d2a-bcd8-4a1eb113ca6f.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/5ce977ac-5cf7-4507-b91a-f0a686ad5577.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-24.json",
+      "product_count": 91,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-16T11:09:49Z",
+      "updated_at": "2026-11-16T11:09:49Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-22",
+      "chain_id": "bim",
+      "title": "22 Kasım Pazar",
+      "date_label": "22 Kasım Pazar",
+      "valid_from": "2026-11-22",
+      "valid_to": "2026-11-28",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_5087fb47-e1d9-4ce2-9128-ba95be0fbe79.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/5087fb47-e1d9-4ce2-9128-ba95be0fbe79.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/61ea4622-fecc-4a48-b009-04e9606cb1d2.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/209b485c-5ab1-4130-bd7b-a30abd3a71c0.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-22.json",
+      "product_count": 56,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-2026-11-21-2026-11-27",
+      "chain_id": "bim",
+      "title": "21-27 Kasım",
+      "date_label": "21-27 Kasım",
+      "valid_from": "2026-11-21",
+      "valid_to": "2026-11-27",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_d9bcaf4f-766e-4615-b359-9cd32c80ebc0.jpg",
+        "w": 258,
+        "h": 322
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/d9bcaf4f-766e-4615-b359-9cd32c80ebc0.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-indirim-2026-11-21-2026-11-27.json",
+      "product_count": 36,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-20T22:15:28Z",
+      "updated_at": "2026-11-20T22:15:28Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-20",
+      "chain_id": "bim",
+      "title": "20 Kasım Cuma",
+      "date_label": "20 Kasım Cuma",
+      "valid_from": "2026-11-20",
+      "valid_to": "2026-11-26",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_d2aaa6bd-335d-4259-8ef1-e6dd394c19fb.jpg",
+        "w": 258,
+        "h": 386
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/d2aaa6bd-335d-4259-8ef1-e6dd394c19fb.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/5ef53d32-fa6b-4482-a37f-37971d62b50d.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/7ff5e43c-2a04-49a0-a1cf-3d06fcef3bf5.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/f25ebd1d-c8ca-4df9-9951-7a6adeafd8da.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-20.json",
+      "product_count": 72,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-18T22:35:40Z"
+    },
+    {
+      "id": "bim-indirim-2026-11-20-2026-11-23",
+      "chain_id": "bim",
+      "title": "20-23 Kasım",
+      "date_label": "20-23 Kasım",
+      "valid_from": "2026-11-20",
+      "valid_to": "2026-11-23",
+      "kind": "pages",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_f02d0ad0-1b72-46c3-b054-0767d474c983.jpg",
+        "w": 258,
+        "h": 322
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/f02d0ad0-1b72-46c3-b054-0767d474c983.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/64c5e5b1-ce9c-4d58-b3a8-fea74e4cb914.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/4d0eb755-ae66-405a-ab3e-1846193ee1a4.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/54dfb3eb-4afc-4826-b334-752d54b4adab.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/4ca5ed91-d7a0-4f6b-93e0-793e37fae1fd.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/bd6411f8-a598-464c-abbf-f1fa3631ebfd.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/ab7ce3a1-e186-485f-be42-8ea4ebcb67ce.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/45d557cf-f4de-446d-9dc1-690064deb8ed.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-20T11:30:55Z",
+      "updated_at": "2026-11-20T22:15:28Z"
+    },
+    {
+      "id": "bim-indirim-2026-11-20-2026-12-20",
+      "chain_id": "bim",
+      "title": "20 Kasım-20 Aralık",
+      "date_label": "20 Kasım-20 Aralık",
+      "valid_from": "2026-11-20",
+      "valid_to": "2026-12-20",
+      "kind": "pages",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_2599de21-30ce-4fbb-a0ac-53e5f1cec607.jpg",
+        "w": 258,
+        "h": 321
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/2599de21-30ce-4fbb-a0ac-53e5f1cec607.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/f8a78218-6cb7-4b32-92e7-22351c2bfb2d.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-20T11:30:55Z",
+      "updated_at": "2026-11-20T11:30:55Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-18",
+      "chain_id": "bim",
+      "title": "18 Kasım Çarşamba",
+      "date_label": "18 Kasım Çarşamba",
+      "valid_from": "2026-11-18",
+      "valid_to": "2026-11-24",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_2c08a7dc-ff1d-4e01-93f2-9754d6395362.jpg",
+        "w": 258,
+        "h": 386
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/2c08a7dc-ff1d-4e01-93f2-9754d6395362.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-18.json",
+      "product_count": 17,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-17T11:46:43Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-17",
+      "chain_id": "bim",
+      "title": "17 Kasım Salı",
+      "date_label": "17 Kasım Salı",
+      "valid_from": "2026-11-17",
+      "valid_to": "2026-11-23",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_bba693be-e42e-4bf5-9b98-f25463137b58.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/bba693be-e42e-4bf5-9b98-f25463137b58.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/55c0a5f3-99c7-48d4-9a18-c043dba334f5.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/cd829434-3bd5-4f44-a70b-c90ae8383855.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-17.json",
+      "product_count": 78,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-15",
+      "chain_id": "bim",
+      "title": "15 Kasım Pazar",
+      "date_label": "15 Kasım Pazar",
+      "valid_from": "2026-11-15",
+      "valid_to": "2026-11-21",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_68280cf5-d1cd-40bf-b7b5-79779cb2f4c9.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/68280cf5-d1cd-40bf-b7b5-79779cb2f4c9.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/d173fcce-c340-45e0-a526-59c57d5d169c.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/2b046666-660d-4414-ac85-50a976587089.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-15.json",
+      "product_count": 57,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-2026-11-14-2026-11-20",
+      "chain_id": "bim",
+      "title": "14-20 Kasım",
+      "date_label": "14-20 Kasım",
+      "valid_from": "2026-11-14",
+      "valid_to": "2026-11-20",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_ce242773-4d19-4598-b30d-95b83bac3683.jpg",
+        "w": 258,
+        "h": 322
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/ce242773-4d19-4598-b30d-95b83bac3683.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/4d0ac1e2-1fd9-4a0d-8fa7-26e3a5cb37ef.jpeg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-indirim-2026-11-14-2026-11-20.json",
+      "product_count": 43,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T19:55:37Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-13",
+      "chain_id": "bim",
+      "title": "13 Kasım Cuma",
+      "date_label": "13 Kasım Cuma",
+      "valid_from": "2026-11-13",
+      "valid_to": "2026-11-19",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_aaf9e731-9b7b-416f-891e-94f7d7ef6b74.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/aaf9e731-9b7b-416f-891e-94f7d7ef6b74.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/7d055993-4554-46e6-a33a-d2b9e308bca8.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/b6626da9-7499-4cf7-94b1-a903503c57c0.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/8b852d1f-ad34-4656-85a8-8deff0f59b49.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-13.json",
+      "product_count": 74,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-2026-11-13-2026-11-16",
+      "chain_id": "bim",
+      "title": "13-16 Kasım",
+      "date_label": "13-16 Kasım",
+      "valid_from": "2026-11-13",
+      "valid_to": "2026-11-16",
+      "kind": "pages",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_148c0805-f4ee-4307-b828-ef40647d8c7a.jpg",
+        "w": 258,
+        "h": 322
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/148c0805-f4ee-4307-b828-ef40647d8c7a.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/a4737181-92ac-4a79-8494-240a6cd0cdff.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/926b340e-5cc3-4113-a478-827e2e62615f.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/92eccc00-ebac-4fe8-aa5e-2da543632931.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-2026-11-13-2026-11-19",
+      "chain_id": "bim",
+      "title": "13-19 Kasım",
+      "date_label": "13-19 Kasım",
+      "valid_from": "2026-11-13",
+      "valid_to": "2026-11-19",
+      "kind": "pages",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_2237eab2-d8a3-42f4-9021-76afb71e2edf.jpg",
+        "w": 258,
+        "h": 322
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/2237eab2-d8a3-42f4-9021-76afb71e2edf.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-11",
+      "chain_id": "bim",
+      "title": "11 Kasım Çarşamba",
+      "date_label": "11 Kasım Çarşamba",
+      "valid_from": "2026-11-11",
+      "valid_to": "2026-11-17",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_9558cf37-01ce-47fa-92bd-d380ebdd18b9.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/9558cf37-01ce-47fa-92bd-d380ebdd18b9.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-11.json",
+      "product_count": 9,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-10",
+      "chain_id": "bim",
+      "title": "10 Kasım Salı",
+      "date_label": "10 Kasım Salı",
+      "valid_from": "2026-11-10",
+      "valid_to": "2026-11-16",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_dd281649-1f2d-48cb-aca5-8b03345f58d2.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/dd281649-1f2d-48cb-aca5-8b03345f58d2.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/c8fcf8b9-1bc6-4aa1-8d48-12ac7fbd9ea2.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/4f295aab-25f7-4135-95c6-4e927b895d64.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-10.json",
+      "product_count": 87,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-08",
+      "chain_id": "bim",
+      "title": "08 Kasım Pazar",
+      "date_label": "08 Kasım Pazar",
+      "valid_from": "2026-11-08",
+      "valid_to": "2026-11-14",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_273f4833-e518-4c50-8e17-747af92265ae.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/273f4833-e518-4c50-8e17-747af92265ae.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/1472de67-a087-4aae-9848-5852aadf3eaa.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/7b50978b-33f7-481d-94b5-a089835723c9.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-08.json",
+      "product_count": 64,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-06",
+      "chain_id": "bim",
+      "title": "06 Kasım Cuma",
+      "date_label": "06 Kasım Cuma",
+      "valid_from": "2026-11-06",
+      "valid_to": "2026-11-12",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_ce4f6cb0-ae74-4e0c-9964-dc3e59322c9f.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/ce4f6cb0-ae74-4e0c-9964-dc3e59322c9f.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/ea559cbd-418d-4207-a65a-ac42a217096c.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/0eb4c307-0d16-4405-8dc7-fc1ed4f62792.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/5305943a-0b29-48d7-8ed2-66f09c7cbca6.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-06.json",
+      "product_count": 79,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-2026-11-06-2026-11-30",
+      "chain_id": "bim",
+      "title": "06-30 Kasım",
+      "date_label": "06-30 Kasım",
+      "valid_from": "2026-11-06",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_6f6f3752-9521-4a29-9e9d-f2d447d1ef48.jpg",
+        "w": 258,
+        "h": 322
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/6f6f3752-9521-4a29-9e9d-f2d447d1ef48.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-04",
+      "chain_id": "bim",
+      "title": "04 Kasım Çarşamba",
+      "date_label": "04 Kasım Çarşamba",
+      "valid_from": "2026-11-04",
+      "valid_to": "2026-11-10",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_07f082c4-98f2-43e9-98b4-cdcbd8d14c47.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/07f082c4-98f2-43e9-98b4-cdcbd8d14c47.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-04.json",
+      "product_count": 18,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-aktuel-2026-11-03",
+      "chain_id": "bim",
+      "title": "03 Kasım Salı",
+      "date_label": "03 Kasım Salı",
+      "valid_from": "2026-11-03",
+      "valid_to": "2026-11-09",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_277fd718-eb15-4a5a-8ba4-84415add9bdc.jpg",
+        "w": 258,
+        "h": 386
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/277fd718-eb15-4a5a-8ba4-84415add9bdc.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/75db7d3d-b746-49ca-9104-03e831755293.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/f254edd3-7cde-4692-9db3-3d1bb09adea6.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-aktuel-2026-11-03.json",
+      "product_count": 93,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-2026-11-03-2026-11-30",
+      "chain_id": "bim",
+      "title": "03-30 Kasım",
+      "date_label": "03-30 Kasım",
+      "valid_from": "2026-11-03",
+      "valid_to": "2026-11-30",
+      "kind": "both",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_4d4684a4-1258-4898-b56e-a7c051cd838d.jpg",
+        "w": 258,
+        "h": 322
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/4d4684a4-1258-4898-b56e-a7c051cd838d.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": "products/bim-indirim-2026-11-03-2026-11-30.json",
+      "product_count": 40,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-2026-03-24-2026-12-31",
+      "chain_id": "bim",
+      "title": "24 Mart-31 Aralık",
+      "date_label": "24 Mart-31 Aralık",
+      "valid_from": "2026-03-24",
+      "valid_to": "2026-12-31",
+      "kind": "pages",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_8ec590ee-0c12-4806-b101-dd5c2db55fc0.jpg",
+        "w": 258,
+        "h": 387
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/8ec590ee-0c12-4806-b101-dd5c2db55fc0.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "bim-indirim-cok-al-az-ode",
+      "chain_id": "bim",
+      "title": "ÇOK AL AZ ÖDE",
+      "date_label": "ÇOK AL AZ ÖDE",
+      "valid_from": null,
+      "valid_to": null,
+      "kind": "pages",
+      "cover": {
+        "url": "https://cdn1.bim.com.tr/uploads/afisler/k_2ae72a02-0023-474c-917e-521f2860ca11.jpg",
+        "w": 258,
+        "h": 322
+      },
+      "pages": [
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/2ae72a02-0023-474c-917e-521f2860ca11.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://cdn1.bim.com.tr/uploads/afisler/e8f50e82-e8b2-47ee-a9de-7431860d2dba.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.bim.com.tr/Categories/680/afisler.aspx",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim",
+      "chain_id": "sok",
+      "title": "Hafta Sonu Fırsatları",
+      "date_label": "21 - 24 Kasım 2026",
+      "valid_from": "2026-11-21",
+      "valid_to": "2026-11-24",
+      "kind": "pages",
+      "cover": {
+        "url": "media/sok/sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim/p01.webp",
+        "w": 2000,
+        "h": 2882
+      },
+      "pages": [
+        {
+          "url": "media/sok/sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim/p01.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim/p02.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim/p03.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim/p04.webp",
+          "w": 2000,
+          "h": 2882
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://kurumsal.sokmarket.com.tr/uploads/pdf/mwajlev6-21-24kasim.pdf",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-13T22:14:23Z",
+      "ocr_products_url": "products_ocr/sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim.json"
+    },
+    {
+      "id": "sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim",
+      "chain_id": "sok",
+      "title": "Haftanın Fırsatları",
+      "date_label": "18 - 24 Kasım 2026",
+      "valid_from": "2026-11-18",
+      "valid_to": "2026-11-24",
+      "kind": "pages",
+      "cover": {
+        "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p01.webp",
+        "w": 2000,
+        "h": 2882
+      },
+      "pages": [
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p01.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p02.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p03.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p04.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p05.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p06.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p07.webp",
+          "w": 2000,
+          "h": 2882
+        },
+        {
+          "url": "media/sok/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim/p08.webp",
+          "w": 2000,
+          "h": 2882
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://kurumsal.sokmarket.com.tr/uploads/pdf/mwajrdpq-18-24kasim.pdf",
+      "first_seen": "2026-11-13T22:14:23Z",
+      "updated_at": "2026-11-13T22:14:23Z",
+      "ocr_products_url": "products_ocr/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim.json"
+    },
+    {
+      "id": "migros-migroskop-911",
+      "chain_id": "migros",
+      "title": "Migroskop",
+      "date_label": "19 Kasım - 02 Aralık 2026",
+      "valid_from": "2026-11-19",
+      "valid_to": "2026-12-02",
+      "kind": "products",
+      "cover": {
+        "url": "https://migroskop-assets.migros.com.tr/migrosdigitalinsert/MUTHISCUMA-01/Cover/dabad60a-6e7e-463b-b341-881a0f1eecd0_721x1024.jpg",
+        "w": 721,
+        "h": 1024
+      },
+      "pages": [],
+      "products_url": "products/migros-migroskop-911.json",
+      "product_count": 246,
+      "source_url": "https://migroskop.migros.com.tr/migroskop",
+      "first_seen": "2026-11-20T11:30:55Z",
+      "updated_at": "2026-11-20T11:30:55Z"
+    },
+    {
+      "id": "migros-migroskop-910",
+      "chain_id": "migros",
+      "title": "Migroskop",
+      "date_label": "5 - 18 Kasım 2026",
+      "valid_from": "2026-11-05",
+      "valid_to": "2026-11-18",
+      "kind": "products",
+      "cover": {
+        "url": "https://migroskop-assets.migros.com.tr/migrosdigitalinsert/910MIGROSKOP72YIL_migroskop_kapak1/Cover/183b2f00-a36e-4f86-ad87-507620ede1dd_743x1024.jpg",
+        "w": 743,
+        "h": 1024
+      },
+      "pages": [],
+      "products_url": "products/migros-migroskop-910.json",
+      "product_count": 242,
+      "source_url": "https://migroskop.migros.com.tr/migroskop",
+      "first_seen": "2026-11-05T00:00:00Z",
+      "updated_at": "2026-11-14T10:28:09Z"
+    },
+    {
+      "id": "hakmar-2026-11-20-20-22-kasim",
+      "chain_id": "hakmar",
+      "title": "20-22 Kasım",
+      "date_label": "20-22 Kasım",
+      "valid_from": "2026-11-20",
+      "valid_to": "2026-11-22",
+      "kind": "pages",
+      "cover": {
+        "url": "https://hakmar.com.tr/wp-content/uploads/2026/11/20-22kasim-768x1153.jpeg",
+        "w": 768,
+        "h": 1153
+      },
+      "pages": [
+        {
+          "url": "https://hakmar.com.tr/wp-content/uploads/2026/11/20-22kasim.jpeg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://hakmar.com.tr/indirim/",
+      "first_seen": "2026-11-19T11:34:14Z",
+      "updated_at": "2026-11-19T11:34:14Z",
+      "ocr_products_url": "products_ocr/hakmar-2026-11-20-20-22-kasim.json"
+    },
+    {
+      "id": "hakmar-2026-11-13-13-15-kasim",
+      "chain_id": "hakmar",
+      "title": "13-15 Kasım",
+      "date_label": "13-15 Kasım",
+      "valid_from": "2026-11-13",
+      "valid_to": "2026-11-15",
+      "kind": "pages",
+      "cover": {
+        "url": "https://hakmar.com.tr/wp-content/uploads/2026/11/13-15kasim-768x1153.jpeg",
+        "w": 768,
+        "h": 1153
+      },
+      "pages": [
+        {
+          "url": "https://hakmar.com.tr/wp-content/uploads/2026/11/13-15kasim.jpeg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://hakmar.com.tr/indirim/",
+      "first_seen": "2026-11-13T00:00:00Z",
+      "updated_at": "2026-11-15T00:41:13Z"
+    },
+    {
+      "id": "hakmar-2026-11-10-10-23-kasim",
+      "chain_id": "hakmar",
+      "title": "10-23 Kasım",
+      "date_label": "10-23 Kasım",
+      "valid_from": "2026-11-10",
+      "valid_to": "2026-11-23",
+      "kind": "pages",
+      "cover": {
+        "url": "https://hakmar.com.tr/wp-content/uploads/2026/11/10-23-KASIM-2026_Insert-1-8-768x1077.jpg",
+        "w": 768,
+        "h": 1077
+      },
+      "pages": [
+        {
+          "url": "https://hakmar.com.tr/wp-content/uploads/2026/11/10-23-KASIM-2026_Insert-1-8-scaled.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://hakmar.com.tr/wp-content/uploads/2026/11/10-23-KASIM-2026_Insert-2-8-scaled.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://hakmar.com.tr/wp-content/uploads/2026/11/10-23-KASIM-2026_Insert-3-8-scaled.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://hakmar.com.tr/wp-content/uploads/2026/11/10-23-KASIM-2026_Insert-4-8-scaled.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://hakmar.com.tr/wp-content/uploads/2026/11/10-23-KASIM-2026_Insert-5-8-scaled.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://hakmar.com.tr/wp-content/uploads/2026/11/10-23-KASIM-2026_Insert-6-8-scaled.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://hakmar.com.tr/wp-content/uploads/2026/11/10-23-KASIM-2026_Insert-7-8-scaled.jpg",
+          "w": null,
+          "h": null
+        },
+        {
+          "url": "https://hakmar.com.tr/wp-content/uploads/2026/11/10-23-KASIM-2026_Insert-8-8-scaled.jpg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://hakmar.com.tr/indirim/",
+      "first_seen": "2026-11-10T00:00:00Z",
+      "updated_at": "2026-11-15T00:41:13Z",
+      "ocr_products_url": "products_ocr/hakmar-2026-11-10-10-23-kasim.json"
+    },
+    {
+      "id": "hakmar-2026-10-16-16-ekim-15-kasim",
+      "chain_id": "hakmar",
+      "title": "16 Ekim-15 Kasım",
+      "date_label": "16 Ekim-15 Kasım",
+      "valid_from": "2026-10-16",
+      "valid_to": "2026-11-15",
+      "kind": "pages",
+      "cover": {
+        "url": "https://hakmar.com.tr/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-16-at-11.38.09-768x1153.jpeg",
+        "w": 768,
+        "h": 1153
+      },
+      "pages": [
+        {
+          "url": "https://hakmar.com.tr/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-16-at-11.38.09.jpeg",
+          "w": null,
+          "h": null
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://hakmar.com.tr/indirim/",
+      "first_seen": "2026-10-16T00:00:00Z",
+      "updated_at": "2026-11-15T00:41:13Z"
+    },
+    {
+      "id": "tkkoop-2026-11-21-21-23-kasim-yildonumu-1794913300",
+      "chain_id": "tkkoop",
+      "title": "Yildonumu kampanyasi",
+      "date_label": "21 Kasım - 23 Kasım",
+      "valid_from": "2026-11-21",
+      "valid_to": "2026-11-23",
+      "kind": "pages",
+      "cover": {
+        "url": "media/tkkoop/tkkoop-2026-11-21-21-23-kasim-yildonumu-1794913300/p01.webp",
+        "w": 2000,
+        "h": 2800
+      },
+      "pages": [
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-21-21-23-kasim-yildonumu-1794913300/p01.webp",
+          "w": 2000,
+          "h": 2800
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.tkkoop.com.tr/assets/images/kampanya/21-23-kasim-yildonumu_1794913300.pdf",
+      "first_seen": "2026-11-21T10:57:48Z",
+      "updated_at": "2026-11-21T10:57:48Z"
+    },
+    {
+      "id": "tkkoop-2026-11-17-17-23-kasim-yildonumu-1794816110",
+      "chain_id": "tkkoop",
+      "title": "Yildonumu kampanyasi",
+      "date_label": "17 Kasım - 23 Kasım",
+      "valid_from": "2026-11-17",
+      "valid_to": "2026-11-23",
+      "kind": "pages",
+      "cover": {
+        "url": "media/tkkoop/tkkoop-2026-11-17-17-23-kasim-yildonumu-1794816110/p01.webp",
+        "w": 2000,
+        "h": 2800
+      },
+      "pages": [
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-17-17-23-kasim-yildonumu-1794816110/p01.webp",
+          "w": 2000,
+          "h": 2800
+        },
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-17-17-23-kasim-yildonumu-1794816110/p02.webp",
+          "w": 2000,
+          "h": 2800
+        },
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-17-17-23-kasim-yildonumu-1794816110/p03.webp",
+          "w": 2000,
+          "h": 2800
+        },
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-17-17-23-kasim-yildonumu-1794816110/p04.webp",
+          "w": 2000,
+          "h": 2800
+        },
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-17-17-23-kasim-yildonumu-1794816110/p05.webp",
+          "w": 2000,
+          "h": 2800
+        },
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-17-17-23-kasim-yildonumu-1794816110/p06.webp",
+          "w": 2000,
+          "h": 2800
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.tkkoop.com.tr/assets/images/kampanya/17-23-kasim-yildonumu_1794816110.pdf",
+      "first_seen": "2026-11-17T11:46:43Z",
+      "updated_at": "2026-11-17T11:46:43Z"
+    },
+    {
+      "id": "tkkoop-2026-11-16-17-23-kasim-yildonumu-1794816110",
+      "chain_id": "tkkoop",
+      "title": "Yildonumu kampanyasi",
+      "date_label": "16 Kasım - 23 Kasım",
+      "valid_from": "2026-11-16",
+      "valid_to": "2026-11-23",
+      "kind": "pages",
+      "cover": {
+        "url": "media/tkkoop/tkkoop-2026-11-16-17-23-kasim-yildonumu-1794816110/p01.webp",
+        "w": 2000,
+        "h": 2800
+      },
+      "pages": [
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-16-17-23-kasim-yildonumu-1794816110/p01.webp",
+          "w": 2000,
+          "h": 2800
+        },
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-16-17-23-kasim-yildonumu-1794816110/p02.webp",
+          "w": 2000,
+          "h": 2800
+        },
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-16-17-23-kasim-yildonumu-1794816110/p03.webp",
+          "w": 2000,
+          "h": 2800
+        },
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-16-17-23-kasim-yildonumu-1794816110/p04.webp",
+          "w": 2000,
+          "h": 2800
+        },
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-16-17-23-kasim-yildonumu-1794816110/p05.webp",
+          "w": 2000,
+          "h": 2800
+        },
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-16-17-23-kasim-yildonumu-1794816110/p06.webp",
+          "w": 2000,
+          "h": 2800
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.tkkoop.com.tr/assets/images/kampanya/17-23-kasim-yildonumu_1794816110.pdf",
+      "first_seen": "2026-11-16T11:09:49Z",
+      "updated_at": "2026-11-16T11:09:49Z"
+    },
+    {
+      "id": "tkkoop-2026-11-14-14-16-firsat-dolu-haftasonu-1794402490",
+      "chain_id": "tkkoop",
+      "title": "Fırsat Dolu Haftasonu",
+      "date_label": "14 Kasım - 16 Kasım",
+      "valid_from": "2026-11-14",
+      "valid_to": "2026-11-16",
+      "kind": "pages",
+      "cover": {
+        "url": "media/tkkoop/tkkoop-2026-11-14-14-16-firsat-dolu-haftasonu-1794402490/p01.webp",
+        "w": 2000,
+        "h": 2800
+      },
+      "pages": [
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-14-14-16-firsat-dolu-haftasonu-1794402490/p01.webp",
+          "w": 2000,
+          "h": 2800
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.tkkoop.com.tr/assets/images/kampanya/14-16-firsat-dolu-haftasonu_1794402490.pdf",
+      "first_seen": "2026-11-14T00:00:00Z",
+      "updated_at": "2026-11-15T00:41:13Z"
+    },
+    {
+      "id": "tkkoop-2026-11-10-10-16-kasim-kat-kat-firsat-1794209881",
+      "chain_id": "tkkoop",
+      "title": "Kat Kat Fırsat",
+      "date_label": "10 Kasım - 16 Kasım",
+      "valid_from": "2026-11-10",
+      "valid_to": "2026-11-16",
+      "kind": "pages",
+      "cover": {
+        "url": "media/tkkoop/tkkoop-2026-11-10-10-16-kasim-kat-kat-firsat-1794209881/p01.webp",
+        "w": 2000,
+        "h": 2800
+      },
+      "pages": [
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-10-10-16-kasim-kat-kat-firsat-1794209881/p01.webp",
+          "w": 2000,
+          "h": 2800
+        },
+        {
+          "url": "media/tkkoop/tkkoop-2026-11-10-10-16-kasim-kat-kat-firsat-1794209881/p02.webp",
+          "w": 2000,
+          "h": 2800
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://www.tkkoop.com.tr/assets/images/kampanya/10-16-kasim-kat-kat-firsat_1794209881.pdf",
+      "first_seen": "2026-11-10T00:00:00Z",
+      "updated_at": "2026-11-15T00:41:13Z"
+    },
+    {
+      "id": "bonveno-2026-11-20-70x100-20-26kasim-1",
+      "chain_id": "bonveno",
+      "title": "bonVeno Haftalık Fırsatlar",
+      "date_label": "20-26 Kasım",
+      "valid_from": "2026-11-20",
+      "valid_to": "2026-11-26",
+      "kind": "pages",
+      "cover": {
+        "url": "media/bonveno/bonveno-2026-11-20-70x100-20-26kasim-1/p01.webp",
+        "w": 2000,
+        "h": 2857
+      },
+      "pages": [
+        {
+          "url": "media/bonveno/bonveno-2026-11-20-70x100-20-26kasim-1/p01.webp",
+          "w": 2000,
+          "h": 2857
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://bonveno.com.tr/-/media/Project/Traders/TR_Bonveno/katalog/KASIM26/70x100_20-26KASIM-1.pdf",
+      "first_seen": "2026-11-19T11:34:14Z",
+      "updated_at": "2026-11-19T11:34:14Z"
+    },
+    {
+      "id": "bonveno-2026-11-13-70x100-13-19kasim-1",
+      "chain_id": "bonveno",
+      "title": "bonVeno Haftalık Fırsatlar",
+      "date_label": "13-19 Kasım",
+      "valid_from": "2026-11-13",
+      "valid_to": "2026-11-19",
+      "kind": "pages",
+      "cover": {
+        "url": "media/bonveno/bonveno-2026-11-13-70x100-13-19kasim-1/p01.webp",
+        "w": 2000,
+        "h": 2857
+      },
+      "pages": [
+        {
+          "url": "media/bonveno/bonveno-2026-11-13-70x100-13-19kasim-1/p01.webp",
+          "w": 2000,
+          "h": 2857
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://bonveno.com.tr/-/media/Project/Traders/TR_Bonveno/katalog/KASIM26/70x100_13-19KASIM-1.pdf",
+      "first_seen": "2026-11-13T00:00:00Z",
+      "updated_at": "2026-11-15T00:41:13Z"
+    },
+    {
+      "id": "metro-profesyonel-mutfaklarin-haftalik-ihtiyaclari-2719513-1dd624",
+      "chain_id": "metro",
+      "title": "Profesyonel Mutfakların Haftalık İhtiyaçları",
+      "date_label": null,
+      "valid_from": "2026-11-11",
+      "valid_to": null,
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/2719513/pages/395fdb6f-3dd1-40a6-b287-31c096178fe7-at600.jpg",
+        "w": 488,
+        "h": 738
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/395fdb6f-3dd1-40a6-b287-31c096178fe7-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        },
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/58e7ccaf-6e60-475c-a60e-5d521df0f1ae-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        },
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/f087a00c-1c61-4422-982c-dedeea967f9c-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        },
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/cb3133ec-47de-4e02-8612-52b7ab0cd919-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/profesyonel-mutfaklarin-haftalik-ihtiyaclari/",
+      "first_seen": "2026-11-16T23:44:14Z",
+      "updated_at": "2026-11-16T23:44:14Z"
+    },
+    {
+      "id": "metro-profesyonel-mutfaklarin-haftalik-ihtiyaclari-2719513-322792",
+      "chain_id": "metro",
+      "title": "Profesyonel Mutfakların Haftalık İhtiyaçları",
+      "date_label": null,
+      "valid_from": "2026-11-11",
+      "valid_to": null,
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/2719513/pages/395fdb6f-3dd1-40a6-b287-31c096178fe7-at600.jpg",
+        "w": 488,
+        "h": 738
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/395fdb6f-3dd1-40a6-b287-31c096178fe7-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        },
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/58e7ccaf-6e60-475c-a60e-5d521df0f1ae-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        },
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/f087a00c-1c61-4422-982c-dedeea967f9c-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        },
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/cb3133ec-47de-4e02-8612-52b7ab0cd919-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/profesyonel-mutfaklarin-haftalik-ihtiyaclari/",
+      "first_seen": "2026-11-11T00:00:00Z",
+      "updated_at": "2026-11-15T00:41:13Z"
+    },
+    {
+      "id": "metro-profesyonel-mutfaklarin-haftalik-ihtiyaclari-2719513-622590",
+      "chain_id": "metro",
+      "title": "Profesyonel Mutfakların Haftalık İhtiyaçları",
+      "date_label": null,
+      "valid_from": "2026-11-11",
+      "valid_to": null,
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/2719513/pages/395fdb6f-3dd1-40a6-b287-31c096178fe7-at600.jpg",
+        "w": 488,
+        "h": 738
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/395fdb6f-3dd1-40a6-b287-31c096178fe7-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        },
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/58e7ccaf-6e60-475c-a60e-5d521df0f1ae-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        },
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/f087a00c-1c61-4422-982c-dedeea967f9c-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        },
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/cb3133ec-47de-4e02-8612-52b7ab0cd919-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/profesyonel-mutfaklarin-haftalik-ihtiyaclari/",
+      "first_seen": "2026-11-17T11:46:43Z",
+      "updated_at": "2026-11-17T11:46:43Z"
+    },
+    {
+      "id": "metro-profesyonel-mutfaklarin-haftalik-ihtiyaclari-2719513-883768",
+      "chain_id": "metro",
+      "title": "Profesyonel Mutfakların Haftalık İhtiyaçları",
+      "date_label": null,
+      "valid_from": "2026-11-11",
+      "valid_to": null,
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/2719513/pages/395fdb6f-3dd1-40a6-b287-31c096178fe7-at600.jpg",
+        "w": 488,
+        "h": 738
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/395fdb6f-3dd1-40a6-b287-31c096178fe7-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        },
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/58e7ccaf-6e60-475c-a60e-5d521df0f1ae-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        },
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/f087a00c-1c61-4422-982c-dedeea967f9c-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        },
+        {
+          "url": "https://view.publitas.com/737/2719513/pages/cb3133ec-47de-4e02-8612-52b7ab0cd919-at2400.jpg",
+          "w": 1951,
+          "h": 2951
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/profesyonel-mutfaklarin-haftalik-ihtiyaclari/",
+      "first_seen": "2026-11-16T11:09:49Z",
+      "updated_at": "2026-11-16T11:09:49Z"
+    },
+    {
+      "id": "metro-isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim-347-015f41e9",
+      "chain_id": "metro",
+      "title": "İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at600.jpg",
+        "w": 505,
+        "h": 714
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/6013d240-bf5c-4c36-9f29-0a8bf9a8da28-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/17bc9ce2-d7a3-4421-ab4a-3277ce25749e-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/f0cbdff9-e22d-4162-80c2-67f370d89f97-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/0dcd3502-72d2-4505-bb65-999938c991ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/aa0a4273-2fb3-4aae-885c-c51f2bfb3817-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/1e913690-a937-4926-9234-42f0a501f4b3-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/996a817b-4849-4ada-963f-d2c36a3fc2ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/376fa36f-6307-4add-9aa0-40f0a0a579f8-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/c60dcd6c-415c-451b-b41f-97fea2b56a7a-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim/",
+      "first_seen": "2026-11-18T11:36:14Z",
+      "updated_at": "2026-11-18T11:36:14Z"
+    },
+    {
+      "id": "metro-isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim-347-056bc4c7",
+      "chain_id": "metro",
+      "title": "İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at600.jpg",
+        "w": 505,
+        "h": 714
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/6013d240-bf5c-4c36-9f29-0a8bf9a8da28-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/17bc9ce2-d7a3-4421-ab4a-3277ce25749e-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/f0cbdff9-e22d-4162-80c2-67f370d89f97-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/0dcd3502-72d2-4505-bb65-999938c991ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/aa0a4273-2fb3-4aae-885c-c51f2bfb3817-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/1e913690-a937-4926-9234-42f0a501f4b3-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/996a817b-4849-4ada-963f-d2c36a3fc2ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/376fa36f-6307-4add-9aa0-40f0a0a579f8-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/c60dcd6c-415c-451b-b41f-97fea2b56a7a-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim/",
+      "first_seen": "2026-11-16T23:44:14Z",
+      "updated_at": "2026-11-16T23:44:14Z"
+    },
+    {
+      "id": "metro-isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim-347-099bca7f",
+      "chain_id": "metro",
+      "title": "İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at600.jpg",
+        "w": 505,
+        "h": 714
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/6013d240-bf5c-4c36-9f29-0a8bf9a8da28-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/17bc9ce2-d7a3-4421-ab4a-3277ce25749e-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/f0cbdff9-e22d-4162-80c2-67f370d89f97-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/0dcd3502-72d2-4505-bb65-999938c991ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/aa0a4273-2fb3-4aae-885c-c51f2bfb3817-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/1e913690-a937-4926-9234-42f0a501f4b3-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/996a817b-4849-4ada-963f-d2c36a3fc2ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/376fa36f-6307-4add-9aa0-40f0a0a579f8-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/c60dcd6c-415c-451b-b41f-97fea2b56a7a-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim/",
+      "first_seen": "2026-11-21T10:57:48Z",
+      "updated_at": "2026-11-21T10:57:48Z"
+    },
+    {
+      "id": "metro-isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim-347-1628626d",
+      "chain_id": "metro",
+      "title": "İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at600.jpg",
+        "w": 505,
+        "h": 714
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/6013d240-bf5c-4c36-9f29-0a8bf9a8da28-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/17bc9ce2-d7a3-4421-ab4a-3277ce25749e-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/f0cbdff9-e22d-4162-80c2-67f370d89f97-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/0dcd3502-72d2-4505-bb65-999938c991ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/aa0a4273-2fb3-4aae-885c-c51f2bfb3817-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/1e913690-a937-4926-9234-42f0a501f4b3-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/996a817b-4849-4ada-963f-d2c36a3fc2ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/376fa36f-6307-4add-9aa0-40f0a0a579f8-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/c60dcd6c-415c-451b-b41f-97fea2b56a7a-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim/",
+      "first_seen": "2026-11-16T11:09:49Z",
+      "updated_at": "2026-11-16T11:09:49Z"
+    },
+    {
+      "id": "metro-isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim-347-26788df3",
+      "chain_id": "metro",
+      "title": "İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at600.jpg",
+        "w": 505,
+        "h": 714
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/6013d240-bf5c-4c36-9f29-0a8bf9a8da28-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/17bc9ce2-d7a3-4421-ab4a-3277ce25749e-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/f0cbdff9-e22d-4162-80c2-67f370d89f97-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/0dcd3502-72d2-4505-bb65-999938c991ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/aa0a4273-2fb3-4aae-885c-c51f2bfb3817-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/1e913690-a937-4926-9234-42f0a501f4b3-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/996a817b-4849-4ada-963f-d2c36a3fc2ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/376fa36f-6307-4add-9aa0-40f0a0a579f8-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/c60dcd6c-415c-451b-b41f-97fea2b56a7a-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim/",
+      "first_seen": "2026-11-20T11:30:55Z",
+      "updated_at": "2026-11-20T11:30:55Z"
+    },
+    {
+      "id": "metro-isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim-347-bd416015",
+      "chain_id": "metro",
+      "title": "İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at600.jpg",
+        "w": 505,
+        "h": 714
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/6013d240-bf5c-4c36-9f29-0a8bf9a8da28-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/17bc9ce2-d7a3-4421-ab4a-3277ce25749e-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/f0cbdff9-e22d-4162-80c2-67f370d89f97-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/0dcd3502-72d2-4505-bb65-999938c991ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/aa0a4273-2fb3-4aae-885c-c51f2bfb3817-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/1e913690-a937-4926-9234-42f0a501f4b3-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/996a817b-4849-4ada-963f-d2c36a3fc2ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/376fa36f-6307-4add-9aa0-40f0a0a579f8-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/c60dcd6c-415c-451b-b41f-97fea2b56a7a-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim/",
+      "first_seen": "2026-11-17T22:52:13Z",
+      "updated_at": "2026-11-17T22:52:13Z"
+    },
+    {
+      "id": "metro-isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim-347-c2785e8f",
+      "chain_id": "metro",
+      "title": "İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at600.jpg",
+        "w": 505,
+        "h": 714
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/6013d240-bf5c-4c36-9f29-0a8bf9a8da28-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/17bc9ce2-d7a3-4421-ab4a-3277ce25749e-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/f0cbdff9-e22d-4162-80c2-67f370d89f97-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/0dcd3502-72d2-4505-bb65-999938c991ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/aa0a4273-2fb3-4aae-885c-c51f2bfb3817-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/1e913690-a937-4926-9234-42f0a501f4b3-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/996a817b-4849-4ada-963f-d2c36a3fc2ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/376fa36f-6307-4add-9aa0-40f0a0a579f8-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/c60dcd6c-415c-451b-b41f-97fea2b56a7a-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim/",
+      "first_seen": "2026-11-19T11:34:14Z",
+      "updated_at": "2026-11-19T11:34:14Z"
+    },
+    {
+      "id": "metro-isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim-347-d1d1af6b",
+      "chain_id": "metro",
+      "title": "İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at600.jpg",
+        "w": 505,
+        "h": 714
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/6013d240-bf5c-4c36-9f29-0a8bf9a8da28-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/17bc9ce2-d7a3-4421-ab4a-3277ce25749e-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/f0cbdff9-e22d-4162-80c2-67f370d89f97-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/0dcd3502-72d2-4505-bb65-999938c991ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/aa0a4273-2fb3-4aae-885c-c51f2bfb3817-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/1e913690-a937-4926-9234-42f0a501f4b3-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/996a817b-4849-4ada-963f-d2c36a3fc2ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/376fa36f-6307-4add-9aa0-40f0a0a579f8-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/c60dcd6c-415c-451b-b41f-97fea2b56a7a-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim/",
+      "first_seen": "2026-11-17T11:46:43Z",
+      "updated_at": "2026-11-17T11:46:43Z"
+    },
+    {
+      "id": "metro-isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim-347-dc43a777",
+      "chain_id": "metro",
+      "title": "İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at600.jpg",
+        "w": 505,
+        "h": 714
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/6013d240-bf5c-4c36-9f29-0a8bf9a8da28-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/17bc9ce2-d7a3-4421-ab4a-3277ce25749e-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/f0cbdff9-e22d-4162-80c2-67f370d89f97-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/0dcd3502-72d2-4505-bb65-999938c991ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/aa0a4273-2fb3-4aae-885c-c51f2bfb3817-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/1e913690-a937-4926-9234-42f0a501f4b3-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/996a817b-4849-4ada-963f-d2c36a3fc2ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/376fa36f-6307-4add-9aa0-40f0a0a579f8-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/c60dcd6c-415c-451b-b41f-97fea2b56a7a-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim/",
+      "first_seen": "2026-11-20T22:15:28Z",
+      "updated_at": "2026-11-20T22:15:28Z"
+    },
+    {
+      "id": "metro-isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim-347-e6e34941",
+      "chain_id": "metro",
+      "title": "İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at600.jpg",
+        "w": 505,
+        "h": 714
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/6013d240-bf5c-4c36-9f29-0a8bf9a8da28-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/17bc9ce2-d7a3-4421-ab4a-3277ce25749e-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/f0cbdff9-e22d-4162-80c2-67f370d89f97-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/0dcd3502-72d2-4505-bb65-999938c991ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/aa0a4273-2fb3-4aae-885c-c51f2bfb3817-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/1e913690-a937-4926-9234-42f0a501f4b3-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/996a817b-4849-4ada-963f-d2c36a3fc2ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/376fa36f-6307-4add-9aa0-40f0a0a579f8-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/c60dcd6c-415c-451b-b41f-97fea2b56a7a-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim/",
+      "first_seen": "2026-11-18T22:35:40Z",
+      "updated_at": "2026-11-18T22:35:40Z"
+    },
+    {
+      "id": "metro-isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim-347-f00dc76e",
+      "chain_id": "metro",
+      "title": "İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at600.jpg",
+        "w": 505,
+        "h": 714
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/6013d240-bf5c-4c36-9f29-0a8bf9a8da28-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/17bc9ce2-d7a3-4421-ab4a-3277ce25749e-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/f0cbdff9-e22d-4162-80c2-67f370d89f97-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/0dcd3502-72d2-4505-bb65-999938c991ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/aa0a4273-2fb3-4aae-885c-c51f2bfb3817-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/1e913690-a937-4926-9234-42f0a501f4b3-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/996a817b-4849-4ada-963f-d2c36a3fc2ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/376fa36f-6307-4add-9aa0-40f0a0a579f8-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/c60dcd6c-415c-451b-b41f-97fea2b56a7a-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim/",
+      "first_seen": "2026-11-01T00:00:00Z",
+      "updated_at": "2026-11-15T05:09:12Z"
+    },
+    {
+      "id": "metro-isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim-347-f47814d3",
+      "chain_id": "metro",
+      "title": "İşletmenizin Temel Ürünleri Metro'da Çok Özel Fiyatlarla",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at600.jpg",
+        "w": 505,
+        "h": 714
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/e484b04d-3448-4177-9672-99fc03071378-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/6013d240-bf5c-4c36-9f29-0a8bf9a8da28-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/17bc9ce2-d7a3-4421-ab4a-3277ce25749e-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/f0cbdff9-e22d-4162-80c2-67f370d89f97-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/0dcd3502-72d2-4505-bb65-999938c991ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/aa0a4273-2fb3-4aae-885c-c51f2bfb3817-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/1e913690-a937-4926-9234-42f0a501f4b3-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/996a817b-4849-4ada-963f-d2c36a3fc2ee-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/376fa36f-6307-4add-9aa0-40f0a0a579f8-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        },
+        {
+          "url": "https://view.publitas.com/737/3477612/pages/c60dcd6c-415c-451b-b41f-97fea2b56a7a-at2400.jpg",
+          "w": 2018,
+          "h": 2854
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/isletmenizin-temel-urunleri-metroda-cok-ozel-fiyatlarla-kasim/",
+      "first_seen": "2026-11-19T22:39:49Z",
+      "updated_at": "2026-11-19T22:39:49Z"
+    },
+    {
+      "id": "metro-metroda-muhtesem-kasim-firsatlari-3526673-173a9d",
+      "chain_id": "metro",
+      "title": "Metro'da Muhteşem Kasım Fırsatları",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3526673/pages/8164d05d-c950-4628-b542-7b48af41c1d5-at600.jpg",
+        "w": 507,
+        "h": 710
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/8164d05d-c950-4628-b542-7b48af41c1d5-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/bbbffd6c-7539-4cd9-bf4a-b359b870b3b1-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/2092eb32-2fa3-447e-a749-8b8de9013b7c-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/metroda-muhtesem-kasim-firsatlari/",
+      "first_seen": "2026-11-19T22:39:49Z",
+      "updated_at": "2026-11-19T22:39:49Z"
+    },
+    {
+      "id": "metro-metroda-muhtesem-kasim-firsatlari-3526673-23446e",
+      "chain_id": "metro",
+      "title": "Metro'da Muhteşem Kasım Fırsatları",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3526673/pages/96d57c38-7b89-4031-a9cc-c55f67e6a74c-at600.jpg",
+        "w": 450,
+        "h": 800
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/96d57c38-7b89-4031-a9cc-c55f67e6a74c-at2400.jpg",
+          "w": 1800,
+          "h": 3200
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/98458cd9-14a8-4e29-9624-666f87bf074d-at2400.jpg",
+          "w": 1800,
+          "h": 3200
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/44ca8fe6-e302-4a43-bbc0-6fb4023fecd8-at2400.jpg",
+          "w": 1800,
+          "h": 3200
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/metroda-muhtesem-kasim-firsatlari/",
+      "first_seen": "2026-11-16T11:09:49Z",
+      "updated_at": "2026-11-16T11:09:49Z"
+    },
+    {
+      "id": "metro-metroda-muhtesem-kasim-firsatlari-3526673-2779a5",
+      "chain_id": "metro",
+      "title": "Metro'da Muhteşem Kasım Fırsatları",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3526673/pages/96d57c38-7b89-4031-a9cc-c55f67e6a74c-at600.jpg",
+        "w": 450,
+        "h": 800
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/96d57c38-7b89-4031-a9cc-c55f67e6a74c-at2400.jpg",
+          "w": 1800,
+          "h": 3200
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/98458cd9-14a8-4e29-9624-666f87bf074d-at2400.jpg",
+          "w": 1800,
+          "h": 3200
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/44ca8fe6-e302-4a43-bbc0-6fb4023fecd8-at2400.jpg",
+          "w": 1800,
+          "h": 3200
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/metroda-muhtesem-kasim-firsatlari/",
+      "first_seen": "2026-11-01T00:00:00Z",
+      "updated_at": "2026-11-15T00:41:13Z"
+    },
+    {
+      "id": "metro-metroda-muhtesem-kasim-firsatlari-3526673-3c1f97",
+      "chain_id": "metro",
+      "title": "Metro'da Muhteşem Kasım Fırsatları",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3526673/pages/258577cb-e02d-4cac-b8b1-ae0fe5aa3cab-at600.jpg",
+        "w": 450,
+        "h": 800
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/258577cb-e02d-4cac-b8b1-ae0fe5aa3cab-at2400.jpg",
+          "w": 1800,
+          "h": 3200
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/21c349ea-6c2b-4467-8c1e-cbf47bb1c19b-at2400.jpg",
+          "w": 1800,
+          "h": 3200
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/7a32996d-2def-4bb1-87b9-61e3d1070027-at2400.jpg",
+          "w": 1800,
+          "h": 3200
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/metroda-muhtesem-kasim-firsatlari/",
+      "first_seen": "2026-11-17T22:52:13Z",
+      "updated_at": "2026-11-17T22:52:13Z"
+    },
+    {
+      "id": "metro-metroda-muhtesem-kasim-firsatlari-3526673-67031f",
+      "chain_id": "metro",
+      "title": "Metro'da Muhteşem Kasım Fırsatları",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3526673/pages/96d57c38-7b89-4031-a9cc-c55f67e6a74c-at600.jpg",
+        "w": 450,
+        "h": 800
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/96d57c38-7b89-4031-a9cc-c55f67e6a74c-at2400.jpg",
+          "w": 1800,
+          "h": 3200
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/98458cd9-14a8-4e29-9624-666f87bf074d-at2400.jpg",
+          "w": 1800,
+          "h": 3200
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/44ca8fe6-e302-4a43-bbc0-6fb4023fecd8-at2400.jpg",
+          "w": 1800,
+          "h": 3200
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/metroda-muhtesem-kasim-firsatlari/",
+      "first_seen": "2026-11-16T23:44:14Z",
+      "updated_at": "2026-11-16T23:44:14Z"
+    },
+    {
+      "id": "metro-metroda-muhtesem-kasim-firsatlari-3526673-6e147f",
+      "chain_id": "metro",
+      "title": "Metro'da Muhteşem Kasım Fırsatları",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3526673/pages/8164d05d-c950-4628-b542-7b48af41c1d5-at600.jpg",
+        "w": 507,
+        "h": 710
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/8164d05d-c950-4628-b542-7b48af41c1d5-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/bbbffd6c-7539-4cd9-bf4a-b359b870b3b1-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/2092eb32-2fa3-447e-a749-8b8de9013b7c-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/metroda-muhtesem-kasim-firsatlari/",
+      "first_seen": "2026-11-19T11:34:14Z",
+      "updated_at": "2026-11-19T11:34:14Z"
+    },
+    {
+      "id": "metro-metroda-muhtesem-kasim-firsatlari-3526673-713447",
+      "chain_id": "metro",
+      "title": "Metro'da Muhteşem Kasım Fırsatları",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3526673/pages/8164d05d-c950-4628-b542-7b48af41c1d5-at600.jpg",
+        "w": 507,
+        "h": 710
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/8164d05d-c950-4628-b542-7b48af41c1d5-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/bbbffd6c-7539-4cd9-bf4a-b359b870b3b1-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/2092eb32-2fa3-447e-a749-8b8de9013b7c-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/metroda-muhtesem-kasim-firsatlari/",
+      "first_seen": "2026-11-20T11:30:55Z",
+      "updated_at": "2026-11-20T11:30:55Z"
+    },
+    {
+      "id": "metro-metroda-muhtesem-kasim-firsatlari-3526673-740c13",
+      "chain_id": "metro",
+      "title": "Metro'da Muhteşem Kasım Fırsatları",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3526673/pages/8164d05d-c950-4628-b542-7b48af41c1d5-at600.jpg",
+        "w": 507,
+        "h": 710
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/8164d05d-c950-4628-b542-7b48af41c1d5-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/bbbffd6c-7539-4cd9-bf4a-b359b870b3b1-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/2092eb32-2fa3-447e-a749-8b8de9013b7c-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/metroda-muhtesem-kasim-firsatlari/",
+      "first_seen": "2026-11-20T22:15:28Z",
+      "updated_at": "2026-11-20T22:15:28Z"
+    },
+    {
+      "id": "metro-metroda-muhtesem-kasim-firsatlari-3526673-94aa11",
+      "chain_id": "metro",
+      "title": "Metro'da Muhteşem Kasım Fırsatları",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3526673/pages/8164d05d-c950-4628-b542-7b48af41c1d5-at600.jpg",
+        "w": 507,
+        "h": 710
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/8164d05d-c950-4628-b542-7b48af41c1d5-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/bbbffd6c-7539-4cd9-bf4a-b359b870b3b1-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/2092eb32-2fa3-447e-a749-8b8de9013b7c-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/metroda-muhtesem-kasim-firsatlari/",
+      "first_seen": "2026-11-21T10:57:48Z",
+      "updated_at": "2026-11-21T10:57:48Z"
+    },
+    {
+      "id": "metro-metroda-muhtesem-kasim-firsatlari-3526673-e2abf0",
+      "chain_id": "metro",
+      "title": "Metro'da Muhteşem Kasım Fırsatları",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3526673/pages/8164d05d-c950-4628-b542-7b48af41c1d5-at600.jpg",
+        "w": 507,
+        "h": 710
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/8164d05d-c950-4628-b542-7b48af41c1d5-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/bbbffd6c-7539-4cd9-bf4a-b359b870b3b1-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/2092eb32-2fa3-447e-a749-8b8de9013b7c-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/metroda-muhtesem-kasim-firsatlari/",
+      "first_seen": "2026-11-18T22:35:40Z",
+      "updated_at": "2026-11-18T22:35:40Z"
+    },
+    {
+      "id": "metro-metroda-muhtesem-kasim-firsatlari-3526673-f6ecff",
+      "chain_id": "metro",
+      "title": "Metro'da Muhteşem Kasım Fırsatları",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/737/3526673/pages/8164d05d-c950-4628-b542-7b48af41c1d5-at600.jpg",
+        "w": 507,
+        "h": 710
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/8164d05d-c950-4628-b542-7b48af41c1d5-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/bbbffd6c-7539-4cd9-bf4a-b359b870b3b1-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        },
+        {
+          "url": "https://view.publitas.com/737/3526673/pages/2092eb32-2fa3-447e-a749-8b8de9013b7c-at2400.jpg",
+          "w": 2028,
+          "h": 2839
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://brosurler.metro-tr.com/metroda-muhtesem-kasim-firsatlari/",
+      "first_seen": "2026-11-18T11:36:14Z",
+      "updated_at": "2026-11-18T11:36:14Z"
+    },
+    {
+      "id": "macrocenter-mac-2026-2262-kasim-639289517091175055",
+      "chain_id": "macrocenter",
+      "title": "MacroStyle",
+      "date_label": "1 - 30 Kasım 2026",
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p01.webp",
+        "w": 2000,
+        "h": 2829
+      },
+      "pages": [
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p01.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p02.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p03.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p04.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p05.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p06.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p07.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p08.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p09.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p10.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p11.webp",
+          "w": 2000,
+          "h": 2829
+        },
+        {
+          "url": "media/macrocenter/macrocenter-mac-2026-2262-kasim-639289517091175055/p12.webp",
+          "w": 2000,
+          "h": 2829
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://moneyclubkart.azureedge.net/mcstage/mac-2026-2262-kasim-639289517091175055.pdf",
+      "first_seen": "2026-11-01T00:00:00Z",
+      "updated_at": "2026-11-14T10:19:50Z"
+    },
+    {
+      "id": "watsons-kasim-katalog-2026-3499121",
+      "chain_id": "watsons",
+      "title": "Kasım Katalog 2026",
+      "date_label": null,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://view.publitas.com/223/3499121/pages/dd30ad61-756b-493d-aac2-be76e780dec0-at600.jpg",
+        "w": 490,
+        "h": 735
+      },
+      "pages": [
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/dd30ad61-756b-493d-aac2-be76e780dec0-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/0e520535-60fe-44ed-84c9-b4da1f2fefb5-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/f85f2488-7524-4180-931d-7a8c7873d655-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/0e3bb66b-be00-4212-a3c8-b5c5b0c52a99-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/cda792ac-d352-421b-baa6-1c22acac07ff-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/27efcb2c-9bc6-4651-bada-19f0b357aa54-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/8ee8c15a-111b-444e-8895-24fb0ddeea81-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/c093291f-87de-468d-b830-5cd9d5b97dc4-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/a18d4101-3379-41f8-8884-b55464918b0d-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/23b56b00-ebf1-4601-8303-653e891f2089-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/08494f57-bad6-460e-8740-2fc625954b17-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/d19a2309-5e5e-43ad-9bfb-1b3b098abd32-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/efa1b925-425f-4c59-9ab2-64d0821c4175-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/b4e97cd1-d1dc-4b90-ad77-132e527003bd-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/c4f5e89f-a208-442d-9e7a-0f2100493808-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/edad66ee-ad04-4915-99ba-2ee5460c2814-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/fdd8a2e4-c95b-4750-8c32-2f53d921bcf6-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/9a83975f-7d87-48bc-bfd7-7caa6a6c96d8-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/6c174854-314b-489b-95f2-805e8b8d787a-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/d156d50b-496f-4243-b34c-c31b020ae5ed-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/3131ff75-41ea-46e4-bc8a-849cb61c6440-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/bb4a24ab-b858-4fa3-a21b-512b52baa98e-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/f30407e9-5f50-41d5-bbac-21cdbd3fc692-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/854fb6cd-b98c-4db4-afbc-94e8dbe88a0b-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/fba88bf4-e6eb-4afd-af1b-b74211332315-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/a70b5e9c-9dde-4d5c-9db4-f84fa5dd92bd-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/c6d342cf-7234-42fb-9b24-6e71fc6d555a-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/7dcd14cc-db40-4c18-8681-c960ebda3488-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/11cfc779-006c-48d9-af45-2aaf469f8230-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/a8e1050b-c834-4f49-98e6-203e96112573-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/d9e2f71d-c2da-49a4-a959-48c2dd8d74be-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/b1dff73d-93a2-489e-9b5f-5245600c950e-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/d445682f-3458-4bee-a9c0-1dbda8ce093e-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/a5706217-6019-4c5f-a725-0fb3b94c89e3-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/96d9f6c8-c9af-4215-8cb2-ced338a4a0e3-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/509fe279-c111-4c05-a20a-a638d5e7907c-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/838ea256-d98d-4c9b-828c-04489085419f-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/aaeffa8d-d70a-4f53-830c-005ac9ed5b5f-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/21032527-2f9b-4204-ae46-89c89b86de66-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/a72448c5-f01e-4462-af8c-21cb301de074-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/79ce436d-093d-4781-b6c5-ffec516c51d4-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/cdebec3d-07af-42f8-bf57-5c4f16135e16-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/75f4429b-0499-4ac4-8fa0-142580e6939e-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/0b82a8f9-27a6-4c41-8413-49c265134f43-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/1d37cf9c-f065-42e4-b496-fac5da070bca-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        },
+        {
+          "url": "https://view.publitas.com/223/3499121/pages/117833ee-9402-43ce-a464-0be22c3f7bb0-at2400.jpg",
+          "w": 1960,
+          "h": 2940
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://katalog.watsons.com.tr/kasim-katalog-2026/",
+      "first_seen": "2026-11-01T00:00:00Z",
+      "updated_at": "2026-11-19T11:34:14Z"
+    },
+    {
+      "id": "rossmann-2026-11-kasim-ev-ve-yasam-katalogu",
+      "chain_id": "rossmann",
+      "title": "Kasım Ev ve Yaşam Kataloğu",
+      "date_label": "Kasım 2026",
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=1&ImageType=Normal",
+        "w": 707,
+        "h": 990
+      },
+      "pages": [
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=1&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=2&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=3&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=4&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=5&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=6&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=7&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=8&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=9&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=10&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=11&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=12&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=13&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=14&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=15&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=16&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=17&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/Image.ashx?PageNumber=18&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-ev-ve-yasam-katalogu/",
+      "first_seen": "2026-11-01T00:00:00Z",
+      "updated_at": "2026-11-15T05:09:12Z"
+    },
+    {
+      "id": "rossmann-2026-11-kasim-guzellik-katalogu",
+      "chain_id": "rossmann",
+      "title": "Kasım Güzellik Kataloğu",
+      "date_label": "Kasım 2026",
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=1&ImageType=Normal",
+        "w": 707,
+        "h": 990
+      },
+      "pages": [
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=1&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=2&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=3&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=4&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=5&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=6&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=7&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=8&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=9&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=10&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=11&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=12&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=13&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=14&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=15&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=16&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=17&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=18&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=19&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=20&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=21&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=22&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=23&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=24&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=25&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/Image.ashx?PageNumber=26&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-guzellik-katalogu/",
+      "first_seen": "2026-11-01T00:00:00Z",
+      "updated_at": "2026-11-15T05:09:12Z"
+    },
+    {
+      "id": "rossmann-2026-11-kasim-kisisel-bakim-katalogu",
+      "chain_id": "rossmann",
+      "title": "Kasım Kişisel Bakım Kataloğu",
+      "date_label": "Kasım 2026",
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=1&ImageType=Normal",
+        "w": 707,
+        "h": 990
+      },
+      "pages": [
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=1&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=2&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=3&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=4&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=5&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=6&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=7&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=8&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=9&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=10&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=11&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=12&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=13&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=14&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=15&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=16&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=17&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=18&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=19&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=20&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=21&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=22&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=23&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=24&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=25&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=26&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=27&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=28&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=29&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=30&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=31&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=32&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=33&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/Image.ashx?PageNumber=34&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://katalog.rossmann.com.tr/2026/11-kasim/kasim-kisisel-bakim-katalogu/",
+      "first_seen": "2026-11-01T00:00:00Z",
+      "updated_at": "2026-11-15T05:09:12Z"
+    },
+    {
+      "id": "rossmann-2026-11-temizlik-festivali-katalogu",
+      "chain_id": "rossmann",
+      "title": "Temizlik Festivali Kataloğu",
+      "date_label": "Kasım 2026",
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=1&ImageType=Normal",
+        "w": 703,
+        "h": 995
+      },
+      "pages": [
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=1&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=2&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=3&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=4&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=5&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=6&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=7&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=8&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=9&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=10&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=11&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=12&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=13&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=14&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=15&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=16&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=17&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=18&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=19&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=20&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=21&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=22&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=23&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=24&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=25&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/Image.ashx?PageNumber=26&ImageType=Zoom",
+          "w": 1143,
+          "h": 1617
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://katalog.rossmann.com.tr/2026/11-kasim/temizlik-festivali-katalogu/",
+      "first_seen": "2026-11-01T00:00:00Z",
+      "updated_at": "2026-11-15T05:09:12Z"
+    },
+    {
+      "id": "rossmann-2026-11-trends-for-you",
+      "chain_id": "rossmann",
+      "title": "Trends for You",
+      "date_label": "Kasım 2026",
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "kind": "pages",
+      "cover": {
+        "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=1&ImageType=Normal",
+        "w": 707,
+        "h": 990
+      },
+      "pages": [
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=1&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=2&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=3&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=4&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=5&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=6&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=7&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=8&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=9&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=10&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=11&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=12&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=13&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        },
+        {
+          "url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/Image.ashx?PageNumber=14&ImageType=Zoom",
+          "w": 1149,
+          "h": 1609
+        }
+      ],
+      "products_url": null,
+      "product_count": 0,
+      "source_url": "https://katalog.rossmann.com.tr/2026/11-kasim/trends-for-you/",
+      "first_seen": "2026-11-01T00:00:00Z",
+      "updated_at": "2026-11-15T00:41:13Z"
+    }
+  ]
+}

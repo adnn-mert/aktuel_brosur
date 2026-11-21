@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-21T10:58:49Z",
+  "model": "gemini-3.8-flash",
+  "thinking_level": "LOW",
+  "usage": {
+    "quota_day": "2026-11-21",
+    "attempts": 0
+  },
+  "brochures": {
+    "hakmar-2026-11-10-10-23-kasim": {
+      "fingerprint": "bf8c2bda6bdee4f78543b13645d2c28d8aee87d21d6da7edf2aad0ef83e50642",
+      "failed_attempts": 0,
+      "reading": {
+        "products_url": "products_ocr/hakmar-2026-11-10-10-23-kasim.json",
+        "product_count": 110,
+        "read_at": "2026-11-16T23:44:49Z",
+        "model": "gemini-3.8-flash",
+        "thinking_level": "LOW",
+        "prompt_version": "pages-b1",
+        "requests": 1
+      },
+      "last_attempt_at": "2026-11-16T23:44:49Z"
+    },
+    "hakmar-2026-11-20-20-22-kasim": {
+      "fingerprint": "a31d59b2ba17883655bac256580e0292208e0b49bf5ecd5a36ca252fc908e2ab",
+      "failed_attempts": 0,
+      "reading": {
+        "products_url": "products_ocr/hakmar-2026-11-20-20-22-kasim.json",
+        "product_count": 9,
+        "read_at": "2026-11-19T11:36:26Z",
+        "model": "gemini-3.8-flash",
+        "thinking_level": "LOW",
+        "prompt_version": "pages-b1",
+        "requests": 1
+      },
+      "last_attempt_at": "2026-11-19T11:36:26Z"
+    },
+    "sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim": {
+      "fingerprint": "a5ed7fd59077d31d6ba01e12272b8e4f7e79e09cfb1ef2a750b0c92ac957e268",
+      "failed_attempts": 0,
+      "reading": {
+        "products_url": "products_ocr/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim.json",
+        "product_count": 132,
+        "read_at": "2026-11-16T23:44:49Z",
+        "model": "gemini-3.8-flash",
+        "thinking_level": "LOW",
+        "prompt_version": "pages-b1",
+        "requests": 1
+      },
+      "last_attempt_at": "2026-11-16T23:44:49Z"
+    },
+    "sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim": {
+      "fingerprint": "a75a67aa43b572390081e14029568d4b646528b5599c50f1eb30d57945c8ea0d",
+      "failed_attempts": 0,
+      "reading": {
+        "products_url": "products_ocr/sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim.json",
+        "product_count": 40,
+        "read_at": "2026-11-17T22:52:42Z",
+        "model": "gemini-3.8-flash",
+        "thinking_level": "LOW",
+        "prompt_version": "pages-b1",
+        "requests": 2
+      },
+      "last_attempt_at": "2026-11-17T22:52:42Z"
+    }
+  }
+}

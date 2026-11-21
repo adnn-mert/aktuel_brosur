@@ -1,0 +1,577 @@
+{
+  "schema_version": 1,
+  "brochure_id": "bim-aktuel-2026-11-15",
+  "currency": "TRY",
+  "products": [
+    {
+      "name": "BUHARLI ÜTÜ",
+      "brand": "ALTUS",
+      "quantity_text": null,
+      "price_minor": 149000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_9251_1_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/buharli-utu-altus-6-11/aktuel.aspx"
+    },
+    {
+      "name": "TARTI AL 8080 SB",
+      "brand": "ALTUS",
+      "quantity_text": null,
+      "price_minor": 49000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_7176_1_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/vucut-tartisi-altus-6-11/aktuel.aspx"
+    },
+    {
+      "name": "Fakir SM1804B Blender Set",
+      "brand": "FAKİR",
+      "quantity_text": null,
+      "price_minor": 279000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_8467_1_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mega-blender-set-fakir-multiblend-6-11/aktuel.aspx"
+    },
+    {
+      "name": "6’sı 1 Arada Erkek Bakım Seti MG3915/15",
+      "brand": "PHİLİPS",
+      "quantity_text": null,
+      "price_minor": 139000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_7502_1_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/erkek-bakim-seti-6-in-1-philips-mg3915-15-6-11/aktuel.aspx"
+    },
+    {
+      "name": "MAKYAJ SÜNGERİ TEMİZLEME MAKİNESİ",
+      "brand": "FOREVER",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_7792_1_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/makyaj-sungeri-temizleme-makinesi-6-11/aktuel.aspx"
+    },
+    {
+      "name": "MİKRODALGA FIRIN",
+      "brand": "KUMTEL",
+      "quantity_text": null,
+      "price_minor": 269000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_4343_1_0012_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mikrodalga-firin-kumtel-kompakt-hm-19-6-11/aktuel.aspx"
+    },
+    {
+      "name": "MİNİ BLENDER SET HEİFER - BEYAZ",
+      "brand": "HEİFER",
+      "quantity_text": null,
+      "price_minor": 199000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_5854_1_0014_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mini-blender-set-heifer--beyaz-6-11/aktuel.aspx"
+    },
+    {
+      "name": "ÇAY MAKİNESİ HEİFER",
+      "brand": "HEİFER",
+      "quantity_text": null,
+      "price_minor": 199000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_9995_1_0015_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cay-makinesi-heifer-6-11/aktuel.aspx"
+    },
+    {
+      "name": "PROFESYONEL SAÇ KURUTMA MAKİNESİ HEIFER",
+      "brand": "HEİFER",
+      "quantity_text": null,
+      "price_minor": 119000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_9423_1_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/profesyonel-sac-kurutma-makinesi-heifer-6-11/aktuel.aspx"
+    },
+    {
+      "name": "KÖZDE SÜTLÜ TÜRK KAHVE MAKİNESİ",
+      "brand": "ABDULLAH EFENDİ",
+      "quantity_text": null,
+      "price_minor": 189000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_1411_1_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/turk-kahve-makinesi-abdullah-efendi-sut-fonksiyonlu-6-11/aktuel.aspx"
+    },
+    {
+      "name": "NOSTALJİK POPCORN MAKİNESİ",
+      "brand": "HEİFER",
+      "quantity_text": null,
+      "price_minor": 169000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_2072_1_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/popcorn-makinesi-nostajjik-6-11/aktuel.aspx"
+    },
+    {
+      "name": "ŞARJLI DİŞ FIRÇASI",
+      "brand": "NORDICA",
+      "quantity_text": null,
+      "price_minor": 42900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_4901_1_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sarjli-dis-fircasi-naturalove-6-11/aktuel.aspx"
+    },
+    {
+      "name": "TÜY ALMA MAKİNESİ MİNİ NATURALOVE",
+      "brand": "NATURA LOVE",
+      "quantity_text": null,
+      "price_minor": 34900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_4896_1_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tuy-alma-makinesi-mini-naturalove-6-11/aktuel.aspx"
+    },
+    {
+      "name": "KADIN TIRAŞ MAKİNESİ 4'Ü 1 ARADA",
+      "brand": "NATURA LOVE",
+      "quantity_text": null,
+      "price_minor": 89900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_5961_1_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kadin-tiras-makinesi-4-u-1-arada-naturalove-6-11/aktuel.aspx"
+    },
+    {
+      "name": "NANO CAM AYAK TOPUK TÖRPÜSÜ VE TÜY DÖKÜCÜ",
+      "brand": "NATURA LOVE",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_2534_1_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/nano-cam-ayak-topuk-ogutucu-ve-tuy-dokucu-naturalove-6-11/aktuel.aspx"
+    },
+    {
+      "name": "ELEKTRİKLİ KİRPİK KIVIRICI",
+      "brand": "NATURA LOVE",
+      "quantity_text": null,
+      "price_minor": 14900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_5222_1_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/isitmali-kirpik-kivirici-usb-li-6-11/aktuel.aspx"
+    },
+    {
+      "name": "X3 AKSİYON KAMERASI",
+      "brand": "INSTA360",
+      "quantity_text": null,
+      "price_minor": 1699000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_4018_2_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/insta-360-x3-aksiyon-kamerasi--eve-teslim-afisinde-de-yer-alacaktir--6-11/aktuel.aspx"
+    },
+    {
+      "name": "ŞARJ EDİLEBİLİR EL FENERİ HP92",
+      "brand": "HOUSE PRATİK",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_9378_2_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sarj-edilebilir-el-feneri-hp92-house-pratik-6-11/aktuel.aspx"
+    },
+    {
+      "name": "TWS KABLOSUZ KULAKLIK FS122",
+      "brand": "POLOSMART",
+      "quantity_text": null,
+      "price_minor": 59900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_4361_2_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tws-kablosuz-kulaklik-fs122-polosmart-6-11/aktuel.aspx"
+    },
+    {
+      "name": "KABLOLU POWERBANK",
+      "brand": "IMEX",
+      "quantity_text": null,
+      "price_minor": 49900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_7012_2_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/powerbank-10-000-mah-usb-giris-kablo-dahil-6-11/aktuel.aspx"
+    },
+    {
+      "name": "KABLOSUZ SPEAKER FS123",
+      "brand": "POLOSMART",
+      "quantity_text": null,
+      "price_minor": 69900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_4000_2_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kablosuz-speaker-fs123-polosmart-6-11/aktuel.aspx"
+    },
+    {
+      "name": "TÜY TOPLAMA CİHAZI PİLLİ",
+      "brand": "NORDİCA",
+      "quantity_text": null,
+      "price_minor": 24900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_8247_2_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tuy-toplama-cihazi-pilli-6-11/aktuel.aspx"
+    },
+    {
+      "name": "55 İNÇ 4K QLED HDR GOOGLE TV 55T61C",
+      "brand": "TCL",
+      "quantity_text": null,
+      "price_minor": 2790000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_1464_2_0014_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/55-inc-4k-qled-hdr-google-tv-55t61c-tcl-6-11/aktuel.aspx"
+    },
+    {
+      "name": "KABLOLU OYUNCU MOUSE G203 + MOUSE PED SET",
+      "brand": "LOGİTECH",
+      "quantity_text": null,
+      "price_minor": 99900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_1720_2_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kablolu-oyuncu-mouse-g203--mouse-ped-set-logitech-6-11/aktuel.aspx"
+    },
+    {
+      "name": "11 Dilim Yağlı Radyatör Isıtıcı",
+      "brand": "KUMTEL",
+      "quantity_text": null,
+      "price_minor": 325000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_6072_2_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/11-dilim-radyator-6-11/aktuel.aspx"
+    },
+    {
+      "name": "FANLI ISITICI",
+      "brand": "KUMTEL",
+      "quantity_text": null,
+      "price_minor": 79900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_9584_2_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/fanli-isitici-kumtel-6-11/aktuel.aspx"
+    },
+    {
+      "name": "FANLI KONVEKTÖR ISITICI",
+      "brand": "KUMTEL",
+      "quantity_text": null,
+      "price_minor": 229000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_6514_2_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kumtel-konvektor-6-11/aktuel.aspx"
+    },
+    {
+      "name": "Mini Quartz Isıtıcı",
+      "brand": "ZENON",
+      "quantity_text": null,
+      "price_minor": 74900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_5004_2_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mini-isitici-zenon-6-11/aktuel.aspx"
+    },
+    {
+      "name": "ÇİFT YÖNLÜ ŞÖMİNE ISITICI",
+      "brand": "KUMTEL",
+      "quantity_text": null,
+      "price_minor": 159000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_2741_2_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/somine-cift-yonlu-isitici-kumtel-6-11/aktuel.aspx"
+    },
+    {
+      "name": "DİKEY ISITICI",
+      "brand": "KUMTEL",
+      "quantity_text": null,
+      "price_minor": 219000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_1482_2_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/orbit-dikey-isitici-kumtel-6-11/aktuel.aspx"
+    },
+    {
+      "name": "BÜYÜK BOY BLOK ÇİÇEKLER",
+      "brand": "PICCOLO MONDI",
+      "quantity_text": null,
+      "price_minor": 22900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_1093_3_0022_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/buyuk-boy-blok-cicekler-6-11/aktuel.aspx"
+    },
+    {
+      "name": "PUZZLE",
+      "brand": "LOONEY TUNES",
+      "quantity_text": null,
+      "price_minor": 7900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_7321_3-1web-i-c-erik-taslak-543x467_0028_background.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/100-parca-karma-looney-tunes-puzzle-6-11/aktuel.aspx"
+    },
+    {
+      "name": "ŞARJLI KUMANDALI DUMAN ATAN KAMYONET",
+      "brand": "LİMON OYUNCAK",
+      "quantity_text": null,
+      "price_minor": 59900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_9510_3_0021_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sarjli-kumandali-duman-atan-kamyonet-6-11/aktuel.aspx"
+    },
+    {
+      "name": "MANYETİK BARBİE KIYAFET GİYDİRME OYUNU",
+      "brand": "BARBIE",
+      "quantity_text": null,
+      "price_minor": 19900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_3270_3_0020_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/barbie-kiyafet-giydirme-oyunu-manyetik-6-11/aktuel.aspx"
+    },
+    {
+      "name": "PENGUEN DENGE OYUNU",
+      "brand": "DOST TOYS",
+      "quantity_text": null,
+      "price_minor": 42900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_1992_3_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/akrobatik-penguen-denge-oyunu-6-11/aktuel.aspx"
+    },
+    {
+      "name": "ANİMASYON BALON SETİ",
+      "brand": "BALONEVİ",
+      "quantity_text": null,
+      "price_minor": 4900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_8303_3_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/animasyon-balon-seti-10-lu-6-11/aktuel.aspx"
+    },
+    {
+      "name": "KEÇELİ KALEMLİ 2'Lİ SET 25X35 CM",
+      "brand": "Funny Mat",
+      "quantity_text": null,
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_2417_3_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/funny-mat-keceli-kalemli-2-li-set-25x35-cm-6-11/aktuel.aspx"
+    },
+    {
+      "name": "SPOR ARABA",
+      "brand": "BATMAN",
+      "quantity_text": null,
+      "price_minor": 23900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_4116_3_0016_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/batman-buyuk-spor-araba-6-11/aktuel.aspx"
+    },
+    {
+      "name": "MEGA KRİSTAL SÜRPRİZ YUMURTA",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 23900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_3513_3_0014_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mega-kristal-surpriz-yumurta-6-11/aktuel.aspx"
+    },
+    {
+      "name": "BAVULLU DOKTOR SETİ",
+      "brand": "DEDE",
+      "quantity_text": null,
+      "price_minor": 57900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_8393_3_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bavullu-doktor-seti-15-parca-6-11/aktuel.aspx"
+    },
+    {
+      "name": "IŞIKLI SESLİ REFLEKS OYUNU",
+      "brand": "PICCOLO MONDI",
+      "quantity_text": null,
+      "price_minor": 44900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_6657_3_0012_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/isikli-sesli-refleks-oyunu-6-11/aktuel.aspx"
+    },
+    {
+      "name": "SESLİ DÖNÜŞEN ROBOT",
+      "brand": "MGS",
+      "quantity_text": null,
+      "price_minor": 34900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_9805_3_0018_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sesli-donusen-robot-6-11/aktuel.aspx"
+    },
+    {
+      "name": "BALO ARABASI",
+      "brand": "MGS",
+      "quantity_text": null,
+      "price_minor": 42900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_8937_3_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/elly-s-world-balo-arabasi-6-11/aktuel.aspx"
+    },
+    {
+      "name": "İLK ARABAM",
+      "brand": "MGS",
+      "quantity_text": null,
+      "price_minor": 58900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_7327_3_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mgs-bin-git-ilk-arabam-6-11/aktuel.aspx"
+    },
+    {
+      "name": "BOB PELÜŞ AYICIK 42 CM",
+      "brand": "ELENA by elvin",
+      "quantity_text": null,
+      "price_minor": 58900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_9923_3_0015_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bob-pelus-ayicik-42-cm-6-11/aktuel.aspx"
+    },
+    {
+      "name": "Kutu Oyunu Çeşitleri",
+      "brand": "PICCOLO MONDI",
+      "quantity_text": null,
+      "price_minor": 29900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_4320_3_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/karma-kutu-oyunlari-6-11/aktuel.aspx"
+    },
+    {
+      "name": "OYUNCAK ÇANTALI DİŞ DOKTORU",
+      "brand": "HOBİ TOYS",
+      "quantity_text": null,
+      "price_minor": 16900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_5060_3_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/oyuncak-cantali-dis-doktoru-6-11/aktuel.aspx"
+    },
+    {
+      "name": "METAL ARABA KARAVANLI",
+      "brand": "GOKIDY",
+      "quantity_text": null,
+      "price_minor": 19900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_9914_3_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/gokidy-metal-araba-karavanli-6-11/aktuel.aspx"
+    },
+    {
+      "name": "SÖK TAK İŞ MAKİNELERİ",
+      "brand": "GOKIDY",
+      "quantity_text": null,
+      "price_minor": 11900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_2535_3_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/gokidy-sok-tak-is-makineleri-6-11/aktuel.aspx"
+    },
+    {
+      "name": "HİKAYE KİTAPLARI",
+      "brand": "İŞ KÜLTÜR",
+      "quantity_text": null,
+      "price_minor": 5900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_9116_3_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/iskultur-karma-hikaye-kitaplari-6-11/aktuel.aspx"
+    },
+    {
+      "name": "TEKLİ ARABALAR",
+      "brand": "Matchbox",
+      "quantity_text": null,
+      "price_minor": 11900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_2723_3_0023_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/matchbox-tekli-arabalar-6-11/aktuel.aspx"
+    },
+    {
+      "name": "ÖĞRETMEN SETİ",
+      "brand": "Barbie",
+      "quantity_text": null,
+      "price_minor": 89900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_2167_3_0019_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/barbie-ogretmen-seti-6-11/aktuel.aspx"
+    },
+    {
+      "name": "MONSTER TRUCK 1:64 ARABALAR",
+      "brand": "Hot Wheels",
+      "quantity_text": null,
+      "price_minor": 27900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_786_3_0017_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/hw-monster-truck-1-64-arabalar-6-11/aktuel.aspx"
+    },
+    {
+      "name": "CE-EE KİTAPLAR",
+      "brand": "EOLO",
+      "quantity_text": null,
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_958_3_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/eolo-ce-ee-kitaplar-6-11/aktuel.aspx"
+    },
+    {
+      "name": "İLK OKUMA KİTAPLARI",
+      "brand": "TÜBİTAK",
+      "quantity_text": null,
+      "price_minor": 3900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_9804_3_0024_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tubitak-ilk-okuma-kitaplari-6-11/aktuel.aspx"
+    },
+    {
+      "name": "Mum Boyalı Boyama Kitapları",
+      "brand": "EBBY KİDS",
+      "quantity_text": null,
+      "price_minor": 13900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_1118_3_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/6-li-mum-boyali-cantali-boyama-kitaplari-6-11/aktuel.aspx"
+    },
+    {
+      "name": "Soundbar 100 W S45H",
+      "brand": "TCL",
+      "quantity_text": null,
+      "price_minor": 450000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1707_kucuk_543X467_9539_1-web-i-c-erik-taslak-543x467_0028_background.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/soundbar-100-w-s45h-6-11/aktuel.aspx"
+    }
+  ]
+}
