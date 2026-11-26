@@ -45,7 +45,8 @@ def test_scrape_workflow() -> None:
     assert wf["on"]["schedule"] == [{"cron": "17 3,9,15 * * *"}]
     assert "workflow_dispatch" in wf["on"]
     assert wf["concurrency"] == {"group": "scrape", "cancel-in-progress": False}
-    assert wf["permissions"] == {"contents": "write"}
+    # issues: write lets scraper.alerts open and close source-failing issues.
+    assert wf["permissions"] == {"contents": "write", "issues": "write"}
     job = wf["jobs"]["scrape"]
     # Room for the scrape plus the OCR step's own 55 minutes.
     assert job["timeout-minutes"] == 90
@@ -64,6 +65,25 @@ def test_scrape_workflow() -> None:
     assert notify["continue-on-error"] is True
     assert notify["env"] == {"FIREBASE_SERVICE_ACCOUNT": "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"}
     assert job["steps"].index(publish) < job["steps"].index(notify)
+
+
+def test_scrape_workflow_alerts_step() -> None:
+    job = load("scrape.yml")["jobs"]["scrape"]
+    publish = next(s for s in job["steps"] if s.get("id") == "publish")
+    alerts = next(s for s in job["steps"] if "scraper.alerts" in s.get("run", ""))
+    # Right after publishing, and only when the data (and its health.json) went out.
+    assert job["steps"].index(alerts) == job["steps"].index(publish) + 1
+    assert alerts["run"] == "python -m scraper.alerts --health out/health.json"
+    assert alerts["if"] == "${{ !cancelled() && steps.publish.outputs.published == 'true' }}"
+    # Alerting can never fail the job, and it gets the repo token, no other secret.
+    assert alerts["continue-on-error"] is True
+    assert alerts["env"] == {
+        "GITHUB_TOKEN": "${{ github.token }}",
+        "GITHUB_REPOSITORY": "${{ github.repository }}",
+    }
+    assert "secrets." not in str(alerts)
+    # Only publish (scrape exit 1, git or size failure) can fail the job after scraping.
+    assert "continue-on-error" not in publish
 
 
 def test_scrape_workflow_ocr_step() -> None:

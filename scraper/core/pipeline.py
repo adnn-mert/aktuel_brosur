@@ -50,7 +50,8 @@ MIN_APP_VERSION = 1
 ARCHIVE_DAYS = 28
 # Undated brochures cannot expire by date; they go once the source stops listing them.
 UNDATED_MAX_AGE_DAYS = 35
-# After this many failed runs in a row the job turns red so a human looks at the source.
+# After this many failed runs in a row the run exits 2 and scraper.alerts opens a GitHub issue
+# for the source, so a human looks at it.
 FAILURE_ALERT_THRESHOLD = 3
 MAX_ERROR_LENGTH = 300
 

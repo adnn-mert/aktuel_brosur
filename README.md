@@ -86,8 +86,9 @@ flowchart LR
 
 - Every source runs in isolation. If one breaks, its last good data is kept and marked
   `stale`; the others are not affected. An empty result counts as an error, not as "no brochures".
-- Output that does not match the schema is not published; a source that keeps failing turns the
-  job red.
+- Output that does not match the schema is not published (the job fails). A source that fails
+  three runs in a row gets one `source-failing` issue, which is closed automatically when it
+  recovers; the job itself stays green because the other sources were published.
 - Brochures more than four weeks past their end date are deleted together with their images on
   every run.
 - Notifications never fail the job and stay silent on a chain's first run.

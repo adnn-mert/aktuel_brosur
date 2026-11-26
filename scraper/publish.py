@@ -8,9 +8,10 @@
 Git plumbing with a throwaway index is used instead of a second clone: the checkout's own
 credentials push, and the working tree of ``main`` is never touched.
 
-Exit codes of ``publish`` follow the scraper's: 0 published; 1 not published (scraper exit
-1, unknown exit code or output too large) or published after a scraper exit 2, so the job
-turns red while the data still goes out.
+Exit codes of ``publish``: 0 published (also after a scraper exit 2, a source failing several
+runs in a row: that is reported once per incident as a GitHub issue by ``scraper.alerts``, not
+by failing every run); 1 not published (scraper exit 1, unknown exit code, missing or too large
+output, git failure).
 """
 
 from __future__ import annotations
@@ -37,16 +38,16 @@ BOT_EMAIL = "41898282+github-actions[bot]@users.noreply.github.com"
 
 class Decision(Enum):
     PUBLISH = "publish"
-    PUBLISH_THEN_FAIL = "publish-then-fail"
+    PUBLISH_WITH_ALERT = "publish-with-alert"
     SKIP = "skip"
 
 
 def decide(scraper_exit_code: int) -> Decision:
-    """0: publish. 2: publish, then fail the job (a source keeps failing). Anything else: skip."""
+    """0: publish. 2: publish and warn (a source keeps failing). Anything else: skip."""
     if scraper_exit_code == 0:
         return Decision.PUBLISH
     if scraper_exit_code == 2:
-        return Decision.PUBLISH_THEN_FAIL
+        return Decision.PUBLISH_WITH_ALERT
     return Decision.SKIP
 
 
@@ -163,11 +164,11 @@ def _cmd_publish(args: argparse.Namespace) -> int:
         return 1
     sha = publish_tree(args.repo, out_dir, _commit_message(out_dir), remote=args.remote, branch=args.branch)
     print(f"published {size / 1_048_576:.1f} MB to {args.branch} as {sha[:12]}")
-    # Later steps (notifications) must know the data went out even when this step fails.
+    # Later steps (alerts, notifications) run only when the data went out.
     _set_step_output("published", "true")
-    if decision is Decision.PUBLISH_THEN_FAIL:
-        print("::error::published, but a source has failed 3 or more runs in a row (see the run summary)")
-        return 1
+    if decision is Decision.PUBLISH_WITH_ALERT:
+        # The job stays green: the alerts step opens (or keeps) one issue per failing source.
+        print("::warning::published, but a source has failed 3 or more runs in a row (see the run summary)")
     return 0
 
 

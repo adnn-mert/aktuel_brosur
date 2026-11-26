@@ -60,7 +60,7 @@ def publish(repo: Path, out: Path, code: int, *extra: str) -> int:
 
 @pytest.mark.parametrize(
     ("code", "decision"),
-    [(0, Decision.PUBLISH), (2, Decision.PUBLISH_THEN_FAIL), (1, Decision.SKIP), (3, Decision.SKIP), (-1, Decision.SKIP)],
+    [(0, Decision.PUBLISH), (2, Decision.PUBLISH_WITH_ALERT), (1, Decision.SKIP), (3, Decision.SKIP), (-1, Decision.SKIP)],
 )
 def test_decide(code: int, decision: Decision) -> None:
     assert decide(code) is decision
@@ -88,9 +88,11 @@ def test_publish_writes_a_single_parentless_commit(repo, tmp_path) -> None:
     assert "media/sok/x/p01.webp" not in remote_files(repo)
 
 
-def test_exit_code_2_publishes_and_fails(repo, tmp_path, capsys) -> None:
-    assert publish(repo, make_output(tmp_path / "out"), 2) == 1
-    assert "3 or more runs" in capsys.readouterr().out
+def test_exit_code_2_publishes_and_stays_green(repo, tmp_path, capsys) -> None:
+    # A source failing 3+ runs in a row is reported as an issue (scraper.alerts), not a red job.
+    assert publish(repo, make_output(tmp_path / "out"), 2) == 0
+    out = capsys.readouterr().out
+    assert "::warning::" in out and "3 or more runs" in out and "::error::" not in out
     git(repo, "fetch", "origin", "data")
     assert "catalog.json" in remote_files(repo)
 
@@ -114,7 +116,7 @@ def test_size_guard(repo, tmp_path, capsys) -> None:
 
 @pytest.mark.parametrize(("code", "published"), [(0, True), (2, True), (1, False)])
 def test_step_output_says_whether_data_went_out(repo, tmp_path, monkeypatch, code: int, published: bool) -> None:
-    # The notification step runs only when this output is "true", even after a red publish step.
+    # The alert and notification steps run only when this output is "true".
     output = tmp_path / "github_output"
     output.write_text("", encoding="utf-8")
     monkeypatch.setenv("GITHUB_OUTPUT", str(output))
