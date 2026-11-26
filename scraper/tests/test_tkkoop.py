@@ -52,10 +52,25 @@ def test_new_pdf_is_a_new_brochure() -> None:
     assert old.id != new.id
 
 
-@pytest.mark.parametrize("html", ["", '<div class="yeni_1"><a href="/x">no pdf</a></div>'])
+@pytest.mark.parametrize("html", ["<html></html>", '<div class="koop"><a href="/x.pdf">KVKK</a></div>'])
 def test_unrelated_html_raises(html: str) -> None:
     with pytest.raises(SourceError, match="layout"):
-        parse_campaigns(html or "<html></html>")
+        parse_campaigns(html)
+
+
+def test_week_without_a_pdf_bulletin_is_reported_as_such() -> None:
+    # Recorded 2026-11-26: one campaign with product cards only; the footer's KVKK PDFs must not count.
+    with pytest.raises(SourceError) as error:
+        parse_campaigns(fixture_text("tkkoop", "anasayfa-pdfsiz.html"))
+    message = str(error.value)
+    assert "no PDF bulletin this week" in message and "layout" not in message
+    assert "yildonumu-kampanyasi (24 Kasım - 30 Kasım)" in message
+
+
+def test_a_block_without_a_pdf_does_not_hide_one_with_a_pdf() -> None:
+    no_pdf = '<div class="yeni_1"><a href="/haftalik-kampanyalar/x" title="x">ÜRÜNLERİNİ GÖR</a></div>'
+    campaigns = parse_campaigns(no_pdf + _html())
+    assert [c.slug for c in campaigns] == ["firsat-dolu-haftasonu", "kat-kat-firsat"]
 
 
 def _routes() -> dict[str, object]:

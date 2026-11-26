@@ -47,16 +47,24 @@ class Campaign:
 def parse_campaigns(html: str) -> list[Campaign]:
     """Campaign blocks that offer a PDF, in page order, one per distinct PDF."""
     tree = LexborHTMLParser(html)
+    blocks = tree.css(".yeni_1")
+    if not blocks:
+        raise SourceError("Tarım Kredi home page has no campaign blocks (page layout may have changed)")
     found: dict[str, Campaign] = {}
-    for block in tree.css(".yeni_1"):
-        pdf = _pdf_link(block)
-        if pdf is None:
-            continue
+    without_pdf: list[str] = []
+    for block in blocks:
         date_node = block.css_first(".yeni_2a3")
         text = " ".join(date_node.text(deep=True).split()) if date_node else ""
+        pdf = _pdf_link(block)
+        if pdf is None:
+            without_pdf.append(f"{_title_slug(block) or '?'} ({text or 'no date'})")
+            continue
         found.setdefault(pdf, Campaign(_slug(block, pdf), text or None, pdf))
     if not found:
-        raise SourceError("Tarım Kredi home page has no campaign with a PDF (page layout may have changed)")
+        # Some weeks the site runs a campaign with product cards only and no "BÜLTENİ İNDİR"
+        # link; saying so keeps this apart from a real layout change in health.json.
+        listed = ", ".join(without_pdf)
+        raise SourceError(f"Tarım Kredi has no PDF bulletin this week; campaigns without one: {listed}")
     return list(found.values())
 
 
@@ -96,10 +104,13 @@ def _pdf_link(block: LexborNode) -> str | None:
 
 
 def _slug(block: LexborNode, pdf_url: str) -> str:
+    return _title_slug(block) or pdf_stem(pdf_url).rsplit("_", 1)[0]
+
+
+def _title_slug(block: LexborNode) -> str | None:
     titled = block.css_first("a[title]")
-    if titled is not None and (titled.attributes.get("title") or "").strip():
-        return (titled.attributes["title"] or "").strip()
-    return pdf_stem(pdf_url).rsplit("_", 1)[0]
+    title = (titled.attributes.get("title") or "").strip() if titled is not None else ""
+    return title or None
 
 
 # --- network ---------------------------------------------------------------------------
