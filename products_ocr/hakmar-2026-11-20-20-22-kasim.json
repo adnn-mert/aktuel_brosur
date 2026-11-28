@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "brochure_id": "hakmar-2026-11-20-20-22-kasim",
+  "currency": "TRY",
+  "products": [
+    {
+      "name": "Domates",
+      "brand": null,
+      "quantity_text": "Kg",
+      "price_minor": 4990,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": null,
+      "source": "ocr"
+    },
+    {
+      "name": "Mandalina İzmir",
+      "brand": null,
+      "quantity_text": "Kg",
+      "price_minor": 4990,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": null,
+      "source": "ocr"
+    },
+    {
+      "name": "Tavuk Baget",
+      "brand": "Şenpiliç",
+      "quantity_text": "Kg",
+      "price_minor": 6990,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": null,
+      "source": "ocr"
+    },
+    {
+      "name": "Dido Sütlü Gofret",
+      "brand": "Ülker",
+      "quantity_text": "35 Gr",
+      "price_minor": 1890,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": null,
+      "source": "ocr"
+    },
+    {
+      "name": "Süt Yarım Yağlı",
+      "brand": "Torku",
+      "quantity_text": "1 Lt",
+      "price_minor": 4450,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": null,
+      "source": "ocr"
+    },
+    {
+      "name": "Ayçiçek Yağ",
+      "brand": "Yudum",
+      "quantity_text": "5 Lt Pet",
+      "price_minor": 49900,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": null,
+      "source": "ocr"
+    },
+    {
+      "name": "Un",
+      "brand": "Söke",
+      "quantity_text": "2 Kg",
+      "price_minor": 5990,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": null,
+      "source": "ocr"
+    },
+    {
+      "name": "Şampuan Çeşitleri",
+      "brand": "Elidor",
+      "quantity_text": "650 Ml",
+      "price_minor": 14990,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": null,
+      "source": "ocr"
+    },
+    {
+      "name": "Kapaklı Cam Saklama Kabı",
+      "brand": "MSA",
+      "quantity_text": "400 Cc",
+      "price_minor": 2990,
+      "old_price_minor": null,
+      "image": null,
+      "page_index": 0,
+      "source_url": null,
+      "source": "ocr"
+    }
+  ]
+}

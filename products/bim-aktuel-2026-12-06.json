@@ -1,0 +1,977 @@
+{
+  "schema_version": 1,
+  "brochure_id": "bim-aktuel-2026-12-06",
+  "currency": "TRY",
+  "products": [
+    {
+      "name": "65 İNÇ AI QNED MİNİ LED 4K SMART TV 65QNED7EB3C",
+      "brand": "LG",
+      "quantity_text": null,
+      "price_minor": 4690000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9729_1_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/65-inc-ai-qned-mini-led-4k-smart-tv-65qned7eb3c-27-11/aktuel.aspx"
+    },
+    {
+      "name": "SOUNDBAR 50W S20A",
+      "brand": "LG",
+      "quantity_text": null,
+      "price_minor": 425000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_5885_15.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/soundbar-50w-s20a-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Ay Işığı Feneri Bluetooth Speaker",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 99900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_4090_1_0012_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ay-isigi-feneri-bluetooth-speaker-27-11/aktuel.aspx"
+    },
+    {
+      "name": "LED Ağaç Aydınlatma",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 99900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_6303_1_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/led-agac-aydinlatma-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Led Işıklı Dekoratif Duvar Aksesuarı",
+      "brand": "AUKES",
+      "quantity_text": null,
+      "price_minor": 49900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_7424_1_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/led-isikli-dekoratif-duvar-aksesuari-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Mantar Masa Lamba Abajur",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 59900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_3560_1_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mantar-masa-lamba-abajur-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Mantar Masa Lambası",
+      "brand": "FOREVER",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_2222_1_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mantar-masa-lambasi-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Mini Figürlü Masa Lambası",
+      "brand": "FOREVER",
+      "quantity_text": null,
+      "price_minor": 14900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9584_1_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/mini-figurlu-masa-lambasi-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Dekoratif Ampullü Masa Lambası",
+      "brand": "LEDOLET",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_433_1_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dekoratif-ampullu-masa-lambasi-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Projeksiyon Işığı Kumandalı",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_5551_1_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/projeksiyon-isigi-kumandali-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Akım Korumalı Uzatma Kablosu",
+      "brand": "PROWARE",
+      "quantity_text": null,
+      "price_minor": 99900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_6880_1_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/akim-korumali-uzatma-kablosu-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Duvar Şarjı",
+      "brand": "POLOSMART",
+      "quantity_text": null,
+      "price_minor": 34900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_94_1_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/duvar-sarji-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Alkalin Pil Çeşitleri",
+      "brand": "POWERB",
+      "quantity_text": null,
+      "price_minor": 11500,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_7512_1_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/alkalin-pil-cesitleri-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Star Led Ampul 2 W",
+      "brand": "LEDOLET",
+      "quantity_text": null,
+      "price_minor": 9900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9741_1_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/star-led-ampul-2-w-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Filament Ampul 4 W",
+      "brand": "LEDOLET",
+      "quantity_text": null,
+      "price_minor": 6900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9929_1_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/filament-ampul-4-w-27-11/aktuel.aspx"
+    },
+    {
+      "name": "ŞÖMİNE EFEKTLİ ELEKTRİKLİ ISITICI",
+      "brand": "HEIFER",
+      "quantity_text": null,
+      "price_minor": 790000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_1691_2_0019_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/somine-efektli-elektrikli-isitici-27-11/aktuel.aspx"
+    },
+    {
+      "name": "PANORAMİK ŞÖMİNE GÖRÜNÜMLÜ ELEKTRİKLİ ISITICI",
+      "brand": "HEIFER",
+      "quantity_text": null,
+      "price_minor": 790000,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9216_2_0018_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/panoramik-somine-gorunumlu-elektrikli-isitici-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Kar Tanesi Ledli Ağaç",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 59900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_5213_2_0017_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kar-tanesi-ledli-agac-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Şerit 100 LED Işık Zinciri",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 34900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_3966_2_0016_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/serit-100-led-isik-zinciri-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Figürlü Led Işık Zinciri 10’lu",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 59900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_4209_2_0015_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/figurlu-led-isik-zinciri-10-lu-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Dekoratif Figürlü LED Işık",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 69900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_1352_2_0014_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dekoratif-figurlu-led-isik-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Kozalaklı ve Kokinalı Led Işık Zinciri",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 49900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9908_2_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kozalakli-ve-kokinali-led-isik-zinciri-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Havai Fişek Dekoratif 150 LED Işık Şeridi",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_2799_2_0012_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/havai-fisek-dekoratif-150-led-isik-seridi-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Kristal Kar Taneli Led Işık Zinciri 10’lu",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 19900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_4628_2_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kristal-kar-taneli-led-isik-zinciri-10-lu-27-11/aktuel.aspx"
+    },
+    {
+      "name": "100 Led Işık Zinciri",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 24900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9040_2_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/100-led-isik-zinciri-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Dekoratif Figürlü Işık",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 99900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_2790_2_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dekoratif-figurlu-isik-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Bere Şapkalı Led Işık Zinciri",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 29900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_3519_2_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bere-sapkali-led-isik-zinciri-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Tüylü Küre Işık Zinciri 10’lu",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 49900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_7150_2_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/tuylu-kure-isik-zinciri-10-lu-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Dekoratif Perde Led Işık Zinciri",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 49900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_1030_2_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dekoratif-perde-led-isik-zinciri-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Kokina Tasarımlı Seramik Lamba",
+      "brand": "MUUNART",
+      "quantity_text": null,
+      "price_minor": 79900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_4274_2_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kokina-tasarimli-seramik-lamba-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Dekoratif Led Işık Renkli 100 Led Hp117",
+      "brand": "HOUSE PRATİK",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_4220_2_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dekoratif-led-isik-renkli-100-led-hp117-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Renkli Led Işık Zinciri 50 Led Hp118",
+      "brand": "HOUSE PRATİK",
+      "quantity_text": null,
+      "price_minor": 59900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_7980_2_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/renkli-led-isik-zinciri-50-led-hp118-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Dekoratif Led Işık Sarkıt 300 Led Hp116",
+      "brand": "HOUSE PRATİK",
+      "quantity_text": null,
+      "price_minor": 34900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9392_2_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dekoratif-led-isik-sarkit-300-led-hp116-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Led Işık Zinciri 12 Led Küre Hp119",
+      "brand": "HOUSE PRATİK",
+      "quantity_text": null,
+      "price_minor": 59900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_8343_2_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/led-isik-zinciri-12-led-kure-hp119-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Galaksi Gece Lambası Hp120",
+      "brand": "HOUSE PRATİK",
+      "quantity_text": null,
+      "price_minor": 29900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_1370_2_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/galaksi-gece-lambasi-hp120-27-11/aktuel.aspx"
+    },
+    {
+      "name": "PELÜŞ KOŞAN İNEK",
+      "brand": "Gran Toys",
+      "quantity_text": null,
+      "price_minor": 54900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_8_3_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/pelus-kosan-inek-27-11/aktuel.aspx"
+    },
+    {
+      "name": "KONUŞAN EMZİKLİ İNCİ BEBEK",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 54900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9255_3_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/konusan-emzikli-inci-bebek-27-11/aktuel.aspx"
+    },
+    {
+      "name": "LİSANSLI PUZZLE",
+      "brand": "NARUTO-TRANSFORMERS-Z TAKIMI",
+      "quantity_text": null,
+      "price_minor": 11900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_8915_3_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/200-parca-karma-lisansli-puzzle-27-11/aktuel.aspx"
+    },
+    {
+      "name": "BİLGİ ÇARKI KUTU OYUNU",
+      "brand": "PİLSAN",
+      "quantity_text": null,
+      "price_minor": 52900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_4377_3_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/bilgi-carki-kutu-oyunu-27-11/aktuel.aspx"
+    },
+    {
+      "name": "KIZMA BİRADER",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 9900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9376_3_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kizma-birader-27-11/aktuel.aspx"
+    },
+    {
+      "name": "PELÜŞ SEVİMLİ GEYİK",
+      "brand": "PİCCOLO MONDİ",
+      "quantity_text": "~45CM",
+      "price_minor": 54900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_3396_3_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/pelus-sevimli-geyik--45cm-27-11/aktuel.aspx"
+    },
+    {
+      "name": "ROBOTA DÖNÜŞEN ARAÇLAR",
+      "brand": "PİCCOLO MONDİ",
+      "quantity_text": null,
+      "price_minor": 22900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_4882_3_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/robota-donusen-araclar-27-11/aktuel.aspx"
+    },
+    {
+      "name": "PELÜŞ ANAHTARLIK",
+      "brand": "ARTİCOLO",
+      "quantity_text": null,
+      "price_minor": 8900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9925_3_0012_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/pelus-yildiz-anahtarlik-27-11/aktuel.aspx"
+    },
+    {
+      "name": "PARMAK ISIRAN HİPO OYUNU",
+      "brand": "GOKIDY",
+      "quantity_text": null,
+      "price_minor": 29900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_5950_3_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/parmak-isiran-hipo-oyunu-27-11/aktuel.aspx"
+    },
+    {
+      "name": "AHŞAP SCRABBLE 2 OYUN 1 ARADA",
+      "brand": "SCRABBLE",
+      "quantity_text": null,
+      "price_minor": 79900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_2686_3_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ahsap-scrabble-2si-bir-arada-oyun-seti-27-11/aktuel.aspx"
+    },
+    {
+      "name": "STAR WARS",
+      "brand": "UNO",
+      "quantity_text": null,
+      "price_minor": 25900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_3259_3_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/uno-star-wars-27-11/aktuel.aspx"
+    },
+    {
+      "name": "TAŞIYICI VE FIRLATICI EJDERHA",
+      "brand": "HOTWHEELS",
+      "quantity_text": null,
+      "price_minor": 69900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_3847_3_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/hw-tasiyici-ve-firlatici-ejderha-27-11/aktuel.aspx"
+    },
+    {
+      "name": "PIRILTILI OYUNCAK BEBEK",
+      "brand": "BARBİE",
+      "quantity_text": null,
+      "price_minor": 29900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_6054_3_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/barbie-piriltili-bebek-27-11/aktuel.aspx"
+    },
+    {
+      "name": "FERRARİ ARABA SETİ",
+      "brand": "HOTWHEELS",
+      "quantity_text": null,
+      "price_minor": 54900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_914_3_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/hw-5li-ferrari-araba-seti-27-11/aktuel.aspx"
+    },
+    {
+      "name": "İKİLİ CAM LED DEKOR MUMLUK",
+      "brand": "EQ DECO",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_1714_5_0015_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ikili-cam-led-dekor-mumluk-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Ağaç Desenli Cam Mumluk",
+      "brand": "EQ DECO",
+      "quantity_text": null,
+      "price_minor": 29900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_8708_5_0018_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cam-mumluk-2-li-agac-desenli-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Ev Desenli Cam Mumluk",
+      "brand": "EQ DECO",
+      "quantity_text": null,
+      "price_minor": 29900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_5049_5_0017_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cam-mumluk-2-li-ev-desenli-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Sulu Dekoratif Ürünler",
+      "brand": "ARTİCOLO",
+      "quantity_text": null,
+      "price_minor": 27900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_4847_5_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/karma-sulu-dekoratif-urunler-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Gold Fotoğraf Çerçevesi",
+      "brand": "ARTİCOLO",
+      "quantity_text": null,
+      "price_minor": 32900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9716_5_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yuvarlak-dikdortgen-gold-fotograf-cercevesi-27-11/aktuel.aspx"
+    },
+    {
+      "name": "2'li Fotoğraf Çerçevesi Gold",
+      "brand": "ARTİCOLO",
+      "quantity_text": null,
+      "price_minor": 15900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_6875_5_0014_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/2-li-fotograf-cercevesi-gold-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Kum Çerçeve",
+      "brand": "NATURALOVE",
+      "quantity_text": null,
+      "price_minor": 22900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_1081_5_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kum-cerceve-27-11/aktuel.aspx"
+    },
+    {
+      "name": "METAL SAKSILI KOKİNA ÇİÇEĞİ",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 11900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_3272_5_0022_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/metal-saksili-yapay-cicek-kokina-27-11/aktuel.aspx"
+    },
+    {
+      "name": "KAR DEKORLU YAPAY KOKİNA DALI",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 16900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_3907_5_0020_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kar-dekorlu-yapay-kokina-dali-27-11/aktuel.aspx"
+    },
+    {
+      "name": "KAR SPREYİ",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 7900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_5424_5_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kar-spreyi-27-11/aktuel.aspx"
+    },
+    {
+      "name": "LED MUM",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 11900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_8660_5_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/4-lu-led-mum-27-11/aktuel.aspx"
+    },
+    {
+      "name": "DEKORATİF LEDLİ MUM",
+      "brand": "DECOLOVE",
+      "quantity_text": null,
+      "price_minor": 12900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_8690_5_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dekoratif-ledli-mum-cesitleri-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Eğlenceli Gözlükler",
+      "brand": "ARTİCOLO",
+      "quantity_text": null,
+      "price_minor": 9900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_4901_5_0012_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/eglenceli-gozlukler-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Yapay Dal Kokina Çiçeği",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 7900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_4382_5_0019_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yapay-dal-kokina-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Işıklı Dekor",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 49900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_8257_5_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/isikli-dekor-orta-boy-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Işıklı Dekor",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 32900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_8643_5_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/isikli-dekor-kucuk-boy-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Kurşun Asker Biblo",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 27900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_7134_5_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kursun-asker-biblo-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Ayıcık Kurşun Asker Biblo",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_3933_5_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ayicik-kursun-asker-biblo-38-cm-27-11/aktuel.aspx"
+    },
+    {
+      "name": "BİBLO SALLANAN ÇOCUKLU AT",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 31900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9541_5_0016_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/biblo-sallanan-cocuklu-at-27-11/aktuel.aspx"
+    },
+    {
+      "name": "BİBLO SALLANAN AT",
+      "brand": "FOREVER",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_8606_5_0021_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/biblo-sallanan-at-27-11/aktuel.aspx"
+    },
+    {
+      "name": "DEKORATİF IŞIKLI KURABİYE KIZ",
+      "brand": "FOREVER",
+      "quantity_text": null,
+      "price_minor": 49900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_139_5_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dekoratif-isikli-kurabiye-kiz-27-11/aktuel.aspx"
+    },
+    {
+      "name": "TELESKOPİK AYAKLI PELÜŞ AYICIK",
+      "brand": "FOREVER",
+      "quantity_text": null,
+      "price_minor": 79900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_346_5_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/teleskopik-ayakli-pelus-ayicik-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Konsept Işıklı Ev",
+      "brand": "Decolove",
+      "quantity_text": null,
+      "price_minor": 44900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9192_4_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/konsept-isikli-ev-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Kedi Kar Küresi",
+      "brand": "Decolove",
+      "quantity_text": null,
+      "price_minor": 17900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_7901_4_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sans-kedisi-kar-kuresi-6-cm-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Kedi Kar Küresi",
+      "brand": "Decolove",
+      "quantity_text": null,
+      "price_minor": 34900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_9615_4_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/sans-kedisi-kar-kuresi-10-cm-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Dekoratif Işıklı Deniz Feneri",
+      "brand": "Decolove",
+      "quantity_text": null,
+      "price_minor": 59900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_1828_4_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dekoratif-deniz-feneri-buyuk-boy-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Dekoratif Işıklı Deniz Feneri",
+      "brand": "Decolove",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_588_4_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dekoratif-deniz-feneri-kucuk-boy-27-11/aktuel.aspx"
+    },
+    {
+      "name": "20 Ledli Dekoratif Koni",
+      "brand": "Decolove",
+      "quantity_text": null,
+      "price_minor": 39900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_1042_4_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/20-li-ledli-dekoratif-koni-27-11/aktuel.aspx"
+    },
+    {
+      "name": "DEKORATİF IŞIKLI LALE KÜRE",
+      "brand": "Decolove",
+      "quantity_text": null,
+      "price_minor": 22900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_774_4_0024_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dekoratif-isikli-lale-kure-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Işıklı Yeşil Çatılı Ev",
+      "brand": "Decolove",
+      "quantity_text": null,
+      "price_minor": 57900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_1307_4_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yesil-catili-isikli-ev-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Işıklı Yeşil Çatılı 2 Katlı Ev",
+      "brand": "Decolove",
+      "quantity_text": null,
+      "price_minor": 51900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_4963_4_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/yesil-catili-2-katli-isikli-ev-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Işıklı Yeşil Çatılı Sokak Lambalı Ev",
+      "brand": "Decolove",
+      "quantity_text": null,
+      "price_minor": 26900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_2237_4_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/isikli-sokak-lambali-ev-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Işıklı Kurdeleli Ev",
+      "brand": "Decolove",
+      "quantity_text": null,
+      "price_minor": 29900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_5034_4_0012_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/isikli-kurdeleli-ev-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Kurmalı Müzikli Takı Kutusu",
+      "brand": "Decolove",
+      "quantity_text": null,
+      "price_minor": 129900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_762_4_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kurmali-muzikli-taki-kutusu-27-11/aktuel.aspx"
+    },
+    {
+      "name": "PORSELEN IŞIKLI LED FENER",
+      "brand": null,
+      "quantity_text": null,
+      "price_minor": 45900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_5445_4_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/porselen-isikli-led-fener-27-11/aktuel.aspx"
+    },
+    {
+      "name": "CARUSEL MÜZİK KUTUSU",
+      "brand": "Decolove",
+      "quantity_text": null,
+      "price_minor": 35900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_7727_4_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/carusel-muzik-kutusu-27-11/aktuel.aspx"
+    },
+    {
+      "name": "IŞIKLI DÖNME DOLAP",
+      "brand": "Decolove",
+      "quantity_text": null,
+      "price_minor": 89900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_8113_4_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/isikli-donme-dolap-27-11/aktuel.aspx"
+    },
+    {
+      "name": "DEKORATİF METAL DÖNME DOLAP",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 27900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_6536_4_0020_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dekoratif-metal-donme-dolap-27-11/aktuel.aspx"
+    },
+    {
+      "name": "PELÜŞ KAR KÜRESİ",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 22900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_3400_4_0014_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/pelus-kar-kuresi-6-cm-27-11/aktuel.aspx"
+    },
+    {
+      "name": "PELÜŞ KAR KÜRESİ 8 CM",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 27900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_2084_4_0015_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/pelus-kar-kuresi-8-cm-27-11/aktuel.aspx"
+    },
+    {
+      "name": "Ekose Kar Küresi",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 44900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_1217_4_0017_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/buyuk-boy-kar-kuresi-10-cm-ekose-kilifli-27-11/aktuel.aspx"
+    },
+    {
+      "name": "AYAKLI KAR KÜRESİ",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 17900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_8274_4_0018_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ayakli-kar-kuresi-4-5-cm-27-11/aktuel.aspx"
+    },
+    {
+      "name": "MÜZİKLİ IŞIKLI KAR KÜRESİ",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 32900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_7788_4_0016_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/muzikli-isikli-kar-kuresi-8-cm-27-11/aktuel.aspx"
+    },
+    {
+      "name": "DEKORATİF FİL MÜZİK KUTUSU",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 49900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_2712_4_0019_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/dekoratif-sevimli-fil-muzik-kutusu-27-11/aktuel.aspx"
+    },
+    {
+      "name": "IŞIKLI ŞEKER EVİ",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 59900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_1189_4_0025_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/isikli-seker-evi-orta-boy-27-11/aktuel.aspx"
+    },
+    {
+      "name": "IŞIKLI FİYONKLU EVLER",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 29900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_3080_4_0021_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/isikli-fiyonklu-evler-27-11/aktuel.aspx"
+    },
+    {
+      "name": "IŞIKLI KARMA SERAMİK EVLER",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 32900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_6518_4_0023_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/isikli-karma-seramik-evler-27-11/aktuel.aspx"
+    },
+    {
+      "name": "NOSTALJİK IŞIKLI KARTPOSTAL EV",
+      "brand": "Forever",
+      "quantity_text": null,
+      "price_minor": 44900,
+      "old_price_minor": null,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1723_kucuk_543X467_624_4_0022_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/nostaljik-isikli-kartpostal-ev-27-11/aktuel.aspx"
+    }
+  ]
+}

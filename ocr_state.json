@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-28T11:41:30Z",
+  "model": "gemini-3.8-flash",
+  "thinking_level": "LOW",
+  "usage": {
+    "quota_day": "2026-11-28",
+    "attempts": 0
+  },
+  "brochures": {
+    "hakmar-2026-11-10-10-23-kasim": {
+      "fingerprint": "bf8c2bda6bdee4f78543b13645d2c28d8aee87d21d6da7edf2aad0ef83e50642",
+      "failed_attempts": 0,
+      "reading": {
+        "products_url": "products_ocr/hakmar-2026-11-10-10-23-kasim.json",
+        "product_count": 110,
+        "read_at": "2026-11-16T23:44:49Z",
+        "model": "gemini-3.8-flash",
+        "thinking_level": "LOW",
+        "prompt_version": "pages-b1",
+        "requests": 1
+      },
+      "last_attempt_at": "2026-11-16T23:44:49Z"
+    },
+    "hakmar-2026-11-20-20-22-kasim": {
+      "fingerprint": "a31d59b2ba17883655bac256580e0292208e0b49bf5ecd5a36ca252fc908e2ab",
+      "failed_attempts": 0,
+      "reading": {
+        "products_url": "products_ocr/hakmar-2026-11-20-20-22-kasim.json",
+        "product_count": 9,
+        "read_at": "2026-11-19T11:36:26Z",
+        "model": "gemini-3.8-flash",
+        "thinking_level": "LOW",
+        "prompt_version": "pages-b1",
+        "requests": 1
+      },
+      "last_attempt_at": "2026-11-19T11:36:26Z"
+    },
+    "hakmar-2026-11-24-24-29-kasim": {
+      "fingerprint": "9d5e5e4f2ee8f7bd7e138628f098f5f69cbf8b238e86e9564aec40f8561c696d",
+      "failed_attempts": 0,
+      "reading": {
+        "products_url": "products_ocr/hakmar-2026-11-24-24-29-kasim.json",
+        "product_count": 32,
+        "read_at": "2026-11-27T23:27:22Z",
+        "model": "gemini-3.8-flash",
+        "thinking_level": "LOW",
+        "prompt_version": "pages-b1",
+        "requests": 2
+      },
+      "last_attempt_at": "2026-11-27T23:27:22Z"
+    },
+    "sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim": {
+      "fingerprint": "a5ed7fd59077d31d6ba01e12272b8e4f7e79e09cfb1ef2a750b0c92ac957e268",
+      "failed_attempts": 0,
+      "reading": {
+        "products_url": "products_ocr/sok-2026-11-18-haftanin-firsatlari-mwajrdpq-18-24kasim.json",
+        "product_count": 132,
+        "read_at": "2026-11-16T23:44:49Z",
+        "model": "gemini-3.8-flash",
+        "thinking_level": "LOW",
+        "prompt_version": "pages-b1",
+        "requests": 1
+      },
+      "last_attempt_at": "2026-11-16T23:44:49Z"
+    },
+    "sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim": {
+      "fingerprint": "a75a67aa43b572390081e14029568d4b646528b5599c50f1eb30d57945c8ea0d",
+      "failed_attempts": 0,
+      "reading": {
+        "products_url": "products_ocr/sok-2026-11-21-hafta-sonu-firsatlari-mwajlev6-21-24kasim.json",
+        "product_count": 40,
+        "read_at": "2026-11-17T22:52:42Z",
+        "model": "gemini-3.8-flash",
+        "thinking_level": "LOW",
+        "prompt_version": "pages-b1",
+        "requests": 2
+      },
+      "last_attempt_at": "2026-11-17T22:52:42Z"
+    },
+    "sok-2026-11-25-haftanin-firsatlari-mwubt3hf-25kas-m-1aral-k": {
+      "fingerprint": "b815d252eaf345c373e601aa0ff5cf176796b922608bc0002c528a50bf35fbaf",
+      "failed_attempts": 3,
+      "last_error": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+      "last_attempt_at": "2026-11-25T12:47:44Z"
+    },
+    "sok-2026-11-28-hafta-sonu-firsatlari-mwuburma-28kas-m-1aral-k": {
+      "fingerprint": "bc0ab581d6693c1ae18c4bd7d38e6bf45f931094cecbd13920fbd2a3257d172c",
+      "failed_attempts": 0,
+      "reading": {
+        "products_url": "products_ocr/sok-2026-11-28-hafta-sonu-firsatlari-mwuburma-28kas-m-1aral-k.json",
+        "product_count": 48,
+        "read_at": "2026-11-25T12:47:44Z",
+        "model": "gemini-3.8-flash",
+        "thinking_level": "LOW",
+        "prompt_version": "pages-b1",
+        "requests": 2
+      },
+      "last_attempt_at": "2026-11-25T12:47:44Z"
+    }
+  }
+}

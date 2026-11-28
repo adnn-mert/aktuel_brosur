@@ -1,0 +1,347 @@
+{
+  "schema_version": 1,
+  "brochure_id": "bim-indirim-2026-11-28-2026-12-04",
+  "currency": "TRY",
+  "products": [
+    {
+      "name": "Çilek Reçeli",
+      "brand": "İlkgün",
+      "quantity_text": "380 g",
+      "price_minor": 5950,
+      "old_price_minor": 6950,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_7102_indr_0033_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cilek-receli-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Vişne Reçeli",
+      "brand": "İlkgün",
+      "quantity_text": "380 g",
+      "price_minor": 7450,
+      "old_price_minor": 8450,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_4757_indr_0032_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/visne-receli-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Süzme Çiçek Balı",
+      "brand": "Binboğa",
+      "quantity_text": "850 g",
+      "price_minor": 28900,
+      "old_price_minor": 35900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_7302_indr_0031_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/suzme-cicek-bali-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Süzme Çiçek Balı",
+      "brand": "Balçiçek",
+      "quantity_text": "850 g",
+      "price_minor": 28900,
+      "old_price_minor": 35900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_2838_indr_0030_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/suzme-cicek-bali-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Süzme Çiçek Balı",
+      "brand": "Seğmen",
+      "quantity_text": "850 g",
+      "price_minor": 28900,
+      "old_price_minor": 35900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_9482_indr_0029_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/suzme-cicek-bali-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Süzme Çiçek Balı",
+      "brand": "7bahar",
+      "quantity_text": "850 g",
+      "price_minor": 28900,
+      "old_price_minor": 35900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_3613_indr_0028_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/suzme-cicek-bali-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Boza",
+      "brand": "Agah",
+      "quantity_text": "1 L",
+      "price_minor": 9900,
+      "old_price_minor": 11900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_664_indr_0027_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/boza-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Şalgam Suyu",
+      "brand": "Doğanay",
+      "quantity_text": "1 L",
+      "price_minor": 5250,
+      "old_price_minor": 6500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_5861_indr_0026_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/salgam-suyu-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Gazlı İçecek Kola",
+      "brand": "Pepsi",
+      "quantity_text": "2,5 L",
+      "price_minor": 6950,
+      "old_price_minor": 9000,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_3532_indr_0025_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/gazli-icecek-kola-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Portakal Aromalı Gazlı İçecek",
+      "brand": "Yedigün",
+      "quantity_text": "2,5 L",
+      "price_minor": 6950,
+      "old_price_minor": 8000,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_2730_indr_0024_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/portakal-aromali-gazli-icecek-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Çıt Kapak Süzme Çiçek Balı",
+      "brand": "Balparmak",
+      "quantity_text": "460 g",
+      "price_minor": 26400,
+      "old_price_minor": 32500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_4877_indr_0023_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/cit-kapak-suzme-cicek-bali-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Mısır Konservesi",
+      "brand": "Yurdum",
+      "quantity_text": "340 g",
+      "price_minor": 4750,
+      "old_price_minor": 5300,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_7912_indr_0022_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/misir-konservesi-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Meyveli İçecek Vişne",
+      "brand": "Dimes",
+      "quantity_text": "200 ml",
+      "price_minor": 1650,
+      "old_price_minor": 1950,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_9927_indr_0021_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/meyveli-icecek-visne-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Meyve Nektarı Karışık",
+      "brand": "Dimes",
+      "quantity_text": "200 ml",
+      "price_minor": 1650,
+      "old_price_minor": 1950,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_2660_indr_0020_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/meyve-nektari-karisik-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Meyve Nektari Şeftali",
+      "brand": "Dimes",
+      "quantity_text": "200 ml",
+      "price_minor": 1650,
+      "old_price_minor": 1950,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_8243_indr_0019_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/meyve-nektari-seftali-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Meyveli İçecek Kayısı",
+      "brand": "Dimes",
+      "quantity_text": "200 ml",
+      "price_minor": 1650,
+      "old_price_minor": 1950,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_92_indr_0018_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/meyveli-icecek-kayisi-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Meyveli İçecek Vişne",
+      "brand": "Lavi",
+      "quantity_text": "200 ml",
+      "price_minor": 1550,
+      "old_price_minor": 1850,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_2125_indr_0017_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/meyveli-icecek-visne-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Meyve Nektar Karışık",
+      "brand": "Lavi",
+      "quantity_text": "200 ml",
+      "price_minor": 1550,
+      "old_price_minor": 1850,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_2425_indr_0016_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/meyve-nektar-karisik-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Meyve Nektar Şeftali",
+      "brand": "Lavi",
+      "quantity_text": "200 ml",
+      "price_minor": 1550,
+      "old_price_minor": 1850,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_1232_indr_0015_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/meyve-nektar-seftali-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Meyve Nektar Kayısı",
+      "brand": "Lavi",
+      "quantity_text": "200 ml",
+      "price_minor": 1550,
+      "old_price_minor": 1850,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_8608_indr_0014_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/meyve-nektar-kayisi-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Meyve Nektarı Kayısı",
+      "brand": "Meysu",
+      "quantity_text": "200 ml",
+      "price_minor": 1550,
+      "old_price_minor": 1850,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_2574_indr_0013_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/meyve-nektari-kayisi-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Meyve Nektari Şeftali",
+      "brand": "Meysu",
+      "quantity_text": "200 ml",
+      "price_minor": 1550,
+      "old_price_minor": 1850,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_6736_indr_0012_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/meyve-nektari-seftali-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Meyveli İçecek Vişne",
+      "brand": "Meysu",
+      "quantity_text": "200 ml",
+      "price_minor": 1550,
+      "old_price_minor": 1850,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_3831_indr_0011_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/meyveli-icecek-visne-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Meyve Nektarı Karışık",
+      "brand": "Meysu",
+      "quantity_text": "200 ml",
+      "price_minor": 1550,
+      "old_price_minor": 1850,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_4948_indr_0010_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/meyve-nektari-karisik-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Kuru Fasulye",
+      "brand": "Saban",
+      "quantity_text": "1000 g",
+      "price_minor": 7900,
+      "old_price_minor": 8900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_4633_indr_0009_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/kuru-fasulye-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Baldo Pirinç",
+      "brand": "Efsane",
+      "quantity_text": "1 kg",
+      "price_minor": 7700,
+      "old_price_minor": 8700,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_4245_indr_0007_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/baldo-pirinc-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Noodle 5’li Paket Çeşitleri",
+      "brand": "Indomie",
+      "quantity_text": null,
+      "price_minor": 5950,
+      "old_price_minor": 8500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_7357_indr_0008_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/noodle-5-li-paket-cesitleri-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Çiya Tohumu",
+      "brand": "Saban",
+      "quantity_text": "250 g",
+      "price_minor": 5700,
+      "old_price_minor": 7600,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_2503_indr_0006_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/ciya-tohumu-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Çorba Çeşitleri",
+      "brand": "Knorr",
+      "quantity_text": null,
+      "price_minor": 3950,
+      "old_price_minor": 4950,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_990_indr_0005_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/corba-cesitleri-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Biber Salçası Çeşitleri",
+      "brand": "Yurdum",
+      "quantity_text": "650 g",
+      "price_minor": 8000,
+      "old_price_minor": 8950,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_9467_indr_0004_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/biber-salcasi-cesitleri-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Fırınlanmış Mantı",
+      "brand": "Ekmecik",
+      "quantity_text": "500 g",
+      "price_minor": 3250,
+      "old_price_minor": 3900,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_6080_indr_0003_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/firinlanmis-manti-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Büyük Tost Ekmeği",
+      "brand": "Ekmecik",
+      "quantity_text": "670 g",
+      "price_minor": 5250,
+      "old_price_minor": 6250,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_3587_indr_0002_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/buyuk-tost-ekmegi-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Salata Sosu",
+      "brand": "Fıçı",
+      "quantity_text": "350 ml",
+      "price_minor": 3750,
+      "old_price_minor": 4250,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_1300_indr_0001_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/salata-sosu-28-11/aktuel.aspx"
+    },
+    {
+      "name": "Jalapeno Turşusu",
+      "brand": "Fıçı",
+      "quantity_text": "330 g",
+      "price_minor": 4950,
+      "old_price_minor": 5500,
+      "image": "https://cdn1.bim.com.tr/uploads/aktuel-urunler/1728_kucuk_543X467_681_indr_0000_vector-smart-object.jpg",
+      "page_index": null,
+      "source_url": "https://www.bim.com.tr/aktuel-urunler/jalapeno-tursusu-28-11/aktuel.aspx"
+    }
+  ]
+}
